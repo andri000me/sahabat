@@ -33,7 +33,7 @@
                 <li><a href="#team">Team</a></li>
                 <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#contact">Contact Us</a></li>
-                <li><a href="login/login">Login</a></li>
+                <!-- <li><a href="login/login">Login</a></li> -->
             </ul>
         </nav><!-- #nav-menu-container -->
     </div>

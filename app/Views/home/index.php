@@ -12,13 +12,13 @@
     <div class="product-screens">
 
         <a href="https://si-trayek.gorontaloprov.go.id" target="_blank">
-            <div class="product-screen-1 wow fadeInUp" data-wow-delay="0.4s" data-wow-duration="0.6s">
+            <div class="product-screen-1 wow fadeInUp" data-wow-delay="0.8s" data-wow-duration="0.6s">
                 <img src="assets/img/product-screen-1.png" alt="">
             </div>
         </a>
 
         <a href="https://si-trayek.gorontaloprov.go.id" target="_blank">
-            <div class="product-screen-2 wow fadeInUp" data-wow-delay="0.2s" data-wow-duration="0.6s">
+            <div class="product-screen-2 wow fadeInUp" data-wow-delay="0.4s" data-wow-duration="0.6s">
                 <img src="assets/img/product-screen-2.png" alt="">
             </div>
         </a>
@@ -26,6 +26,18 @@
         <a href="https://sipeka-dishub.gorontaloprov.go.id" target="_blank">
             <div class="product-screen-3 wow fadeInUp" data-wow-duration="0.6s">
                 <img src="assets/img/product-screen-3.png" alt="">
+            </div>
+        </a>
+
+        <a href="login/login" target="_blank">
+            <div class="product-screen-4 wow fadeInUp" data-wow-delay="0.2s" data-wow-duration="0.6s">
+                <img src="assets/img/product-screen-4.png" alt="">
+            </div>
+        </a>
+
+        <a href="https://dishub.gorontaloprov.go.id" target="_blank">
+            <div class="product-screen-5 wow fadeInUp" data-wow-delay="0.6s" data-wow-duration="0.6s">
+                <img src="assets/img/product-screen-5.png" alt="">
             </div>
         </a>
 
