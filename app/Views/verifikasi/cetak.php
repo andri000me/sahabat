@@ -246,7 +246,8 @@
                                 <p class="text-padat ml-5 text-left">pada tanggal September 2020</p>
                                 <p class="font-weight-bold text-padat text-center">an. KEPALA DINAS,</p>
                                 <p class="font-weight-bold text-padat text-center">KEPALA BIDANG ANGKUTAN JALAN</p>
-                                <img class="text-center" id="uploadPreview" src="<?= base_url(); ?>/assets/img/foto/qr.png" style="width:120px;" alt="IMG">
+                                <!-- <img class="text-center" id="uploadPreview" src="<?= base_url(); ?>/assets/img/foto/qr.png" style="width:120px;" alt="IMG"> -->
+                                <?= $qrq ?>
                                 <p class="font-weight-bold text-padat text-center" style="text-decoration: underline;">ABD. KARIM RAUF, ST., M.Si</p>
                                 <p class="text-padat text-center">NIP. 19770106 200212 1 007</p>
                             </div>

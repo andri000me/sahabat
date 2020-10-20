@@ -7,7 +7,7 @@ use App\Models\VerifikasiModel;
 use App\Models\TrayekModel;
 use App\Models\MsgPenolakanModel;
 use App\Models\LoginModel;
-use Ciqrcode;
+use chillerlan\QRCode\QRCode;
 
 class Rekomendasi extends BaseController
 {
@@ -17,7 +17,6 @@ class Rekomendasi extends BaseController
     protected $msgPenolakanModel;
     protected $loginModel;
     protected $user;
-    protected $lib;
 
     public function __construct()
     {
@@ -26,7 +25,6 @@ class Rekomendasi extends BaseController
         $this->trayekModel = new TrayekModel();
         $this->msgPenolakanModel = new MsgPenolakanModel();
         $this->loginModel = new LoginModel();
-        $this->lib = new Ciqrcode();
         $this->session = session();
         $this->user = $this->loginModel->where('email', $this->session->get('email'))->first();
     }
@@ -148,29 +146,6 @@ class Rekomendasi extends BaseController
             $img_permohonan->move('img/img_permohonan', $nama_img);
         }
 
-        $kdb = $this->request->getVar('kdb');
-        $this->lib; //pemanggilan library QR CODE
-
-        $config['cacheable']    = true; //boolean, the default is true
-        $config['cachedir']     = 'cache/'; //string, the default is application/cache/
-        $config['errorlog']     = 'cache/'; //string, the default is application/logs/
-        $config['imagedir']     = 'img/qr_code/'; //direktori penyimpanan qr code
-        $config['quality']      = true; //boolean, the default is true
-        $config['size']         = '1024'; //interger, the default is 1024
-        $config['black']        = array(224, 255, 255); // array, default is array(255,255,255)
-        $config['white']        = array(70, 130, 180); // array, default is array(0,0,0)
-        $this->ciqrcode->initialize($config);
-
-        $image_name = $kdb . '.png'; //buat name dari qr code sesuai dengan kdb
-
-        $params['data'] = $kdb; //data yang akan di jadikan QR CODE
-        $params['level'] = 'H'; //H=High
-        $params['size'] = 10;
-        $params['savename'] = FCPATH . $config['imagedir'] . $image_name; //simpan image QR CODE ke folder assets/images/
-        $this->ciqrcode->generate($params); // fungsi untuk generate QR CODE
-
-        // $this->pegawai->simpan_pegawai($kdb, $nama_pegawai, $image_name);
-
         $slug = url_title($this->request->getVar('nama_pemohon'), '-', true);
         $this->verifikasiModel->save([
             'slug' => $slug,
@@ -182,11 +157,17 @@ class Rekomendasi extends BaseController
             'nama_pemohon' => $this->request->getVar('nama_pemohon'),
             'alamat_pemohon' => $this->request->getVar('alamat_pemohon'),
             'jenis_permohonan' => $this->request->getVar('jenis_permohonan'),
-            'qr_code' => $image_name
         ]);
 
         return redirect()->to('/rekomendasi/step2/' . $this->request->getVar('kdb') . '');
         // dd($this->request->getVar());
+    }
+
+    public function qrq()
+    {
+        $data = 'zack';
+        // quick and simple:
+        echo '<img src="' . (new QRCode)->render($data) . '" alt="QR Code" />';
     }
 
     public function savep()

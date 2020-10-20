@@ -5,6 +5,8 @@ namespace App\Controllers;
 use App\Models\VerifikasiModel;
 use App\Models\LoginModel;
 use App\Models\MsgPenolakanModel;
+use chillerlan\QRCode\QRCode;
+
 
 class Verifikasi extends BaseController
 {
@@ -43,7 +45,7 @@ class Verifikasi extends BaseController
 
     public function terverifikasi()
     {
-        if ($this->user['role'] == 3) {
+        if ($this->user['role'] == 4) {
             $data = [
                 'title' => 'Data Permohonan',
                 'permohonan' => $this->verifikasiModel->getRekomendasiterVerifikasi(),
@@ -77,10 +79,17 @@ class Verifikasi extends BaseController
 
     public function cetak($kd)
     {
+        $detail = $this->verifikasiModel->getRekomendasi($kd);
+        $kdb = $detail['kode_booking'];
+
+        // quick and simple:
+        $qrcode = '<img src="' . (new QRCode)->render($kdb) . '" alt="QR Code" />';
+
         $data = [
             'title' => 'Cetak Permohonan',
             'detail' => $this->verifikasiModel->getRekomendasi($kd),
-            'session' => $this->user
+            'session' => $this->user,
+            'qrq' => $qrcode
         ];
         return view('verifikasi/cetak', $data);
     }
