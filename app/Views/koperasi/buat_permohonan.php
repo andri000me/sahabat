@@ -69,10 +69,10 @@
                                 </div>
 
                                 <div class="md-form mb-4 pink-textarea active-textarea">
-                                    <textarea name="alamat_pemilik" id="form18" class="md-textarea form-control" rows="3" required><?= old('alamat') ?></textarea>
-                                    <label for="form18">Alamat</label>
+                                    <textarea name="alamat_pemilik" id="form18" class="md-textarea form-control" rows="3" required><?= old('alamat_pemilik') ?></textarea>
+                                    <label for="form18">Alamat Pemilik</label>
                                     <div class="invalid-feedback">
-                                        Alamat tidak boleh kosong
+                                        Alamat Pemilik tidak boleh kosong
                                     </div>
                                 </div>
 

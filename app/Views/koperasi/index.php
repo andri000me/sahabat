@@ -101,7 +101,7 @@
 
                                     if ($p['status_tujuan'] == 0) {
                                         $status_tujuan = '<a href="" class="badge badge-warning">Sedang Diverifikasi</a>';
-                                        $action = '';
+                                        $action2 = '';
                                     }
                                     if ($p['status_tujuan'] == 1) {
                                         $status = '<a href="" class="badge badge-danger">Ditolak</a>';

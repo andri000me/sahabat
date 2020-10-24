@@ -58,9 +58,12 @@
                                         <option value="2">Verificator</option>
                                         <option value="3">Admin</option>
                                         <option value="4">Super Admin</option>
-                                        <option value="5">Admin Kabupaten Gorontalo</option>
-                                        <option value="6">Admin Kota Gorontalo</option>
-                                        <option value="7">Admin Kabupaten Gorontalo Utara</option>
+                                        <option value="5">Admin Kota Gorontalo</option>
+                                        <option value="6">Admin Kabupaten Gorontalo</option>
+                                        <option value="7">Admin Kabupaten Bone Bolango</option>
+                                        <option value="8">Admin Kabupaten Gorontalo Utara</option>
+                                        <option value="9">Admin Kabupaten Boalemo</option>
+                                        <option value="10">Admin Kabupaten Pohuwato</option>
                                     </select>
                                 </div>
                                 <!-- Sign up button -->
