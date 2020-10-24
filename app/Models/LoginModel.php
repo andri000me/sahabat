@@ -9,7 +9,7 @@ class LoginModel extends model
     protected $table      = 'user';
     protected $primaryKey = 'id';
     protected $useTimestamps = true;
-    protected $allowedFields = ['nama', 'email', 'hp', 'role', 'password'];
+    protected $allowedFields = ['img_akte_perusahaan', 'img_izin_angkutan', 'img_tdp', 'img_npwp', 'img_ktp_direktur', 'img_siup', 'img_nib', 'nik_direktur','nama_direktur','alamat','nama', 'email', 'hp', 'role', 'password', 'img_ktp_direktur'];
 
     public function getUser($id = false)
     {

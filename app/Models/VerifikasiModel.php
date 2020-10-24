@@ -9,7 +9,7 @@ class VerifikasiModel extends model
     protected $table = 'permohonan';
     protected $primaryKey = 'id';
     protected $useTimestamps = true;
-    protected $allowedFields = ['slug', 'kode_booking', 'status', 'status_verifikasi', 'tgl_permohonan', 'nama_pemohon', 'alamat_pemohon', 'jenis_permohonan', 'trayek_dilayani', 'nomor_kendaraan', 'nama_pemilik', 'alamat_pemilik', 'jenis_kendaraan', 'tahun_pembuatan', 'nomor_kir', 'kapasitas_angkutan', 'uji_berkala_berlaku', 'stnkb_berlaku', 'pkb_berlaku', 'jasa_raharja_berlaku', 'img_surat_permohonan', 'img_akte_perusahaan', 'img_tdp', 'img_siup', 'img_npwp', 'img_ktp', 'img_trayek', 'img_stnkb_pkb', 'img_kir', 'img_jasa_raharja', 'img_surat_pernyataan', 'terima', 'created_at', 'updated_at'];
+    protected $allowedFields = ['masa_berlaku', 'slug', 'kode_booking', 'status', 'status_verifikasi', 'tgl_permohonan', 'nama_pemohon', 'alamat_pemohon', 'jenis_permohonan', 'trayek_dilayani', 'nomor_kendaraan', 'nama_pemilik', 'alamat_pemilik', 'jenis_kendaraan', 'tahun_pembuatan', 'nomor_kir', 'kapasitas_angkutan', 'uji_berkala_berlaku', 'stnkb_berlaku', 'pkb_berlaku', 'jasa_raharja_berlaku', 'img_surat_permohonan', 'img_akte_perusahaan', 'img_tdp', 'img_siup', 'img_npwp', 'img_ktp', 'img_trayek', 'img_stnkb_pkb', 'img_kir', 'img_jasa_raharja', 'img_surat_pernyataan', 'terima', 'created_at', 'updated_at'];
 
     public function getRekomendasi($kd = false)
     {

@@ -84,10 +84,22 @@
 
                         <div class="row">
                             <div class="col-md-11">
-                                <p class="text-center text-ppadat font-weight-bold">PERTIMBANGAN PERMOHONAN PERPANJANGAN</p>
+                                <?php
+                                if ($detail['status'] == 1) {
+                                    $p = "REGIS BARU";
+                                    $t = "Dimohon";
+                                    $d = "Diberikan";
+                                }
+                                if ($detail['status'] == 2) {
+                                    $p = "PERPANJANGAN";
+                                    $t = "Dilayani";
+                                    $d = "Diberikan Perpanjangan";
+                                }
+                                ?>
+                                <p class="text-center text-ppadat font-weight-bold">PERTIMBANGAN PERMOHONAN <?= $p; ?></p>
                                 <p class="text-center text-ppadat font-weight-bold">IZIN ANGKUTAN ORANG DALAM TRAYEK </p>
                                 <p style="text-decoration: underline;" class="text-center text-ppadat font-weight-bold">ANGKUTAN ANTARKOTA DALAM PROPINSI (AKDP) </p>
-                                <p class="text-center text-pppadat">Nomor : 552 / DISHUB-AJ / / IX / 2020</p>
+                                <p class="text-center text-pppadat">Nomor : 552 / DISHUB-AJ / 47 / X / 2020</p>
                                 <p class="text-justify text-pppadat">Memperhatikan Surat Kepala Bidang Perizinan Dinas Penanaman Modal, ESDM Dan Transmigrasi Provinsi Gorontalo perihal Permohonan Pertimbangan Teknis Untuk Izin Trayek AKDP, maka Berdasarkan Undang-Undang Nomor 22 Tahun 2009 Tentang Lalu Lintas Dan Angkutan Jalan dan Peraturan Pemerintah Nomor 74 Tahun 2014 tentang Angkutan Jalan serta Peraturan Menteri Perhubungan Nomor PM 15 Tahun 2019 tentang Penyelenggaraan Angkutan Orang Dengan Kendaraan Bermotor Umum Dalam Trayek dan Peraturan Gubernur Gorontalo Nomor 46 Tahun 2019 tentang Jaringan Trayek AKDP, sebagai bahan pertimbangan permohonan Izin Angkutan Orang Dalam Trayek Antar Kota Dalam Provinsi (AKDP) sebagai berikut :</p>
                             </div>
                         </div>
@@ -113,15 +125,15 @@
                                 Jenis Permohonan
                             </div>
                             <div class="col-sm-8 textff">
-                                : <?= $detail['jenis_permohonan'] ?>
+                                : <?= $jenis['nama'] ?>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-3 textff">
-                                Trayek yang dilayani
+                                Trayek <?= $t ?>
                             </div>
                             <div class="col-sm-8 textff">
-                                : <?= $detail['trayek_dilayani'] ?>
+                                : <?= $trayek['trayek'] ?>
                             </div>
                         </div>
                         <div class="row">
@@ -207,7 +219,7 @@
 
                         <div class="row mt-4">
                             <div class="col-md-10">
-                                <p class="text-justify text-pppadat">Sesuai persyaratan administrasi teknis dan khusus, <a class="font-weight-bold">Dapat diberikan Perpanjangan Izin Trayek Angkutan</a> Antar Kota Dalam Provinsi (AKDP) dengan ketentuan sebagai berikut : </p>
+                                <p class="text-justify text-pppadat">Sesuai persyaratan administrasi teknis dan khusus, <a class="font-weight-bold">Dapat <?= $d ?> Izin Trayek Angkutan</a> Antar Kota Dalam Provinsi (AKDP) dengan ketentuan sebagai berikut : </p>
                             </div>
                         </div>
 
@@ -216,7 +228,7 @@
                                 - Kode/Trayek yang dilayani
                             </div>
                             <div class="col-sm-8 textff font-weight-bold">
-                                : <?= $detail['stnkb_berlaku'] ?> / <?= $detail['trayek_dilayani'] ?>
+                                : <?= $trayek['trayek'] ?>
                             </div>
                         </div>
                         <div class="row">
@@ -224,7 +236,7 @@
                                 - Masa berlaku izin
                             </div>
                             <div class="col-sm-8 textff font-weight-bold">
-                                : Sampai dengan 29 September 2025
+                                : Sampai dengan <?= $detail['masa_berlaku'] ?>
                             </div>
                         </div>
                         <div class="row">
@@ -243,7 +255,8 @@
                             </div>
                             <div class="col-sm-4 text-center">
                                 <p class="text-padat ml-5 text-left">Ditetapkan di Gorontalo</p>
-                                <p class="text-padat ml-5 text-left">pada tanggal September 2020</p>
+                                <p class="text-padat ml-5 text-left">pada tanggal 21 Oktober 2020</p>
+                                <!-- <p class="text-padat ml-5 text-left">pada tanggal </p> -->
                                 <p class="font-weight-bold text-padat text-center">an. KEPALA DINAS,</p>
                                 <p class="font-weight-bold text-padat text-center">KEPALA BIDANG ANGKUTAN JALAN</p>
                                 <!-- <img class="text-center" id="uploadPreview" src="<?= base_url(); ?>/assets/img/foto/qr.png" style="width:120px;" alt="IMG"> -->

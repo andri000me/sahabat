@@ -42,10 +42,10 @@
 
 </head>
 
-<body class="pt-5">
+<body class="">
     <?= $this->include("layout/navbarl") ?>
 
-    <div class="mt-5">
+    <div class="">
         <?= $this->renderSection('content'); ?>
     </div>
 
@@ -106,7 +106,9 @@
     <script type="text/javascript" src="<?= base_url() ?>/mdb/pro/js/addons/datatables.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="<?= base_url() ?>/mdb/pro/js/addons/datatables-select.min.js" type="text/javascript"></script>
 
-
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script> -->
 </body>
 
 </html>
@@ -259,4 +261,43 @@
         $('#dtMaterialDesignExample_wrapper .mdb-select').materialSelect();
         $('#dtMaterialDesignExample_wrapper .dataTables_filter').find('label').remove();
     });
+</script>
+
+
+
+<script>
+    $('#modalDetail').on('show.bs.modal', function(event) {
+        var button = $(event.relatedTarget);
+        var trayek = button.data('trayek');
+        var nama_pemilik = button.data('nama');
+        var nomor = button.data('nomor');
+        var kir = button.data('kir');
+        var tahun = button.data('tahun');
+        var merk = button.data('merk');
+        var chasis = button.data('chasis');
+        var mesin = button.data('mesin');
+        var pkb = button.data('pkb');
+        var surat = button.data('surat');
+        var ktp = button.data('ktp');
+        var stnkb = button.data('stnkb');
+        var jasa = button.data('jasa');
+        var imgkir = button.data('imgkir');
+
+        var modal = $(this);
+
+        $('#trayek').val(trayek);
+        $('#nama_pemilik').val(nama_pemilik);
+        $('#nomor').val(nomor);
+        $('#tahun').val(tahun);
+        $('#kir').val(kir);
+        $('#merk').val(merk);
+        $('#chasis').val(chasis);
+        $('#mesin').val(mesin);
+        $('#pkb').val(pkb);
+        $('#surat').attr("href", "/img/img_surat_permohonan_koperasi/" + surat);
+        $('#ktp').attr("href", "/img/img_ktp_pemilik/" + ktp);
+        $('#stnkb').attr("href", "/img/img_stnkb_pkb/" + stnkb);
+        $('#jasa').attr("href", "/img/img_jasa_raharja/" + jasa);
+        $('#imgkir').attr("href", "/img/img_kir/" + imgkir);
+    })
 </script>

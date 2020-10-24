@@ -16,7 +16,7 @@
                             </div>
 
                             <div class="col text-right">
-                                <a href="/verifikasi/terima/<?= $detail['id'] ?>" type="btn" class="ml-auto btn btn-sm btn-success"><i class="fa fa-check"></i> Terima</a>
+                                <a data-toggle="modal" data-target="#modalContactForm2" type="btn" class="ml-auto btn btn-sm btn-success"><i class="fa fa-check"></i> Terima</a>
                                 <a data-toggle="modal" data-target="#modalContactForm" type="btn" class="ml-auto btn btn-sm btn-danger"><i class="fa fa-ban"></i> Tolak</a>
                             </div>
                             </form>
@@ -236,6 +236,33 @@
                 </div>
                 <div class="modal-footer d-flex justify-content-center">
                     <button type="submit" class="btn btn-danger">Kirim</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalContactForm2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Input Masa Berlaku Izin</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="/verifikasi/terima/<?= $detail['id'] ?>" method="POST">
+                <input type="hidden" name="kode_booking" value="<?= $detail['kode_booking'] ?>">
+                <div class="container">
+                <div class="md-form mt-5">
+                    <input name="masa_berlaku" placeholder="Tanggal Permohonan" type="text" id="date-picker-example" class="form-control datepicker" required value="<?= old('tgl_permohonan') ?>">
+                    <label for="date-picker-example">Masa Berlaku Izin</label>
+                    <div class="invalid-feedback">
+                        Masa berlaku izin tidak boleh kosong
+                    </div>
+                </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button type="submit" class="btn btn-success">Terima & Simpan</button>
                 </div>
             </form>
         </div>

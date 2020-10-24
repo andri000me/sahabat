@@ -1,54 +1,62 @@
-<header id="header" class="header-transparent animated slideInDown">
-  <div class="container">
-
-    <div id="logo" class="pull-left">
-      <a href="index.html"><img src="<?= base_url() ?>/assets/icon/logo.png" alt=""></a>
-    </div>
-
-    <?php
-    if ($session['role'] == 1) {
-      $ptsp = "hidden";
-      $adm = "";
-      $veri = "";
-      $sup = "";
-    }
-    if ($session['role'] == 2) {
-      $veri = "hidden";
-      $adm = "";
-      $ptsp = "";
-      $sup = "";
-    }
-    if ($session['role'] == 3) {
-      $adm = "hidden";
-      $ptsp = "";
-      $veri = "";
-      $sup = "";
-    }
-    if ($session['role'] == 4) {
-      $sup = "";
-      $adm = "";
-      $veri = "";
-      $ptsp = "";
-    }
-    ?>
-    <nav id="nav-menu-container">
-      <ul class="nav-menu">
-        <li class="menu-active"><a href="/login/home/"/verifikasi/terverifikasi/"">Home </a> </li> <li class=""><a href="/rekomendasi/rekomendasi" <?= $veri ?><?= $adm ?>>Rekomendasi Saya</a></li>
-        <li class=""><a href="/rekomendasi/" <?= $veri ?><?= $adm ?>>Buat Rekomendasi</a></li>
-        <li class=""><a href="/verifikasi/rekomendasi/" <?= $ptsp ?><?= $adm ?>>Verifikasi Permohonan</a></li>
-        <li class=""><a href="/verifikasi/terverifikasi/" <?= $veri ?><?= $ptsp ?>>Data Permohonan</a></li>
-        <li class=""><a href="/trayek/" <?= $veri ?><?= $ptsp ?><?= $adm ?>>Trayek</a></li>
-        <li class=""><a href="/login/" <?= $veri ?><?= $adm ?><?= $ptsp ?>>User</a></li>
-        <!-- <li class=""><a href="/trayek/">Trayek</a></li> -->
-
-        <li class="drop-down"><a href=""><i class="fa fa-user mr-1"></i><?= $session['nama'] ?></a>
-          <ul>
-            <li><a href="#"><i class="fa fa-gear mr-1"></i>Preferences</a></li>
-            <li><a href="/login/logout"><i class="fa fa-logout mr-1"></i>Keluar</a></li>
-          </ul>
-        </li>
-      </ul>
-    </nav><!-- #nav-menu-container -->
+<!--Navbar -->
+<nav class="mb-1 navbar navbar-expand-lg navbar-dark primary-color-dark lighten-1">
+  <a class="navbar-brand font-weight-bold amber-text" href="#">SAHABAT</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555" aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/login/home">Home
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Permohonan Asal Tujuan
+        </a>
+        <div class="dropdown-menu dropdown-warning" aria-labelledby="navbarDropdownMenuLink-555">
+          <a class="dropdown-item" href="/koperasi/buat_permohonan">Buat Permohonan</a>
+          <a class="dropdown-item" href="/koperasi">Data Permohonan</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <?php
+if ($session['id'] == 9) {
+    $href = "Kota";
+}
+if ($session['id'] == 10) {
+    $href = "Kab";
+}
+?>
+        <a class="nav-link" href="/koperasi/verifikasiPermohonan<?=$href?>">Verifikasi Permohonan</a>
+      </li>
+      <!-- <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Rekomendasi Pertimbangan Teknis
+        </a>
+        <div class="dropdown-menu dropdown-warning" aria-labelledby="navbarDropdownMenuLink-555">
+          <a class="dropdown-item" href="#">Buat Rekomendasi</a>
+          <a class="dropdown-item" href="#">Data Rekomendasi</a>
+        </div>
+      </li> -->
+    </ul>
+    <ul class="navbar-nav ml-auto nav-flex-icons">
+      <li class="nav-item">
+        <a class="nav-link waves-effect waves-light font-weight-bold"><?=$session['nama_perusahaan']?>
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+      <li class="nav-item avatar dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" class="rounded-circle z-depth-0" alt="avatar image">
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg-right dropdown-warning" aria-labelledby="navbarDropdownMenuLink-55">
+          <a class="font-weight-bold amber-text" width="00"><?=$session['nama']?></a>
+          <a class="dropdown-item" href="/login/berkas">Profil Perusahaan</a>
+          <a class="dropdown-item" href="#">Profil User</a>
+          <a class="dropdown-item" href="/login/logout">Keluar</a>
+        </div>
+      </li>
+    </ul>
   </div>
-  <!--/.Navbar -->
-</header>
+</nav>
+<!--/.Navbar -->

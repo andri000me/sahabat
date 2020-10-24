@@ -5,6 +5,8 @@ namespace App\Controllers;
 use App\Models\VerifikasiModel;
 use App\Models\LoginModel;
 use App\Models\MsgPenolakanModel;
+use App\Models\JenisPermohonanModel;
+use App\Models\TrayekModel;
 use chillerlan\QRCode\QRCode;
 
 
@@ -14,12 +16,16 @@ class Verifikasi extends BaseController
     protected $user;
     protected $loginModel;
     protected $msgPenolakanModel;
+    protected $jenisPermohonanModel;
+    protected $trayekModel;
 
     public function __construct()
     {
         $this->verifikasiModel = new VerifikasiModel();
         $this->msgPenolakanModel = new MsgPenolakanModel();
         $this->loginModel = new LoginModel();
+        $this->jenisPermohonanModel = new JenisPermohonanModel();
+        $this->trayekModel = new TrayekModel();
         $this->session = session();
         $this->user = $this->loginModel->where('email', $this->session->get('email'))->first();
     }
@@ -35,17 +41,21 @@ class Verifikasi extends BaseController
 
     public function rekomendasi()
     {
-        $data = [
-            'title' => 'Data Permohonan',
-            'permohonan' => $this->verifikasiModel->getRekomendasiVerifikasi(),
-            'session' => $this->user
-        ];
-        return view('verifikasi/rekomendasi', $data);
+        if ($this->user['role'] == 2) {
+            $data = [
+                'title' => 'Data Permohonan',
+                'permohonan' => $this->verifikasiModel->getRekomendasiVerifikasi(),
+                'session' => $this->user
+            ];
+            return view('verifikasi/rekomendasi', $data);
+        } else {
+            return view('blank');
+        }
     }
 
     public function terverifikasi()
     {
-        if ($this->user['role'] == 4) {
+        if ($this->user['role'] == 4 or $this->user['role'] == 3) {
             $data = [
                 'title' => 'Data Permohonan',
                 'permohonan' => $this->verifikasiModel->getRekomendasiterVerifikasi(),
@@ -55,6 +65,11 @@ class Verifikasi extends BaseController
         } else {
             return view('blank');
         }
+    }
+
+    public function blank()
+    {
+        return view('blank');
     }
 
     public function detail($kd)
@@ -77,17 +92,24 @@ class Verifikasi extends BaseController
         return view('verifikasi/detailTerverifikasi', $data);
     }
 
-    public function cetak($kd)
+    public function cetak($kd, $kdp, $kdt)
     {
         $detail = $this->verifikasiModel->getRekomendasi($kd);
-        $kdb = $detail['kode_booking'];
+        $nama = $detail['nama_pemohon'];
+        $nomor = $detail['nomor_kendaraan'];
+        $jenis = $detail['jenis_permohonan'];
+        $masa_berlaku = $detail['masa_berlaku'];
+
+        $qr = '' . $nama . ' - ' . $nomor . ' - ' . 'Izin Trayek Angkutan Sampai Dengan' . ' ' . $masa_berlaku;
 
         // quick and simple:
-        $qrcode = '<img src="' . (new QRCode)->render($kdb) . '" alt="QR Code" />';
+        $qrcode = '<img width="150" src="' . (new QRCode)->render($qr) . '" alt="QR Code" />';
 
         $data = [
             'title' => 'Cetak Permohonan',
             'detail' => $this->verifikasiModel->getRekomendasi($kd),
+            'jenis' => $this->jenisPermohonanModel->getJenisPermohonan($kdp),
+            'trayek' => $this->trayekModel->getTrayek($kdt),
             'session' => $this->user,
             'qrq' => $qrcode
         ];
@@ -99,6 +121,7 @@ class Verifikasi extends BaseController
         $this->verifikasiModel->save([
             'id' => $id,
             'status_verifikasi' => 1,
+            'masa_berlaku' => $this->request->getVar('masa_berlaku_submit'),
         ]);
 
         session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data berhasil dikirim, mengunngu verivikasi</div>');
@@ -124,6 +147,7 @@ class Verifikasi extends BaseController
         $this->verifikasiModel->save([
             'id' => $id,
             'status_verifikasi' => 2,
+            'tgl_approve' => date('Y-m-d'),
         ]);
 
         session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data berhasil dikirim, mengunngu verivikasi</div>');

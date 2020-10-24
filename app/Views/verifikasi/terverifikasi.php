@@ -55,7 +55,7 @@
                                         $st = '<span class="badge badge-warning"><i class="fas fa-stopwatch"></i> Diverifikasi</span>';
                                     }
                                     if ($tr['status_verifikasi'] == 2) {
-                                        $href2 = 'href=/verifikasi/cetak/' . $tr['kode_booking'] . ' target=_blank';
+                                        $href2 = 'href=/verifikasi/cetak/' . $tr['kode_booking'] . '/' . $tr['jenis_permohonan']  . '/' . $tr['trayek_dilayani']  . ' target=_blank';
                                         $href = "";
                                         $st = '<span class="badge badge-success"><i class="fas fa-stopwatch"></i> Di Approve</span>';
                                     }

@@ -1,0 +1,1 @@
+<?=$cetak['nama_pemilik']?>

@@ -31,7 +31,7 @@
                 <?php endif; ?>
                 <form method="POST" id="Login" action="/login/masuk">
                     <div class="md-form">
-                        <input name="email" type="email" id="materialLoginFormEmail" class="form-control">
+                        <input name="email" type="text" id="materialLoginFormEmail" class="form-control">
                         <label for="materialLoginFormEmail">E-mail</label>
                     </div>
 

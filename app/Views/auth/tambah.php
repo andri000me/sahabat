@@ -29,7 +29,7 @@
 
                                 <!-- E-mail -->
                                 <div class="md-form mt-0">
-                                    <input name="email" type="email" id="materialRegisterFormEmail" class="form-control">
+                                    <input name="email" type="text" id="materialRegisterFormEmail" class="form-control">
                                     <label for="materialRegisterFormEmail">E-mail</label>
                                 </div>
 
@@ -53,10 +53,14 @@
                                 <div class="form-group">
                                     <select name="role" class="mdb-select md-form mt-5" searchable="Jenis User">
                                         <option value="" disabled selected>Jenis User</option>
+                                        <option value="0">Admin Koperasi</option>
                                         <option value="1">Admin PTSP</option>
                                         <option value="2">Verificator</option>
                                         <option value="3">Admin</option>
                                         <option value="4">Super Admin</option>
+                                        <option value="5">Admin Kabupaten Gorontalo</option>
+                                        <option value="6">Admin Kota Gorontalo</option>
+                                        <option value="7">Admin Kabupaten Gorontalo Utara</option>
                                     </select>
                                 </div>
                                 <!-- Sign up button -->

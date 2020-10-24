@@ -124,6 +124,15 @@ class Rekomendasi extends BaseController
                     'mime_in' => 'Ini bukan gambar'
                 ]
             ],
+            'img_pengantar_ptsp' => [
+                'rules' => 'uploaded[img_pengantar_ptsp]|max_size[img_pengantar_ptsp,1024]|is_image[img_pengantar_ptsp]|mime_in[img_pengantar_ptsp,image/jpg,image/jpeg,image/png]',
+                'errors' => [
+                    'uploaded' => 'Pilih gambar dokumen terlebih dahulu',
+                    'max_size' => 'Ukuran gambar terlalu besar (Maksimal 1Mb)',
+                    'is_image' => 'Ini bukan gambar',
+                    'mime_in' => 'Ini bukan gambar'
+                ]
+            ],
             'jenis_permohonan' => [
                 'rules' => 'required',
                 'errors' => [
@@ -146,12 +155,22 @@ class Rekomendasi extends BaseController
             $img_permohonan->move('img/img_permohonan', $nama_img);
         }
 
+        $img_pengantar_ptsp = $this->request->getFile('img_pengantar_ptsp');
+
+        if ($img_pengantar_ptsp->getError() == 4) {
+            $nama_img_pengantar = "default.png";
+        } else {
+            $nama_img_pengantar = $img_pengantar_ptsp->getRandomName();
+            $img_pengantar_ptsp->move('img/img_pengantar_ptsp', $nama_img);
+        }
+
         $slug = url_title($this->request->getVar('nama_pemohon'), '-', true);
         $this->verifikasiModel->save([
             'slug' => $slug,
             'status' => 1,
             'status_verifikasi' => 4,
             'img_surat_permohonan' => $nama_img,
+            'img_pengantar_ptsp' => $nama_img_pengantar,
             'tgl_permohonan' => $this->request->getVar('tgl_permohonan_submit'),
             'kode_booking' => $this->request->getVar('kdb'),
             'nama_pemohon' => $this->request->getVar('nama_pemohon'),
@@ -182,6 +201,15 @@ class Rekomendasi extends BaseController
                     'mime_in' => 'Ini bukan gambar'
                 ]
             ],
+            'img_pengantar_ptsp' => [
+                'rules' => 'uploaded[img_pengantar_ptsp]|max_size[img_pengantar_ptsp,1024]|is_image[img_pengantar_ptsp]|mime_in[img_permohonan,image/jpg,image/jpeg,image/png]',
+                'errors' => [
+                    'uploaded' => 'Pilih gambar dokumen terlebih dahulu',
+                    'max_size' => 'Ukuran gambar terlalu besar (Maksimal 1Mb)',
+                    'is_image' => 'Ini bukan gambar',
+                    'mime_in' => 'Ini bukan gambar'
+                ]
+            ],
             'jenis_permohonan' => [
                 'rules' => 'required',
                 'errors' => [
@@ -204,12 +232,22 @@ class Rekomendasi extends BaseController
             $img_permohonan->move('img/img_permohonan', $nama_img);
         }
 
+        $img_pengantar_ptsp = $this->request->getFile('img_pengantar_ptsp');
+
+        if ($img_pengantar_ptsp->getError() == 4) {
+            $nama_img_pengantar = "default.png";
+        } else {
+            $nama_img_pengantar = $img_pengantar_ptsp->getRandomName();
+            $img_pengantar_ptsp->move('img/img_pengantar_ptsp', $nama_img);
+        }
+
         $slug = url_title($this->request->getVar('nama_pemohon'), '-', true);
         $this->verifikasiModel->save([
             'slug' => $slug,
             'status' => 2,
             'status_verifikasi' => 4,
             'img_surat_permohonan' => $nama_img,
+            'img_pengantar_ptsp' => $nama_img_pengantar,
             'tgl_permohonan' => $this->request->getVar('tgl_permohonan_submit'),
             'kode_booking' => $this->request->getVar('kdb'),
             'nama_pemohon' => $this->request->getVar('nama_pemohon'),
@@ -411,11 +449,12 @@ class Rekomendasi extends BaseController
                 }
             }
 
+        $kapasitas = $this->request->getVar('kapasitas_angkutan') . " Orang +" . $this->request->getVar('kapasitas_angkutan') . " Kg Barang";
         $this->verifikasiModel->save([
             'id' => $id,
             'img_kir' => $nama_img,
             'nomor_kir' => $this->request->getVar('nomor_kir'),
-            'kapasitas_angkutan' => $this->request->getVar('kapasitas_angkutan'),
+            'kapasitas_angkutan' => $kapasitas,
             'uji_berkala_berlaku' => $this->request->getVar('uji_berkala_berlaku_submit'),
         ]);
 

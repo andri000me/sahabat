@@ -10,8 +10,12 @@ class TrayekModel extends model
     protected $primaryKey = 'kode_trayek';
     protected $useTimestamps = true;
 
-    public function getTrayek()
+    public function getTrayek($kdt = false)
     {
-        return $this->findAll();
+        if ($kdt == false) {
+            return $this->findAll();
+        }
+
+        return $this->where(['kode_trayek' => "$kdt"])->first();
     }
 }

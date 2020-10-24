@@ -18,42 +18,42 @@
                 <li class="warning wow fadeInLeft">
                     <a href="#!">
                         <span class="circle">1</span>
-                        <span class="label">Step 1</span>
+                        <span class="label">Syarat 1</span>
                     </a>
                 </li>
 
                 <li class="secondary wow fadeInLeft">
                     <a href="/rekomendasi/step2/">
                         <span class="circle">2</span>
-                        <span class="label">Step 2</span>
+                        <span class="label">Syarat 2</span>
                     </a>
                 </li>
 
                 <li class="secondary wow fadeInLeft">
                     <a href="#!">
                         <span class="circle">3</span>
-                        <span class="label">Step 3</span>
+                        <span class="label">Syarat 3</span>
                     </a>
                 </li>
 
                 <li class="secondary wow fadeInLeft">
                     <a href="#!">
                         <span class="circle">4</span>
-                        <span class="label">Step 4</span>
+                        <span class="label">Syarat 4</span>
                     </a>
                 </li>
 
                 <li class="secondary wow fadeInLeft">
                     <a href="#!">
                         <span class="circle">5</span>
-                        <span class="label">Step 5</span>
+                        <span class="label">Syarat 5</span>
                     </a>
                 </li>
 
                 <li class="secondary wow fadeInLeft">
                     <a href="#!">
                         <span class="circle">6</span>
-                        <span class="label">Step 6</span>
+                        <span class="label">Syarat 6</span>
                     </a>
                 </li>
 
@@ -75,7 +75,22 @@
                             <div class="file-field">
                                 <div class="btn btn-primary btn-sm float-left">
                                     <span><i class="fa fa-image mr-1"></i> Pilih File Dokumen</span>
-                                    <input type="file" name="img_permohonan" id="uploadImage" onchange="PreviewImage()">
+                                    <input type="file" name="img_pengantar_ptsp" id="uploadImage">
+                                </div>
+                                <div class="file-path-wrapper">
+                                    <input name="img_pengantar_ptsp" class="file-path validate" type="text" placeholder="Surat Pengantar dai PTSP">
+                                </div>
+                            </div>
+                            <div class="kacili" style="margin-left:160px;">
+                                <?= $validation->getError('img_pengantar_ptsp') ?>
+                            </div>
+                        </div>
+                        
+                        <div class="md-form">
+                            <div class="file-field">
+                                <div class="btn btn-primary btn-sm float-left">
+                                    <span><i class="fa fa-image mr-1"></i> Pilih File Dokumen</span>
+                                    <input type="file" name="img_permohonan" id="uploadImage">
                                 </div>
                                 <div class="file-path-wrapper">
                                     <input name="img_permohonan" class="file-path validate" type="text" placeholder="Surat Permohonan yang ditujukan kepada Kepala DPM Prov. Gorontalo">
@@ -86,10 +101,10 @@
                             </div>
                         </div>
 
-                        <div class="md-form">
+                        <!-- <div class="md-form">
                             <img id="uploadPreview" src="<?= base_url(); ?>/assets/img/foto/default.png" style="width:250px;" alt="IMG">
                             <label for="form1"></label>
-                        </div>
+                        </div> -->
 
                         <div class="md-form mt-5">
                             <input name="tgl_permohonan" placeholder="Tanggal Permohonan" type="text" id="date-picker-example" class="form-control datepicker" required value="<?= old('tgl_permohonan') ?>">

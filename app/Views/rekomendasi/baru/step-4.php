@@ -117,11 +117,32 @@
                             </div>
                         </div>
 
-                        <div class="md-form">
-                            <input name="kapasitas_angkutan" type="text" id="form2" class="form-control" value="<?= $step4['kapasitas_angkutan'] ?>" required>
-                            <label for="form2">Kapasitas Angkutan</label>
-                            <div class="invalid-feedback">
-                                Kapasitas angkutan harus di isi
+                        <div class="md-form form-row">
+                            <div class="col">
+                                <input name="kapasitas_angkutan" type="number" id="form2" class="form-control" value="<?= $step4['kapasitas_angkutan'] ?>" required>
+                                <label for="form2">Daya Angkut</label>
+                                <div class="invalid-feedback">
+                                    Kapasitas angkutan harus di isi
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label for="form2">Orang</label>
+                                <div class="invalid-feedback">
+                                    Kapasitas angkutan harus di isi
+                                </div>
+                            </div>
+                            <div class="col">
+                                <input name="kapasitas_angkutan1" type="number" id="form2" class="form-control" value="<?= $step4['kapasitas_angkutan'] ?>" required>
+                                <label for="form2">Daya Angkut</label>
+                                <div class="invalid-feedback">
+                                    Kapasitas angkutan harus di isi
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label for="form2">Kg Barang</label>
+                                <div class="invalid-feedback">
+                                    Kapasitas angkutan harus di isi
+                                </div>
                             </div>
                         </div>
 
