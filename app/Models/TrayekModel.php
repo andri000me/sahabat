@@ -13,6 +13,9 @@ class TrayekModel extends model
     public function getTrayek($kdt = false)
     {
         if ($kdt == false) {
+            $this->db->table('trayek');
+            $this->select('*');
+            $this->where('kuota != 0');
             return $this->findAll();
         }
 

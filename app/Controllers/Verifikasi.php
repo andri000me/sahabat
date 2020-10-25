@@ -95,7 +95,7 @@ class Verifikasi extends BaseController
     public function cetak($kd, $kdp, $kdt)
     {
         $detail = $this->verifikasiModel->getRekomendasi($kd);
-        $nama = $detail['nama_pemohon'];
+        $nama = $detail['nama_perusahaan'];
         $nomor = $detail['nomor_kendaraan'];
         $jenis = $detail['jenis_permohonan'];
         $masa_berlaku = $detail['masa_berlaku'];
@@ -108,6 +108,7 @@ class Verifikasi extends BaseController
         $data = [
             'title' => 'Cetak Permohonan',
             'detail' => $this->verifikasiModel->getRekomendasi($kd),
+            'count' => $this->verifikasiModel->getRekomendasi(),
             'jenis' => $this->jenisPermohonanModel->getJenisPermohonan($kdp),
             'trayek' => $this->trayekModel->getTrayek($kdt),
             'session' => $this->user,

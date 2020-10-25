@@ -51,7 +51,7 @@
                                     }
                                     if ($tr['status_verifikasi'] == 1) {
                                         $href2 = 'data-toggle="modal" data-target="#centralModalDanger"';
-                                        $href = 'href=/verifikasi/approve/' . $tr['id'] . '';
+                                        $href = 'href=/verifikasi/approve/' . $tr['idpermohonan'] . '';
                                         $st = '<span class="badge badge-warning"><i class="fas fa-stopwatch"></i> Diverifikasi</span>';
                                     }
                                     if ($tr['status_verifikasi'] == 2) {

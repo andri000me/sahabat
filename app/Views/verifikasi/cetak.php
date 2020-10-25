@@ -96,10 +96,14 @@
                                     $d = "Diberikan Perpanjangan";
                                 }
                                 ?>
+                                <?php
+                                $jumlah_sekarang = count($count);
+                                $nomor_surat = 46 + $jumlah_sekarang;
+                                ?>
                                 <p class="text-center text-ppadat font-weight-bold">PERTIMBANGAN PERMOHONAN <?= $p; ?></p>
                                 <p class="text-center text-ppadat font-weight-bold">IZIN ANGKUTAN ORANG DALAM TRAYEK </p>
                                 <p style="text-decoration: underline;" class="text-center text-ppadat font-weight-bold">ANGKUTAN ANTARKOTA DALAM PROPINSI (AKDP) </p>
-                                <p class="text-center text-pppadat">Nomor : 552 / DISHUB-AJ / 47 / X / 2020</p>
+                                <p class="text-center text-pppadat">Nomor : 552 / DISHUB-AJ / <?= $nomor_surat ?> / X / 2020</p>
                                 <p class="text-justify text-pppadat">Memperhatikan Surat Kepala Bidang Perizinan Dinas Penanaman Modal, ESDM Dan Transmigrasi Provinsi Gorontalo perihal Permohonan Pertimbangan Teknis Untuk Izin Trayek AKDP, maka Berdasarkan Undang-Undang Nomor 22 Tahun 2009 Tentang Lalu Lintas Dan Angkutan Jalan dan Peraturan Pemerintah Nomor 74 Tahun 2014 tentang Angkutan Jalan serta Peraturan Menteri Perhubungan Nomor PM 15 Tahun 2019 tentang Penyelenggaraan Angkutan Orang Dengan Kendaraan Bermotor Umum Dalam Trayek dan Peraturan Gubernur Gorontalo Nomor 46 Tahun 2019 tentang Jaringan Trayek AKDP, sebagai bahan pertimbangan permohonan Izin Angkutan Orang Dalam Trayek Antar Kota Dalam Provinsi (AKDP) sebagai berikut :</p>
                             </div>
                         </div>
@@ -109,7 +113,15 @@
                                 Nama Pemohon
                             </div>
                             <div class="col-sm-8 textff">
-                                : <?= $detail['nama_pemohon'] ?>
+                                : <?= $detail['nama_perusahaan'] ?>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3 textff">
+
+                            </div>
+                            <div class="col-sm-8 textff ml-2 font-weight-bold" style="font-size: 14px; margin-top: -7px;">
+                                <?= $detail['alamat'] ?>
                             </div>
                         </div>
                         <div class="row">
@@ -117,7 +129,11 @@
                                 Tanggal Permohonan
                             </div>
                             <div class="col-sm-8 textff">
-                                : <?= $detail['tgl_permohonan'] ?>
+                                <?php
+                                $originalDate = $detail['tgl_permohonan'];
+                                $newDate = date("d F Y", strtotime($originalDate));
+                                ?>
+                                : <?= $newDate ?>
                             </div>
                         </div>
                         <div class="row">
@@ -197,7 +213,9 @@
                                 Uji Berkala berlaku
                             </div>
                             <div class="col-sm-8 textff">
-                                : <?= $detail['uji_berkala_berlaku'] ?>
+                                <?php $originalDate = $detail['uji_berkala_berlaku'];
+                                $newDate = date("d-m-Y", strtotime($originalDate)); ?>
+                                : <?= $newDate ?>
                             </div>
                         </div>
                         <div class="row">
@@ -205,7 +223,11 @@
                                 STNKB dan PKB berlaku
                             </div>
                             <div class="col-sm-8 textff">
-                                : <?= $detail['stnkb_berlaku'] ?> / <?= $detail['pkb_berlaku'] ?>
+                                <?php $originalDate = $detail['stnkb_berlaku'];
+                                $newDate = date("d-m-Y", strtotime($originalDate)); ?>
+                                <?php $originalDate = $detail['pkb_berlaku'];
+                                $newDate1 = date("d-m-Y", strtotime($originalDate)); ?>
+                                : <?= $newDate ?> / <?= $newDate1 ?>
                             </div>
                         </div>
                         <div class="row">
@@ -213,7 +235,9 @@
                                 Iuran Jasa Raharja berlaku
                             </div>
                             <div class="col-sm-8 textff">
-                                : <?= $detail['jasa_raharja_berlaku'] ?>
+                                <?php $originalDate = $detail['jasa_raharja_berlaku'];
+                                $newDate = date("d-m-Y", strtotime($originalDate)); ?>
+                                : <?= $newDate ?>
                             </div>
                         </div>
 
@@ -236,7 +260,9 @@
                                 - Masa berlaku izin
                             </div>
                             <div class="col-sm-8 textff font-weight-bold">
-                                : Sampai dengan <?= $detail['masa_berlaku'] ?>
+                                <?php $originalDate = $detail['masa_berlaku'];
+                                $newDate1 = date("d-m-Y", strtotime($originalDate)); ?>
+                                : Sampai dengan <?= $newDate1 ?>
                             </div>
                         </div>
                         <div class="row">
@@ -255,7 +281,9 @@
                             </div>
                             <div class="col-sm-4 text-center">
                                 <p class="text-padat ml-5 text-left">Ditetapkan di Gorontalo</p>
-                                <p class="text-padat ml-5 text-left">pada tanggal 21 Oktober 2020</p>
+                                <?php $originalDate = $detail['tgl_approve'];
+                                $newDate1 = date("d F Y", strtotime($originalDate)); ?>
+                                <p class="text-padat ml-5 text-left">pada tanggal <?= $newDate1 ?></p>
                                 <!-- <p class="text-padat ml-5 text-left">pada tanggal </p> -->
                                 <p class="font-weight-bold text-padat text-center">an. KEPALA DINAS,</p>
                                 <p class="font-weight-bold text-padat text-center">KEPALA BIDANG ANGKUTAN JALAN</p>

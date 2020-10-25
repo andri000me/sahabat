@@ -107,7 +107,12 @@
                                 :
                             </div>
                             <div class="col-sm-9">
-                                Permohonan dari Pemilik Kendaraan Tanggal <b class="font-weight-bold"><?= $permohonan['created_at'] ?></b> Tentang Pertimbangan Pengoprasian Kenderaan Angkutan Penumpang <b class="font-weight-bold"> A/N <?= $permohonan['nama_pemilik'] ?></b>
+                                Permohonan dari Pemilik Kendaraan Tanggal <b class="font-weight-bold">
+                                    <?php
+                                    $originalDate = $permohonan['created_at'];
+                                    $newDate = date("d F Y", strtotime($originalDate));
+                                    ?>
+                                    <?= $newDate ?></b> Tentang Pertimbangan Pengoprasian Kenderaan Angkutan Penumpang <b class="font-weight-bold"> A/N <?= $permohonan['nama_pemilik'] ?></b>
                             </div>
                         </div>
 
@@ -366,7 +371,11 @@
                             <div class="col-sm-7">
                             </div>
                             <div class="col-sm-5 text-center">
-                                Marisa, 13 Januari 2020
+                                <?php
+                                $originalDate = $permohonan['tgl_approve'];
+                                $newDate = date("d F Y", strtotime($originalDate));
+                                ?>
+                                Marisa, <?= $newDate ?>
                             </div>
                         </div>
                         <div class="row">

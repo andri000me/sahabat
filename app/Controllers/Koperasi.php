@@ -803,12 +803,14 @@ class Koperasi extends BaseController
                 $this->koperasiModel->save([
                     'id' => $id,
                     'status_asal' => 2,
+                    'tgl_approve' => date('Y-m-d'),
                 ]);
                 return redirect()->to('/koperasi/verifikasiPermohonanPohuwato');
             } else if ($check['tujuan'] == 6) {
                 $this->koperasiModel->save([
                     'id' => $id,
                     'status_tujuan' => 2,
+                    'tgl_approve' => date('Y-m-d'),
                 ]);
                 return redirect()->to('/koperasi/verifikasiPermohonanPohuwato');
             }

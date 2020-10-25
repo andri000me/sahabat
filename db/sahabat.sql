@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 25, 2020 at 01:18 PM
+-- Generation Time: Oct 25, 2020 at 03:50 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -142,7 +142,7 @@ CREATE TABLE `permohonan` (
 --
 
 INSERT INTO `permohonan` (`id`, `user_id`, `verificator_id`, `approver_id`, `slug`, `kode_booking`, `status`, `status_verifikasi`, `tgl_permohonan`, `nama_pemohon`, `alamat_pemohon`, `jenis_permohonan`, `trayek_dilayani`, `nomor_kendaraan`, `nama_pemilik`, `alamat_pemilik`, `jenis_kendaraan`, `tahun_pembuatan`, `nomor_kir`, `kapasitas_angkutan`, `uji_berkala_berlaku`, `stnkb_berlaku`, `pkb_berlaku`, `jasa_raharja_berlaku`, `img_surat_permohonan`, `img_akte_perusahaan`, `img_tdp`, `img_siup`, `img_npwp`, `img_ktp`, `img_trayek`, `img_stnkb_pkb`, `img_kir`, `img_jasa_raharja`, `img_surat_pernyataan`, `img_pengantar_ptsp`, `tgl_approve`, `masa_berlaku`, `created_at`, `updated_at`) VALUES
-(56, '', '', '', '6', '68728071111', '1', 1, '2020-10-25', '6', '', 'JP1233414', 'AA-01', 'DM 1832 DB', 'Ajis Nihali', 'Gorontalo', 'Minibus ', '2014', 'DB.041.001.427', '1 Orang +1 Kg Barang', '2020-10-25', '2020-10-25', '2020-10-25', '2020-10-25', '1603624096_83fee67bbefdac71ba85.jpg', '', '', '', '', '', '1603624110_9aea838aba64aade2cd8.jpg', '1603624145_3a65037672033c2479ca.jpg', '1603624158_1ada5a92c9941a704ccf.jpg', '1603624165_ee156a3e29cbf830bae8.jpg', '1603624169_c2b6544db5f69b164ca0.jpg', '1603624096_f71c121f0535183a6a25.jpg', '', '2020-10-25', '2020-10-25 05:53:21', '2020-10-25 06:45:40');
+(56, '', '', '', '6', '68728071111', '2', 2, '2020-10-25', '6', '', 'JP1233414', 'AA-01', 'DM 1832 DB', 'Ajis Nihali', 'Gorontalo', 'Minibus ', '2014', 'DB.041.001.427', '1 Orang +1 Kg Barang', '2020-10-25', '2020-10-25', '2020-10-25', '2020-10-25', '1603624096_83fee67bbefdac71ba85.jpg', '', '', '', '', '', '1603624110_9aea838aba64aade2cd8.jpg', '1603624145_3a65037672033c2479ca.jpg', '1603624158_1ada5a92c9941a704ccf.jpg', '1603624165_ee156a3e29cbf830bae8.jpg', '1603624169_c2b6544db5f69b164ca0.jpg', '1603624096_f71c121f0535183a6a25.jpg', '2020-10-25', '2020-10-25', '2020-10-25 05:53:21', '2020-10-25 09:28:20');
 
 -- --------------------------------------------------------
 
@@ -179,9 +179,17 @@ CREATE TABLE `permohonan_kabkota` (
   `img_rekomendasi_asal` text NOT NULL,
   `img_penolakan_tujuan` text NOT NULL,
   `img_rekomendasi_tujuan` text NOT NULL,
+  `tgl_approve` text NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `permohonan_kabkota`
+--
+
+INSERT INTO `permohonan_kabkota` (`id`, `slug`, `koperasi_id`, `kabkota_id`, `status_asal`, `status_tujuan`, `trayek_dilayani`, `asal`, `tujuan`, `nomor_kendaraan`, `nama_pemilik`, `alamat_pemilik`, `jenis_kendaraan`, `nomor_kir`, `merk`, `tahun_pembuatan`, `nomor_chasis`, `nomor_mesin`, `nomor_regis_pkb`, `img_surat_permohonan_koperasi`, `img_ktp_pemilik`, `img_stnkb`, `img_jasa_raharja`, `img_kir`, `img_penolakan_asal`, `img_rekomendasi_asal`, `img_penolakan_tujuan`, `img_rekomendasi_tujuan`, `tgl_approve`, `created_at`, `updated_at`) VALUES
+(13, 'abdul-musakir', '6', '', '0', '2', 'AA-01', '1', '6', 'DM 1234 A', 'ABDUL MUSAKIR', 'BATUDAA', 'SEPEDA', 'KIRA', 'POLIGON', '2020', 'CHASIS', 'MESIN', 'PKB', '1603636647_eae29d139be67324527e.jpeg', '1603636647_bd90f5a084e87f8ea39b.jpeg', '1603636647_9841c7904a6362133e96.jpeg', '1603636647_ae6165791a4b3502a5be.jpeg', '1603636647_3505cf44a3f86089afe4.jpeg', '', '', '', '1603637408_b07d15361807502f89c0.jpeg', '2020-10-25', '2020-10-25 09:37:27', '2020-10-25 09:50:08');
 
 -- --------------------------------------------------------
 
@@ -223,7 +231,7 @@ INSERT INTO `trayek` (`id`, `kode_trayek`, `trayek`, `kuota`, `terisi`, `created
 (21, 'AB-11', 'Terminal Dungingi Kota Gorontalo - Tml. Isimu - Tml. Paguyaman - Tml. Tilamuta - Paguat - Tml. Marisa - Tml. Randangan - Tml. Lemito, PP\r\n', 21, 1, NULL, NULL),
 (22, 'AB-12', 'Terminal Dungingi Kota Gorontalo - Tml. Isimu - Tml. Paguyaman - Tml. Tilamuta - Paguat - Tml. Marisa - Tml. Randangan - Tml. Popayato - Tml. Molosifat, PP\r\n', 8, 1, NULL, NULL),
 (23, 'AB-13', 'Terminal Dungingi Kota Gorontalo - Tml. Isimu - Tml. Paguyaman - Tml. Tilamuta - Paguat - Tml. Marisa - Tml. Randangan - Tml. Popayato - Malango\r\n', 5, 1, NULL, NULL),
-(24, 'AB-14', 'Terminal Dungingi Kota Gorontalo - Biluhu Timur - Ilomata, PP\r\n', 5, 1, NULL, NULL),
+(24, 'AB-14', 'Terminal Dungingi Kota Gorontalo - Biluhu Timur - Ilomata, PP\r\n', 0, 1, NULL, NULL),
 (25, 'AB-15', 'Terminal Dungingi Kota Gorontalo - Tml. Isimu - Tml. Molingkapoto - Tolinggula - Papualangi\r\n', 5, 1, NULL, NULL),
 (26, 'AB-16', 'Terminal Dungingi Kota Gorontalo - Tml. Isimu - Parungi - Mohiyolo, PP\r\n', 21, 1, NULL, NULL),
 (27, 'AB-17', 'Terminal Dungingi Kota Gorontalo - Tml. Isimu - Wonosari, PP\r\n', 25, 1, NULL, NULL),
@@ -276,7 +284,7 @@ INSERT INTO `user` (`id`, `wilayah_id`, `nama`, `email`, `password`, `hp`, `role
 (3, 0, 'Riansyah Inde', 'rian@gmail.com', '$2y$10$GQVZ0./65cQ5O2aeBpXrLOCT517fFOkL2pCBNDVUezln1TnYEgI2y', '0822878378278', '2', '', '', '', '', '', '', '', '', '', '', '', '', '2020-10-15 09:12:25', '2020-10-15 09:12:25'),
 (4, 0, 'Abdul Karim Rauf', 'abd@gmail.com', '$2y$10$S0CPKSP/kgoGIyw1knJM0uW.VTL5GokmfPEgacYBZ6JpdM2NdcmLe', '0822878378278', '3', '', '', '', '', '', '', '', '', '', '', '', '', '2020-10-15 09:12:48', '2020-10-15 09:12:48'),
 (5, 0, 'Zakir Radjak', 'z@gmail.com', '$2y$10$vBeyDO3Fy1p1OH8Fv4jnGOKiGKXtzsp9etWTpTDfIz9Sn17EM4ZVy', '123', '4', '', '', '', '', '', '', '', '', '', '', '', '', '2020-10-15 19:56:47', '2020-10-15 19:56:47'),
-(6, 0, 'Cece C.', 'ksu.tsb@gmail.com', '$2y$10$LutpR..sxvpiIs.7.1HQd.4qk.WX.5nOock4/rI.WGjJ1h7./0KC2', '082293728432', '0', '7501011908580001', 'K A R D I', 'KSU TETAP SETIA BHAYANGKARA', 'Jl.A.Wahab Nomor 18.Desa Bulila Kec. Telaga  Kab. Gorontalo', 'NPWP Koperasi A', '1603299094_67b6683112bb6decacbd.jpg', '1603299084_42d92a42655e88fc89a5.jpeg', '1603373304_209281e2241c0dfdd90d.jpg', '1603373324_d521da9a8b924c867570.jpg', '1603373324_1ea2b851a967a149f933.jpg', '1603373324_1b1b7d563efc5dd0b2ca.jpeg', '1603373324_ff2e320951dde85baa37.jpeg', '2020-10-20 10:16:27', '2020-10-22 19:07:12'),
+(6, 0, 'Cece C.', 'ksu.tsb@gmail.com', '$2y$10$LutpR..sxvpiIs.7.1HQd.4qk.WX.5nOock4/rI.WGjJ1h7./0KC2', '082293728432', '0', '7501011908580001', 'K A R D I', 'KSU TETAP SETIA BHAYANGKARA', 'Jl.A.Wahab Nomor 18.Desa Bulila Kec. Telaga  Kab. Gorontalo', 'NPWP Koperasi A', '1603633419_5dd9602a9e85137155a0.jpeg', '1603633419_6a7a337c4d6356edccaf.jpeg', '1603633419_7df70d6f6f742bef7faf.jpeg', '1603633419_3f1104b9d89551ead0a5.jpeg', '1603633419_ac11b9a34199d04212ae.jpeg', '1603633419_2b9b4241ae9164e08a11.jpeg', '1603633419_acd96d6732e684eb85fb.jpeg', '2020-10-20 10:16:27', '2020-10-25 08:43:39'),
 (7, 0, 'PTSP', 'ptsp', '$2y$10$OWxfDYGunVxybreXI/et7OkChKRYrrJA0OHgeZ4jYKVpRyJ4Qvu9C', '123', '1', '', '', '', '', '', '', '', '', '', '', '', '', '2020-10-20 10:16:50', '2020-10-20 10:16:50'),
 (8, 0, 'Verifikator', 'verifikator', '$2y$10$NthJomSaybwm1UNaiw.UXONO6Yiq66xhnJ/nlStVSBOHDnGb2slPC', '123', '2', '', '', '', '', '', '', '', '', '', '', '', '', '2020-10-20 10:17:16', '2020-10-20 10:17:16'),
 (9, 1, 'Kota', 'kotagtlo', '$2y$10$GkcXbl1Eq6GCVdM0CkSJo.8G6EG1F/8pf3PropjK3JHcWGz/mUCB6', '123', '5', '', '', 'Admin Dinas Perhubungan Kota Gorontalo', '', '', '', '', '', '', '', '', '', '2020-10-20 10:18:30', '2020-10-20 10:18:30'),
@@ -396,7 +404,7 @@ ALTER TABLE `permohonan`
 -- AUTO_INCREMENT for table `permohonan_kabkota`
 --
 ALTER TABLE `permohonan_kabkota`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `trayek`

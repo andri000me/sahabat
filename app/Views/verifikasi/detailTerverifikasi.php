@@ -172,7 +172,7 @@
                                 <tr>
                                     <th scope="row">6</th>
                                     <td>Fotocopy KTP Direktur Perusahaan </td>
-                                    <td><a href="/img/img_ktp/<?= $detail['img_ktp'] ?>" target="_blank" type="btn" class="ml-auto btn btn-sm btn-cyan"><i class="fa fa-eye"></i> Lihat Dokumen</a></td>
+                                    <td><a href="/img/img_ktp_direktur/<?= $detail['img_ktp_direktur'] ?>" target="_blank" type="btn" class="ml-auto btn btn-sm btn-cyan"><i class="fa fa-eye"></i> Lihat Dokumen</a></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">7</th>
