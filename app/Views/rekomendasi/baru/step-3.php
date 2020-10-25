@@ -1,6 +1,6 @@
 <?= $this->extend('layout/templatel') ?>
 <?= $this->section('content'); ?>
-<div class="container">
+<div class="container-fluid mt-4">
 
     <div class="section-headers">
         <h3 class="section-titles mb-3"><img src="<?= base_url(); ?>/assets/img/icon/dishub.png" style="width:60px;" alt="IMG"></h3>
@@ -26,42 +26,42 @@
                 <li class="secondary wow fadeInLeft">
                     <a href="/rekomendasi/step11/<?= $step3['kode_booking'] ?>">
                         <span class="circle">1</span>
-                        <span class="label">Step 1</span>
+                        <span class="label">Syarat 1</span>
                     </a>
                 </li>
 
                 <li class="secondary wow fadeInLeft">
                     <a href="/rekomendasi/step2/<?= $step3['kode_booking'] ?>">
                         <span class="circle">2</span>
-                        <span class="label">Step 2</span>
+                        <span class="label">Syarat 2</span>
                     </a>
                 </li>
 
                 <li class="warning wow fadeInLeft">
                     <a href="#">
                         <span class="circle">3</span>
-                        <span class="label">Step 3</span>
+                        <span class="label">Syarat 3</span>
                     </a>
                 </li>
 
                 <li class="secondary wow fadeInLeft">
                     <a href="/rekomendasi/step4/<?= $step3['kode_booking'] ?>">
                         <span class="circle">4</span>
-                        <span class="label">Step 4</span>
+                        <span class="label">Syarat 4</span>
                     </a>
                 </li>
 
                 <li class="secondary wow fadeInLeft">
                     <a href="/rekomendasi/step5/<?= $step3['kode_booking'] ?>">
                         <span class="circle">5</span>
-                        <span class="label">Step 5</span>
+                        <span class="label">Syarat 5</span>
                     </a>
                 </li>
 
                 <li class="secondary wow fadeInLeft">
                     <a href="/rekomendasi/step6/<?= $step3['kode_booking'] ?>">
                         <span class="circle">6</span>
-                        <span class="label">Step 6</span>
+                        <span class="label">Syarat 6</span>
                     </a>
                 </li>
 
@@ -73,7 +73,7 @@
         <div class="col-sm-12 mb-3 mb-md-0">
             <div class="cards px-4 pt-3">
                 <div class="card-body">
-                    <h4 class="text-dark font-weight-bold card-title">Step 3 - STNKB dan PKB </h4>
+                    <h4 class="text-dark font-weight-bold card-title">Syarat 3 - STNKB dan PKB </h4>
                     <p class="card-text">Isi data sesuai dengan dokumen yang di upload</p>
 
                     <!-- Form -->
@@ -88,6 +88,7 @@
                                 <span><i class="fa fa-image mr-1"></i> Pilih File Dokumen</span>
                                 <input type="file" name="img_stnkb_pkb" id="uploadImage" onchange="PreviewImage()">
                             </div>
+                            <a href="/img/img_stnkb_pkb/<?= $step3['img_stnkb_pkb'] ?>" target="_blank" type="button" class="btn btn-sm btn-danger"><i class="fa fa-eye mr-1"></i> Lihat dokumen</a>
                             <div class="file-path-wrapper">
                                 <input class="file-path validate" type="text" placeholder="STNKB dan PKB" value="<?= $step3['img_stnkb_pkb'] ?>">
                             </div>
@@ -96,20 +97,7 @@
                             </div>
                         </div>
 
-
-                        <?php
-                        if ($step3['img_stnkb_pkb']) {
-                            $img = $step3['img_stnkb_pkb'];
-                        } else {
-                            $img = "default.png";
-                        }
-                        ?>
-                        <div class="md-form">
-                            <img id="uploadPreview" src="<?= base_url(); ?>/img/img_stnkb_pkb/<?= $img ?>" style=" width:250px;" alt="IMG">
-                            <label for="form1"></label>
-                        </div>
-
-                        <div class="md-form">
+                        <div class="md-form mt-5">
                             <input name="nomor_kendaraan" type="text" id="form2" class="form-control" value="<?= $step3['nomor_kendaraan'] ?>">
                             <label for="form2">Nomor Kendaraan</label>
                             <div class="invalid-feedback">

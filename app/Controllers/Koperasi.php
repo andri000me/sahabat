@@ -36,10 +36,11 @@ class Koperasi extends BaseController
 
     public function index()
     {
+        $id = $this->user['id'];
         $data = [
             'title' => 'Koperasi',
             'session' => $this->user,
-            'permohonan' => $this->koperasiModel->getPermohonan(),
+            'permohonan' => $this->koperasiModel->getPermohonanKoperasi($id),
         ];
         return view('koperasi/index', $data);
     }
@@ -207,6 +208,60 @@ class Koperasi extends BaseController
         ]);
 
         return redirect()->to('/koperasi/index/' . $this->request->getVar('kdb') . '');
+        // dd($this->request->getVar());
+    }
+
+    public function saveEdit()
+    {
+        $slug = url_title($this->request->getVar('nama_pemilik'), '-', true);
+        $id = $this->request->getVar('id');
+
+        $this->koperasiModel->save([
+            'id' => $id,
+            'slug' => $slug,
+            'koperasi_id' => $this->user['id'],
+            'nomor_kendaraan' => $this->request->getVar('nomor_kendaraan'),
+            'nama_pemilik' => $this->request->getVar('nama_pemilik'),
+            'alamat_pemilik' => $this->request->getVar('alamat_pemilik'),
+            'jenis_kendaraan' => $this->request->getVar('jenis_kendaraan'),
+            'nomor_kir' => $this->request->getVar('nomor_kir'),
+            'merk' => $this->request->getVar('merk'),
+            'tahun_pembuatan' => $this->request->getVar('tahun_pembuatan'),
+            'nomor_chasis' => $this->request->getVar('nomor_chasis'),
+            'nomor_mesin' => $this->request->getVar('nomor_mesin'),
+            'nomor_regis_pkb' => $this->request->getVar('nomor_regis_pkb')
+        ]);
+
+        if ($this->user['wilayah_id'] == $this->request->getVar('asal')) {
+            if ($this->user['wilayah_id'] == 1) {
+                $link = "Kota";
+            } else if ($this->user['wilayah_id'] == 2) {
+                $link = "Kab";
+            } else if ($this->user['wilayah_id'] == 3) {
+                $link = "BonrBol";
+            } else if ($this->user['wilayah_id'] == 4) {
+                $link = "Gorut";
+            } else if ($this->user['wilayah_id'] == 5) {
+                $link = "Boalemo";
+            } else if ($this->user['wilayah_id'] == 6) {
+                $link = "Pohuwato";
+            }
+        } else if ($this->user['wilayah_id'] == $this->request->getVar('tujuan')) {
+            if ($this->user['wilayah_id'] == 1) {
+                $link = "Kota";
+            } else if ($this->user['wilayah_id'] == 2) {
+                $link = "Kab";
+            } else if ($this->user['wilayah_id'] == 3) {
+                $link = "BonrBol";
+            } else if ($this->user['wilayah_id'] == 4) {
+                $link = "Gorut";
+            } else if ($this->user['wilayah_id'] == 5) {
+                $link = "Boalemo";
+            } else if ($this->user['wilayah_id'] == 6) {
+                $link = "Pohuwato";
+            }
+        }
+        return redirect()->to('/koperasi/verifikasi' . $link . '/' . $slug . '/' . $id . '');
         // dd($this->request->getVar());
     }
 
@@ -777,6 +832,429 @@ class Koperasi extends BaseController
                     'status_tujuan' => 1,
                 ]);
                 return redirect()->to('/koperasi/verifikasiPermohonanPohuwato');
+            }
+        } else {
+        }
+    }
+
+    public function cetakKota($slug, $id)
+    {
+        session();
+        $permohonan = $this->koperasiModel->getPermohonanKota($slug, $id);
+        $kdt = $permohonan['trayek_dilayani'];
+        $count = $this->koperasiModel->getPermohonanKota();
+
+        $data = [
+            'title' => 'Koperasi',
+            'session' => $this->user,
+            'permohonan' => $permohonan,
+            'count' => $count,
+            'koperasi' => $this->koperasiModel->getDataKoperasi($id),
+            'trayek' => $this->trayekModel->getTrayek($kdt),
+            'wilayah' => $this->asalTujuanModel->getWilayah(),
+        ];
+        return view('cetak/cetakKota', $data);
+    }
+    public function cetakKab($slug, $id)
+    {
+        session();
+        $permohonan = $this->koperasiModel->getPermohonanKab($slug, $id);
+        $kdt = $permohonan['trayek_dilayani'];
+        $count = $this->koperasiModel->getPermohonanKab();
+
+        $data = [
+            'title' => 'Koperasi',
+            'session' => $this->user,
+            'permohonan' => $permohonan,
+            'count' => $count,
+            'koperasi' => $this->koperasiModel->getDataKoperasi($id),
+            'trayek' => $this->trayekModel->getTrayek($kdt),
+            'wilayah' => $this->asalTujuanModel->getWilayah(),
+        ];
+        return view('cetak/cetakKab', $data);
+    }
+    public function cetakBonebBol($slug, $id)
+    {
+        session();
+        $permohonan = $this->koperasiModel->getPermohonanBonebBol($slug, $id);
+        $kdt = $permohonan['trayek_dilayani'];
+        $count = $this->koperasiModel->getPermohonanBonebBol();
+
+        $data = [
+            'title' => 'Koperasi',
+            'session' => $this->user,
+            'permohonan' => $permohonan,
+            'count' => $count,
+            'koperasi' => $this->koperasiModel->getDataKoperasi($id),
+            'trayek' => $this->trayekModel->getTrayek($kdt),
+            'wilayah' => $this->asalTujuanModel->getWilayah(),
+        ];
+        return view('cetak/cetakBonebBol', $data);
+    }
+    public function cetakGorut($slug, $id)
+    {
+        session();
+        $permohonan = $this->koperasiModel->getPermohonanGorut($slug, $id);
+        $kdt = $permohonan['trayek_dilayani'];
+        $count = $this->koperasiModel->getPermohonanGorut();
+
+        $data = [
+            'title' => 'Koperasi',
+            'session' => $this->user,
+            'permohonan' => $permohonan,
+            'count' => $count,
+            'koperasi' => $this->koperasiModel->getDataKoperasi($id),
+            'trayek' => $this->trayekModel->getTrayek($kdt),
+            'wilayah' => $this->asalTujuanModel->getWilayah(),
+        ];
+        return view('cetak/cetakGorut', $data);
+    }
+    public function cetakBoalemo($slug, $id)
+    {
+        session();
+        $permohonan = $this->koperasiModel->getPermohonanBoalemo($slug, $id);
+        $kdt = $permohonan['trayek_dilayani'];
+        $count = $this->koperasiModel->getPermohonanBoalemo();
+
+        $data = [
+            'title' => 'Koperasi',
+            'session' => $this->user,
+            'permohonan' => $permohonan,
+            'count' => $count,
+            'koperasi' => $this->koperasiModel->getDataKoperasi($id),
+            'trayek' => $this->trayekModel->getTrayek($kdt),
+            'wilayah' => $this->asalTujuanModel->getWilayah(),
+        ];
+        return view('cetak/cetakBoalemo', $data);
+    }
+    public function cetakPohuwato($slug, $id)
+    {
+        session();
+        $permohonan = $this->koperasiModel->getPermohonanPohuwato($slug, $id);
+        $kdt = $permohonan['trayek_dilayani'];
+        $count = $this->koperasiModel->getPermohonanPohuwato();
+
+        $data = [
+            'title' => 'Koperasi',
+            'session' => $this->user,
+            'permohonan' => $permohonan,
+            'count' => $count,
+            'koperasi' => $this->koperasiModel->getDataKoperasi($id),
+            'trayek' => $this->trayekModel->getTrayek($kdt),
+            'wilayah' => $this->asalTujuanModel->getWilayah(),
+        ];
+        return view('cetak/cetakPohuwato', $data);
+    }
+
+
+    public function cetakKotaTolak($slug, $id)
+    {
+        session();
+        $permohonan = $this->koperasiModel->getPermohonanPohuwato($slug, $id);
+        $kdt = $permohonan['trayek_dilayani'];
+        $count = $this->koperasiModel->getPermohonanPohuwato();
+
+        $data = [
+            'title' => 'Koperasi',
+            'session' => $this->user,
+            'permohonan' => $permohonan,
+            'count' => $count,
+            'koperasi' => $this->koperasiModel->getDataKoperasi($id),
+            'trayek' => $this->trayekModel->getTrayek($kdt),
+            'wilayah' => $this->asalTujuanModel->getWilayah(),
+        ];
+        return view('cetak/cetakKotaTolak', $data);
+    }
+    public function cetakKabTolak($slug, $id)
+    {
+        session();
+        $permohonan = $this->koperasiModel->getPermohonanPohuwato($slug, $id);
+        $kdt = $permohonan['trayek_dilayani'];
+        $count = $this->koperasiModel->getPermohonanPohuwato();
+
+        $data = [
+            'title' => 'Koperasi',
+            'session' => $this->user,
+            'permohonan' => $permohonan,
+            'count' => $count,
+            'koperasi' => $this->koperasiModel->getDataKoperasi($id),
+            'trayek' => $this->trayekModel->getTrayek($kdt),
+            'wilayah' => $this->asalTujuanModel->getWilayah(),
+        ];
+        return view('cetak/cetakKabTolak', $data);
+    }
+    public function cetakBoneBolTolak($slug, $id)
+    {
+        session();
+        $permohonan = $this->koperasiModel->getPermohonanPohuwato($slug, $id);
+        $kdt = $permohonan['trayek_dilayani'];
+        $count = $this->koperasiModel->getPermohonanPohuwato();
+
+        $data = [
+            'title' => 'Koperasi',
+            'session' => $this->user,
+            'permohonan' => $permohonan,
+            'count' => $count,
+            'koperasi' => $this->koperasiModel->getDataKoperasi($id),
+            'trayek' => $this->trayekModel->getTrayek($kdt),
+            'wilayah' => $this->asalTujuanModel->getWilayah(),
+        ];
+        return view('cetak/cetakBoneBolTolak', $data);
+    }
+    public function cetakGorutTolak($slug, $id)
+    {
+        session();
+        $permohonan = $this->koperasiModel->getPermohonanPohuwato($slug, $id);
+        $kdt = $permohonan['trayek_dilayani'];
+        $count = $this->koperasiModel->getPermohonanPohuwato();
+
+        $data = [
+            'title' => 'Koperasi',
+            'session' => $this->user,
+            'permohonan' => $permohonan,
+            'count' => $count,
+            'koperasi' => $this->koperasiModel->getDataKoperasi($id),
+            'trayek' => $this->trayekModel->getTrayek($kdt),
+            'wilayah' => $this->asalTujuanModel->getWilayah(),
+        ];
+        return view('cetak/cetakGorutTolak', $data);
+    }
+    public function cetakBoalemoTolak($slug, $id)
+    {
+        session();
+        $permohonan = $this->koperasiModel->getPermohonanPohuwato($slug, $id);
+        $kdt = $permohonan['trayek_dilayani'];
+        $count = $this->koperasiModel->getPermohonanPohuwato();
+
+        $data = [
+            'title' => 'Koperasi',
+            'session' => $this->user,
+            'permohonan' => $permohonan,
+            'count' => $count,
+            'koperasi' => $this->koperasiModel->getDataKoperasi($id),
+            'trayek' => $this->trayekModel->getTrayek($kdt),
+            'wilayah' => $this->asalTujuanModel->getWilayah(),
+        ];
+        return view('cetak/cetakBoalemoTolak', $data);
+    }
+    public function cetakPohuwatoTolak($slug, $id)
+    {
+        session();
+        $permohonan = $this->koperasiModel->getPermohonanPohuwato($slug, $id);
+        $kdt = $permohonan['trayek_dilayani'];
+        $count = $this->koperasiModel->getPermohonanPohuwato();
+
+        $data = [
+            'title' => 'Koperasi',
+            'session' => $this->user,
+            'permohonan' => $permohonan,
+            'count' => $count,
+            'koperasi' => $this->koperasiModel->getDataKoperasi($id),
+            'trayek' => $this->trayekModel->getTrayek($kdt),
+            'wilayah' => $this->asalTujuanModel->getWilayah(),
+        ];
+        return view('cetak/cetakPohuwatoTolak', $data);
+    }
+
+    public function uploadPenolakan($slug, $id)
+    {
+        session();
+
+        $permohonan = $this->koperasiModel->getPermohonanPohuwato($slug, $id);
+        $kdt = $permohonan['trayek_dilayani'];
+        $count = $this->koperasiModel->getPermohonanPohuwato();
+
+        $data = [
+            'title' => 'Koperasi',
+            'session' => $this->user,
+            'permohonan' => $permohonan,
+            'count' => $count,
+            'koperasi' => $this->koperasiModel->getDataKoperasi($id),
+            'trayek' => $this->trayekModel->getTrayek($kdt),
+            'wilayah' => $this->asalTujuanModel->getWilayah(),
+            'validation' => \Config\Services::validation(),
+        ];
+        return view('koperasi/uploadPenolakan', $data);
+    }
+
+    public function saveUploadPenolakan()
+    {
+        session();
+
+        $id = $this->request->getVar('id');
+        $slug = $this->request->getVar('slug');
+
+        if (!$this->validate([
+            'img_penolakan' => [
+                'rules' => 'uploaded[img_penolakan]|max_size[img_penolakan,1024]|is_image[img_penolakan]|mime_in[img_penolakan,image/jpg,image/jpeg,image/png]',
+                'errors' => [
+                    'uploaded' => 'Pilih gambar dokumen terlebih dahulu',
+                    'max_size' => 'Ukuran gambar terlalu besar (Maksimal 1Mb)',
+                    'is_image' => 'Ini bukan gambar',
+                    'mime_in' => 'Ini bukan gambar',
+                ],
+            ],
+        ])) {
+            return redirect()->to('/koperasi/uploadPenolakan/' . $slug . '/' . $id . '')->withInput();
+        }
+
+        if ($this->user['wilayah_id'] == 1) {
+            $check = $this->koperasiModel->getPermohonanKota($slug, $id);
+        } else if ($this->user['wilayah_id'] == 2) {
+            $check = $this->koperasiModel->getPermohonanKab($slug, $id);
+        } else if ($this->user['wilayah_id'] == 3) {
+            $check = $this->koperasiModel->getPermohonanBoneBol($slug, $id);
+        } else if ($this->user['wilayah_id'] == 4) {
+            $check = $this->koperasiModel->getPermohonanGorut($slug, $id);
+        } else if ($this->user['wilayah_id'] == 5) {
+            $check = $this->koperasiModel->getPermohonanBoalemo($slug, $id);
+        } else if ($this->user['wilayah_id'] == 6) {
+            $check = $this->koperasiModel->getPermohonanPohuwato($slug, $id);
+        }
+
+        if ($check) {
+            if ($check['asal'] == $this->user['wilayah_id']) {
+
+                $img_penolakan = $this->request->getFile('img_penolakan');
+
+                if ($img_penolakan->getError() == 4) {
+                    $nama_img_penolakan = "default.png";
+                } else {
+                    $nama_img_penolakan = $img_penolakan->getRandomName();
+                    $img_penolakan->move('img/img_penolakan', $nama_img_penolakan);
+                    if ($this->request->getVar('img_penolakan_lama')) {
+                        unlink('img/img_penolakan/' . $this->request->getVar('img_penolakan_asal_lama'));
+                    } else {
+                    }
+                }
+
+                $this->koperasiModel->save([
+                    'id' => $id,
+                    'img_penolakan_asal' => $nama_img_penolakan,
+                ]);
+                return redirect()->to('/koperasi/uploadPenolakan/' . $slug . '/' . $id . '');
+            } else if ($check['tujuan'] == $this->user['wilayah_id']) {
+
+                $img_penolakan = $this->request->getFile('img_penolakan');
+
+                if ($img_penolakan->getError() == 4) {
+                    $nama_img_penolakan = "default.png";
+                } else {
+                    $nama_img_penolakan = $img_penolakan->getRandomName();
+                    $img_penolakan->move('img/img_penolakan', $nama_img_penolakan);
+                    if ($this->request->getVar('img_penolakan_lama')) {
+                        unlink('img/img_penolakan/' . $this->request->getVar('img_penolakan_tujuan_lama'));
+                    } else {
+                    }
+                }
+
+                $this->koperasiModel->save([
+                    'id' => $id,
+                    'img_penolakan_tujuan' => $nama_img_penolakan,
+                ]);
+                return redirect()->to('/koperasi/uploadPenolakan/' . $slug . '/' . $id . '');
+            }
+        } else {
+        }
+    }
+
+    public function uploadRekomendasi($slug, $id)
+    {
+        session();
+
+        $permohonan = $this->koperasiModel->getPermohonanPohuwato($slug, $id);
+        $kdt = $permohonan['trayek_dilayani'];
+        $count = $this->koperasiModel->getPermohonanPohuwato();
+
+        $data = [
+            'title' => 'Koperasi',
+            'session' => $this->user,
+            'permohonan' => $permohonan,
+            'count' => $count,
+            'koperasi' => $this->koperasiModel->getDataKoperasi($id),
+            'trayek' => $this->trayekModel->getTrayek($kdt),
+            'wilayah' => $this->asalTujuanModel->getWilayah(),
+            'validation' => \Config\Services::validation(),
+        ];
+        return view('koperasi/uploadRekomendasi', $data);
+    }
+
+    public function saveUploadRekomendasi()
+    {
+        session();
+
+        $id = $this->request->getVar('id');
+        $slug = $this->request->getVar('slug');
+
+        if (!$this->validate([
+            'img_rekomendasi' => [
+                'rules' => 'uploaded[img_rekomendasi]|max_size[img_rekomendasi,1024]|is_image[img_rekomendasi]|mime_in[img_rekomendasi,image/jpg,image/jpeg,image/png]',
+                'errors' => [
+                    'uploaded' => 'Pilih gambar dokumen terlebih dahulu',
+                    'max_size' => 'Ukuran gambar terlalu besar (Maksimal 1Mb)',
+                    'is_image' => 'Ini bukan gambar',
+                    'mime_in' => 'Ini bukan gambar',
+                ],
+            ],
+        ])) {
+            return redirect()->to('/koperasi/uploadPenolakan/' . $slug . '/' . $id . '')->withInput();
+        }
+
+        if ($this->user['wilayah_id'] == 1) {
+            $check = $this->koperasiModel->getPermohonanKota($slug, $id);
+        } else if ($this->user['wilayah_id'] == 2) {
+            $check = $this->koperasiModel->getPermohonanKab($slug, $id);
+        } else if ($this->user['wilayah_id'] == 3) {
+            $check = $this->koperasiModel->getPermohonanBoneBol($slug, $id);
+        } else if ($this->user['wilayah_id'] == 4) {
+            $check = $this->koperasiModel->getPermohonanGorut($slug, $id);
+        } else if ($this->user['wilayah_id'] == 5) {
+            $check = $this->koperasiModel->getPermohonanBoalemo($slug, $id);
+        } else if ($this->user['wilayah_id'] == 6) {
+            $check = $this->koperasiModel->getPermohonanPohuwato($slug, $id);
+        }
+
+        if ($check) {
+            if ($check['asal'] == $this->user['wilayah_id']) {
+
+                $img_rekomendasi = $this->request->getFile('img_rekomendasi');
+
+                if ($img_rekomendasi->getError() == 4) {
+                    $nama_img_rekomendasi = "default.png";
+                } else {
+                    $nama_img_rekomendasi = $img_rekomendasi->getRandomName();
+                    $img_rekomendasi->move('img/img_rekomendasi', $nama_img_rekomendasi);
+                    if ($this->request->getVar('img_rekomendasi_lama')) {
+                        unlink('img/img_rekomendasi/' . $this->request->getVar('img_rekomendasi_asal_lama'));
+                    } else {
+                    }
+                }
+
+                $this->koperasiModel->save([
+                    'id' => $id,
+                    'img_rekomendasi_asal' => $nama_img_rekomendasi,
+                ]);
+                return redirect()->to('/koperasi/uploadrekomendasi/' . $slug . '/' . $id . '');
+            } else if ($check['tujuan'] == $this->user['wilayah_id']) {
+
+                $img_rekomendasi = $this->request->getFile('img_rekomendasi');
+
+                if ($img_rekomendasi->getError() == 4) {
+                    $nama_img_rekomendasi = "default.png";
+                } else {
+                    $nama_img_rekomendasi = $img_rekomendasi->getRandomName();
+                    $img_rekomendasi->move('img/img_rekomendasi', $nama_img_rekomendasi);
+                    if ($this->request->getVar('img_rekomendasi_lama')) {
+                        unlink('img/img_rekomendasi/' . $this->request->getVar('img_rekomendasi_tujuan_lama'));
+                    } else {
+                    }
+                }
+
+                $this->koperasiModel->save([
+                    'id' => $id,
+                    'img_rekomendasi_tujuan' => $nama_img_rekomendasi,
+                ]);
+                return redirect()->to('/koperasi/uploadrekomendasi/' . $slug . '/' . $id . '');
             }
         } else {
         }

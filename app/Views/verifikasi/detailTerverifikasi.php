@@ -21,7 +21,7 @@
                                 Nama Pemohon
                             </div>
                             <div class="col-sm-8">
-                                : <?= $detail['nama_pemohon'] ?>
+                                : <?= $detail['nama_perusahaan'] ?>
                             </div>
                         </div>
                         <div class="row">

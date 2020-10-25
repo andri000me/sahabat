@@ -1,6 +1,6 @@
 <?= $this->extend('layout/templatel') ?>
 <?= $this->section('content'); ?>
-<div class="container">
+<div class="container-fluid">
     <!-- <div class="judul pl-4 wow fadeInLeft"><i class="fa fa-file mr-2"></i> Data permohonan rekomendasi</div> -->
 
     <div class="row mb-5">
@@ -19,6 +19,8 @@
                             <thead class="cyan white-text">
                                 <tr>
                                     <td class="th-sm">Nama Pemohon
+                                    </td>
+                                    <td class="th-sm">Nama Pemilik
                                     </td>
                                     <td class="th-sm" style="width: 120px;">Nomor Kendaraan
                                     </td>
@@ -39,7 +41,8 @@
                                     }
                                     ?>
                                     <tr>
-                                        <td><?= $tr['nama_pemohon']; ?></td>
+                                        <td><?= $tr['nama_perusahaan']; ?></td>
+                                        <td><?= $tr['nama_pemilik']; ?></td>
                                         <td><?= $tr['nomor_kendaraan']; ?></td>
                                         <td><?= $status ?></td>
                                         <?php

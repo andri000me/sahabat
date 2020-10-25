@@ -20,17 +20,17 @@
                         <table id="dtMaterialDesignExample" class="table table-bordered table-striped" cellspacing="0" width="100%">
                             <thead class="primary-color-dark white-text">
                                 <tr>
-                                    <td class="th-sm">Nama Pemohon
+                                    <td class="th-sm">Trayek Yang Dilayani
                                     </td>
                                     <td class="th-sm" style="width: 120px;">Nama Pemilik
                                     </td>
                                     <td class="th-sm">Nomor Kendaraan
                                     </td>
-                                    <td class="th-sm">Status Asal
+                                    <td class="th-sm">Status Asal Trayek
                                     </td>
-                                    <td class="th-sm">Status Tujuan
+                                    <td class="th-sm">Status Tujuan Trayek
                                     </td>
-                                    <td class="th-sm" style="width:360px;">Action
+                                    <td class="th-sm" style="width:400px;">Cetak
                                     </td>
                                 </tr>
                             </thead>
@@ -44,54 +44,102 @@
                                     if ($p['status_asal'] == 1) {
                                         $status_asal = '<a href="" class="badge badge-danger">Ditolak</a>';
                                         if ($p['asal'] == 1) {
-                                            $action = '<a href="koperasi/cetakKabTolak" class="btn btn-sm btn-danger mr-1"><i class="fa fa-print mr-1"></i>Kab. Gorontalo</a>';
+                                            if ($p['img_penolakan_asal']) {
+                                                $action = '<a target="_blank" href="img/img_penolakan/' . $p['img_penolakan_asal'] . '" class="btn btn-sm btn-outline-danger mr-1"><i class="fa fa-print mr-1"></i>Kota Gorontalo</a>';
+                                            } else {
+                                                $action = "";
+                                            }
                                         }
 
                                         if ($p['asal'] == 2) {
-                                            $action = '<a href="koperasi/cetakKotaTolak" class="btn btn-sm btn-danger mr-1"><i class="fa fa-print mr-1"></i>Kota Gorontalo</a>';
+                                            if ($p['img_penolakan_asal']) {
+                                                $action = '<a target="_blank" href="img/img_penolakan/' . $p['img_penolakan_asal'] . '" class="btn btn-sm btn-outline-danger mr-1"><i class="fa fa-print mr-1"></i>Kab Gorontalo</a>';
+                                            } else {
+                                                $action = "";
+                                            }
                                         }
 
                                         if ($p['asal'] == 3) {
-                                            $action = '<a href="koperasi/cetakPohuwatoTolak" class="btn btn-sm btn-danger mr-1"><i class="fa fa-print mr-1"></i>Kab. Pohuwato</a>';
+                                            if ($p['img_penolakan_asal']) {
+                                                $action = '<a target="_blank" href="img/img_penolakan/' . $p['img_penolakan_asal'] . '" class="btn btn-sm btn-outline-danger mr-1"><i class="fa fa-print mr-1"></i>Kab. Bone Bolango</a>';
+                                            } else {
+                                                $action = "";
+                                            }
                                         }
 
                                         if ($p['asal'] == 4) {
-                                            $action = '<a href="koperasi/cetakBonbolTolak" class="btn btn-sm btn-danger mr-1"><i class="fa fa-print mr-1"></i>Kab. Bone Bolango</a>';
+                                            if ($p['img_penolakan_asal']) {
+                                                $action = '<a target="_blank" href="img/img_penolakan/' . $p['img_penolakan_asal'] . '" class="btn btn-sm btn-outline-danger mr-1"><i class="fa fa-print mr-1"></i>Kab. Gorut</a>';
+                                            } else {
+                                                $action = "";
+                                            }
                                         }
 
                                         if ($p['asal'] == 5) {
-                                            $action = '<a href="koperasi/cetakBoalemoTolak" class="btn btn-sm btn-danger mr-1"><i class="fa fa-print mr-1"></i>Kab. Boalemo</a>';
+                                            if ($p['img_penolakan_asal']) {
+                                                $action = '<a target="_blank" href="img/img_penolakan/' . $p['img_penolakan_asal'] . '" class="btn btn-sm btn-outline-danger mr-1"><i class="fa fa-print mr-1"></i>Kab. Boalemo</a>';
+                                            } else {
+                                                $action = "";
+                                            }
                                         }
 
                                         if ($p['asal'] == 6) {
-                                            $action = '<a href="koperasi/cetakGorutTolak" class="btn btn-sm btn-danger mr-1"><i class="fa fa-print mr-1"></i>Kab. Gorut</a>';
+                                            if ($p['img_penolakan_asal']) {
+                                                $action = '<a target="_blank" href="img/img_penolakan/' . $p['img_penolakan_asal'] . '" class="btn btn-sm btn-outline-danger mr-1"><i class="fa fa-print mr-1"></i>Kab. Pohuwato</a>';
+                                            } else {
+                                                $action = "";
+                                            }
                                         }
                                     }
                                     if ($p['status_asal'] == 2) {
                                         $status_asal = '<a href="" class="badge badge-success">Diterima</a>';
 
                                         if ($p['asal'] == 1) {
-                                            $action = '<a href="koperasi/cetakKab" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Kab. Gorontalo</a>';
+                                            if ($p['img_rekomendasi_asal']) {
+                                                $action = '<a target="_blank" href="img/img_rekomendasi/' . $p['img_rekomendasi_asal'] . '" class="btn btn-sm btn-outline-success mr-1"><i class="fa fa-print mr-1"></i>Kota Gorontalo</a>';
+                                            } else {
+                                                $action = "";
+                                            }
                                         }
 
                                         if ($p['asal'] == 2) {
-                                            $action = '<a href="koperasi/cetakKota" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Kota Gorontalo</a>';
+                                            if ($p['img_rekomendasi_asal']) {
+                                                $action = '<a target="_blank" href="img/img_rekomendasi/' . $p['img_rekomendasi_asal'] . '" class="btn btn-sm btn-outline-success mr-1"><i class="fa fa-print mr-1"></i>Kab Gorontalo</a>';
+                                            } else {
+                                                $action = "";
+                                            }
                                         }
 
                                         if ($p['asal'] == 3) {
-                                            $action = '<a href="koperasi/cetakPohuwato" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Kab. Pohuwato</a>';
+                                            if ($p['img_rekomendasi_asal']) {
+                                                $action = '<a target="_blank" href="img/img_rekomendasi/' . $p['img_rekomendasi_asal'] . '" class="btn btn-sm btn-outline-success mr-1"><i class="fa fa-print mr-1"></i>Kab. Bone Bolango</a>';
+                                            } else {
+                                                $action = "";
+                                            }
                                         }
 
                                         if ($p['asal'] == 4) {
-                                            $action = '<a href="koperasi/cetakBonbol" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Kab. Bone Bolango</a>';
+                                            if ($p['img_rekomendasi_asal']) {
+                                                $action = '<a target="_blank" href="img/img_rekomendasi/' . $p['img_rekomendasi_asal'] . '" class="btn btn-sm btn-outline-success mr-1"><i class="fa fa-print mr-1"></i>Kab. Gorut</a>';
+                                            } else {
+                                                $action = "";
+                                            }
                                         }
 
                                         if ($p['asal'] == 5) {
-                                            $action = '<a href="koperasi/cetakBoalemo" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Kab. Boalemo</a>';
+                                            if ($p['img_rekomendasi_asal']) {
+                                                $action = '<a target="_blank" href="img/img_rekomendasi/' . $p['img_rekomendasi_asal'] . '" class="btn btn-sm btn-outline-success mr-1"><i class="fa fa-print mr-1"></i>Kab. Boalemo</a>';
+                                            } else {
+                                                $action = "";
+                                            }
                                         }
 
                                         if ($p['asal'] == 6) {
-                                            $action = '<a href="koperasi/cetakGorut" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Kab. Gorut</a>';
+                                            if ($p['img_rekomendasi_asal']) {
+                                                $action = '<a target="_blank" href="img/img_rekomendasi/' . $p['img_rekomendasi_asal'] . '" class="btn btn-sm btn-outline-success mr-1"><i class="fa fa-print mr-1"></i>Kab. Pohuwato</a>';
+                                            } else {
+                                                $action = "";
+                                            }
                                         }
                                     }
                                     if ($p['status_asal'] == 3) {
@@ -104,55 +152,103 @@
                                         $action2 = '';
                                     }
                                     if ($p['status_tujuan'] == 1) {
-                                        $status = '<a href="" class="badge badge-danger">Ditolak</a>';
+                                        $status_tujuan = '<a href="" class="badge badge-danger">Ditolak</a>';
                                         if ($p['tujuan'] == 1) {
-                                            $action2 = '<a href="koperasi/cetakKabTolak" class="btn btn-sm btn-danger"><i class="fa fa-print mr-1"></i>Kab. Gorontalo</a>';
+                                            if ($p['img_penolakan_tujuan']) {
+                                                $action2 = '<a target="_blank" href="img/img_penolakan/' . $p['img_penolakan_tujuan'] . '" class="btn btn-sm btn-outline-danger"><i class="fa fa-print mr-1"></i>Kota Gorontalo</a>';
+                                            } else {
+                                                $action2 = "";
+                                            }
                                         }
 
                                         if ($p['tujuan'] == 2) {
-                                            $action2 = '<a href="koperasi/cetakKotaTolak" class="btn btn-sm btn-danger"><i class="fa fa-print mr-1"></i>Kota Gorontalo</a>';
+                                            if ($p['img_penolakan_tujuan']) {
+                                                $action2 = '<a target="_blank" href="img/img_penolakan/' . $p['img_penolakan_tujuan'] . '" class="btn btn-sm btn-outline-danger"><i class="fa fa-print mr-1"></i>Kab Gorontalo</a>';
+                                            } else {
+                                                $action2 = "";
+                                            }
                                         }
 
                                         if ($p['tujuan'] == 3) {
-                                            $action2 = '<a href="koperasi/cetakPohuwatoTolak" class="btn btn-sm btn-danger"><i class="fa fa-print mr-1"></i>Kab. Pohuwato</a>';
+                                            if ($p['img_penolakan_tujuan']) {
+                                                $action2 = '<a target="_blank" href="img/img_penolakan/' . $p['img_penolakan_tujuan'] . '" class="btn btn-sm btn-outline-danger"><i class="fa fa-print mr-1"></i>Kab. Bone Bolango</a>';
+                                            } else {
+                                                $action2 = "";
+                                            }
                                         }
 
                                         if ($p['tujuan'] == 4) {
-                                            $action2 = '<a href="koperasi/cetakBonbolTolak" class="btn btn-sm btn-danger"><i class="fa fa-print mr-1"></i>Kab. Bone Bolango</a>';
+                                            if ($p['img_penolakan_tujuan']) {
+                                                $action2 = '<a target="_blank" href="img/img_penolakan/' . $p['img_penolakan_tujuan'] . '" class="btn btn-sm btn-outline-danger"><i class="fa fa-print mr-1"></i>Kab. Gorut</a>';
+                                            } else {
+                                                $action2 = "";
+                                            }
                                         }
 
                                         if ($p['tujuan'] == 5) {
-                                            $action2 = '<a href="koperasi/cetakBoalemoTolak" class="btn btn-sm btn-danger"><i class="fa fa-print mr-1"></i>Kab. Boalemo</a>';
+                                            if ($p['img_penolakan_tujuan']) {
+                                                $action2 = '<a target="_blank" href="img/img_penolakan/' . $p['img_penolakan_tujuan'] . '" class="btn btn-sm btn-outline-danger"><i class="fa fa-print mr-1"></i>Kab. Boalemo</a>';
+                                            } else {
+                                                $action2 = "";
+                                            }
                                         }
 
                                         if ($p['tujuan'] == 6) {
-                                            $action2 = '<a href="koperasi/cetakGorutTolak" class="btn btn-sm btn-danger"><i class="fa fa-print mr-1"></i>Kab. Gorut</a>';
+                                            if ($p['img_penolakan_tujuan']) {
+                                                $action2 = '<a href="koperasi/cetakGorutTolak" class="btn btn-sm btn-outline-danger"><i class="fa fa-print mr-1"></i>Kab. Pohuwato</a>';
+                                            } else {
+                                                $action2 = "";
+                                            }
                                         }
                                     }
                                     if ($p['status_tujuan'] == 2) {
                                         $status_tujuan = '<a href="" class="badge badge-success">Diterima</a>';
                                         if ($p['tujuan'] == 1) {
-                                            $action2 = '<a href="koperasi/cetakKab" class="btn btn-sm btn-success"><i class="fa fa-print mr-1"></i>Kab. Gorontalo</a>';
+                                            if ($p['img_rekomendasi_tujuan']) {
+                                                $action2 = '<a target="_blank" href="img/img_rekomendasi/' . $p['img_rekomendasi_tujuan'] . '" class="btn btn-sm btn-outline-success"><i class="fa fa-print mr-1"></i>Kota Gorontalo</a>';
+                                            } else {
+                                                $action2 = "";
+                                            }
                                         }
 
                                         if ($p['tujuan'] == 2) {
-                                            $action2 = '<a href="koperasi/cetakKota" class="btn btn-sm btn-success"><i class="fa fa-print mr-1"></i>Kota Gorontalo</a>';
+                                            if ($p['img_rekomendasi_tujuan']) {
+                                                $action2 = '<a target="_blank" href="img/img_rekomendasi/' . $p['img_rekomendasi_tujuan'] . '" class="btn btn-sm btn-outline-success"><i class="fa fa-print mr-1"></i>Kab Gorontalo</a>';
+                                            } else {
+                                                $action2 = "";
+                                            }
                                         }
 
                                         if ($p['tujuan'] == 3) {
-                                            $action2 = '<a href="koperasi/cetakPohuwato" class="btn btn-sm btn-success"><i class="fa fa-print mr-1"></i>Kab. Pohuwato</a>';
+                                            if ($p['img_rekomendasi_tujuan']) {
+                                                $action2 = '<a target="_blank" href="img/img_rekomendasi/' . $p['img_rekomendasi_tujuan'] . '" class="btn btn-sm btn-outline-success"><i class="fa fa-print mr-1"></i>Kab. Bone Bolango</a>';
+                                            } else {
+                                                $action2 = "";
+                                            }
                                         }
 
                                         if ($p['tujuan'] == 4) {
-                                            $action2 = '<a href="koperasi/cetakBonbol" class="btn btn-sm btn-success"><i class="fa fa-print mr-1"></i>Kab. Bone Bolango</a>';
+                                            if ($p['img_rekomendasi_tujuan']) {
+                                                $action2 = '<a target="_blank" href="img/img_rekomendasi/' . $p['img_rekomendasi_tujuan'] . '" class="btn btn-sm btn-outline-success"><i class="fa fa-print mr-1"></i>Kab. Gorut</a>';
+                                            } else {
+                                                $action2 = "";
+                                            }
                                         }
 
                                         if ($p['tujuan'] == 5) {
-                                            $action2 = '<a href="koperasi/cetakBoalemo" class="btn btn-sm btn-success"><i class="fa fa-print mr-1"></i>Kab. Boalemo</a>';
+                                            if ($p['img_rekomendasi_tujuan']) {
+                                                $action2 = '<a target="_blank" href="img/img_rekomendasi/' . $p['img_rekomendasi_tujuan'] . '" class="btn btn-sm btn-outline-success"><i class="fa fa-print mr-1"></i>Kab. Boalemo</a>';
+                                            } else {
+                                                $action2 = "";
+                                            }
                                         }
 
                                         if ($p['tujuan'] == 6) {
-                                            $action2 = '<a href="koperasi/cetakGorut" class="btn btn-sm btn-success"><i class="fa fa-print mr-1"></i>Kab. Gorut</a>';
+                                            if ($p['img_rekomendasi_tujuan']) {
+                                                $action2 = '<a target="_blank" href="img/img_rekomendasi/' . $p['img_rekomendasi_tujuan'] . '" class="btn btn-sm btn-outline-success"><i class="fa fa-print mr-1"></i>Kab. Pohuwato  </a>';
+                                            } else {
+                                                $action2 = "";
+                                            }
                                         }
                                     }
                                     if ($p['status_tujuan'] == 3) {
@@ -163,7 +259,45 @@
                                     ?>
                                     <tr>
                                         <td>
-                                            <a id="btnModalDetail" class="text-primary" data-toggle="modal" data-target="#modalDetail" data-nama="<?= $p['nama_pemilik'] ?>" data-trayek="<?= $p['trayek'] ?>" data-nomor="<?= $p['nomor_kendaraan'] ?>" data-kir="<?= $p['nomor_kir'] ?>" data-tahun="<?= $p['tahun_pembuatan'] ?>" data-merk="<?= $p['merk'] ?>" data-chasis="<?= $p['nomor_chasis'] ?>" data-mesin="<?= $p['nomor_mesin'] ?>" data-pkb="<?= $p['nomor_regis_pkb'] ?>" data-kir="<?= $p['img_kir'] ?>" data-surat="<?= $p['img_surat_permohonan_koperasi'] ?>" data-ktp="<?= $p['img_ktp_pemilik'] ?>" data-stnkb="<?= $p['img_stnkb'] ?>" data-jasa="<?= $p['img_jasa_raharja'] ?>" data-imgkir="<?= $p['img_kir'] ?>"><?= $p['trayek'] ?></a>
+                                            <?php
+                                            if ($p['asal'] == 1) {
+                                                $asal = "Kota Gorontalo";
+                                            }
+                                            if ($p['asal'] == 2) {
+                                                $asal = "Kab Gorontalo";
+                                            }
+                                            if ($p['asal'] == 3) {
+                                                $asal = "Kab Bone Bolango";
+                                            }
+                                            if ($p['asal'] == 4) {
+                                                $asal = "Kab Gorontalo Utara";
+                                            }
+                                            if ($p['asal'] == 5) {
+                                                $asal = "Kab Boalemo";
+                                            }
+                                            if ($p['asal'] == 6) {
+                                                $asal = "Kab Pohuwato";
+                                            }
+                                            if ($p['tujuan'] == 1) {
+                                                $tujuan = "Kota Gorontalo";
+                                            }
+                                            if ($p['tujuan'] == 2) {
+                                                $tujuan = "Kab Gorontalo";
+                                            }
+                                            if ($p['tujuan'] == 3) {
+                                                $tujuan = "Kab Bone Bolango";
+                                            }
+                                            if ($p['tujuan'] == 4) {
+                                                $tujuan = "Kab Gorontalo Utara";
+                                            }
+                                            if ($p['tujuan'] == 5) {
+                                                $tujuan = "Kab Boalemo";
+                                            }
+                                            if ($p['tujuan'] == 6) {
+                                                $tujuan = "Kab Pohuwato";
+                                            }
+                                            ?>
+                                            <a id="btnModalDetail" class="text-primary" data-toggle="modal" data-target="#modalDetail" data-asal="<?= $asal ?>" data-tujuan="<?= $tujuan ?>" data-nama="<?= $p['nama_pemilik'] ?>" data-trayek="<?= $p['trayek'] ?>" data-nomor="<?= $p['nomor_kendaraan'] ?>" data-kir="<?= $p['nomor_kir'] ?>" data-tahun="<?= $p['tahun_pembuatan'] ?>" data-merk="<?= $p['merk'] ?>" data-chasis="<?= $p['nomor_chasis'] ?>" data-mesin="<?= $p['nomor_mesin'] ?>" data-pkb="<?= $p['nomor_regis_pkb'] ?>" data-kir="<?= $p['img_kir'] ?>" data-surat="<?= $p['img_surat_permohonan_koperasi'] ?>" data-ktp="<?= $p['img_ktp_pemilik'] ?>" data-stnkb="<?= $p['img_stnkb'] ?>" data-jasa="<?= $p['img_jasa_raharja'] ?>" data-imgkir="<?= $p['img_kir'] ?>"><?= $p['trayek'] ?></a>
                                         </td>
                                         <td><?= $p['nama_pemilik'] ?></td>
                                         <td><?= $p['nomor_kendaraan'] ?></td>
@@ -179,12 +313,12 @@
                         <div class="cards px-4 py-4">
                             <small class="text-danger font-weight-bold">PEHATIAN !</small>
                             <div class="row">
-                                <a href="#" class="btn btn-sm btn-danger"><i class="fa fa-print"></i> Tombol Cetak</a>
+                                <a href="#" class="btn btn-sm btn-outline-danger"><i class="fa fa-print"></i> Tombol Cetak</a>
                                 <small class="mt-2 ml-3 mr-1">Apabila status tombol cetak berwarna merah, </small>
                                 <small class="mt-2">maka yang akan keluar adalah Surat Penolakan</small>
                             </div>
                             <div class="row">
-                                <a href="#" class="btn btn-sm btn-success"><i class="fa fa-print"></i> Tombol Cetak</a>
+                                <a href="#" class="btn btn-sm btn-outline-success"><i class="fa fa-print"></i> Tombol Cetak</a>
                                 <small class="mt-2 ml-3 mr-2">Apabila status tombol cetak berwarna hijau, </small>
                                 <small class="mt-2"> maka yang akan keluar adalah Surat Rekomendasi</small>
                             </div>
@@ -214,6 +348,14 @@
                     <tr>
                         <td style="border:0;">Trayek yang dilayani</td>
                         <td><textarea style="overflow:hidden; padding:0; border:0; font-size: 14px;" rows="3" class="form-control text-dark" id="trayek"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 14px;">Asal Trayek</td>
+                        <td><input style="border: 0;" id="asal"></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 14px;">Tujuan Trayek</td>
+                        <td><input style="border: 0;" id="tujuan"></td>
                     </tr>
                     <tr>
                         <td style="font-size: 14px;">Nama Pemilik</td>
@@ -275,7 +417,7 @@
                 </table>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-outline-danger btn-sm" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>

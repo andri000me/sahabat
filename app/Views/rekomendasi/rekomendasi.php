@@ -72,7 +72,7 @@
                                         $href2 = 'data-toggle="modal" data-target="#centralModalDanger2"';
                                         $href = 'data-toggle="modal" data-target="#centralModalDanger2"';
                                         $st = '<span class="badge badge-danger"><i class="fas fa-stopwatch"></i> Data Belum Lengkap !</span>';
-                                        $h = '<a href="/rekomendasi/step11/' . $tr['kode_booking'] . '" type="btn" class="ml-auto btn btn-sm btn-rounded btn-danger animated rotateIn"><i class="fa fa-ban"></i> Batalkan Pengajuan</a>
+                                        $h = '<a onClick="javascript: return confirm(\'Hapus Pengajuan Permohonan ?\');" href="/rekomendasi/hapusPengajuan/' . $tr['id'] . '" type="btn" class="ml-auto btn btn-sm btn-rounded btn-danger animated rotateIn"><i class="fa fa-ban"></i> Batalkan Pengajuan</a>
                                         <a href="/rekomendasi/step11/' . $tr['kode_booking'] . '" type="btn" class="ml-auto btn btn-sm btn-rounded btn-secondary animated rotateIn"><i class="fa fa-eye"></i> Lengkapi</a>';
                                     }
                                     ?>

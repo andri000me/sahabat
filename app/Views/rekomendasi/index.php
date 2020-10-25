@@ -1,7 +1,7 @@
 <?= $this->extend('layout/templatel') ?>
 <?= $this->section('content'); ?>
 <!-- Jumbotron -->
-<div class="container mt-5">
+<div class="container-fluid mt-5">
     <div class="jumbotron text-center" style="margin-bottom:500px;">
 
         <!-- Title -->

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 25, 2020 at 02:21 AM
+-- Generation Time: Oct 25, 2020 at 01:18 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -65,7 +65,8 @@ INSERT INTO `msg_penolakan` (`id`, `kode_booking`, `msg`, `created_at`, `updated
 (1, '68728071114', 'Data KIR Di isi sesuai dengan dokumen !', NULL, NULL),
 (2, '68728071114', 'File dokumen surat permohonan yang anda upload tidak sesuai', NULL, NULL),
 (4, '68728071111', 'Ditolak men', '2020-10-18 09:18:47', '2020-10-18 09:18:47'),
-(5, '68728071112', 'STNK tidak sesuai', '2020-10-20 22:24:41', '2020-10-20 22:24:41');
+(5, '68728071112', 'STNK tidak sesuai', '2020-10-20 22:24:41', '2020-10-20 22:24:41'),
+(6, '68728071111', 'asdasd', '2020-10-25 03:34:50', '2020-10-25 03:34:50');
 
 -- --------------------------------------------------------
 
@@ -141,7 +142,7 @@ CREATE TABLE `permohonan` (
 --
 
 INSERT INTO `permohonan` (`id`, `user_id`, `verificator_id`, `approver_id`, `slug`, `kode_booking`, `status`, `status_verifikasi`, `tgl_permohonan`, `nama_pemohon`, `alamat_pemohon`, `jenis_permohonan`, `trayek_dilayani`, `nomor_kendaraan`, `nama_pemilik`, `alamat_pemilik`, `jenis_kendaraan`, `tahun_pembuatan`, `nomor_kir`, `kapasitas_angkutan`, `uji_berkala_berlaku`, `stnkb_berlaku`, `pkb_berlaku`, `jasa_raharja_berlaku`, `img_surat_permohonan`, `img_akte_perusahaan`, `img_tdp`, `img_siup`, `img_npwp`, `img_ktp`, `img_trayek`, `img_stnkb_pkb`, `img_kir`, `img_jasa_raharja`, `img_surat_pernyataan`, `img_pengantar_ptsp`, `tgl_approve`, `masa_berlaku`, `created_at`, `updated_at`) VALUES
-(1, '', '', '', 'ksu-tetap-setia-bhayangkara', '68728071111', '1', 0, '2020-10-16', 'KSU TETAP SETIA BHAYANGKARA', 'Desa Toto Selatan, Kec. Kabila, Kab. Bone Bolango', 'JP1233414', 'AA-01', 'DM1832EB', 'MUCHTAR SALEH', 'Desa Tinelo, Kec. Suwawa, Kab. Bone Bolango', 'Minibus / Mikrolet', '2015', 'DB. 051.001466', '09 orang  +  90 Kg  Barang', '2020-10-16', '2020-10-16', '2020-10-16', '2020-10-16', '1602803293_89e47d131b67d35edb71.jpg', '1602802844_e21face13c6c222ddddd.jpg', '1602802849_22d116bf5b2132e28188.jpg', '1602802854_82bbb80f696d97ad4d70.jpg', '1602802858_df3893e71069132fc94c.jpg', '1602802861_95579e69d751940e53a6.jpg', '1602803304_bfdfa4e5c0ba485d76fd.jpg', '1602803311_ba5e1d9a0793c19a313d.jpg', '1602803315_5592c1264e0bcd972832.jpg', '1602802872_ac52076602ace53af38d.jpg', '1602802865_0052a6e0f5da01f7f266.jpg', '0', '', '2020-10-06', '2020-10-11 22:37:46', '2020-10-20 19:39:12');
+(56, '', '', '', '6', '68728071111', '1', 1, '2020-10-25', '6', '', 'JP1233414', 'AA-01', 'DM 1832 DB', 'Ajis Nihali', 'Gorontalo', 'Minibus ', '2014', 'DB.041.001.427', '1 Orang +1 Kg Barang', '2020-10-25', '2020-10-25', '2020-10-25', '2020-10-25', '1603624096_83fee67bbefdac71ba85.jpg', '', '', '', '', '', '1603624110_9aea838aba64aade2cd8.jpg', '1603624145_3a65037672033c2479ca.jpg', '1603624158_1ada5a92c9941a704ccf.jpg', '1603624165_ee156a3e29cbf830bae8.jpg', '1603624169_c2b6544db5f69b164ca0.jpg', '1603624096_f71c121f0535183a6a25.jpg', '', '2020-10-25', '2020-10-25 05:53:21', '2020-10-25 06:45:40');
 
 -- --------------------------------------------------------
 
@@ -174,21 +175,13 @@ CREATE TABLE `permohonan_kabkota` (
   `img_stnkb` varchar(512) NOT NULL,
   `img_jasa_raharja` varchar(512) NOT NULL,
   `img_kir` varchar(512) NOT NULL,
+  `img_penolakan_asal` text NOT NULL,
+  `img_rekomendasi_asal` text NOT NULL,
+  `img_penolakan_tujuan` text NOT NULL,
+  `img_rekomendasi_tujuan` text NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `permohonan_kabkota`
---
-
-INSERT INTO `permohonan_kabkota` (`id`, `slug`, `koperasi_id`, `kabkota_id`, `status_asal`, `status_tujuan`, `trayek_dilayani`, `asal`, `tujuan`, `nomor_kendaraan`, `nama_pemilik`, `alamat_pemilik`, `jenis_kendaraan`, `nomor_kir`, `merk`, `tahun_pembuatan`, `nomor_chasis`, `nomor_mesin`, `nomor_regis_pkb`, `img_surat_permohonan_koperasi`, `img_ktp_pemilik`, `img_stnkb`, `img_jasa_raharja`, `img_kir`, `created_at`, `updated_at`) VALUES
-(3, 'ajis-nihali', '6', '0', '0', '0', 'AB-13\r\n', '2', '3', 'DM 1832 DB', 'Ajis Nihali', 'tau', 'Minibus ', 'DB.041.001.427', 'Mitsubishi/Colt120ss', '2014', 'MHMU5WY2EEK003133 ', 'AG15-K40363 ', 'DB.041.001.427', '1603411805_151fcf13c5388f55fb09.jpg', '1603411805_81f8c346bfe26a3df553.jpg', '1603411805_55060e8ecec7a8dd9629.jpg', '1603411805_c3eabb1482be9d5cd559.jpg', '1603411805_490bce25e6e366279ec6.jpg', '2020-10-22 19:10:05', '2020-10-22 19:10:05'),
-(6, 'abdul-musakir-radjak', '6', '', '2', '0', 'AA-01', '1', '2', 'DM1832EB', 'Abdul Musakir Radjak', 'batudaa', 'Minibus ', 'DB.041.001.427', 'Mitsubishi/Colt120ss', '2014', 'MHMU5WY2EEK003133 ', 'AG15-K40363 ', 'AB. ASK13123', '1603417263_36d23608fe3b0ca224df.jpg', '1603417263_3e55cea2e15efb5c3920.jpg', '1603417263_e4e4154a1806ba024e29.jpg', '1603417263_3d4797fd24d4e15c8390.jpg', '1603417263_0151548f698f3436dcd3.jpg', '2020-10-22 20:41:03', '2020-10-24 11:57:49'),
-(7, 'abdul-musakir-radjak', '6', '', '0', '0', 'AA-02\r\n', '2', '0', 'DM1832EBa', 'Abdul Musakir Radjak', 'batudaa', 'aaasd', 'AB. ASK13123', 'Mitsubishi/Colt120ss', '2015', 'MHMU5WY2EEK003133 ', 'AG15-K40363 ', 'DB.041.001.427', '1603417559_5a7655d5875c1dec2c1f.jpg', '1603417559_c928db8b50eed94db239.jpg', '1603417559_2f332d1a0ff7386e86f8.jpg', '1603417559_8039f2bc40a17a621bc2.jpg', '1603417559_1a02313182cbe5ff6315.jpg', '2020-10-22 20:45:59', '2020-10-22 20:45:59'),
-(8, 'pelniyanti-umar', '6', '', '2', '0', 'AB-05', '1', '1', 'DM1832EB', 'Pelniyanti Umar', 'batudaa', 'aaasd', 'DB.041.001.427', 'Mitsubishi/Colt120ss', '2014', 'MHMU5WY2EEK003133 ', 'AG15-K40363 ', 'DB.041.001.427', '1603461192_63d5058f5ddbd8a3becc.jpg', '1603461192_ae33c5b95a6ed031a488.jpg', '1603461192_69b8f23b4c51448597ff.jpg', '1603461192_b27d89d3d7f2262e7f44.jpg', '1603461192_97a3940f42f962a1a60e.jpg', '2020-10-23 08:53:12', '2020-10-23 08:53:12'),
-(9, 'jack', '6', '', '2', '0', 'AB-07\r\n', '1', '5', 'Jack', 'Jack', 'Jack', 'Jack', 'Jack', 'Jack', 'Jack', 'Jack', 'Jack', 'Jack', '1603552836_485f357b6c85469b4a3c.jpeg', '1603552836_4089cb101c1ff718d483.jpeg', '1603552836_bd9ebe43c42e06ff4641.jpeg', '1603552836_796bc0ae5cc2ff5e74d2.jpeg', '1603552836_37da93099291634292ad.jpeg', '2020-10-24 10:20:36', '2020-10-24 12:11:18'),
-(10, 'abdul-musakir-radjak-pelniyanti-umar-nggio', '6', '', '1', '0', 'AA-02\r\n', '1', '6', '$href ', 'abdul musakir radjak pelniyanti Umar nggio', '$href ', '$href ', '$href ', '$href ', '$href ', '$href ', '$href ', '$href ', '1603553234_dbb7ab3e3d79999f2bc1.jpeg', '1603553234_2820630df26795c9460e.jpeg', '1603553234_13d03bae0433f6085c59.jpeg', '1603553234_d6ad07a887df67ca80c7.jpeg', '1603553234_7f67b4a15db3b4c6cc5d.jpeg', '2020-10-24 10:27:14', '2020-10-24 12:06:39');
 
 -- --------------------------------------------------------
 
@@ -212,38 +205,38 @@ CREATE TABLE `trayek` (
 
 INSERT INTO `trayek` (`id`, `kode_trayek`, `trayek`, `kuota`, `terisi`, `created_at`, `updated_at`) VALUES
 (1, 'AA-01', 'Terminal Pusat Kota Gorontalo - Iluta - Batudaa - Terminal Bongomeme, PP\r\n', 34, 48, NULL, NULL),
-(2, 'AA-02\r\n', 'Terminal Dungingi Kota Gorontalo – Terminal Tilamuta, PPTerminal Pusat Kota Gorontalo - Tml. Telaga - Tml. Limboto, PP\r\n', 19, 22, NULL, NULL),
-(7, 'AA-03\r\n', 'Terminal Pusat Kota Gorontalo - Bongo - Kayubulan, PP\r\n', 14, 1, NULL, NULL),
+(2, 'AA-02', 'Terminal Dungingi Kota Gorontalo – Terminal Tilamuta, PPTerminal Pusat Kota Gorontalo - Tml. Telaga - Tml. Limboto, PP\r\n', 19, 22, NULL, NULL),
+(7, 'AA-03', 'Terminal Pusat Kota Gorontalo - Bongo - Kayubulan, PP\r\n', 14, 1, NULL, NULL),
 (8, 'AA-04', 'Terminal Pusat Kota Gorontalo - Kabila - Suwawa, PP\r\n', 13, 1, NULL, NULL),
-(9, 'AA-05\r\n', 'Terminal Pusat Kota Gorontalo - Botupingge - Timbuolo - Bondawuna, PP\r\n', 8, 1, NULL, NULL),
-(10, 'AA-06\r\n', 'Terminal Pusat Kota Gorontalo - Tml. Tapa - Tupa, PP\r\n', 24, 1, NULL, NULL),
-(11, 'AB-01\r\n', 'Terminal Dungingi Kota Gorontalo - Tml. Isimu - Tml. Molingkapoto - Pel. Kwandang, PP\r\n', 48, 1, NULL, NULL),
-(12, 'AB-02\r\n', 'Terminal Dungingi Kota Gorontalo - Tml. Isimu - Tml. Paguyaman - Tml. Tilamuta, PP\r\n', 45, 1, NULL, NULL),
-(13, 'AB-03\r\n', 'Terminal Dungingi Kota Gorontalo - Tml. Isimu - Kwandang - Tml. Atinggola, PP\r\n', 42, 1, NULL, NULL),
-(14, 'AB-04\r\n', 'Terminal Dungingi Kota Gorontalo - Tml. Isimu - Tml. Paguyaman, PP\r\n', 35, 1, NULL, NULL),
+(9, 'AA-05', 'Terminal Pusat Kota Gorontalo - Botupingge - Timbuolo - Bondawuna, PP\r\n', 8, 1, NULL, NULL),
+(10, 'AA-06', 'Terminal Pusat Kota Gorontalo - Tml. Tapa - Tupa, PP\r\n', 24, 1, NULL, NULL),
+(11, 'AB-01', 'Terminal Dungingi Kota Gorontalo - Tml. Isimu - Tml. Molingkapoto - Pel. Kwandang, PP\r\n', 48, 1, NULL, NULL),
+(12, 'AB-02', 'Terminal Dungingi Kota Gorontalo - Tml. Isimu - Tml. Paguyaman - Tml. Tilamuta, PP\r\n', 45, 1, NULL, NULL),
+(13, 'AB-03', 'Terminal Dungingi Kota Gorontalo - Tml. Isimu - Kwandang - Tml. Atinggola, PP\r\n', 42, 1, NULL, NULL),
+(14, 'AB-04', 'Terminal Dungingi Kota Gorontalo - Tml. Isimu - Tml. Paguyaman, PP\r\n', 35, 1, NULL, NULL),
 (15, 'AB-05', 'Terminal Dungingi Kota Gorontalo - Tml. Telaga - Tml. Isimu, PP\r\n', 25, 1, NULL, NULL),
-(16, 'AB-06\r\n', 'Terminal Dungingi Kota Gorontalo - Tml. Isimu - Tml. Paguyaman - Tml. Tilamuta - Paguat - Tml. Marisa, PP\r\n', 20, 1, NULL, NULL),
-(17, 'AB-07\r\n', 'Terminal Dungingi Kota Gorontalo - Tml. Isimu - Tml. Molingkapoto - Monano - Sumalata, PP\r\n', 19, 1, NULL, NULL),
-(18, 'AB-08\r\n', 'Terminal Dungingi Kota Gorontalo - Tml. Isimu - Tml. Molingkapoto - Sumalata - Tolinggula, PP\r\n', 11, 1, NULL, NULL),
-(19, 'AB-09\r\n', 'Terminal Dungingi Kota Gorontalo - Tml. Isimu - Lakeya, PP\r\n', 13, 1, NULL, NULL),
-(20, 'AB-10\r\n', 'Terminal Dungingi Kota Gorontalo - Tml. Isimu - Tml. Paguyaman - Bubaa, PP\r\n', 8, 1, NULL, NULL),
-(21, 'AB-11\r\n', 'Terminal Dungingi Kota Gorontalo - Tml. Isimu - Tml. Paguyaman - Tml. Tilamuta - Paguat - Tml. Marisa - Tml. Randangan - Tml. Lemito, PP\r\n', 21, 1, NULL, NULL),
-(22, 'AB-12\r\n', 'Terminal Dungingi Kota Gorontalo - Tml. Isimu - Tml. Paguyaman - Tml. Tilamuta - Paguat - Tml. Marisa - Tml. Randangan - Tml. Popayato - Tml. Molosifat, PP\r\n', 8, 1, NULL, NULL),
-(23, 'AB-13\r\n', 'Terminal Dungingi Kota Gorontalo - Tml. Isimu - Tml. Paguyaman - Tml. Tilamuta - Paguat - Tml. Marisa - Tml. Randangan - Tml. Popayato - Malango\r\n', 5, 1, NULL, NULL),
-(24, 'AB-14\r\n', 'Terminal Dungingi Kota Gorontalo - Biluhu Timur - Ilomata, PP\r\n', 5, 1, NULL, NULL),
-(25, 'AB-15\r\n', 'Terminal Dungingi Kota Gorontalo - Tml. Isimu - Tml. Molingkapoto - Tolinggula - Papualangi\r\n', 5, 1, NULL, NULL),
-(26, 'AB-16\r\n', 'Terminal Dungingi Kota Gorontalo - Tml. Isimu - Parungi - Mohiyolo, PP\r\n', 21, 1, NULL, NULL),
-(27, 'AB-17\r\n', 'Terminal Dungingi Kota Gorontalo - Tml. Isimu - Wonosari, PP\r\n', 25, 1, NULL, NULL),
-(28, 'AB-18\r\n', 'Terminal Dungingi Kota Gorontalo - Tml. Isimu - Pulubala - Toyidito, PP\r\n', 8, 1, NULL, NULL),
-(29, 'AB-19\r\n', 'Terminal Dungingi Kota Gorontalo - Tml. Isimu - Pulubala - Satria, PP\r\n', 8, 1, NULL, NULL),
-(30, 'AB-20\r\n', 'Terminal Dungingi Kota Gorontalo - Tml. Isimu - Parungi, PP\r\n', 16, 1, NULL, NULL),
-(31, 'AB-21\r\n', 'Terminal Dungingi Kota Gorontalo - Tml. Isimu - Bilato, PP\r\n', 26, 1, NULL, NULL),
-(32, 'AC-01\r\n', 'Terminal Leato Kota Gorontalo - Molotabu - Bilungala - Taludaa, PP\r\n', 27, 1, NULL, NULL),
-(33, 'B-01\r\n', 'Terminal Isimu - Tml. Paguyaman - Tml. Tilamuta - Tml. Marisa, PP\r\n', 20, 1, NULL, NULL),
-(34, 'B-02\r\n', 'Terminal Isimu - Tml. Tilamuta - Tml. Marisa - Tml. Popayato\r\n', 11, 1, NULL, NULL),
-(35, 'B-03\r\n', 'Terminal Isimu - Tml. Molingkapoto - Pel. Kwandang, PP\r\n', 21, 1, NULL, NULL),
-(36, 'B-04\r\n', 'Terminal Isimu - Tml. Molingkapoto - Kwandang - Tml. Atinggola, PP\r\n', 32, NULL, NULL, NULL),
-(37, 'B-05\r\n', 'Terminal Isimu - Tml. Molingkapoto - Sumalata - Tolinggula - Papualangi\r\n', 35, NULL, NULL, NULL);
+(16, 'AB-06', 'Terminal Dungingi Kota Gorontalo - Tml. Isimu - Tml. Paguyaman - Tml. Tilamuta - Paguat - Tml. Marisa, PP\r\n', 20, 1, NULL, NULL),
+(17, 'AB-07', 'Terminal Dungingi Kota Gorontalo - Tml. Isimu - Tml. Molingkapoto - Monano - Sumalata, PP\r\n', 19, 1, NULL, NULL),
+(18, 'AB-08', 'Terminal Dungingi Kota Gorontalo - Tml. Isimu - Tml. Molingkapoto - Sumalata - Tolinggula, PP\r\n', 11, 1, NULL, NULL),
+(19, 'AB-09', 'Terminal Dungingi Kota Gorontalo - Tml. Isimu - Lakeya, PP\r\n', 13, 1, NULL, NULL),
+(20, 'AB-10', 'Terminal Dungingi Kota Gorontalo - Tml. Isimu - Tml. Paguyaman - Bubaa, PP\r\n', 8, 1, NULL, NULL),
+(21, 'AB-11', 'Terminal Dungingi Kota Gorontalo - Tml. Isimu - Tml. Paguyaman - Tml. Tilamuta - Paguat - Tml. Marisa - Tml. Randangan - Tml. Lemito, PP\r\n', 21, 1, NULL, NULL),
+(22, 'AB-12', 'Terminal Dungingi Kota Gorontalo - Tml. Isimu - Tml. Paguyaman - Tml. Tilamuta - Paguat - Tml. Marisa - Tml. Randangan - Tml. Popayato - Tml. Molosifat, PP\r\n', 8, 1, NULL, NULL),
+(23, 'AB-13', 'Terminal Dungingi Kota Gorontalo - Tml. Isimu - Tml. Paguyaman - Tml. Tilamuta - Paguat - Tml. Marisa - Tml. Randangan - Tml. Popayato - Malango\r\n', 5, 1, NULL, NULL),
+(24, 'AB-14', 'Terminal Dungingi Kota Gorontalo - Biluhu Timur - Ilomata, PP\r\n', 5, 1, NULL, NULL),
+(25, 'AB-15', 'Terminal Dungingi Kota Gorontalo - Tml. Isimu - Tml. Molingkapoto - Tolinggula - Papualangi\r\n', 5, 1, NULL, NULL),
+(26, 'AB-16', 'Terminal Dungingi Kota Gorontalo - Tml. Isimu - Parungi - Mohiyolo, PP\r\n', 21, 1, NULL, NULL),
+(27, 'AB-17', 'Terminal Dungingi Kota Gorontalo - Tml. Isimu - Wonosari, PP\r\n', 25, 1, NULL, NULL),
+(28, 'AB-18', 'Terminal Dungingi Kota Gorontalo - Tml. Isimu - Pulubala - Toyidito, PP\r\n', 8, 1, NULL, NULL),
+(29, 'AB-19', 'Terminal Dungingi Kota Gorontalo - Tml. Isimu - Pulubala - Satria, PP\r\n', 8, 1, NULL, NULL),
+(30, 'AB-20', 'Terminal Dungingi Kota Gorontalo - Tml. Isimu - Parungi, PP\r\n', 16, 1, NULL, NULL),
+(31, 'AB-21', 'Terminal Dungingi Kota Gorontalo - Tml. Isimu - Bilato, PP\r\n', 26, 1, NULL, NULL),
+(32, 'AC-01', 'Terminal Leato Kota Gorontalo - Molotabu - Bilungala - Taludaa, PP\r\n', 27, 1, NULL, NULL),
+(33, 'B-01', 'Terminal Isimu - Tml. Paguyaman - Tml. Tilamuta - Tml. Marisa, PP\r\n', 20, 1, NULL, NULL),
+(34, 'B-02', 'Terminal Isimu - Tml. Tilamuta - Tml. Marisa - Tml. Popayato\r\n', 11, 1, NULL, NULL),
+(35, 'B-03', 'Terminal Isimu - Tml. Molingkapoto - Pel. Kwandang, PP\r\n', 21, 1, NULL, NULL),
+(36, 'B-04', 'Terminal Isimu - Tml. Molingkapoto - Kwandang - Tml. Atinggola, PP\r\n', 32, NULL, NULL, NULL),
+(37, 'B-05', 'Terminal Isimu - Tml. Molingkapoto - Sumalata - Tolinggula - Papualangi\r\n', 35, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -253,6 +246,7 @@ INSERT INTO `trayek` (`id`, `kode_trayek`, `trayek`, `kuota`, `terisi`, `created
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
+  `wilayah_id` int(11) NOT NULL,
   `nama` varchar(512) NOT NULL,
   `email` varchar(512) NOT NULL,
   `password` text NOT NULL,
@@ -278,19 +272,20 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `nama`, `email`, `password`, `hp`, `role`, `nik_direktur`, `nama_direktur`, `nama_perusahaan`, `alamat`, `npwp`, `img_akte_perusahaan`, `img_izin_angkutan`, `img_tdp`, `img_npwp`, `img_ktp_direktur`, `img_siup`, `img_nib`, `created_at`, `updated_at`) VALUES
-(3, 'Riansyah Inde', 'rian@gmail.com', '$2y$10$GQVZ0./65cQ5O2aeBpXrLOCT517fFOkL2pCBNDVUezln1TnYEgI2y', '0822878378278', '2', '', '', '', '', '', '', '', '', '', '', '', '', '2020-10-15 09:12:25', '2020-10-15 09:12:25'),
-(4, 'Abdul Karim Rauf', 'abd@gmail.com', '$2y$10$S0CPKSP/kgoGIyw1knJM0uW.VTL5GokmfPEgacYBZ6JpdM2NdcmLe', '0822878378278', '3', '', '', '', '', '', '', '', '', '', '', '', '', '2020-10-15 09:12:48', '2020-10-15 09:12:48'),
-(5, 'Zakir Radjak', 'z@gmail.com', '$2y$10$vBeyDO3Fy1p1OH8Fv4jnGOKiGKXtzsp9etWTpTDfIz9Sn17EM4ZVy', '123', '4', '', '', '', '', '', '', '', '', '', '', '', '', '2020-10-15 19:56:47', '2020-10-15 19:56:47'),
-(6, 'Cece C.', 'ksu.tsb@gmail.com', '$2y$10$LutpR..sxvpiIs.7.1HQd.4qk.WX.5nOock4/rI.WGjJ1h7./0KC2', '082293728432', '0', '7501011908580001', 'K A R D I', 'KSU TETAP SETIA BHAYANGKARA', 'Jl.A.Wahab Nomor 18.Desa Bulila Kec. Telaga  Kab. Gorontalo', 'NPWP Koperasi A', '1603299094_67b6683112bb6decacbd.jpg', '1603299084_42d92a42655e88fc89a5.jpeg', '1603373304_209281e2241c0dfdd90d.jpg', '1603373324_d521da9a8b924c867570.jpg', '1603373324_1ea2b851a967a149f933.jpg', '1603373324_1b1b7d563efc5dd0b2ca.jpeg', '1603373324_ff2e320951dde85baa37.jpeg', '2020-10-20 10:16:27', '2020-10-22 19:07:12'),
-(7, 'PTSP', 'ptsp', '$2y$10$OWxfDYGunVxybreXI/et7OkChKRYrrJA0OHgeZ4jYKVpRyJ4Qvu9C', '123', '1', '', '', '', '', '', '', '', '', '', '', '', '', '2020-10-20 10:16:50', '2020-10-20 10:16:50'),
-(8, 'Verifikator', 'verifikator', '$2y$10$NthJomSaybwm1UNaiw.UXONO6Yiq66xhnJ/nlStVSBOHDnGb2slPC', '123', '2', '', '', '', '', '', '', '', '', '', '', '', '', '2020-10-20 10:17:16', '2020-10-20 10:17:16'),
-(9, 'Kota', 'kotagtlo', '$2y$10$GkcXbl1Eq6GCVdM0CkSJo.8G6EG1F/8pf3PropjK3JHcWGz/mUCB6', '123', '5', '', '', 'Admin Dinas Perhubungan Kota Gorontalo', '', '', '', '', '', '', '', '', '', '2020-10-20 10:18:30', '2020-10-20 10:18:30'),
-(10, 'Kabupaten', 'kabgtlo', '$2y$10$nUWFlm53u5RQbOscHBZUl.3RjIahpycxGJUC9u7zenQ3H2yA9Wqru', '123', '6', 'Admin Dinas Perhubungan Kabupaten Gorontalo', 'Admin Dinas Perhubungan Kabupaten Gorontalo', 'Admin Dinas Perhubungan Kabupaten Gorontalo', 'Admin Dinas Perhubungan Kabupaten Gorontalo', '', '', '', '', '', '', '', '', '2020-10-20 10:18:02', '2020-10-24 09:37:19'),
-(11, 'BoneBol', 'kabbonebol', '$2y$10$.ulfU4lL6EK3SMLHQXD0EOkgXFvMKs3qAoNaHPrC7jGT7KvaTLZci', '08121312312323', '7', '', '', 'Admin Dinas Perhubungan Kabupaten Bone Bolango', '', '', '', '', '', '', '', '', '', '2020-10-24 09:29:41', '2020-10-24 09:29:41'),
-(12, 'Gorut', 'kabgorut', '$2y$10$b7pHWWygsTwnGq8lUREsMuU9z7Pl8PoaXiBLU7UC/G2/8rUvGXOXG', '08121312312323', '8', '', '', 'Admin Dinas Perhubungan Kabupaten Gorontalo Utara', '', '', '', '', '', '', '', '', '', '2020-10-24 10:02:47', '2020-10-24 10:02:47'),
-(13, 'Boalemo', 'kabboalemo', '$2y$10$/MYwtBVD7taFgDXiqhk9Lu8BXjklOVjXRvQrz9JmAhXA8sHSqCF8i', '08121312312323', '9', '', '', 'Admin Dinas Perhubungan Kabupaten Boalemo', '', '', '', '', '', '', '', '', '', '2020-10-24 10:03:29', '2020-10-24 10:03:29'),
-(14, 'Pohuwato', 'kabpohuwato', '$2y$10$ovwxJcIHynt3AohGx418dOX1J/5PqZs/Imh7oG3rGl4XbxGn4Z3va', '08121312312323', '10', '', '', 'Admin Dinas Perhubungan Kabupaten Pohuwato', '', '', '', '', '', '', '', '', '', '2020-10-24 10:03:56', '2020-10-24 10:03:56');
+INSERT INTO `user` (`id`, `wilayah_id`, `nama`, `email`, `password`, `hp`, `role`, `nik_direktur`, `nama_direktur`, `nama_perusahaan`, `alamat`, `npwp`, `img_akte_perusahaan`, `img_izin_angkutan`, `img_tdp`, `img_npwp`, `img_ktp_direktur`, `img_siup`, `img_nib`, `created_at`, `updated_at`) VALUES
+(3, 0, 'Riansyah Inde', 'rian@gmail.com', '$2y$10$GQVZ0./65cQ5O2aeBpXrLOCT517fFOkL2pCBNDVUezln1TnYEgI2y', '0822878378278', '2', '', '', '', '', '', '', '', '', '', '', '', '', '2020-10-15 09:12:25', '2020-10-15 09:12:25'),
+(4, 0, 'Abdul Karim Rauf', 'abd@gmail.com', '$2y$10$S0CPKSP/kgoGIyw1knJM0uW.VTL5GokmfPEgacYBZ6JpdM2NdcmLe', '0822878378278', '3', '', '', '', '', '', '', '', '', '', '', '', '', '2020-10-15 09:12:48', '2020-10-15 09:12:48'),
+(5, 0, 'Zakir Radjak', 'z@gmail.com', '$2y$10$vBeyDO3Fy1p1OH8Fv4jnGOKiGKXtzsp9etWTpTDfIz9Sn17EM4ZVy', '123', '4', '', '', '', '', '', '', '', '', '', '', '', '', '2020-10-15 19:56:47', '2020-10-15 19:56:47'),
+(6, 0, 'Cece C.', 'ksu.tsb@gmail.com', '$2y$10$LutpR..sxvpiIs.7.1HQd.4qk.WX.5nOock4/rI.WGjJ1h7./0KC2', '082293728432', '0', '7501011908580001', 'K A R D I', 'KSU TETAP SETIA BHAYANGKARA', 'Jl.A.Wahab Nomor 18.Desa Bulila Kec. Telaga  Kab. Gorontalo', 'NPWP Koperasi A', '1603299094_67b6683112bb6decacbd.jpg', '1603299084_42d92a42655e88fc89a5.jpeg', '1603373304_209281e2241c0dfdd90d.jpg', '1603373324_d521da9a8b924c867570.jpg', '1603373324_1ea2b851a967a149f933.jpg', '1603373324_1b1b7d563efc5dd0b2ca.jpeg', '1603373324_ff2e320951dde85baa37.jpeg', '2020-10-20 10:16:27', '2020-10-22 19:07:12'),
+(7, 0, 'PTSP', 'ptsp', '$2y$10$OWxfDYGunVxybreXI/et7OkChKRYrrJA0OHgeZ4jYKVpRyJ4Qvu9C', '123', '1', '', '', '', '', '', '', '', '', '', '', '', '', '2020-10-20 10:16:50', '2020-10-20 10:16:50'),
+(8, 0, 'Verifikator', 'verifikator', '$2y$10$NthJomSaybwm1UNaiw.UXONO6Yiq66xhnJ/nlStVSBOHDnGb2slPC', '123', '2', '', '', '', '', '', '', '', '', '', '', '', '', '2020-10-20 10:17:16', '2020-10-20 10:17:16'),
+(9, 1, 'Kota', 'kotagtlo', '$2y$10$GkcXbl1Eq6GCVdM0CkSJo.8G6EG1F/8pf3PropjK3JHcWGz/mUCB6', '123', '5', '', '', 'Admin Dinas Perhubungan Kota Gorontalo', '', '', '', '', '', '', '', '', '', '2020-10-20 10:18:30', '2020-10-20 10:18:30'),
+(10, 2, 'Kabupaten', 'kabgtlo', '$2y$10$nUWFlm53u5RQbOscHBZUl.3RjIahpycxGJUC9u7zenQ3H2yA9Wqru', '123', '6', 'Admin Dinas Perhubungan Kabupaten Gorontalo', 'Admin Dinas Perhubungan Kabupaten Gorontalo', 'Admin Dinas Perhubungan Kabupaten Gorontalo', 'Admin Dinas Perhubungan Kabupaten Gorontalo', '', '', '', '', '', '', '', '', '2020-10-20 10:18:02', '2020-10-24 09:37:19'),
+(11, 3, 'BoneBol', 'kabbonebol', '$2y$10$.ulfU4lL6EK3SMLHQXD0EOkgXFvMKs3qAoNaHPrC7jGT7KvaTLZci', '08121312312323', '7', '', '', 'Admin Dinas Perhubungan Kabupaten Bone Bolango', '', '', '', '', '', '', '', '', '', '2020-10-24 09:29:41', '2020-10-24 09:29:41'),
+(12, 4, 'Gorut', 'kabgorut', '$2y$10$b7pHWWygsTwnGq8lUREsMuU9z7Pl8PoaXiBLU7UC/G2/8rUvGXOXG', '08121312312323', '8', '', '', 'Admin Dinas Perhubungan Kabupaten Gorontalo Utara', '', '', '', '', '', '', '', '', '', '2020-10-24 10:02:47', '2020-10-24 10:02:47'),
+(13, 5, 'Boalemo', 'kabboalemo', '$2y$10$/MYwtBVD7taFgDXiqhk9Lu8BXjklOVjXRvQrz9JmAhXA8sHSqCF8i', '08121312312323', '9', '', '', 'Admin Dinas Perhubungan Kabupaten Boalemo', '', '', '', '', '', '', '', '', '', '2020-10-24 10:03:29', '2020-10-24 10:03:29'),
+(14, 6, 'Pohuwato', 'kabpohuwato', '$2y$10$ovwxJcIHynt3AohGx418dOX1J/5PqZs/Imh7oG3rGl4XbxGn4Z3va', '08121312312323', '10', '', '', 'Admin Dinas Perhubungan Kabupaten Pohuwato', '', '', '', '', '', '', '', '', '', '2020-10-24 10:03:56', '2020-10-24 10:03:56'),
+(19, 7, 'Mus Zakaria', 'kja.krawangjayabersama@gmail.com', '$2y$10$ovwxJcIHynt3AohGx418dOX1J/5PqZs/Imh7oG3rGl4XbxGn4Z3va', '081340223678 ', '0', '7504042910560001', 'MUS ZAKARIA', 'KOPERASI KRAWANG JAYA BERSAMA', 'Dungingi, Kota Gorontalo', '', '1603591745_15c3c837d8ea19b120c7.jpg', '1603591745_2ee7a5b48e4a11bda8fb.jpg', '1603591745_2235f6ccaf8c97addea3.jpg', '1603591745_e2e51b0a31d20cab7bef.jpg', '1603591745_8d16dc15a5963bb76a4d.jpg', '1603591745_11dbf003b0c8e29de235.jpg', '1603591745_6798f6f22351ceeb3d1f.jpg', '2020-10-24 21:05:05', '2020-10-24 21:15:26');
 
 -- --------------------------------------------------------
 
@@ -383,7 +378,7 @@ ALTER TABLE `jenis_permohonan`
 -- AUTO_INCREMENT for table `msg_penolakan`
 --
 ALTER TABLE `msg_penolakan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `nomor_surat`
@@ -395,13 +390,13 @@ ALTER TABLE `nomor_surat`
 -- AUTO_INCREMENT for table `permohonan`
 --
 ALTER TABLE `permohonan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `permohonan_kabkota`
 --
 ALTER TABLE `permohonan_kabkota`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `trayek`
@@ -413,7 +408,7 @@ ALTER TABLE `trayek`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `wilayah`

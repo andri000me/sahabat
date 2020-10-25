@@ -270,6 +270,8 @@
         var button = $(event.relatedTarget);
         var trayek = button.data('trayek');
         var nama_pemilik = button.data('nama');
+        var asal = button.data('asal');
+        var tujuan = button.data('tujuan');
         var nomor = button.data('nomor');
         var kir = button.data('kir');
         var tahun = button.data('tahun');
@@ -287,6 +289,8 @@
 
         $('#trayek').val(trayek);
         $('#nama_pemilik').val(nama_pemilik);
+        $('#asal').val(asal);
+        $('#tujuan').val(tujuan);
         $('#nomor').val(nomor);
         $('#tahun').val(tahun);
         $('#kir').val(kir);

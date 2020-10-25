@@ -10,12 +10,17 @@
 
                     <div class="cards px-4 py-3">
                         <!-- Form -->
-                        <form method="POST" class="needs-validation md-form text-left" style="color: #757575;" action="/koperasi/save" enctype="multipart/form-data" novalidate>
+                        <form method="POST" class="needs-validation md-form text-left" style="color: #757575;" action="/koperasi/saveEdit" enctype="multipart/form-data" novalidate>
+
+                            <input name="id" type="hidden" value="<?= $permohonan['idpermohonan'] ?>">
+                            <input name="asal" type="hidden" value="<?= $permohonan['asal'] ?>">
+                            <input name="tujuan" type="hidden" value="<?= $permohonan['tujuan'] ?>">
+
                             <div class="row mb-5">
                                 <div class="col">
-                                    <h5 class="text-primary font-weight-bold card-title">Buat Permohonan Rekomendasi Asal / Tujuan Angkutan
+                                    <h5 class="text-primary font-weight-bold card-title">Data Permohonan Rekomendasi Asal / Tujuan Angkutan
                                         Orang Dalam Trayek AKDP</h5>
-                                    <p class="card-text">Isi data sesuai dengan dokumen yang di upload</p>
+                                    <p class="card-text">Periksa apaka field isian sama dengan dokumen yang di upload</p>
                                 </div>
 
                                 <div class="col text-right">
@@ -26,7 +31,7 @@
                             </div>
                             <div class="md-form form-row mt-0">
                                 <div class="col">
-                                    <select name="trayek_dilayani" class="mdb-select md-form" searchable="Trayek Yang Dilayani">
+                                    <select name="trayek_dilayani" class="mdb-select md-form" searchable="Trayek Yang Dilayani" disabled>
                                         <?php foreach ($trayek as $tr) : ?>
                                             <?php
                                             if ($permohonan['trayek_dilayani'] == $tr['kode_trayek']) {
@@ -43,51 +48,6 @@
                                 </div>
                             </div>
 
-
-                            <!-- <div class="md-form form-row mt-0">
-                                    <div class="col">
-                                        <select name="asal" class="mdb-select md-form" searchable="Asal Trayek">
-                                            <option value="">Pilih</option>
-                                            <?php foreach ($wilayah as $tr) : ?>
-                                                <?php
-                                                if ($permohonan['asal'] == $tr['id']) {
-                                                    $selected = "selected";
-                                                    $value = $tr['id'];
-                                                    $v = $tr['wilayah'];
-                                                } else {
-                                                    $selected = "";
-                                                    $value = $tr['id'];
-                                                    $v = $tr['wilayah'];
-                                                }
-                                                ?>
-                                                <option value="<?= $value ?>" <?= $selected ?>><?= $v ?></option>
-                                            <?php endforeach; ?>
-                                        </select>
-                                        <label class="mdb-main-label">Asal Trayek</label>
-                                    </div>
-
-                                    <div class="col">
-                                        <select name="tujuan" class="mdb-select md-form" searchable="Tujuan Trayek">
-                                            <option value="">Pilih</option>
-                                            <?php foreach ($wilayah as $tr) : ?>
-                                                <?php
-                                                if ($permohonan['tujuan'] == $tr['id']) {
-                                                    $selected = "selected";
-                                                    $value = $tr['id'];
-                                                    $v = $tr['wilayah'];
-                                                } else {
-                                                    $selected = "";
-                                                    $value = $tr['id'];
-                                                    $v = $tr['wilayah'];
-                                                }
-                                                ?>
-                                                <option value="<?= $value ?>" <?= $selected ?>><?= $v ?></option>
-                                            <?php endforeach; ?>
-                                        </select>
-                                        <label class="mdb-main-label">Tujuan Trayek</label>
-                                    </div>
-                                </div> -->
-
                             <div class="md-form">
                                 <input name="nama_pemilik" type="text" id="form2" class="form-control" value="<?= $permohonan['nama_pemilik'] ?>" required>
                                 <label for="form2">Nama Pemilik Kendaraan</label>
@@ -97,7 +57,7 @@
                             </div>
 
                             <div class="md-form mb-4 pink-textarea active-textarea">
-                                <textarea name="alamat" id="form18" class="md-textarea form-control" rows="3" required><?= $permohonan['alamat_pemilik'] ?></textarea>
+                                <textarea name="alamat_pemilik" id="form18" class="md-textarea form-control" rows="3" required><?= $permohonan['alamat_pemilik'] ?></textarea>
                                 <label for="form18">Alamat</label>
                                 <div class="invalid-feedback">
                                     Alamat tidak boleh kosong
@@ -167,6 +127,7 @@
                                     Nomor Regis PKB tidak boleh kosong
                                 </div>
                             </div>
+                        </form>
                     </div>
 
 
@@ -275,10 +236,8 @@
                                     <input name="img_kir" class="file-path validate" type="text" placeholder="Scan/Foto Buku KIR Berlaku (Jelas)">
                                 </div>
                             </div>
-
                         </div>
                     </div>
-                    </form>
                 </div>
             </div>
         </div>

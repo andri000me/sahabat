@@ -1,6 +1,6 @@
 <?= $this->extend('layout/templatel') ?>
 <?= $this->section('content'); ?>
-<div class="container">
+<div class="container-fluid mt-4">
 
     <div class="section-headers wow fadeInRight">
         <h3 class="section-titles mb-3"><img src="<?= base_url(); ?>/assets/img/icon/dishub.png" style="width:60px;" alt="IMG"></h3>
@@ -84,81 +84,93 @@
                     <form method="POST" class="needs-validation md-form text-left" style="color: #757575;" action="/rekomendasi/update/<?= $step11['id'] ?>" enctype="multipart/form-data" novalidate>
                         <!-- //hidden -->
                         <input name="img_permohonan_lama" type="hidden" value="<?= $step11['img_surat_permohonan'] ?>">
+                        <input name="img_pengantar_ptsp_lama" type="hidden" value="<?= $step11['img_pengantar_ptsp'] ?>">
                         <input name="kode_booking" type="hidden" value="<?= $step11['kode_booking'] ?>">
 
                         <div class="md-form">
                             <div class="file-field">
                                 <div class="btn btn-primary btn-sm float-left">
                                     <span><i class="fa fa-image mr-1"></i> Pilih File Dokumen</span>
-                                    <input type="file" name="img_permohonan" id="uploadImage" onchange="PreviewImage()" value="<?= $step11['img_surat_permohonan'] ?>">
+                                    <input type="file" name="img_pengantar_ptsp" id="uploadImage" value="<?= $step11['img_pengantar_ptsp'] ?>"">
                                 </div>
-                                <div class="file-path-wrapper">
-                                    <input class="file-path validate" type="text" placeholder="Surat Permohonan yang ditujukan kepada Kepala DPM Prov. Gorontalo">
+                                    
+                                <a href="/img/img_pengantar_ptsp/<?= $step11['img_pengantar_ptsp'] ?>" target="_blank" type="button" class="btn btn-sm btn-danger"><i class="fa fa-eye mr-1"></i> Lihat dokumen</a>
+                                    <div class=" file-path-wrapper">
+                                        <input name="img_pengantar_ptsp" class="file-path validate" type="text" placeholder="Surat Pengantar dai PTSP">
+                                    </div>
                                 </div>
                                 <div class="kacili" style="margin-left:160px;">
-                                    <?= $validation->getError('img_permohonan') ?>
+                                    <?= $validation->getError('img_pengantar_ptsp') ?>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="md-form">
-                            <?php
-                            if ($step11['img_surat_permohonan']) {
-                                $img = $step11['img_surat_permohonan'];
-                            } else {
-                                $img = "default.png";
-                            }
-                            ?>
-                            <img id="uploadPreview" src="<?= base_url(); ?>/img/img_permohonan/<?= $img ?>" style="width:250px;" alt="IMG">
-                            <label for="form1"></label>
-                        </div>
-
-                        <div class="md-form mt-5">
-                            <input name="tgl_permohonan" placeholder="Tanggal Permohonan" type="text" id="date-picker-example" class="form-control datepicker" value="<?= $step11['tgl_permohonan'] ?>">
-                            <label for="date-picker-example">Tanggal Permohonan</label>
-                            <div class="invalid-feedback">
-                                Tanggal permohonan tidak boleh kosong
+                            <div class="md-form">
+                                <div class="file-field">
+                                    <div class="btn btn-primary btn-sm float-left">
+                                        <span><i class="fa fa-image mr-1"></i> Pilih File Dokumen</span>
+                                        <input type="file" name="img_permohonan" id="uploadImage" onchange="PreviewImage()" value="<?= $step11['img_surat_permohonan'] ?>">
+                                    </div>
+                                    <a href="/img/img_permohonan/<?= $step11['img_surat_permohonan'] ?>" target="_blank" type="button" class="btn btn-sm btn-danger"><i class="fa fa-eye mr-1"></i> Lihat dokumen</a>
+                                    <div class="file-path-wrapper">
+                                        <input class="file-path validate" type="text" placeholder="Surat Permohonan yang ditujukan kepada Kepala DPM Prov. Gorontalo">
+                                    </div>
+                                    <div class="kacili" style="margin-left:160px;">
+                                        <?= $validation->getError('img_permohonan') ?>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="md-form">
-                            <input name="nama_pemohon" type="text" id="form2" class="form-control" value="<?= $step11['nama_pemohon'] ?>">
-                            <label for="form2">Nama Pemohon</label>
-                            <div class="invalid-feedback">
-                                Nama pemohon tidak boleh kosong
+                            <div class="md-form mt-5">
+                                <input name="tgl_permohonan" placeholder="Tanggal Permohonan" type="text" id="date-picker-example" class="form-control datepicker" value="<?= $step11['tgl_permohonan'] ?>">
+                                <label for="date-picker-example">Tanggal Permohonan</label>
+                                <div class="invalid-feedback">
+                                    Tanggal permohonan tidak boleh kosong
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="md-form mb-4 pink-textarea active-textarea">
-                            <textarea name="alamat_pemohon" id="form18" class="md-textarea form-control" rows="3"><?= $step11['alamat_pemohon'] ?></textarea>
-                            <label for="form18">Alamat Pemohon</label>
-                            <div class="invalid-feedback">
-                                Alamat pemohon tidak boleh kosong
+                            <div class="form-group mb-5">
+                                <select name="nama_pemohon" class="mdb-select md-form mt-5" searchable="Jenis Permohonan">
+                                    <option value="" disabled selected>Pemohon</option>
+                                    <?php foreach ($pemohon as $jp) : ?>
+                                        <?php
+                                        if ($jp['id'] == $step11['nama_pemohon']) {
+                                            $x = "selected";
+                                        } else {
+                                            $x = "";
+                                        }
+                                        ?>
+                                        <option value="<?= $jp['id']; ?>" <?= $x ?>><?= $jp['nama_perusahaan']; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <label class="mdb-main-label">Pemohon</label>
+                                <div class="kacili" style="margin-top:-20px;">
+                                    <?= $validation->getError('nama_pemohon') ?>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="md-form">
-                            <select name="jenis_permohonan" class="mdb-select md-form mt-5" searchable="Jenis Permohonan">
-                                <option value="" disabled selected>Jenis Permohonan</option>
-                                <?php foreach ($jenis_permohonan as $jp) : ?>
-                                    <?php
-                                    if ($jp['kode'] == $step11['jenis_permohonan']) {
-                                        $selected = "selected";
-                                    } else {
-                                        $selected = "";
-                                    }
-                                    ?>
-                                    <option value="<?= $jp['kode']; ?>" <?= $selected ?>><?= $jp['nama']; ?></option>
-                                <?php endforeach; ?>
-                            </select>
-                            <div class="kacili" style="margin-top:-20px;">
-                                <?= $validation->getError('jenis_permohonan') ?>
+                            <div class="md-form">
+                                <select name="jenis_permohonan" class="mdb-select md-form mt-5" searchable="Jenis Permohonan">
+                                    <option value="" disabled selected>Jenis Permohonan</option>
+                                    <?php foreach ($jenis_permohonan as $jp) : ?>
+                                        <?php
+                                        if ($jp['kode'] == $step11['jenis_permohonan']) {
+                                            $selected = "selected";
+                                        } else {
+                                            $selected = "";
+                                        }
+                                        ?>
+                                        <option value="<?= $jp['kode']; ?>" <?= $selected ?>><?= $jp['nama']; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <label class="mdb-main-label">Jenis Permohonan</label>
+                                <div class="kacili" style="margin-top:-20px;">
+                                    <?= $validation->getError('jenis_permohonan') ?>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="buttons mt-5">
-                            <button type="submit button" class="btn btn-md btn-primary">Simpan & Lanjutkan <i class="fa fa-arrow-right ml-1"></i> </button>
-                        </div>
+                            <div class="buttons mt-5">
+                                <button type="submit button" class="btn btn-md btn-primary">Simpan & Lanjutkan <i class="fa fa-arrow-right ml-1"></i> </button>
+                            </div>
                     </form>
                 </div>
             </div>

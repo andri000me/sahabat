@@ -1,6 +1,6 @@
 <?= $this->extend('layout/templatel') ?>
 <?= $this->section('content'); ?>
-<div class="container">
+<div class="container-fluid mt-4">
 
     <div class="section-headers wow fadeInRight">
         <h3 class="section-titles mb-3"><img src="<?= base_url(); ?>/assets/img/icon/dishub.png" style="width:60px;" alt="IMG"></h3>
@@ -65,7 +65,7 @@
         <div class="col-sm-12 mb-3 mb-md-0">
             <div class="cards px-4 pt-3">
                 <div class="card-body">
-                    <h4 class="text-dark font-weight-bold card-title">Step 1 - Surat Permohonan yang ditujukan kepada Kepala DPM Prov. Gorontalo</h4>
+                    <h4 class="text-dark font-weight-bold card-title">Syarat 1 - Surat Permohonan yang ditujukan kepada Kepala DPM Prov. Gorontalo</h4>
                     <p class="card-text">Isi data sesuai dengan dokumen yang di upload</p>
 
                     <!-- Form -->
@@ -85,7 +85,7 @@
                                 <?= $validation->getError('img_pengantar_ptsp') ?>
                             </div>
                         </div>
-                        
+
                         <div class="md-form">
                             <div class="file-field">
                                 <div class="btn btn-primary btn-sm float-left">
@@ -119,28 +119,35 @@
                                 <?php
                                 if ($k['kode_booking']) {
                                     $kb = $k['kode_booking'] + 1;
+                                }
+                                if ($k['kode_booking'] == "") {
+                                    $kb = 68728071111;
                                 } else {
-                                    $kb = "68728071111";
+                                    $kb = 68728071111;
                                 }
                                 ?>
-                                <input value="<?= $kb ?>" name="kdb" type="text" id="kdb" class="form-control" value="<?= old('kdb') ?>">
-                                <label for="kdb">Nama Pemohon</label>
+                                <input value="<?= $kb ?>" name="kdb" type="text" id="kdb" class="form-control">
+                                <label for=" kdb">Nama Pemohon</label>
                             <?php endforeach; ?>
                         </div>
 
-                        <div class="md-form">
-                            <input name="nama_pemohon" type="text" id="form2" class="form-control" value="<?= old('nama_pemohon') ?>" required>
-                            <label for="form2">Nama Pemohon</label>
-                            <div class="invalid-feedback">
-                                Nama pemohon tidak boleh kosong
-                            </div>
-                        </div>
-
-                        <div class="md-form mb-4 pink-textarea active-textarea">
-                            <textarea name="alamat_pemohon" id="form18" class="md-textarea form-control" rows="3" required><?= old('alamat_pemohon') ?></textarea>
-                            <label for="form18">Alamat Pemohon</label>
-                            <div class="invalid-feedback">
-                                Alamat pemohon tidak boleh kosong
+                        <div class="form-group mb-3">
+                            <select name="nama_pemohon" class="mdb-select md-form mt-5" searchable="Jenis Permohonan">
+                                <option value="" disabled selected>Pemohon</option>
+                                <?php foreach ($pemohon as $jp) : ?>
+                                    <?php
+                                    if ($jp['id'] == old('nama_pemohon')) {
+                                        $x = "selected";
+                                    } else {
+                                        $x = "";
+                                    }
+                                    ?>
+                                    <option value="<?= $jp['id']; ?>" <?= $x ?>><?= $jp['nama_perusahaan']; ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                            <label class="mdb-main-label">Pemohon</label>
+                            <div class="kacili" style="margin-top:-20px;">
+                                <?= $validation->getError('nama_pemohon') ?>
                             </div>
                         </div>
 
@@ -158,6 +165,7 @@
                                     <option value="<?= $jp['kode']; ?>" <?= $x ?>><?= $jp['nama']; ?></option>
                                 <?php endforeach; ?>
                             </select>
+                            <label class="mdb-main-label">Jenis Permohonan</label>
                             <div class="kacili" style="margin-top:-20px;">
                                 <?= $validation->getError('jenis_permohonan') ?>
                             </div>

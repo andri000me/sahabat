@@ -28,7 +28,7 @@
                                 Nama Pemohon
                             </div>
                             <div class="col-sm-8">
-                                : <?= $detail['nama_pemohon'] ?>
+                                : <?= $detail['nama_perusahaan'] ?>
                             </div>
                         </div>
                         <div class="row">
@@ -225,7 +225,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="/verifikasi/tolak/<?= $detail['id'] ?>" method="POST">
+            <form action="/verifikasi/tolak/<?= $detail['idpermohonan'] ?>" method="POST">
                 <input type="hidden" name="kode_booking" value="<?= $detail['kode_booking'] ?>">
                 <div class="modal-body mx-3">
                     <div class="md-form">
@@ -250,16 +250,16 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="/verifikasi/terima/<?= $detail['id'] ?>" method="POST">
+            <form action="/verifikasi/terima/<?= $detail['idpermohonan'] ?>" method="POST">
                 <input type="hidden" name="kode_booking" value="<?= $detail['kode_booking'] ?>">
                 <div class="container">
-                <div class="md-form mt-5">
-                    <input name="masa_berlaku" placeholder="Tanggal Permohonan" type="text" id="date-picker-example" class="form-control datepicker" required value="<?= old('tgl_permohonan') ?>">
-                    <label for="date-picker-example">Masa Berlaku Izin</label>
-                    <div class="invalid-feedback">
-                        Masa berlaku izin tidak boleh kosong
+                    <div class="md-form mt-5">
+                        <input name="masa_berlaku" placeholder="Masa Berlaku Izin" type="text" id="date-picker-example" class="form-control datepicker" required value="<?= old('tgl_permohonan') ?>">
+                        <label for="date-picker-example">Masa Berlaku Izin</label>
+                        <div class="invalid-feedback">
+                            Masa berlaku izin tidak boleh kosong
+                        </div>
                     </div>
-                </div>
                 </div>
                 <div class="modal-footer d-flex justify-content-center">
                     <button type="submit" class="btn btn-success">Terima & Simpan</button>
@@ -267,11 +267,6 @@
             </form>
         </div>
     </div>
-</div>
-
-<div class="text-center">
-    <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalContactForm">Launch
-        Modal Contact Form</a>
 </div>
 
 <?= $this->endSection(); ?>

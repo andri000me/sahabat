@@ -10,7 +10,7 @@
 
                     <div class="row animated zoomIn">
                         <div class="col">
-                            <h4 class="text-dark font-weight-bold card-title">Data Permohonan Asal Tujuan Trayek</h4>
+                            <h4 class="text-dark font-weight-bold card-title">Data Permohonan Rekomendasi Asal Tujuan Trayek</h4>
                             <p class="card-text">Data permohonan rekomendasi Asal/Tujuan Trayek Dinas Perhubungan Kota
                                 Gorontalo
                             </p>
@@ -29,7 +29,9 @@
                                     </td>
                                     <td class="th-sm">Nomor Kendaraan
                                     </td>
-                                    <td class="th-sm">Status
+                                    <td class="th-sm">Status Verifikasi
+                                    </td>
+                                    <td class="th-sm">Status Upload
                                     </td>
                                     <td class="th-sm" style="width:360px;">Action
                                     </td>
@@ -43,27 +45,53 @@
                                             if ($p['status_asal'] == 0) {
                                                 $status = '<a class="badge badge-warning">Perlu Diverifikasi !</a>';
                                                 $action = '<a href="/koperasi/verifikasiKota/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-warning mr-1"><i class="fa fa-print mr-1"></i>Verifikasi</a>';
+                                                $status_upload = '<a class="badge badge-danger font-weight-bold"><i class="fa fa-check"></i> Lakukan verifikasi terlebih dahulu</a>';
                                             }
                                             if ($p['status_asal'] == 1) {
                                                 $status = '<a class="badge badge-danger">Ditolak</a>';
-                                                $action = "";
+                                                $action = '<a target="_blank" href="/koperasi/cetakKotaTolak/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-danger mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
+                                                <a href="/koperasi/uploadPenolakan/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-outline-danger mr-1"><i class="fa fa-upload mr-1"></i>Upload</a>';
+                                                if ($p['img_penolakan_asal']) {
+                                                    $status_upload = '<a class="badge badge-success font-weight-bold"><i class="fa fa-check"></i> Dokumen telah di Upload</a>';
+                                                } else {
+                                                    $status_upload = '<a class="badge badge-warning font-weight-bold"><i class="fa fa-check"></i> Dokumen belum di Upload</a>';
+                                                }
                                             }
                                             if ($p['status_asal'] == 2) {
                                                 $status = '<a class="badge badge-success">Diterima</a>';
-                                                $action = '<a href="/koperasi/cetakKota/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>';
+                                                $action = '<a href="/koperasi/cetakKota/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
+                                                <a href="/koperasi/uploadRekomendasi/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-outline-success mr-1"><i class="fa fa-upload mr-1"></i>Upload</a>';
+                                                if ($p['img_rekomendasi_asal']) {
+                                                    $status_upload = '<a class="badge badge-success font-weight-bold"><i class="fa fa-check"></i> Dokumen telah di Upload</a>';
+                                                } else {
+                                                    $status_upload = '<a class="badge badge-warning font-weight-bold"><i class="fa fa-check"></i> Dokumen belum di Upload</a>';
+                                                }
                                             }
                                         } else if ($p['tujuan'] == 1) {
                                             if ($p['status_tujuan'] == 0) {
                                                 $status = '<a class="badge badge-warning">Perlu Diverifikasi !</a>';
                                                 $action = '<a href="/koperasi/verifikasiKota/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-warning mr-1"><i class="fa fa-print mr-1"></i>Verifikasi</a>';
+                                                $status_upload = '<a class="badge badge-danger font-weight-bold"><i class="fa fa-check"></i> Lakukan verifikasi terlebih dahulu</a>';
                                             }
                                             if ($p['status_tujuan'] == 1) {
                                                 $status = '<a class="badge badge-danger">Ditolak</a>';
-                                                $action = "";
+                                                $action = '<a href="/koperasi/cetakKotaTolak/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-danger mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
+                                                <a href="/koperasi/uploadPenolakan/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-outline-danger mr-1"><i class="fa fa-upload mr-1"></i>Upload</a>';
+                                                if ($p['img_penolakan_tujuan']) {
+                                                    $status_upload = '<a class="badge badge-success font-weight-bold"><i class="fa fa-check"></i> Dokumen telah di Upload</a>';
+                                                } else {
+                                                    $status_upload = '<a class="badge badge-warning font-weight-bold"><i class="fa fa-check"></i> Dokumen belum di Upload</a>';
+                                                }
                                             }
                                             if ($p['status_tujuan'] == 2) {
                                                 $status = '<a class="badge badge-success">Diterima</a>';
-                                                $action = '<a href="/koperasi/cetakKota/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>';
+                                                $action = '<a href="/koperasi/cetakKota/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
+                                                <a href="/koperasi/uploadRekomendasi/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-outline-success mr-1"><i class="fa fa-upload mr-1"></i>Upload</a>';
+                                                if ($p['img_rekomendasi_tujuan']) {
+                                                    $status_upload = '<a class="badge badge-success font-weight-bold"><i class="fa fa-check"></i> Dokumen telah di Upload</a>';
+                                                } else {
+                                                    $status_upload = '<a class="badge badge-warning font-weight-bold"><i class="fa fa-check"></i> Dokumen belum di Upload</a>';
+                                                }
                                             }
                                         }
                                     }
@@ -72,27 +100,53 @@
                                             if ($p['status_asal'] == 0) {
                                                 $status = '<a class="badge badge-warning">Perlu Diverifikasi !</a>';
                                                 $action = '<a href="/koperasi/verifikasiKab/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-warning mr-1"><i class="fa fa-print mr-1"></i>Verifikasi</a>';
+                                                $status_upload = '<a class="badge badge-danger font-weight-bold"><i class="fa fa-check"></i> Lakukan verifikasi terlebih dahulu</a>';
                                             }
                                             if ($p['status_asal'] == 1) {
                                                 $status = '<a class="badge badge-danger">Ditolak</a>';
-                                                $action = "";
+                                                $action = '<a href="/koperasi/cetakKabTolak/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-danger mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
+                                                <a href="/koperasi/uploadPenolakan/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-outline-danger mr-1"><i class="fa fa-upload mr-1"></i>Upload</a>';
+                                                if ($p['img_penolakan_asal']) {
+                                                    $status_upload = '<a class="badge badge-success font-weight-bold"><i class="fa fa-check"></i> Dokumen telah di Upload</a>';
+                                                } else {
+                                                    $status_upload = '<a class="badge badge-warning font-weight-bold"><i class="fa fa-check"></i> Dokumen belum di Upload</a>';
+                                                }
                                             }
                                             if ($p['status_asal'] == 2) {
                                                 $status = '<a class="badge badge-success">Diterima</a>';
-                                                $action = '<a href="/koperasi/cetakKab/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>';
+                                                $action = '<a href="/koperasi/cetakKab/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
+                                                <a href="/koperasi/uploadRekomendasi/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-outline-success mr-1"><i class="fa fa-upload mr-1"></i>Upload</a>';
+                                                if ($p['img_penolakan_asal']) {
+                                                    $status_upload = '<a class="badge badge-success font-weight-bold"><i class="fa fa-check"></i> Dokumen telah di Upload</a>';
+                                                } else {
+                                                    $status_upload = '<a class="badge badge-warning font-weight-bold"><i class="fa fa-check"></i> Dokumen belum di Upload</a>';
+                                                }
                                             }
                                         } else if ($p['tujuan'] == 2) {
                                             if ($p['status_tujuan'] == 0) {
                                                 $status = '<a class="badge badge-warning">Perlu Diverifikasi !</a>';
                                                 $action = '<a href="/koperasi/verifikasiKab/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-warning mr-1"><i class="fa fa-print mr-1"></i>Verifikasi</a>';
+                                                $status_upload = '<a class="badge badge-danger font-weight-bold"><i class="fa fa-check"></i> Lakukan verifikasi terlebih dahulu</a>';
                                             }
                                             if ($p['status_tujuan'] == 1) {
                                                 $status = '<a class="badge badge-danger">Ditolak</a>';
-                                                $action = "";
+                                                $action = '<a href="/koperasi/cetakKabTolak/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-danger mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
+                                                <a href="/koperasi/uploadPenolakan/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-outline-danger mr-1"><i class="fa fa-upload mr-1"></i>Upload</a>';
+                                                if ($p['img_rekomendasi_tujuan']) {
+                                                    $status_upload = '<a class="badge badge-success font-weight-bold"><i class="fa fa-check"></i> Dokumen telah di Upload</a>';
+                                                } else {
+                                                    $status_upload = '<a class="badge badge-warning font-weight-bold"><i class="fa fa-check"></i> Dokumen belum di Upload</a>';
+                                                }
                                             }
                                             if ($p['status_tujuan'] == 2) {
                                                 $status = '<a class="badge badge-success">Diterima</a>';
-                                                $action = '<a href="/koperasi/cetakKab/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>';
+                                                $action = '<a href="/koperasi/cetakKab/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
+                                                <a href="/koperasi/uploadRekomendasi/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-outline-success mr-1"><i class="fa fa-upload mr-1"></i>Upload</a>';
+                                                if ($p['img_rekomendasi_tujuan']) {
+                                                    $status_upload = '<a class="badge badge-success font-weight-bold"><i class="fa fa-check"></i> Dokumen telah di Upload</a>';
+                                                } else {
+                                                    $status_upload = '<a class="badge badge-warning font-weight-bold"><i class="fa fa-check"></i> Dokumen belum di Upload</a>';
+                                                }
                                             }
                                         }
                                     }
@@ -101,27 +155,53 @@
                                             if ($p['status_asal'] == 0) {
                                                 $status = '<a class="badge badge-warning">Perlu Diverifikasi !</a>';
                                                 $action = '<a href="/koperasi/verifikasiBoneBol/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-warning mr-1"><i class="fa fa-print mr-1"></i>Verifikasi</a>';
+                                                $status_upload = '<a class="badge badge-danger font-weight-bold"><i class="fa fa-check"></i> Lakukan verifikasi terlebih dahulu</a>';
                                             }
                                             if ($p['status_asal'] == 1) {
                                                 $status = '<a class="badge badge-danger">Ditolak</a>';
-                                                $action = "";
+                                                $action = '<a href="/koperasi/cetakBoneBolTolak/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-danger mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
+                                                <a href="/koperasi/uploadPenolakan/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-outline-danger mr-1"><i class="fa fa-upload mr-1"></i>Upload</a>';
+                                                if ($p['img_penolakan_asal']) {
+                                                    $status_upload = '<a class="badge badge-success font-weight-bold"><i class="fa fa-check"></i> Dokumen telah di Upload</a>';
+                                                } else {
+                                                    $status_upload = '<a class="badge badge-warning font-weight-bold"><i class="fa fa-check"></i> Dokumen belum di Upload</a>';
+                                                }
                                             }
                                             if ($p['status_asal'] == 2) {
                                                 $status = '<a class="badge badge-success">Diterima</a>';
-                                                $action = '<a href="/koperasi/cetakBoneBol/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>';
+                                                $action = '<a href="/koperasi/cetakBoneBol/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
+                                                <a href="/koperasi/uploadRekomendasi/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-outline-success mr-1"><i class="fa fa-upload mr-1"></i>Upload</a>';
+                                                if ($p['img_penolakan_asal']) {
+                                                    $status_upload = '<a class="badge badge-success font-weight-bold"><i class="fa fa-check"></i> Dokumen telah di Upload</a>';
+                                                } else {
+                                                    $status_upload = '<a class="badge badge-warning font-weight-bold"><i class="fa fa-check"></i> Dokumen belum di Upload</a>';
+                                                }
                                             }
                                         } else if ($p['tujuan'] == 3) {
                                             if ($p['status_tujuan'] == 0) {
                                                 $status = '<a class="badge badge-warning">Perlu Diverifikasi !</a>';
                                                 $action = '<a href="/koperasi/verifikasiBoneBol/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-warning mr-1"><i class="fa fa-print mr-1"></i>Verifikasi</a>';
+                                                $status_upload = '<a class="badge badge-danger font-weight-bold"><i class="fa fa-check"></i> Lakukan verifikasi terlebih dahulu</a>';
                                             }
                                             if ($p['status_tujuan'] == 1) {
                                                 $status = '<a class="badge badge-danger">Ditolak</a>';
-                                                $action = "";
+                                                $action = '<a href="/koperasi/cetakBoneBolTolak/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-danger mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
+                                                <a href="/koperasi/uploadPenolakan/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-outline-danger mr-1"><i class="fa fa-upload mr-1"></i>Upload</a>';
+                                                if ($p['img_rekomendasi_tujuan']) {
+                                                    $status_upload = '<a class="badge badge-success font-weight-bold"><i class="fa fa-check"></i> Dokumen telah di Upload</a>';
+                                                } else {
+                                                    $status_upload = '<a class="badge badge-warning font-weight-bold"><i class="fa fa-check"></i> Dokumen belum di Upload</a>';
+                                                }
                                             }
                                             if ($p['status_tujuan'] == 2) {
                                                 $status = '<a class="badge badge-success">Diterima</a>';
-                                                $action = '<a href="/koperasi/cetakBoneBol/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>';
+                                                $action = '<a href="/koperasi/cetakBoneBol/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
+                                                <a href="/koperasi/uploadRekomendasi/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-outline-success mr-1"><i class="fa fa-upload mr-1"></i>Upload</a>';
+                                                if ($p['img_rekomendasi_tujuan']) {
+                                                    $status_upload = '<a class="badge badge-success font-weight-bold"><i class="fa fa-check"></i> Dokumen telah di Upload</a>';
+                                                } else {
+                                                    $status_upload = '<a class="badge badge-warning font-weight-bold"><i class="fa fa-check"></i> Dokumen belum di Upload</a>';
+                                                }
                                             }
                                         }
                                     }
@@ -130,27 +210,53 @@
                                             if ($p['status_asal'] == 0) {
                                                 $status = '<a class="badge badge-warning">Perlu Diverifikasi !</a>';
                                                 $action = '<a href="/koperasi/verifikasiGorut/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-warning mr-1"><i class="fa fa-print mr-1"></i>Verifikasi</a>';
+                                                $status_upload = '<a class="badge badge-danger font-weight-bold"><i class="fa fa-check"></i> Lakukan verifikasi terlebih dahulu</a>';
                                             }
                                             if ($p['status_asal'] == 1) {
                                                 $status = '<a class="badge badge-danger">Ditolak</a>';
-                                                $action = "";
+                                                $action = '<a href="/koperasi/cetakGorutTolak/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-danger mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
+                                                <a href="/koperasi/uploadPenolakan/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-outline-danger mr-1"><i class="fa fa-upload mr-1"></i>Upload</a>';
+                                                if ($p['img_penolakan_asal']) {
+                                                    $status_upload = '<a class="badge badge-success font-weight-bold"><i class="fa fa-check"></i> Dokumen telah di Upload</a>';
+                                                } else {
+                                                    $status_upload = '<a class="badge badge-warning font-weight-bold"><i class="fa fa-check"></i> Dokumen belum di Upload</a>';
+                                                }
                                             }
                                             if ($p['status_asal'] == 2) {
                                                 $status = '<a class="badge badge-success">Diterima</a>';
-                                                $action = '<a href="/koperasi/cetakGorut/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>';
+                                                $action = '<a href="/koperasi/cetakGorut/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
+                                                <a href="/koperasi/uploadRekomendasi/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-outline-success mr-1"><i class="fa fa-upload mr-1"></i>Upload</a>';
+                                                if ($p['img_penolakan_asal']) {
+                                                    $status_upload = '<a class="badge badge-success font-weight-bold"><i class="fa fa-check"></i> Dokumen telah di Upload</a>';
+                                                } else {
+                                                    $status_upload = '<a class="badge badge-warning font-weight-bold"><i class="fa fa-check"></i> Dokumen belum di Upload</a>';
+                                                }
                                             }
                                         } else if ($p['tujuan'] == 4) {
                                             if ($p['status_tujuan'] == 0) {
                                                 $status = '<a class="badge badge-warning">Perlu Diverifikasi !</a>';
                                                 $action = '<a href="/koperasi/verifikasiGorut/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-warning mr-1"><i class="fa fa-print mr-1"></i>Verifikasi</a>';
+                                                $status_upload = '<a class="badge badge-danger font-weight-bold"><i class="fa fa-check"></i> Lakukan verifikasi terlebih dahulu</a>';
                                             }
                                             if ($p['status_tujuan'] == 1) {
                                                 $status = '<a class="badge badge-danger">Ditolak</a>';
-                                                $action = "";
+                                                $action = '<a href="/koperasi/cetakGorutTolak/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-danger mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
+                                                <a href="/koperasi/uploadPenolakan/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-outline-danger mr-1"><i class="fa fa-upload mr-1"></i>Upload</a>';
+                                                if ($p['img_rekomendasi_tujuan']) {
+                                                    $status_upload = '<a class="badge badge-success font-weight-bold"><i class="fa fa-check"></i> Dokumen telah di Upload</a>';
+                                                } else {
+                                                    $status_upload = '<a class="badge badge-warning font-weight-bold"><i class="fa fa-check"></i> Dokumen belum di Upload</a>';
+                                                }
                                             }
                                             if ($p['status_tujuan'] == 2) {
                                                 $status = '<a class="badge badge-success">Diterima</a>';
-                                                $action = '<a href="/koperasi/cetakGorut/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>';
+                                                $action = '<a href="/koperasi/cetakGorut/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
+                                                <a href="/koperasi/uploadRekomendasi/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-outline-success mr-1"><i class="fa fa-upload mr-1"></i>Upload</a>';
+                                                if ($p['img_rekomendasi_tujuan']) {
+                                                    $status_upload = '<a class="badge badge-success font-weight-bold"><i class="fa fa-check"></i> Dokumen telah di Upload</a>';
+                                                } else {
+                                                    $status_upload = '<a class="badge badge-warning font-weight-bold"><i class="fa fa-check"></i> Dokumen belum di Upload</a>';
+                                                }
                                             }
                                         }
                                     }
@@ -159,27 +265,53 @@
                                             if ($p['status_asal'] == 0) {
                                                 $status = '<a class="badge badge-warning">Perlu Diverifikasi !</a>';
                                                 $action = '<a href="/koperasi/verifikasiBoalemo/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-warning mr-1"><i class="fa fa-print mr-1"></i>Verifikasi</a>';
+                                                $status_upload = '<a class="badge badge-danger font-weight-bold"><i class="fa fa-check"></i> Lakukan verifikasi terlebih dahulu</a>';
                                             }
                                             if ($p['status_asal'] == 1) {
                                                 $status = '<a class="badge badge-danger">Ditolak</a>';
-                                                $action = "";
+                                                $action = '<a href="/koperasi/cetakBoalemoTolak/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-danger mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
+                                                <a href="/koperasi/uploadPenolakan/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-outline-danger mr-1"><i class="fa fa-upload mr-1"></i>Upload</a>';
+                                                if ($p['img_penolakan_asal']) {
+                                                    $status_upload = '<a class="badge badge-success font-weight-bold"><i class="fa fa-check"></i> Dokumen telah di Upload</a>';
+                                                } else {
+                                                    $status_upload = '<a class="badge badge-warning font-weight-bold"><i class="fa fa-check"></i> Dokumen belum di Upload</a>';
+                                                }
                                             }
                                             if ($p['status_asal'] == 2) {
                                                 $status = '<a class="badge badge-success">Diterima</a>';
-                                                $action = '<a href="/koperasi/cetakBoalemo/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>';
+                                                $action = '<a href="/koperasi/cetakBoalemo/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
+                                                <a href="/koperasi/uploadRekomendasi/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-outline-success mr-1"><i class="fa fa-upload mr-1"></i>Upload</a>';
+                                                if ($p['img_penolakan_asal']) {
+                                                    $status_upload = '<a class="badge badge-success font-weight-bold"><i class="fa fa-check"></i> Dokumen telah di Upload</a>';
+                                                } else {
+                                                    $status_upload = '<a class="badge badge-warning font-weight-bold"><i class="fa fa-check"></i> Dokumen belum di Upload</a>';
+                                                }
                                             }
                                         } else if ($p['tujuan'] == 5) {
                                             if ($p['status_tujuan'] == 0) {
                                                 $status = '<a class="badge badge-warning">Perlu Diverifikasi !</a>';
                                                 $action = '<a href="/koperasi/verifikasiBoalemo/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-warning mr-1"><i class="fa fa-print mr-1"></i>Verifikasi</a>';
+                                                $status_upload = '<a class="badge badge-danger font-weight-bold"><i class="fa fa-check"></i> Lakukan verifikasi terlebih dahulu</a>';
                                             }
                                             if ($p['status_tujuan'] == 1) {
                                                 $status = '<a class="badge badge-danger">Ditolak</a>';
-                                                $action = "";
+                                                $action = '<a href="/koperasi/cetakBoalemoTolak/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-danger mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
+                                                <a href="/koperasi/uploadPenolakan/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-outline-danger mr-1"><i class="fa fa-upload mr-1"></i>Upload</a>';
+                                                if ($p['img_rekomendasi_tujuan']) {
+                                                    $status_upload = '<a class="badge badge-success font-weight-bold"><i class="fa fa-check"></i> Dokumen telah di Upload</a>';
+                                                } else {
+                                                    $status_upload = '<a class="badge badge-warning font-weight-bold"><i class="fa fa-check"></i> Dokumen belum di Upload</a>';
+                                                }
                                             }
                                             if ($p['status_tujuan'] == 2) {
                                                 $status = '<a class="badge badge-success">Diterima</a>';
-                                                $action = '<a href="/koperasi/cetakBoalemo/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>';
+                                                $action = '<a href="/koperasi/cetakBoalemo/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
+                                                <a href="/koperasi/uploadRekomendasi/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-outline-success mr-1"><i class="fa fa-upload mr-1"></i>Upload</a>';
+                                                if ($p['img_rekomendasi_tujuan']) {
+                                                    $status_upload = '<a class="badge badge-success font-weight-bold"><i class="fa fa-check"></i> Dokumen telah di Upload</a>';
+                                                } else {
+                                                    $status_upload = '<a class="badge badge-warning font-weight-bold"><i class="fa fa-check"></i> Dokumen belum di Upload</a>';
+                                                }
                                             }
                                         }
                                     }
@@ -188,39 +320,66 @@
                                             if ($p['status_asal'] == 0) {
                                                 $status = '<a class="badge badge-warning">Perlu Diverifikasi !</a>';
                                                 $action = '<a href="/koperasi/verifikasiPohuwato/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-warning mr-1"><i class="fa fa-print mr-1"></i>Verifikasi</a>';
+                                                $status_upload = '<a class="badge badge-danger font-weight-bold"><i class="fa fa-check"></i> Lakukan verifikasi terlebih dahulu</a>';
                                             }
                                             if ($p['status_asal'] == 1) {
                                                 $status = '<a class="badge badge-danger">Ditolak</a>';
-                                                $action = "";
+                                                $action = '<a href="/koperasi/cetakPohuwatoTolak/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-danger mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
+                                                <a href="/koperasi/uploadPenolakan/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-outline-danger mr-1"><i class="fa fa-upload mr-1"></i>Upload</a>';
+                                                if ($p['img_penolakan_asal']) {
+                                                    $status_upload = '<a class="badge badge-success font-weight-bold"><i class="fa fa-check"></i> Dokumen telah di Upload</a>';
+                                                } else {
+                                                    $status_upload = '<a class="badge badge-warning font-weight-bold"><i class="fa fa-check"></i> Dokumen belum di Upload</a>';
+                                                }
                                             }
                                             if ($p['status_asal'] == 2) {
                                                 $status = '<a class="badge badge-success">Diterima</a>';
-                                                $action = '<a href="/koperasi/cetakPohuwato/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>';
+                                                $action = '<a href="/koperasi/cetakPohuwato/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
+                                                <a href="/koperasi/uploadRekomendasi/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-outline-success mr-1"><i class="fa fa-upload mr-1"></i>Upload</a>';
+                                                if ($p['img_penolakan_asal']) {
+                                                    $status_upload = '<a class="badge badge-success font-weight-bold"><i class="fa fa-check"></i> Dokumen telah di Upload</a>';
+                                                } else {
+                                                    $status_upload = '<a class="badge badge-warning font-weight-bold"><i class="fa fa-check"></i> Dokumen belum di Upload</a>';
+                                                }
                                             }
                                         } else if ($p['tujuan'] == 6) {
                                             if ($p['status_tujuan'] == 0) {
                                                 $status = '<a class="badge badge-warning">Perlu Diverifikasi !</a>';
                                                 $action = '<a href="/koperasi/verifikasiPohuwato/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-warning mr-1"><i class="fa fa-print mr-1"></i>Verifikasi</a>';
+                                                $status_upload = '<a class="badge badge-danger font-weight-bold"><i class="fa fa-check"></i> Lakukan verifikasi terlebih dahulu</a>';
                                             }
                                             if ($p['status_tujuan'] == 1) {
                                                 $status = '<a class="badge badge-danger">Ditolak</a>';
-                                                $action = "";
+                                                $action = '<a href="/koperasi/cetakPohuwatoTolak/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-danger mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
+                                                <a href="/koperasi/uploadPenolakan/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-outline-danger mr-1"><i class="fa fa-upload mr-1"></i>Upload</a>';
+                                                if ($p['img_rekomendasi_tujuan']) {
+                                                    $status_upload = '<a class="badge badge-success font-weight-bold"><i class="fa fa-check"></i> Dokumen telah di Upload</a>';
+                                                } else {
+                                                    $status_upload = '<a class="badge badge-warning font-weight-bold"><i class="fa fa-check"></i> Dokumen belum di Upload</a>';
+                                                }
                                             }
                                             if ($p['status_tujuan'] == 2) {
                                                 $status = '<a class="badge badge-success">Diterima</a>';
-                                                $action = '<a href="/koperasi/cetakPohuwato/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>';
+                                                $action = '<a href="/koperasi/cetakPohuwato/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
+                                                <a href="/koperasi/uploadRekomendasi/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-outline-success mr-1"><i class="fa fa-upload mr-1"></i>Upload</a>';
+                                                if ($p['img_rekomendasi_tujuan']) {
+                                                    $status_upload = '<a class="badge badge-success font-weight-bold"><i class="fa fa-check"></i> Dokumen telah di Upload</a>';
+                                                } else {
+                                                    $status_upload = '<a class="badge badge-warning font-weight-bold"><i class="fa fa-check"></i> Dokumen belum di Upload</a>';
+                                                }
                                             }
                                         }
                                     }
                                     ?>
                                     <tr>
-                                        <td class="font-weight-bold text-primary"><?= $p['nama_perusahaan'] ?></td>
+                                        <td class="font-weight-bold text-primary"><a id="btnModalDetail" class="text-primary" data-toggle="modal" data-target="#modalDetail" data-nama="<?= $p['nama_pemilik'] ?>" data-trayek="<?= $p['trayek'] ?>" data-nomor="<?= $p['nomor_kendaraan'] ?>" data-kir="<?= $p['nomor_kir'] ?>" data-tahun="<?= $p['tahun_pembuatan'] ?>" data-merk="<?= $p['merk'] ?>" data-chasis="<?= $p['nomor_chasis'] ?>" data-mesin="<?= $p['nomor_mesin'] ?>" data-pkb="<?= $p['nomor_regis_pkb'] ?>" data-kir="<?= $p['img_kir'] ?>" data-surat="<?= $p['img_surat_permohonan_koperasi'] ?>" data-ktp="<?= $p['img_ktp_pemilik'] ?>" data-stnkb="<?= $p['img_stnkb'] ?>" data-jasa="<?= $p['img_jasa_raharja'] ?>" data-imgkir="<?= $p['img_kir'] ?>"><?= $p['nama_perusahaan'] ?></a></td>
                                         <td>
                                             <a id="btnModalDetail" class="text-primary" data-toggle="modal" data-target="#modalDetail" data-nama="<?= $p['nama_pemilik'] ?>" data-trayek="<?= $p['trayek'] ?>" data-nomor="<?= $p['nomor_kendaraan'] ?>" data-kir="<?= $p['nomor_kir'] ?>" data-tahun="<?= $p['tahun_pembuatan'] ?>" data-merk="<?= $p['merk'] ?>" data-chasis="<?= $p['nomor_chasis'] ?>" data-mesin="<?= $p['nomor_mesin'] ?>" data-pkb="<?= $p['nomor_regis_pkb'] ?>" data-kir="<?= $p['img_kir'] ?>" data-surat="<?= $p['img_surat_permohonan_koperasi'] ?>" data-ktp="<?= $p['img_ktp_pemilik'] ?>" data-stnkb="<?= $p['img_stnkb'] ?>" data-jasa="<?= $p['img_jasa_raharja'] ?>" data-imgkir="<?= $p['img_kir'] ?>"><?= $p['trayek'] ?></a>
                                         </td>
                                         <td><?= $p['nama_pemilik'] ?></td>
                                         <td><?= $p['nomor_kendaraan'] ?></td>
                                         <td><?= $status ?></td>
+                                        <td><?= $status_upload ?></td>
                                         <td><?= $action ?></td>
                                     </tr>
 
@@ -261,6 +420,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+
             <div class="modal-body" id="isiModal">
                 <h5 class="modal-title w-100 mb-3 font-weight-bold" id="myModalLabel">Informasi Data Pemohon</h5>
                 <table class="table table-sm table-bordered">

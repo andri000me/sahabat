@@ -16,6 +16,6 @@ class TrayekModel extends model
             return $this->findAll();
         }
 
-        return $this->where(['kode_trayek' => "$kdt"])->first();
+        return $this->where(['kode_trayek' => $kdt])->first();
     }
 }
