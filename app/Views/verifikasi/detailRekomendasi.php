@@ -16,7 +16,7 @@
                             </div>
 
                             <div class="col text-right">
-                                <a data-toggle="modal" data-target="#modalContactForm2" type="btn" class="ml-auto btn btn-sm btn-success"><i class="fa fa-check"></i> Terima</a>
+                                <a href="/verifikasi/terima/<?= $detail['idpermohonan'] ?>" type="btn" class="ml-auto btn btn-sm btn-success"><i class="fa fa-check"></i> Terima</a>
                                 <a data-toggle="modal" data-target="#modalContactForm" type="btn" class="ml-auto btn btn-sm btn-danger"><i class="fa fa-ban"></i> Tolak</a>
                             </div>
                             </form>
@@ -179,12 +179,17 @@
                                 <tr>
                                     <th scope="row">6</th>
                                     <td>Fotocopy KTP Direktur Perusahaan </td>
-                                    <td><a href="/img/img_ktp/<?= $detail['img_ktp'] ?>" target="_blank" type="btn" class="ml-auto btn btn-sm btn-cyan"><i class="fa fa-eye"></i> Lihat Dokumen</a></td>
+                                    <td><a href="/img/img_ktp_direktur/<?= $detail['img_ktp_direktur'] ?>" target="_blank" type="btn" class="ml-auto btn btn-sm btn-cyan"><i class="fa fa-eye"></i> Lihat Dokumen</a></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">7</th>
-                                    <td>Rekomendasi Asal dan Tujuan Trayek </td>
+                                    <td>Rekomendasi Asal Trayek </td>
                                     <td><a href="/img/img_trayek/<?= $detail['img_trayek'] ?>" target="_blank" type="btn" class="ml-auto btn btn-sm btn-cyan"><i class="fa fa-eye"></i> Lihat Dokumen</a></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">7</th>
+                                    <td>Rekomendasi Tujuan Trayek </td>
+                                    <td><a href="/img/img_trayek_tujuan/<?= $detail['img_trayek_tujuan'] ?>" target="_blank" type="btn" class="ml-auto btn btn-sm btn-cyan"><i class="fa fa-eye"></i> Lihat Dokumen</a></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">8</th>
@@ -236,33 +241,6 @@
                 </div>
                 <div class="modal-footer d-flex justify-content-center">
                     <button type="submit" class="btn btn-danger">Kirim</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-<div class="modal fade" id="modalContactForm2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header text-center">
-                <h4 class="modal-title w-100 font-weight-bold">Input Masa Berlaku Izin</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <form action="/verifikasi/terima/<?= $detail['idpermohonan'] ?>" method="POST">
-                <input type="hidden" name="kode_booking" value="<?= $detail['kode_booking'] ?>">
-                <div class="container">
-                    <div class="md-form mt-5">
-                        <input name="masa_berlaku" placeholder="Masa Berlaku Izin" type="text" id="date-picker-example" class="form-control datepicker" required value="<?= old('tgl_permohonan') ?>">
-                        <label for="date-picker-example">Masa Berlaku Izin</label>
-                        <div class="invalid-feedback">
-                            Masa berlaku izin tidak boleh kosong
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer d-flex justify-content-center">
-                    <button type="submit" class="btn btn-success">Terima & Simpan</button>
                 </div>
             </form>
         </div>

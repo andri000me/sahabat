@@ -23,21 +23,42 @@
 
             <ul class="stepper stepper-horizontal">
 
-                <li class="secondary wow fadeInLeft">
+                <?php
+                if ($step4['img_surat_permohonan'] && $step4['img_pengantar_ptsp'] && $step4['tgl_permohonan'] && $step4['nama_pemohon'] && $step4['jenis_permohonan']) {
+                    $complete = "completed";
+                } else {
+                    $complete = "";
+                }
+                ?>
+                <li class="<?= $complete ?> wow fadeInLeft">
                     <a href="/rekomendasi/step11/<?= $step4['kode_booking'] ?>">
                         <span class="circle">1</span>
                         <span class="label">Syarat 1</span>
                     </a>
                 </li>
 
-                <li class="secondary wow fadeInLeft">
+                <?php
+                if ($step4['img_trayek'] && $step4['img_trayek_tujuan'] && $step4['trayek_dilayani']) {
+                    $complete = "completed";
+                } else {
+                    $complete = "";
+                }
+                ?>
+                <li class="<?= $complete ?> wow fadeInLeft">
                     <a href="/rekomendasi/step2/<?= $step4['kode_booking'] ?>">
                         <span class="circle">2</span>
                         <span class="label">Syarat 2</span>
                     </a>
                 </li>
 
-                <li class="secondary wow fadeInLeft">
+                <?php
+                if ($step4['img_stnkb_pkb'] && $step4['nomor_kendaraan'] && $step4['nama_pemilik'] && $step4['alamat_pemilik'] && $step4['jenis_kendaraan'] && $step4['tahun_pembuatan'] && $step4['stnkb_berlaku'] && $step4['pkb_berlaku']) {
+                    $complete = "completed";
+                } else {
+                    $complete = "";
+                }
+                ?>
+                <li class="<?= $complete ?> wow fadeInLeft">
                     <a href="/rekomendasi/step3/<?= $step4['kode_booking'] ?>">
                         <span class="circle">3</span>
                         <span class="label">Syarat 3</span>
@@ -51,14 +72,28 @@
                     </a>
                 </li>
 
-                <li class="secondary wow fadeInLeft">
+                <?php
+                if ($step4['img_jasa_raharja'] && $step4['jasa_raharja_berlaku']) {
+                    $complete = "completed";
+                } else {
+                    $complete = "";
+                }
+                ?>
+                <li class="<?= $complete ?> wow fadeInLeft">
                     <a href="/rekomendasi/step5/<?= $step4['kode_booking'] ?>">
                         <span class="circle">5</span>
                         <span class="label">Syarat 5</span>
                     </a>
                 </li>
 
-                <li class="secondary wow fadeInLeft">
+                <?php
+                if ($step4['img_surat_pernyataan']) {
+                    $complete = "completed";
+                } else {
+                    $complete = "";
+                }
+                ?>
+                <li class="<?= $complete ?> wow fadeInLeft">
                     <a href="/rekomendasi/step6/<?= $step4['kode_booking'] ?>">
                         <span class="circle">6</span>
                         <span class="label">Syarat 6</span>
@@ -77,7 +112,7 @@
                     <p class="card-text">Isi data sesuai dengan dokumen yang di upload</p>
 
                     <!-- Form -->
-                    <form method="POST" class="needs-validation md-form text-left" style="color: #757575;" action="/rekomendasi/update4/<?= $step4['id'] ?>" enctype="multipart/form-data" novalidate>
+                    <form method="POST" class="needs-validation md-form text-left" style="color: #757575;" action="/rekomendasi/update4/<?= $step4['idpermohonan'] ?>" enctype="multipart/form-data" novalidate>
 
                         <input name="img_kir_lama" type="hidden" value="<?= $step4['img_kir'] ?>">
                         <input name="kode_booking" type="hidden" value="<?= $step4['kode_booking'] ?>">

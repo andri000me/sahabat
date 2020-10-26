@@ -119,11 +119,8 @@
                                 <?php
                                 if ($k['kode_booking']) {
                                     $kb = $k['kode_booking'] + 1;
-                                }
-                                if ($k['kode_booking'] == "") {
-                                    $kb = 68728071111;
                                 } else {
-                                    $kb = 68728071111;
+                                    $kb = "68728071111";
                                 }
                                 ?>
                                 <input value="<?= $kb ?>" name="kdb" type="text" id="kdb" class="form-control" value="<?= old('kdb') ?>">

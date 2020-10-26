@@ -53,7 +53,7 @@
                                             $st = '<span class="badge badge-success"><i class="fas fa-stopwatch"></i> Diverifikasi</span>';
                                         }
                                         if ($tr['status_verifikasi'] == 2) {
-                                            $st = '<span class="badge badge-success"><i class="fas fa-stopwatch"></i> Sedang Diverifikasi</span>';
+                                            $st = '<span class="badge badge-success"><i class="fas fa-stopwatch"></i> Di Approve</span>';
                                         }
                                         if ($tr['status_verifikasi'] == 3) {
                                             $st = '<span class="badge badge-danger"><i class="fas fa-stopwatch"></i> Ditolak</span>';

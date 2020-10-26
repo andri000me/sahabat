@@ -72,6 +72,41 @@ class Verifikasi extends BaseController
         return view('blank');
     }
 
+    public function uploadIzinTrayek($id, $kdp, $kdt)
+    {
+        session();
+
+        $data = [
+            'title' => 'Detail Data Permohonan',
+            'detail' => $this->verifikasiModel->getRekomendasi($id),
+            // 'jenis' => $this->jenisPermohonanModel->getJenisPermohonan($kdp),
+            'trayek' => $this->trayekModel->getTrayek($kdt),
+            'session' => $this->user
+        ];
+        return view('rekomendasi/uploadIzinTrayek', $data);
+    }
+
+    public function cetakKP($id, $kdp, $kdt)
+    {
+        session();
+
+        $no_regis = $this->verifikasiModel->getRekomendasi($id);
+
+        $qr = $no_regis['kode_booking'];
+
+        // quick and simple:
+        $qrcode = '<img width="170" src="' . (new QRCode)->render($qr) . '" alt="QR Code" />';
+
+        $data = [
+            'title' => 'Detail Data Permohonan',
+            'detail' => $this->verifikasiModel->getRekomendasi($id),
+            // 'jenis' => $this->jenisPermohonanModel->getJenisPermohonan($kdp),
+            'trayek' => $this->trayekModel->getTrayek($kdt),
+            'session' => $this->user,
+            'qr' => $qrcode
+        ];
+        return view('verifikasi/cetakKP', $data);
+    }
     public function detail($kd)
     {
         $data = [
@@ -128,6 +163,33 @@ class Verifikasi extends BaseController
         session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data berhasil dikirim, mengunngu verivikasi</div>');
         return redirect()->to('/verifikasi/rekomendasi/');
     }
+
+    public function saveUploadIzinTrayek()
+    {
+        $img_izin_trayek = $this->request->getFile('img_izin_trayek');
+
+        if ($img_izin_trayek) {
+
+            if ($img_izin_trayek->getError() == 4) {
+                $nama_img_izin_trayek = $this->request->getVar('img_izin_trayek_lama');
+            } else {
+                $nama_img_izin_trayek = $img_izin_trayek->getRandomName();
+                $img_izin_trayek->move('img/img_izin_trayek', $nama_img_izin_trayek);
+                if ($this->request->getVar('img_izin_trayek_lama')) {
+                    unlink('img/img_izin_trayek/' . $this->request->getVar('img_izin_trayek_lama'));
+                } else {
+                }
+            }
+        }
+        $this->verifikasiModel->save([
+            'id' => $this->request->getVar('id'),
+            'img_izin_trayek' => $nama_img_izin_trayek,
+        ]);
+
+        session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Berhasil Di Upload</div>');
+        return redirect()->to('/rekomendasi/rekomendasi/');
+    }
+
     public function tolak($id)
     {
         $this->msgPenolakanModel->save([

@@ -17,8 +17,8 @@ class TrayekModel extends model
             $this->select('*');
             $this->where('kuota != 0');
             return $this->findAll();
+        } else {
+            return $this->where(['kode_trayek' => $kdt])->first();
         }
-
-        return $this->where(['kode_trayek' => $kdt])->first();
     }
 }

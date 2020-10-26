@@ -52,7 +52,7 @@
 
     <!-- ======= Footer ======= -->
     <footer id="footer">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-6 text-lg-left text-center">
                     <div class="copyright">

@@ -71,6 +71,7 @@
           <span class="sr-only">(current)</span>
         </a>
       </li>
+
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" <?= $hidden_ptsp ?><?= $hidden_approver ?> <?= $hidden_vers ?> <?= $hidden_kota ?>>Permohonan Asal Tujuan
         </a>
@@ -79,14 +80,34 @@
           <a class="dropdown-item" href="/koperasi">Data Permohonan</a>
         </div>
       </li>
+
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" <?= $hidden_approver ?> <?= $hidden_vers ?><?= $hidden_kota ?> <?= $hidden_koperasi ?>>Rekomendasi Izin Trayek
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" <?= $hidden_approver ?> <?= $hidden_vers ?><?= $hidden_kota ?> <?= $hidden_koperasi ?>>Data Permohonan
         </a>
         <div class="dropdown-menu dropdown-warning" aria-labelledby="navbarDropdownMenuLink-555">
-          <a class="dropdown-item" href="/rekomendasi/index">Buat Rekomendasi</a>
-          <a class="dropdown-item" href="/rekomendasi/rekomendasi">Data Rekomendasi</a>
+          <a class="dropdown-item" href="/rekomendasi/rekomendasi">Izin Trayek AKDP</a>
+          <a class="dropdown-item" href="#!">Izin Operasional ASK</a>
         </div>
       </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" <?= $hidden_approver ?> <?= $hidden_vers ?><?= $hidden_kota ?> <?= $hidden_koperasi ?>>Izin Trayek AKDP
+        </a>
+        <div class="dropdown-menu dropdown-warning" aria-labelledby="navbarDropdownMenuLink-555">
+          <a class="dropdown-item" href="/rekomendasi/step1">Regis Baru</a>
+          <a class="dropdown-item" href="/rekomendasi/step1p">Perpanjangan</a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" <?= $hidden_approver ?> <?= $hidden_vers ?><?= $hidden_kota ?> <?= $hidden_koperasi ?>>Izin Operasional ASK
+        </a>
+        <div class="dropdown-menu dropdown-warning" aria-labelledby="navbarDropdownMenuLink-555">
+          <a class="dropdown-item" href="#!">Regis Baru</a>
+          <a class="dropdown-item" href="#!">Perpanjangan</a>
+        </div>
+      </li>
+
       <li class="nav-item">
         <a class="nav-link" href="/koperasi/verifikasiPermohonan<?= $href ?>" <?= $hidden_ptsp ?> <?= $hidden_approver ?> <?= $hidden_vers ?><?= $hidden_koperasi ?>>Verifikasi Permohonan</a>
       </li>

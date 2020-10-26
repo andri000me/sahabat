@@ -23,35 +23,70 @@
 
             <ul class="stepper stepper-horizontal">
 
-                <li class="secondary wow fadeInLeft">
+                <?php
+                if ($step6['img_surat_permohonan'] && $step6['img_pengantar_ptsp'] && $step6['tgl_permohonan'] && $step6['nama_pemohon'] && $step6['jenis_permohonan']) {
+                    $complete = "completed";
+                } else {
+                    $complete = "";
+                }
+                ?>
+                <li class="<?= $complete ?> wow fadeInLeft">
                     <a href="/rekomendasi/step11/<?= $step6['kode_booking'] ?>">
                         <span class="circle">1</span>
                         <span class="label">Syarat 1</span>
                     </a>
                 </li>
 
-                <li class="secondary wow fadeInLeft">
+                <?php
+                if ($step6['img_trayek'] && $step6['img_trayek_tujuan'] && $step6['trayek_dilayani']) {
+                    $complete = "completed";
+                } else {
+                    $complete = "";
+                }
+                ?>
+                <li class="<?= $complete ?> wow fadeInLeft">
                     <a href="/rekomendasi/step2/<?= $step6['kode_booking'] ?>">
                         <span class="circle">2</span>
                         <span class="label">Syarat 2</span>
                     </a>
                 </li>
 
-                <li class="secondary wow fadeInLeft">
+                <?php
+                if ($step6['img_stnkb_pkb'] && $step6['nomor_kendaraan'] && $step6['nama_pemilik'] && $step6['alamat_pemilik'] && $step6['jenis_kendaraan'] && $step6['tahun_pembuatan'] && $step6['stnkb_berlaku'] && $step6['pkb_berlaku']) {
+                    $complete = "completed";
+                } else {
+                    $complete = "";
+                }
+                ?>
+                <li class="<?= $complete ?> wow fadeInLeft">
                     <a href="/rekomendasi/step3/<?= $step6['kode_booking'] ?>">
                         <span class="circle">3</span>
                         <span class="label">Syarat 3</span>
                     </a>
                 </li>
 
-                <li class="secondary wow fadeInLeft">
+                <?php
+                if ($step6['img_kir'] && $step6['nomor_kir'] && $step6['kapasitas_angkutan'] && $step6['uji_berkala_berlaku']) {
+                    $complete = "completed";
+                } else {
+                    $complete = "";
+                }
+                ?>
+                <li class="<?= $complete ?> wow fadeInLeft">
                     <a href="/rekomendasi/step4/<?= $step6['kode_booking'] ?>">
                         <span class="circle">4</span>
                         <span class="label">Syarat 4</span>
                     </a>
                 </li>
 
-                <li class="secondary wow fadeInLeft">
+                <?php
+                if ($step6['img_jasa_raharja'] && $step6['jasa_raharja_berlaku']) {
+                    $complete = "completed";
+                } else {
+                    $complete = "";
+                }
+                ?>
+                <li class="<?= $complete ?> wow fadeInLeft">
                     <a href="/rekomendasi/step5/<?= $step6['kode_booking'] ?>">
                         <span class="circle">5</span>
                         <span class="label">Syarat 5</span>
@@ -74,7 +109,7 @@
             <div class="cards px-4 pt-3">
                 <div class="card-body">
 
-                    <form id="s6form" method="POST" class="needs-validation md-form text-left" style="color: #757575;" action="/rekomendasi/s6/<?= $step6['id'] ?>" enctype="multipart/form-data" novalidate>
+                    <form id="s6form" method="POST" class="needs-validation md-form text-left" style="color: #757575;" action="/rekomendasi/s6/<?= $step6['idpermohonan'] ?>" enctype="multipart/form-data" novalidate>
 
                         <input name="img_surat_pernyataan_lama" type="hidden" value="<?= $step6['img_surat_pernyataan'] ?>">
 
@@ -96,7 +131,7 @@
 
                     </form>
 
-                    <form id="s5form" method="POST" class="needs-validation md-form text-left" style="color: #757575;" action="/rekomendasi/finish/<?= $step6['id'] ?>" enctype="multipart/form-data" novalidate>
+                    <form id="s5form" method="POST" class="needs-validation md-form text-left" style="color: #757575;" action="/rekomendasi/finish/<?= $step6['idpermohonan'] ?>" enctype="multipart/form-data" novalidate>
                         <div class="buttons mt-5">
                             <?php
                             if ($step6['tgl_permohonan'] && $step6['nama_pemohon'] && $step6['jenis_permohonan'] && $step6['trayek_dilayani'] && $step6['nomor_kendaraan'] && $step6['nama_pemilik'] && $step6['alamat_pemilik'] && $step6['jenis_kendaraan'] && $step6['tahun_pembuatan'] && $step6['nomor_kir'] && $step6['kapasitas_angkutan'] && $step6['uji_berkala_berlaku'] && $step6['stnkb_berlaku'] && $step6['pkb_berlaku'] && $step6['jasa_raharja_berlaku'] && $step6['img_surat_permohonan'] && $step6['img_pengantar_ptsp']  && $step6['img_trayek'] && $step6['img_stnkb_pkb'] && $step6['img_kir'] && $step6['img_jasa_raharja'] && $step6['img_surat_pernyataan']) {

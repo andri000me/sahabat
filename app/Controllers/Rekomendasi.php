@@ -170,6 +170,7 @@ class Rekomendasi extends BaseController
         }
 
         $slug = url_title($this->request->getVar('nama_pemohon'), '-', true);
+
         $this->verifikasiModel->save([
             'slug' => $slug,
             'status' => 1,
@@ -318,7 +319,7 @@ class Rekomendasi extends BaseController
         $img_trayek = $this->request->getFile('img_trayek');
         //abil gambar
 
-        if ($img_trayek)
+        if ($img_trayek) {
             if ($img_trayek->getError() == 4) {
                 $nama_img = $this->request->getVar('img_trayek_lama');
             } else {
@@ -329,10 +330,28 @@ class Rekomendasi extends BaseController
                 } else {
                 }
             }
+        }
+
+        $img_trayek_tujuan = $this->request->getFile('img_trayek_tujuan');
+        //abil gambar
+
+        if ($img_trayek_tujuan) {
+            if ($img_trayek_tujuan->getError() == 4) {
+                $nama_img_tujuan = $this->request->getVar('img_trayek_tujuan_lama');
+            } else {
+                $nama_img_tujuan = $img_trayek_tujuan->getRandomName();
+                $img_trayek_tujuan->move('img/img_trayek_tujuan', $nama_img_tujuan);
+                if ($this->request->getVar('img_trayek_tujuan_lama')) {
+                    unlink('img/img_trayek_tujuan/' . $this->request->getVar('img_trayek_tujuan_lama'));
+                } else {
+                }
+            }
+        }
 
         $this->verifikasiModel->save([
             'id' => $id,
             'img_trayek' => $nama_img,
+            'img_trayek_tujuan' => $nama_img_tujuan,
             'trayek_dilayani' => $this->request->getVar('trayek_dilayani'),
         ]);
 

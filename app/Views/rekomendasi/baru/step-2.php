@@ -23,7 +23,14 @@
 
             <ul class="stepper stepper-horizontal">
 
-                <li class="secondary wow fadeInLeft">
+                <?php
+                if ($step2['img_surat_permohonan'] && $step2['img_pengantar_ptsp'] && $step2['tgl_permohonan'] && $step2['nama_pemohon'] && $step2['jenis_permohonan']) {
+                    $complete = "completed";
+                } else {
+                    $complete = "";
+                }
+                ?>
+                <li class="<?= $complete ?> wow fadeInLeft">
                     <a href="/rekomendasi/step11/<?= $step2['kode_booking'] ?>">
                         <span class="circle">1</span>
                         <span class="label">Syarat 1</span>
@@ -36,29 +43,56 @@
                         <span class="label">Syarat 2</span>
                     </a>
                 </li>
-
-                <li class="secondary wow fadeInLeft">
+                <?php
+                if ($step2['img_stnkb_pkb'] && $step2['nomor_kendaraan'] && $step2['nama_pemilik'] && $step2['alamat_pemilik'] && $step2['jenis_kendaraan'] && $step2['tahun_pembuatan'] && $step2['stnkb_berlaku'] && $step2['pkb_berlaku']) {
+                    $complete = "completed";
+                } else {
+                    $complete = "";
+                }
+                ?>
+                <li class="<?= $complete ?> wow fadeInLeft">
                     <a href="/rekomendasi/step3/<?= $step2['kode_booking'] ?>"">
                         <span class=" circle">3</span>
                         <span class="label">Syarat 3</span>
                     </a>
                 </li>
 
-                <li class="secondary wow fadeInLeft">
+                <?php
+                if ($step2['img_kir'] && $step2['nomor_kir'] && $step2['kapasitas_angkutan'] && $step2['uji_berkala_berlaku']) {
+                    $complete = "completed";
+                } else {
+                    $complete = "";
+                }
+                ?>
+                <li class="<?= $complete ?> wow fadeInLeft">
                     <a href="/rekomendasi/step4/<?= $step2['kode_booking'] ?>"">
                             <span class=" circle">4</span>
                         <span class="label">Syarat 4</span>
                     </a>
                 </li>
 
-                <li class="secondary wow fadeInLeft">
+                <?php
+                if ($step2['img_jasa_raharja'] && $step2['jasa_raharja_berlaku']) {
+                    $complete = "completed";
+                } else {
+                    $complete = "";
+                }
+                ?>
+                <li class="<?= $complete ?> wow fadeInLeft">
                     <a href="/rekomendasi/step5/<?= $step2['kode_booking'] ?>"">
                         <span class=" circle">5</span>
                         <span class="label">Syarat 5</span>
                     </a>
                 </li>
 
-                <li class="secondary wow fadeInLeft">
+                <?php
+                if ($step2['img_surat_pernyataan']) {
+                    $complete = "completed";
+                } else {
+                    $complete = "";
+                }
+                ?>
+                <li class="<?= $complete ?> wow fadeInLeft">
                     <a href="/rekomendasi/step6/<?= $step2['kode_booking'] ?>"">
                         <span class=" circle">6</span>
                         <span class="label">Syarat 6</span>
@@ -77,10 +111,11 @@
                     <p class="card-text">Isi data sesuai dengan dokumen yang di upload</p>
 
                     <!-- Form -->
-                    <form method="POST" class="needs-validation md-form text-left" style="color: #757575;" action="/rekomendasi/update2/<?= $step2['id'] ?>" enctype="multipart/form-data" novalidate>
+                    <form method="POST" class="needs-validation md-form text-left" style="color: #757575;" action="/rekomendasi/update2/<?= $step2['idpermohonan'] ?>" enctype="multipart/form-data" novalidate>
 
                         <!-- //hidden -->
                         <input name="img_trayek_lama" type="hidden" value="<?= $step2['img_trayek'] ?>">
+                        <input name="img_trayek_tujuan_lama" type="hidden" value="<?= $step2['img_trayek_tujuan'] ?>">
                         <input name="kode_booking" type="hidden" value="<?= $step2['kode_booking'] ?>">
 
                         <div class="md-form">
@@ -91,7 +126,23 @@
                                 </div>
                                 <a href="/img/img_trayek/<?= $step2['img_trayek'] ?>" target="_blank" type="button" class="btn btn-sm btn-danger"><i class="fa fa-eye mr-1"></i> Lihat dokumen</a>
                                 <div class="file-path-wrapper">
-                                    <input class="file-path validate" value="<?= $step2['img_trayek'] ?>" type="text" placeholder="Trayek yang dilayani">
+                                    <input class="file-path validate" type="text" placeholder="Rekomendasi Asal Trayek">
+                                </div>
+                                <div class="kacili" style="margin-left:160px;">
+                                    <?= $validation->getError('img_trayek') ?>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="md-form">
+                            <div class="file-field">
+                                <div class="btn btn-primary btn-sm float-left">
+                                    <span><i class="fa fa-image mr-1"></i> Pilih File Dokumen</span>
+                                    <input type="file" name="img_trayek_tujuan" id="uploadImage" onchange="PreviewImage()" value="<?= $step2['img_trayek_tujuan'] ?>">
+                                </div>
+                                <a href="/img/img_trayek_tujuan/<?= $step2['img_trayek_tujuan'] ?>" target="_blank" type="button" class="btn btn-sm btn-danger"><i class="fa fa-eye mr-1"></i> Lihat dokumen</a>
+                                <div class="file-path-wrapper">
+                                    <input class="file-path validate" type="text" placeholder="Rekomendasi Tujuan Trayek">
                                 </div>
                                 <div class="kacili" style="margin-left:160px;">
                                     <?= $validation->getError('img_trayek') ?>

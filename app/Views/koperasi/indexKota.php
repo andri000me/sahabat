@@ -59,7 +59,7 @@
                                             }
                                             if ($p['status_asal'] == 2) {
                                                 $status = '<a class="badge badge-success">Diterima</a>';
-                                                $action = '<a href="/koperasi/cetakKota/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
+                                                $action = '<a target="_blank" href="/koperasi/cetakKota/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
                                                 <a href="/koperasi/uploadRekomendasi/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-outline-success mr-1"><i class="fa fa-upload mr-1"></i>Upload</a>';
                                                 if ($p['img_rekomendasi_asal']) {
                                                     $status_upload = '<a class="badge badge-success font-weight-bold"><i class="fa fa-check"></i> Dokumen telah di Upload</a>';
@@ -75,7 +75,7 @@
                                             }
                                             if ($p['status_tujuan'] == 1) {
                                                 $status = '<a class="badge badge-danger">Ditolak</a>';
-                                                $action = '<a href="/koperasi/cetakKotaTolak/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-danger mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
+                                                $action = '<a target="_blank" href="/koperasi/cetakKotaTolak/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-danger mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
                                                 <a href="/koperasi/uploadPenolakan/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-outline-danger mr-1"><i class="fa fa-upload mr-1"></i>Upload</a>';
                                                 if ($p['img_penolakan_tujuan']) {
                                                     $status_upload = '<a class="badge badge-success font-weight-bold"><i class="fa fa-check"></i> Dokumen telah di Upload</a>';
@@ -85,7 +85,7 @@
                                             }
                                             if ($p['status_tujuan'] == 2) {
                                                 $status = '<a class="badge badge-success">Diterima</a>';
-                                                $action = '<a href="/koperasi/cetakKota/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
+                                                $action = '<a target="_blank" href="/koperasi/cetakKota/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
                                                 <a href="/koperasi/uploadRekomendasi/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-outline-success mr-1"><i class="fa fa-upload mr-1"></i>Upload</a>';
                                                 if ($p['img_rekomendasi_tujuan']) {
                                                     $status_upload = '<a class="badge badge-success font-weight-bold"><i class="fa fa-check"></i> Dokumen telah di Upload</a>';
@@ -104,7 +104,7 @@
                                             }
                                             if ($p['status_asal'] == 1) {
                                                 $status = '<a class="badge badge-danger">Ditolak</a>';
-                                                $action = '<a href="/koperasi/cetakKabTolak/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-danger mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
+                                                $action = '<a target="_blank" href="/koperasi/cetakKabTolak/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-danger mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
                                                 <a href="/koperasi/uploadPenolakan/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-outline-danger mr-1"><i class="fa fa-upload mr-1"></i>Upload</a>';
                                                 if ($p['img_penolakan_asal']) {
                                                     $status_upload = '<a class="badge badge-success font-weight-bold"><i class="fa fa-check"></i> Dokumen telah di Upload</a>';
@@ -114,7 +114,7 @@
                                             }
                                             if ($p['status_asal'] == 2) {
                                                 $status = '<a class="badge badge-success">Diterima</a>';
-                                                $action = '<a href="/koperasi/cetakKab/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
+                                                $action = '<a target="_blank" href="/koperasi/cetakKab/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
                                                 <a href="/koperasi/uploadRekomendasi/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-outline-success mr-1"><i class="fa fa-upload mr-1"></i>Upload</a>';
                                                 if ($p['img_penolakan_asal']) {
                                                     $status_upload = '<a class="badge badge-success font-weight-bold"><i class="fa fa-check"></i> Dokumen telah di Upload</a>';
@@ -130,7 +130,7 @@
                                             }
                                             if ($p['status_tujuan'] == 1) {
                                                 $status = '<a class="badge badge-danger">Ditolak</a>';
-                                                $action = '<a href="/koperasi/cetakKabTolak/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-danger mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
+                                                $action = '<a target="_blank" href="/koperasi/cetakKabTolak/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-danger mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
                                                 <a href="/koperasi/uploadPenolakan/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-outline-danger mr-1"><i class="fa fa-upload mr-1"></i>Upload</a>';
                                                 if ($p['img_rekomendasi_tujuan']) {
                                                     $status_upload = '<a class="badge badge-success font-weight-bold"><i class="fa fa-check"></i> Dokumen telah di Upload</a>';
@@ -140,7 +140,7 @@
                                             }
                                             if ($p['status_tujuan'] == 2) {
                                                 $status = '<a class="badge badge-success">Diterima</a>';
-                                                $action = '<a href="/koperasi/cetakKab/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
+                                                $action = '<a target="_blank" href="/koperasi/cetakKab/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
                                                 <a href="/koperasi/uploadRekomendasi/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-outline-success mr-1"><i class="fa fa-upload mr-1"></i>Upload</a>';
                                                 if ($p['img_rekomendasi_tujuan']) {
                                                     $status_upload = '<a class="badge badge-success font-weight-bold"><i class="fa fa-check"></i> Dokumen telah di Upload</a>';
@@ -159,7 +159,7 @@
                                             }
                                             if ($p['status_asal'] == 1) {
                                                 $status = '<a class="badge badge-danger">Ditolak</a>';
-                                                $action = '<a href="/koperasi/cetakBoneBolTolak/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-danger mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
+                                                $action = '<a target="_blank" href="/koperasi/cetakBoneBolTolak/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-danger mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
                                                 <a href="/koperasi/uploadPenolakan/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-outline-danger mr-1"><i class="fa fa-upload mr-1"></i>Upload</a>';
                                                 if ($p['img_penolakan_asal']) {
                                                     $status_upload = '<a class="badge badge-success font-weight-bold"><i class="fa fa-check"></i> Dokumen telah di Upload</a>';
@@ -169,7 +169,7 @@
                                             }
                                             if ($p['status_asal'] == 2) {
                                                 $status = '<a class="badge badge-success">Diterima</a>';
-                                                $action = '<a href="/koperasi/cetakBoneBol/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
+                                                $action = '<a target="_blank" href="/koperasi/cetakBoneBol/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
                                                 <a href="/koperasi/uploadRekomendasi/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-outline-success mr-1"><i class="fa fa-upload mr-1"></i>Upload</a>';
                                                 if ($p['img_penolakan_asal']) {
                                                     $status_upload = '<a class="badge badge-success font-weight-bold"><i class="fa fa-check"></i> Dokumen telah di Upload</a>';
@@ -185,7 +185,7 @@
                                             }
                                             if ($p['status_tujuan'] == 1) {
                                                 $status = '<a class="badge badge-danger">Ditolak</a>';
-                                                $action = '<a href="/koperasi/cetakBoneBolTolak/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-danger mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
+                                                $action = '<a target="_blank" href="/koperasi/cetakBoneBolTolak/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-danger mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
                                                 <a href="/koperasi/uploadPenolakan/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-outline-danger mr-1"><i class="fa fa-upload mr-1"></i>Upload</a>';
                                                 if ($p['img_rekomendasi_tujuan']) {
                                                     $status_upload = '<a class="badge badge-success font-weight-bold"><i class="fa fa-check"></i> Dokumen telah di Upload</a>';
@@ -195,7 +195,7 @@
                                             }
                                             if ($p['status_tujuan'] == 2) {
                                                 $status = '<a class="badge badge-success">Diterima</a>';
-                                                $action = '<a href="/koperasi/cetakBoneBol/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
+                                                $action = '<a target="_blank" href="/koperasi/cetakBoneBol/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
                                                 <a href="/koperasi/uploadRekomendasi/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-outline-success mr-1"><i class="fa fa-upload mr-1"></i>Upload</a>';
                                                 if ($p['img_rekomendasi_tujuan']) {
                                                     $status_upload = '<a class="badge badge-success font-weight-bold"><i class="fa fa-check"></i> Dokumen telah di Upload</a>';
@@ -214,7 +214,7 @@
                                             }
                                             if ($p['status_asal'] == 1) {
                                                 $status = '<a class="badge badge-danger">Ditolak</a>';
-                                                $action = '<a href="/koperasi/cetakGorutTolak/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-danger mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
+                                                $action = '<a target="_blank" href="/koperasi/cetakGorutTolak/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-danger mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
                                                 <a href="/koperasi/uploadPenolakan/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-outline-danger mr-1"><i class="fa fa-upload mr-1"></i>Upload</a>';
                                                 if ($p['img_penolakan_asal']) {
                                                     $status_upload = '<a class="badge badge-success font-weight-bold"><i class="fa fa-check"></i> Dokumen telah di Upload</a>';
@@ -224,7 +224,7 @@
                                             }
                                             if ($p['status_asal'] == 2) {
                                                 $status = '<a class="badge badge-success">Diterima</a>';
-                                                $action = '<a href="/koperasi/cetakGorut/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
+                                                $action = '<a target="_blank" href="/koperasi/cetakGorut/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
                                                 <a href="/koperasi/uploadRekomendasi/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-outline-success mr-1"><i class="fa fa-upload mr-1"></i>Upload</a>';
                                                 if ($p['img_penolakan_asal']) {
                                                     $status_upload = '<a class="badge badge-success font-weight-bold"><i class="fa fa-check"></i> Dokumen telah di Upload</a>';
@@ -240,7 +240,7 @@
                                             }
                                             if ($p['status_tujuan'] == 1) {
                                                 $status = '<a class="badge badge-danger">Ditolak</a>';
-                                                $action = '<a href="/koperasi/cetakGorutTolak/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-danger mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
+                                                $action = '<a target="_blank" href="/koperasi/cetakGorutTolak/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-danger mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
                                                 <a href="/koperasi/uploadPenolakan/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-outline-danger mr-1"><i class="fa fa-upload mr-1"></i>Upload</a>';
                                                 if ($p['img_rekomendasi_tujuan']) {
                                                     $status_upload = '<a class="badge badge-success font-weight-bold"><i class="fa fa-check"></i> Dokumen telah di Upload</a>';
@@ -250,7 +250,7 @@
                                             }
                                             if ($p['status_tujuan'] == 2) {
                                                 $status = '<a class="badge badge-success">Diterima</a>';
-                                                $action = '<a href="/koperasi/cetakGorut/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
+                                                $action = '<a target="_blank" href="/koperasi/cetakGorut/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
                                                 <a href="/koperasi/uploadRekomendasi/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-outline-success mr-1"><i class="fa fa-upload mr-1"></i>Upload</a>';
                                                 if ($p['img_rekomendasi_tujuan']) {
                                                     $status_upload = '<a class="badge badge-success font-weight-bold"><i class="fa fa-check"></i> Dokumen telah di Upload</a>';
@@ -269,7 +269,7 @@
                                             }
                                             if ($p['status_asal'] == 1) {
                                                 $status = '<a class="badge badge-danger">Ditolak</a>';
-                                                $action = '<a href="/koperasi/cetakBoalemoTolak/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-danger mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
+                                                $action = '<a target="_blank" href="/koperasi/cetakBoalemoTolak/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-danger mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
                                                 <a href="/koperasi/uploadPenolakan/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-outline-danger mr-1"><i class="fa fa-upload mr-1"></i>Upload</a>';
                                                 if ($p['img_penolakan_asal']) {
                                                     $status_upload = '<a class="badge badge-success font-weight-bold"><i class="fa fa-check"></i> Dokumen telah di Upload</a>';
@@ -279,7 +279,7 @@
                                             }
                                             if ($p['status_asal'] == 2) {
                                                 $status = '<a class="badge badge-success">Diterima</a>';
-                                                $action = '<a href="/koperasi/cetakBoalemo/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
+                                                $action = '<a target="_blank" href="/koperasi/cetakBoalemo/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
                                                 <a href="/koperasi/uploadRekomendasi/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-outline-success mr-1"><i class="fa fa-upload mr-1"></i>Upload</a>';
                                                 if ($p['img_penolakan_asal']) {
                                                     $status_upload = '<a class="badge badge-success font-weight-bold"><i class="fa fa-check"></i> Dokumen telah di Upload</a>';
@@ -295,7 +295,7 @@
                                             }
                                             if ($p['status_tujuan'] == 1) {
                                                 $status = '<a class="badge badge-danger">Ditolak</a>';
-                                                $action = '<a href="/koperasi/cetakBoalemoTolak/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-danger mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
+                                                $action = '<a target="_blank" href="/koperasi/cetakBoalemoTolak/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-danger mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
                                                 <a href="/koperasi/uploadPenolakan/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-outline-danger mr-1"><i class="fa fa-upload mr-1"></i>Upload</a>';
                                                 if ($p['img_rekomendasi_tujuan']) {
                                                     $status_upload = '<a class="badge badge-success font-weight-bold"><i class="fa fa-check"></i> Dokumen telah di Upload</a>';
@@ -305,7 +305,7 @@
                                             }
                                             if ($p['status_tujuan'] == 2) {
                                                 $status = '<a class="badge badge-success">Diterima</a>';
-                                                $action = '<a href="/koperasi/cetakBoalemo/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
+                                                $action = '<a target="_blank" href="/koperasi/cetakBoalemo/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
                                                 <a href="/koperasi/uploadRekomendasi/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-outline-success mr-1"><i class="fa fa-upload mr-1"></i>Upload</a>';
                                                 if ($p['img_rekomendasi_tujuan']) {
                                                     $status_upload = '<a class="badge badge-success font-weight-bold"><i class="fa fa-check"></i> Dokumen telah di Upload</a>';
@@ -324,7 +324,7 @@
                                             }
                                             if ($p['status_asal'] == 1) {
                                                 $status = '<a class="badge badge-danger">Ditolak</a>';
-                                                $action = '<a href="/koperasi/cetakPohuwatoTolak/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-danger mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
+                                                $action = '<a target="_blank" href="/koperasi/cetakPohuwatoTolak/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-danger mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
                                                 <a href="/koperasi/uploadPenolakan/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-outline-danger mr-1"><i class="fa fa-upload mr-1"></i>Upload</a>';
                                                 if ($p['img_penolakan_asal']) {
                                                     $status_upload = '<a class="badge badge-success font-weight-bold"><i class="fa fa-check"></i> Dokumen telah di Upload</a>';
@@ -334,7 +334,7 @@
                                             }
                                             if ($p['status_asal'] == 2) {
                                                 $status = '<a class="badge badge-success">Diterima</a>';
-                                                $action = '<a href="/koperasi/cetakPohuwato/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
+                                                $action = '<a target="_blank" href="/koperasi/cetakPohuwato/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
                                                 <a href="/koperasi/uploadRekomendasi/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-outline-success mr-1"><i class="fa fa-upload mr-1"></i>Upload</a>';
                                                 if ($p['img_penolakan_asal']) {
                                                     $status_upload = '<a class="badge badge-success font-weight-bold"><i class="fa fa-check"></i> Dokumen telah di Upload</a>';
@@ -350,7 +350,7 @@
                                             }
                                             if ($p['status_tujuan'] == 1) {
                                                 $status = '<a class="badge badge-danger">Ditolak</a>';
-                                                $action = '<a href="/koperasi/cetakPohuwatoTolak/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-danger mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
+                                                $action = '<a target="_blank" href="/koperasi/cetakPohuwatoTolak/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-danger mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
                                                 <a href="/koperasi/uploadPenolakan/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-outline-danger mr-1"><i class="fa fa-upload mr-1"></i>Upload</a>';
                                                 if ($p['img_rekomendasi_tujuan']) {
                                                     $status_upload = '<a class="badge badge-success font-weight-bold"><i class="fa fa-check"></i> Dokumen telah di Upload</a>';
@@ -360,7 +360,7 @@
                                             }
                                             if ($p['status_tujuan'] == 2) {
                                                 $status = '<a class="badge badge-success">Diterima</a>';
-                                                $action = '<a href="/koperasi/cetakPohuwato/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
+                                                $action = '<a target="_blank" href="/koperasi/cetakPohuwato/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-success mr-1"><i class="fa fa-print mr-1"></i>Cetak</a>
                                                 <a href="/koperasi/uploadRekomendasi/' . $p['slug'] . '/' . $p['idpermohonan'] . '" class="btn btn-sm btn-outline-success mr-1"><i class="fa fa-upload mr-1"></i>Upload</a>';
                                                 if ($p['img_rekomendasi_tujuan']) {
                                                     $status_upload = '<a class="badge badge-success font-weight-bold"><i class="fa fa-check"></i> Dokumen telah di Upload</a>';

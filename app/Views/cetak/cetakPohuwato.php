@@ -56,7 +56,7 @@
                             $no_surat = $no + 1;
                             ?>
                             <h1 class="text-dark font-weight-bold mt-2">REKOMENDASI IZIN TRAYEK</h1>
-                            <h5 class="text-dark font-weight-bold" style="margin-top:-25px;">Nomor : 551.1/Dishub/Phwt/BID-LLAJ/<?= $no_surat ?>/ I /2020</h5>
+                            <h5 class="text-dark font-weight-bold" style="margin-top:-25px; margin-left:-370px;">Nomor : </h5>
                         </div>
                         <div class="row text-justify">
 

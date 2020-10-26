@@ -38,7 +38,7 @@
                                     if ($tr['status'] == 1) {
                                         $status = "Permohonan Baru";
                                     }
-                                    if ($tr['status'] == 0) {
+                                    if ($tr['status'] == 2) {
                                         $status = "Perpanjangan";
                                     }
                                     ?>

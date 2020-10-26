@@ -176,8 +176,13 @@
                                 </tr>
                                 <tr>
                                     <th scope="row">7</th>
-                                    <td>Rekomendasi Asal dan Tujuan Trayek </td>
+                                    <td>Rekomendasi Asal Trayek </td>
                                     <td><a href="/img/img_trayek/<?= $detail['img_trayek'] ?>" target="_blank" type="btn" class="ml-auto btn btn-sm btn-cyan"><i class="fa fa-eye"></i> Lihat Dokumen</a></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">7</th>
+                                    <td>Rekomendasi Tujuan Trayek </td>
+                                    <td><a href="/img/img_trayek_tujuan/<?= $detail['img_trayek_tujuan'] ?>" target="_blank" type="btn" class="ml-auto btn btn-sm btn-cyan"><i class="fa fa-eye"></i> Lihat Dokumen</a></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">8</th>

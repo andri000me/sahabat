@@ -9,11 +9,51 @@ class VerifikasiModel extends model
     protected $table = 'permohonan';
     protected $primaryKey = 'id';
     protected $useTimestamps = true;
-    protected $allowedFields = ['tgl_approve', 'masa_berlaku', 'slug', 'kode_booking', 'status', 'status_verifikasi', 'tgl_permohonan', 'nama_pemohon', 'alamat_pemohon', 'jenis_permohonan', 'trayek_dilayani', 'nomor_kendaraan', 'nama_pemilik', 'alamat_pemilik', 'jenis_kendaraan', 'tahun_pembuatan', 'nomor_kir', 'kapasitas_angkutan', 'uji_berkala_berlaku', 'stnkb_berlaku', 'pkb_berlaku', 'jasa_raharja_berlaku', 'img_surat_permohonan', 'img_akte_perusahaan', 'img_tdp', 'img_siup', 'img_npwp', 'img_ktp', 'img_trayek', 'img_stnkb_pkb', 'img_kir', 'img_jasa_raharja', 'img_surat_pernyataan', 'img_pengantar_ptsp', 'terima', 'created_at', 'updated_at'];
+    protected $allowedFields = [
+        'tgl_approve',
+        'masa_berlaku',
+        'slug',
+        'kode_booking',
+        'status',
+        'status_verifikasi',
+        'tgl_permohonan',
+        'nama_pemohon',
+        'alamat_pemohon',
+        'jenis_permohonan',
+        'trayek_dilayani',
+        'nomor_kendaraan',
+        'nama_pemilik',
+        'alamat_pemilik',
+        'jenis_kendaraan',
+        'tahun_pembuatan',
+        'nomor_kir',
+        'kapasitas_angkutan',
+        'uji_berkala_berlaku',
+        'stnkb_berlaku',
+        'pkb_berlaku',
+        'jasa_raharja_berlaku',
+        'img_surat_permohonan',
+        'img_akte_perusahaan',
+        'img_tdp',
+        'img_siup',
+        'img_npwp',
+        'img_ktp',
+        'img_trayek',
+        'img_trayek_tujuan',
+        'img_stnkb_pkb',
+        'img_kir',
+        'img_jasa_raharja',
+        'img_surat_pernyataan',
+        'img_pengantar_ptsp',
+        'img_izin_trayek',
+        'terima',
+        'created_at',
+        'updated_at'
+    ];
 
-    public function getRekomendasi($kd = false)
+    public function getRekomendasi($id = false)
     {
-        if ($kd == false) {
+        if ($id == false) {
             return $this->findAll();
         }
 
@@ -44,11 +84,13 @@ class VerifikasiModel extends model
         permohonan.img_surat_permohonan,
         permohonan.img_ktp,
         permohonan.img_trayek,
+        permohonan.img_trayek_tujuan,
         permohonan.img_stnkb_pkb,
         permohonan.img_kir,
         permohonan.img_jasa_raharja,
         permohonan.img_surat_pernyataan,
         permohonan.img_pengantar_ptsp,
+        permohonan.img_izin_trayek,
         permohonan.tgl_approve,
         permohonan.masa_berlaku,
         user.id as iduser,
@@ -69,9 +111,9 @@ class VerifikasiModel extends model
         user.img_ktp_direktur,
         user.img_siup,
         user.img_nib');
-        $this->where('permohonan.kode_booking', $kd);
-        $this->where('status_verifikasi != 4');
-        $this->where('status_verifikasi != 3');
+        $this->where('permohonan.kode_booking', $id);
+        // $this->where('status_verifikasi != 4');
+        // $this->where('status_verifikasi != 3');
         $this->join('user', 'user.id = permohonan.nama_pemohon');
         $this->orderBy('kode_booking', 'DESC');
         return $this->first();
@@ -113,11 +155,13 @@ class VerifikasiModel extends model
         permohonan.img_surat_permohonan,
         permohonan.img_ktp,
         permohonan.img_trayek,
+        permohonan.img_trayek_tujuan,
         permohonan.img_stnkb_pkb,
         permohonan.img_kir,
         permohonan.img_jasa_raharja,
         permohonan.img_surat_pernyataan,
         permohonan.img_pengantar_ptsp,
+        permohonan.img_izin_trayek,
         permohonan.tgl_approve,
         permohonan.masa_berlaku,
         user.id as iduser,
@@ -139,8 +183,8 @@ class VerifikasiModel extends model
         user.img_siup,
         user.img_nib');
         $this->join('user', 'user.id = permohonan.nama_pemohon');
-        $this->where('status_verifikasi != 4');
-        $this->where('status_verifikasi != 3');
+        // $this->where('status_verifikasi != 4');
+        // $this->where('status_verifikasi != 3');
         $this->orderBy('kode_booking', 'DESC');
         return $this->find();
     }
@@ -174,11 +218,13 @@ class VerifikasiModel extends model
         permohonan.img_surat_permohonan,
         permohonan.img_ktp,
         permohonan.img_trayek,
+        permohonan.img_trayek_tujuan,
         permohonan.img_stnkb_pkb,
         permohonan.img_kir,
         permohonan.img_jasa_raharja,
         permohonan.img_surat_pernyataan,
         permohonan.img_pengantar_ptsp,
+        permohonan.img_izin_trayek,
         permohonan.tgl_approve,
         permohonan.masa_berlaku,
         user.id as iduser,
@@ -200,8 +246,8 @@ class VerifikasiModel extends model
         user.img_siup,
         user.img_nib');
         $this->join('user', 'user.id = permohonan.nama_pemohon');
-        $this->where('status_verifikasi != 4');
-        $this->where('status_verifikasi != 3');
+        // $this->where('status_verifikasi != 4');
+        // $this->where('status_verifikasi != 3');
         $this->orderBy('kode_booking', 'DESC');
         return $this->find();
     }

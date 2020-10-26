@@ -29,36 +29,70 @@
                         <span class="label">Step 1</span>
                     </a>
                 </li>
-
-                <li class="wow fadeInLeft">
+                <?php
+                if ($step11['img_trayek'] && $step11['img_trayek_tujuan'] && $step11['trayek_dilayani']) {
+                    $complete = "completed";
+                } else {
+                    $complete = "";
+                }
+                ?>
+                <li class="<?= $complete ?> wow fadeInLeft">
                     <a href="/rekomendasi/step2/<?= $step11['kode_booking'] ?>">
                         <span class="circle">2</span>
                         <span class="label">Step 2</span>
                     </a>
                 </li>
 
-                <li class="secondary wow fadeInLeft">
+                <?php
+                if ($step11['img_stnkb_pkb'] && $step11['nomor_kendaraan'] && $step11['nama_pemilik'] && $step11['alamat_pemilik'] && $step11['jenis_kendaraan'] && $step11['tahun_pembuatan'] && $step11['stnkb_berlaku'] && $step11['pkb_berlaku']) {
+                    $complete = "completed";
+                } else {
+                    $complete = "";
+                }
+                ?>
+                <li class="<?= $complete ?> wow fadeInLeft">
                     <a href="/rekomendasi/step3/<?= $step11['kode_booking'] ?>">
                         <span class="circle">3</span>
                         <span class="label">Step 3</span>
                     </a>
                 </li>
 
-                <li class="secondary wow fadeInLeft">
+                <?php
+                if ($step11['img_kir'] && $step11['nomor_kir'] && $step11['kapasitas_angkutan'] && $step11['uji_berkala_berlaku']) {
+                    $complete = "completed";
+                } else {
+                    $complete = "";
+                }
+                ?>
+                <li class="<?= $complete ?> wow fadeInLeft">
                     <a href="/rekomendasi/step4/<?= $step11['kode_booking'] ?>">
                         <span class="circle">4</span>
                         <span class="label">Step 4</span>
                     </a>
                 </li>
 
-                <li class="secondary wow fadeInLeft">
+                <?php
+                if ($step11['img_jasa_raharja'] && $step11['jasa_raharja_berlaku']) {
+                    $complete = "completed";
+                } else {
+                    $complete = "";
+                }
+                ?>
+                <li class="<?= $complete ?> wow fadeInLeft">
                     <a href="/rekomendasi/step5/<?= $step11['kode_booking'] ?>">
                         <span class="circle">5</span>
                         <span class="label">Step 5</span>
                     </a>
                 </li>
 
-                <li class="secondary wow fadeInLeft">
+                <?php
+                if ($step11['img_surat_pernyataan']) {
+                    $complete = "completed";
+                } else {
+                    $complete = "";
+                }
+                ?>
+                <li class="<?= $complete ?> wow fadeInLeft">
                     <a href="/rekomendasi/step6/<?= $step11['kode_booking'] ?>">
                         <span class="circle">6</span>
                         <span class="label">Step 6</span>
@@ -81,7 +115,7 @@
                     <p class="card-text">Isi data sesuai dengan dokumen yang di upload</p>
 
                     <!-- Form -->
-                    <form method="POST" class="needs-validation md-form text-left" style="color: #757575;" action="/rekomendasi/update/<?= $step11['id'] ?>" enctype="multipart/form-data" novalidate>
+                    <form method="POST" class="needs-validation md-form text-left" style="color: #757575;" action="/rekomendasi/update/<?= $step11['idpermohonan'] ?>" enctype="multipart/form-data" novalidate>
                         <!-- //hidden -->
                         <input name="img_permohonan_lama" type="hidden" value="<?= $step11['img_surat_permohonan'] ?>">
                         <input name="img_pengantar_ptsp_lama" type="hidden" value="<?= $step11['img_pengantar_ptsp'] ?>">

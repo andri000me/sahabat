@@ -260,7 +260,7 @@
                                 - Masa berlaku izin
                             </div>
                             <div class="col-sm-8 textff font-weight-bold">
-                                <?php $originalDate = $detail['masa_berlaku'];
+                                <?php $originalDate = $detail['stnkb_berlaku'];
                                 $newDate1 = date("d-m-Y", strtotime($originalDate)); ?>
                                 : Sampai dengan <?= $newDate1 ?>
                             </div>
