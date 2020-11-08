@@ -223,6 +223,72 @@
                             </div>
                         </div>
 
+
+                        <h5 class="text-dark font-weight-bold card-title mt-5">Foto 4 Sisi Kendaraan</h5>
+                        <p class="card-text">Upload Foto Berwarna 4 Sisi Kendaraan</p>
+
+                        <div class="cards px-4 py-3">
+                            <div class="md-form">
+                                <div class="file-field">
+                                    <div class="btn primary-color-dark text-light btn-sm float-left">
+                                        <span><i class="fa fa-image mr-1"></i> Pilih File Dokumen</span>
+                                        <input type="file" name="foto_depan" id="uploadImage">
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input name="foto_depan" class="file-path validate" type="text" placeholder="Foto Depan Kendaraan">
+                                    </div>
+                                </div>
+                                <div class="kacili" style="margin-left:160px;">
+                                    <?= $validation->getError('foto_depan') ?>
+                                </div>
+                            </div>
+
+                            <div class="md-form">
+                                <div class="file-field">
+                                    <div class="btn primary-color-dark text-light btn-sm float-left">
+                                        <span><i class="fa fa-image mr-1"></i> Pilih File Dokumen</span>
+                                        <input type="file" name="foto_belakang" id="uploadImage">
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input name="foto_belakang" class="file-path validate" type="text" placeholder="Foto Belakang Kendaraan">
+                                    </div>
+                                </div>
+                                <div class="kacili" style="margin-left:160px;">
+                                    <?= $validation->getError('foto_belakang') ?>
+                                </div>
+                            </div>
+
+                            <div class="md-form">
+                                <div class="file-field">
+                                    <div class="btn primary-color-dark text-light btn-sm float-left">
+                                        <span><i class="fa fa-image mr-1"></i> Pilih File Dokumen</span>
+                                        <input type="file" name="foto_kanan" id="uploadImage">
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input name="foto_kanan" class="file-path validate" type="text" placeholder="Foto Samping Kanan Kendaraan">
+                                    </div>
+                                </div>
+                                <div class="kacili" style="margin-left:160px;">
+                                    <?= $validation->getError('foto_kanan') ?>
+                                </div>
+                            </div>
+
+                            <div class="md-form">
+                                <div class="file-field">
+                                    <div class="btn primary-color-dark text-light btn-sm float-left">
+                                        <span><i class="fa fa-image mr-1"></i> Pilih File Dokumen</span>
+                                        <input type="file" name="foto_kiri" id="uploadImage">
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input name="foto_kiri" class="file-path validate" type="text" placeholder="Foto Samping Kiri Kendaraan">
+                                    </div>
+                                </div>
+                                <div class="kacili" style="margin-left:160px;">
+                                    <?= $validation->getError('foto_kiri') ?>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="buttons mt-5">
                             <button type="submit button" class="btn btn-md primary-color-dark text-light">Simpan<i class="fa fa-check ml-1"></i> </button>
                         </div>

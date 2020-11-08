@@ -58,52 +58,121 @@
                             <h1 class="text-dark font-weight-bold mt-2">REKOMENDASI IZIN TRAYEK</h1>
                             <h5 class="text-dark font-weight-bold" style="margin-top:-25px; margin-left:-370px;">Nomor : </h5>
                         </div>
-                        <div class="row text-justify">
 
-                            <div class="col-sm-2">
+                        <div class="row text-left">
+
+                            <div class="col-sm-1 font-weight-bold">
+                                I.
+                            </div>
+                            <div class="col-sm-11" style="margin-left:-70px;">
                                 Dasar
                             </div>
-                            <div class="col-sm-1 text-right">
-                                1.
+
+                            <div class="col-sm-1 ">
                             </div>
-                            <div class="col-sm-9">
-                                Undang-Undang Nomor 22 Tahun 2009 tentang Lalu Lintas dan Angkutan Jalan <br>
+                            <div class="col-sm-11" style="margin-left:-70px;">
+                                1. Undang-Undang Nomor 22 Tahun 2009 Tentang Lalu Lintas Dan Angkutan Jalan;
                             </div>
 
-                            <div class="col-sm-2">
+                            <div class="col-sm-1 ">
                             </div>
-                            <div class="col-sm-1 text-right">
-                                2.
-                            </div>
-                            <div class="col-sm-9">
-                                Peraturan Pemerintah Nomor 41 Tahun 1993 tentang Angkutan Jalan ( lembaran Negara Tahun 1993 No 49 Tambahan Negara No 3528 Bab II pasal 1,4,5,7 dan 8 ) <br>
+                            <div class="col-sm-11" style="margin-left:-70px;">
+                                2. Peraturan Pemerintah Nomor 74 Tahun 2014 tentang Angkutan Jalan;
                             </div>
 
-                            <div class="col-sm-2">
+                            <div class="col-sm-1 ">
                             </div>
-                            <div class="col-sm-1 text-right">
-                                3.
-                            </div>
-                            <div class="col-sm-9">
-                                Peraturan Pemerintah Nomor 74 Tahun 2014 tentang Angkutan Jalan <br>
+                            <div class="col-sm-11" style="margin-left:-70px;">
+                                3. Peraturan Menteri Perhubungan Nomor PM 15 Tahun 2019 tentang Penyelenggaraan Angkutan Orang
                             </div>
 
-                            <div class="col-sm-2">
+                            <div class="col-sm-1 ">
                             </div>
-                            <div class="col-sm-1 text-right">
-                                4.
-                            </div>
-                            <div class="col-sm-9">
-                                Keputusan Menteri Perhubungan No KM 35 Tahun 2003 Tentang Penyelenggaraan Angkutan Jalan dengan Kendaraan Umum ;
+                            <div class="col-sm-11" style="margin-left:-54px;">
+                                Dengan Kendaraan Bermotor Umum Dalam Trayek;
                             </div>
 
+                            <div class="col-sm-1 ">
+                            </div>
+                            <div class="col-sm-11" style="margin-left:-70px;">
+                                4. Peraturan Gubernur Gorontalo Nomor 46 Tahun 2019 tentang Jaringan Trayek AKDP;
+                            </div>
+
+                            <div class="col-sm-1 ">
+                            </div>
+                            <div class="col-sm-11" style="margin-left:-70px;">
+                                5. Peraturan Daerah Kabupaten / Kota ..................
+                            </div>
+
+                            <div class="col-sm-1 ">
+                            </div>
+                            <div class="col-sm-11" style="margin-left:-70px;">
+                                6. Peraturan Bupati / Walikota ................
+                            </div>
                         </div>
 
+                        <div class="row text-left mt-3x">
+
+                            <div class="col-sm-1 font-weight-bold">
+                                II.
+                            </div>
+                            <div class="col-sm-11" style="margin-left:-70px;">
+                                Dengan Kendaraan Bermotor Umum Dalam Trayek;
+                            </div>
+
+                            <div class="col-sm-1 ">
+                            </div>
+                            <div class="col-sm-3" style="margin-left:-70px;">
+                                - Tanggal Permohonan
+                            </div>
+                            <div class="col-sm-1" style="margin-left:-70px;">
+                                :
+                            </div>
+                            <div class="col-sm-7" style="margin-left:-70px;">
+                                ....
+                            </div>
+
+                            <!-- <div class="col-sm-1 ">
+                            </div>
+                            <div class="col-sm-3" style="margin-left:-70px;">
+                                - Nama Pemohon Badan Usaha
+                            </div>
+                            <div class="col-sm-1" style="margin-left:-70px;">
+                                :
+                            </div>
+                            <div class="col-sm-7" style="margin-left:-70px;">
+                                ....
+                            </div>
+
+                            <div class="col-sm-1 ">
+                            </div>
+                            <div class="col-sm-3" style="margin-left:-70px;">
+                                - Nama Direktur Badan Usaha
+                            </div>
+                            <div class="col-sm-1" style="margin-left:-70px;">
+                                :
+                            </div>
+                            <div class="col-sm-7" style="margin-left:-70px;">
+                                ....
+                            </div>
+
+                            <div class="col-sm-1 ">
+                            </div>
+                            <div class="col-sm-3" style="margin-left:-70px;">
+                                - Alamat Pemohon
+                            </div>
+                            <div class="col-sm-1" style="margin-left:-70px;">
+                                :
+                            </div>
+                            <div class="col-sm-7" style="margin-left:-70px;">
+                                ....
+                            </div> -->
+                        </div>
                         <div class="row">
                             <div class="col-sm-2">
                                 Memperhatikan
                             </div>
-                            <div class="col-sm-1 text-right">
+                            <div class="col-sm-1">
                                 :
                             </div>
                             <div class="col-sm-9">
@@ -124,7 +193,7 @@
                             <div class="col-sm-2">
                                 PERTAMA
                             </div>
-                            <div class="col-sm-1 text-right">
+                            <div class="col-sm-1">
                                 :
                             </div>
                             <div class="col-sm-2">
@@ -139,7 +208,7 @@
                             <div class="col-sm-2">
 
                             </div>
-                            <div class="col-sm-1 text-right">
+                            <div class="col-sm-1">
 
                             </div>
                             <div class="col-sm-2">
@@ -154,7 +223,7 @@
                             <div class="col-sm-2">
 
                             </div>
-                            <div class="col-sm-1 text-right">
+                            <div class="col-sm-1">
 
                             </div>
                             <div class="col-sm-2">
@@ -166,9 +235,7 @@
                         </div>
 
                         <div class="row mt-3">
-                            <div class="col-sm-2">
-                            </div>
-                            <div class="col-sm-1 text-right">
+                            <div class="col-sm-1">
                             </div>
 
                             <div class="col-sm-8 font-weight-bold">
@@ -182,7 +249,7 @@
                             <div class="col-sm-2">
 
                             </div>
-                            <div class="col-sm-1 text-right">
+                            <div class="col-sm-1">
 
                             </div>
                             <div class="col-sm-2">
@@ -197,7 +264,7 @@
                             <div class="col-sm-2">
 
                             </div>
-                            <div class="col-sm-1 text-right">
+                            <div class="col-sm-1">
 
                             </div>
                             <div class="col-sm-2">
@@ -212,7 +279,7 @@
                             <div class="col-sm-2">
 
                             </div>
-                            <div class="col-sm-1 text-right">
+                            <div class="col-sm-1">
 
                             </div>
                             <div class="col-sm-2">
@@ -227,7 +294,7 @@
                             <div class="col-sm-2">
 
                             </div>
-                            <div class="col-sm-1 text-right">
+                            <div class="col-sm-1">
 
                             </div>
                             <div class="col-sm-2">
@@ -242,7 +309,7 @@
                             <div class="col-sm-2">
 
                             </div>
-                            <div class="col-sm-1 text-right">
+                            <div class="col-sm-1">
 
                             </div>
                             <div class="col-sm-2">
@@ -257,7 +324,7 @@
                             <div class="col-sm-2">
 
                             </div>
-                            <div class="col-sm-1 text-right">
+                            <div class="col-sm-1">
 
                             </div>
                             <div class="col-sm-2">
@@ -272,7 +339,7 @@
                             <div class="col-sm-2">
 
                             </div>
-                            <div class="col-sm-1 text-right">
+                            <div class="col-sm-1">
 
                             </div>
                             <div class="col-sm-2">
@@ -287,7 +354,7 @@
                             <div class="col-sm-2">
 
                             </div>
-                            <div class="col-sm-1 text-right">
+                            <div class="col-sm-1">
 
                             </div>
                             <div class="col-sm-2">
@@ -302,7 +369,7 @@
                             <div class="col-sm-2">
 
                             </div>
-                            <div class="col-sm-1 text-right">
+                            <div class="col-sm-1">
 
                             </div>
                             <div class="col-sm-2">
@@ -321,7 +388,7 @@
                             <div class="col-sm-2">
 
                             </div>
-                            <div class="col-sm-8 text-right">
+                            <div class="col-sm-8">
                                 <div class="text-center text-dark" style="margin-top:-20px;">
                                     <?= $permohonan['trayek'] ?>
                                 </div>
@@ -335,7 +402,7 @@
                             <div class="col-sm-2">
                                 KEDUA
                             </div>
-                            <div class="col-sm-1 text-right">
+                            <div class="col-sm-1">
                                 :
                             </div>
                             <div class="col-sm-9">
@@ -347,7 +414,7 @@
                             <div class="col-sm-2">
                                 KETIGA
                             </div>
-                            <div class="col-sm-1 text-right">
+                            <div class="col-sm-1">
                                 :
                             </div>
                             <div class="col-sm-9">
@@ -359,7 +426,7 @@
                             <div class="col-sm-2">
                                 KEEMPAT
                             </div>
-                            <div class="col-sm-1 text-right">
+                            <div class="col-sm-1">
                                 :
                             </div>
                             <div class="col-sm-9">

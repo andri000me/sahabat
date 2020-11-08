@@ -106,6 +106,42 @@ class Koperasi extends BaseController
                     'mime_in' => 'Ini bukan gambar',
                 ],
             ],
+            'foto_depan' => [
+                'rules' => 'uploaded[foto_depan]|max_size[foto_depan,1024]|is_image[foto_depan]|mime_in[foto_depan,image/jpg,image/jpeg,image/png]',
+                'errors' => [
+                    'uploaded' => 'Pilih gambar dokumen terlebih dahulu',
+                    'max_size' => 'Ukuran gambar terlalu besar (Maksimal 1Mb)',
+                    'is_image' => 'Ini bukan gambar',
+                    'mime_in' => 'Ini bukan gambar',
+                ],
+            ],
+            'foto_belakang' => [
+                'rules' => 'uploaded[foto_belakang]|max_size[foto_belakang,1024]|is_image[foto_belakang]|mime_in[foto_belakang,image/jpg,image/jpeg,image/png]',
+                'errors' => [
+                    'uploaded' => 'Pilih gambar dokumen terlebih dahulu',
+                    'max_size' => 'Ukuran gambar terlalu besar (Maksimal 1Mb)',
+                    'is_image' => 'Ini bukan gambar',
+                    'mime_in' => 'Ini bukan gambar',
+                ],
+            ],
+            'foto_kanan' => [
+                'rules' => 'uploaded[foto_kanan]|max_size[foto_kanan,1024]|is_image[foto_kanan]|mime_in[foto_kanan,image/jpg,image/jpeg,image/png]',
+                'errors' => [
+                    'uploaded' => 'Pilih gambar dokumen terlebih dahulu',
+                    'max_size' => 'Ukuran gambar terlalu besar (Maksimal 1Mb)',
+                    'is_image' => 'Ini bukan gambar',
+                    'mime_in' => 'Ini bukan gambar',
+                ],
+            ],
+            'foto_kiri' => [
+                'rules' => 'uploaded[foto_kiri]|max_size[foto_kiri,1024]|is_image[foto_kiri]|mime_in[foto_kiri,image/jpg,image/jpeg,image/png]',
+                'errors' => [
+                    'uploaded' => 'Pilih gambar dokumen terlebih dahulu',
+                    'max_size' => 'Ukuran gambar terlalu besar (Maksimal 1Mb)',
+                    'is_image' => 'Ini bukan gambar',
+                    'mime_in' => 'Ini bukan gambar',
+                ],
+            ],
             'trayek_dilayani' => [
                 'rules' => 'required',
                 'errors' => [
