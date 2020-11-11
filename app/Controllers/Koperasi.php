@@ -198,6 +198,42 @@ class Koperasi extends BaseController
             $img_kir->move('img/img_kir', $nama_img_kir);
         }
 
+        $foto_depan = $this->request->getFile('foto_depan');
+
+        if ($foto_depan->getError() == 4) {
+            $nama_foto_depan = "default.png";
+        } else {
+            $nama_foto_depan = $foto_depan->getRandomName();
+            $foto_depan->move('img/foto_depan', $nama_foto_depan);
+        }
+
+        $foto_belakang = $this->request->getFile('foto_belakang');
+
+        if ($foto_belakang->getError() == 4) {
+            $nama_foto_belakang = "default.png";
+        } else {
+            $nama_foto_belakang = $foto_belakang->getRandomName();
+            $foto_belakang->move('img/foto_belakang', $nama_foto_belakang);
+        }
+
+        $foto_kanan = $this->request->getFile('foto_kanan');
+
+        if ($foto_kanan->getError() == 4) {
+            $nama_foto_kanan = "default.png";
+        } else {
+            $nama_foto_kanan = $foto_kanan->getRandomName();
+            $foto_kanan->move('img/foto_kanan', $nama_foto_kanan);
+        }
+
+        $foto_kiri = $this->request->getFile('foto_kiri');
+
+        if ($foto_kiri->getError() == 4) {
+            $nama_foto_kiri = "default.png";
+        } else {
+            $nama_foto_kiri = $foto_kiri->getRandomName();
+            $foto_kiri->move('img/foto_kiri', $nama_foto_kiri);
+        }
+
         // $slug = url_title($this->request->getVar('nama_pemohon'), '-', true);
 
         if ($this->request->getVar('asal')) {
@@ -241,6 +277,10 @@ class Koperasi extends BaseController
             'img_stnkb' => $nama_img_stnkb,
             'img_jasa_raharja' => $nama_img_jasa_raharja,
             'img_kir' => $nama_img_kir,
+            'foto_depan' => $nama_foto_depan,
+            'foto_belakang' => $nama_foto_belakang,
+            'foto_kanan' => $nama_foto_kanan,
+            'foto_kiri' => $nama_foto_kiri,
         ]);
 
         return redirect()->to('/koperasi/index/' . $this->request->getVar('kdb') . '');
@@ -364,12 +404,14 @@ class Koperasi extends BaseController
                 $this->koperasiModel->save([
                     'id' => $id,
                     'status_asal' => 2,
+                    'tgl_approve' => date('Y-m-d'),
                 ]);
                 return redirect()->to('/koperasi/verifikasiPermohonanKota');
             } else if ($check['tujuan'] == 1) {
                 $this->koperasiModel->save([
                     'id' => $id,
                     'status_tujuan' => 2,
+                    'tgl_approve' => date('Y-m-d'),
                 ]);
                 return redirect()->to('/koperasi/verifikasiPermohonanKota');
             }
@@ -458,12 +500,14 @@ class Koperasi extends BaseController
                 $this->koperasiModel->save([
                     'id' => $id,
                     'status_asal' => 2,
+                    'tgl_approve' => date('Y-m-d'),
                 ]);
                 return redirect()->to('/koperasi/verifikasiPermohonanKab');
             } else if ($check['tujuan'] == 2) {
                 $this->koperasiModel->save([
                     'id' => $id,
                     'status_tujuan' => 2,
+                    'tgl_approve' => date('Y-m-d'),
                 ]);
                 return redirect()->to('/koperasi/verifikasiPermohonanKab');
             }
@@ -553,12 +597,14 @@ class Koperasi extends BaseController
                 $this->koperasiModel->save([
                     'id' => $id,
                     'status_asal' => 2,
+                    'tgl_approve' => date('Y-m-d'),
                 ]);
                 return redirect()->to('/koperasi/verifikasiPermohonanBoneBol');
             } else if ($check['tujuan'] == 3) {
                 $this->koperasiModel->save([
                     'id' => $id,
                     'status_tujuan' => 2,
+                    'tgl_approve' => date('Y-m-d'),
                 ]);
                 return redirect()->to('/koperasi/verifikasiPermohonanBoneBol');
             }
@@ -648,12 +694,14 @@ class Koperasi extends BaseController
                 $this->koperasiModel->save([
                     'id' => $id,
                     'status_asal' => 2,
+                    'tgl_approve' => date('Y-m-d'),
                 ]);
                 return redirect()->to('/koperasi/verifikasiPermohonanGorut');
             } else if ($check['tujuan'] == 4) {
                 $this->koperasiModel->save([
                     'id' => $id,
                     'status_tujuan' => 2,
+                    'tgl_approve' => date('Y-m-d'),
                 ]);
                 return redirect()->to('/koperasi/verifikasiPermohonanGorut');
             }
@@ -743,12 +791,14 @@ class Koperasi extends BaseController
                 $this->koperasiModel->save([
                     'id' => $id,
                     'status_asal' => 2,
+                    'tgl_approve' => date('Y-m-d'),
                 ]);
                 return redirect()->to('/koperasi/verifikasiPermohonanBoalemo');
             } else if ($check['tujuan'] == 5) {
                 $this->koperasiModel->save([
                     'id' => $id,
                     'status_tujuan' => 2,
+                    'tgl_approve' => date('Y-m-d'),
                 ]);
                 return redirect()->to('/koperasi/verifikasiPermohonanBoalemo');
             }
@@ -911,12 +961,12 @@ class Koperasi extends BaseController
         ];
         return view('cetak/cetakKab', $data);
     }
-    public function cetakBonebBol($slug, $id)
+    public function cetakBoneBol($slug, $id)
     {
         session();
-        $permohonan = $this->koperasiModel->getPermohonanBonebBol($slug, $id);
+        $permohonan = $this->koperasiModel->getPermohonanBoneBol($slug, $id);
         $kdt = $permohonan['trayek_dilayani'];
-        $count = $this->koperasiModel->getPermohonanBonebBol();
+        $count = $this->koperasiModel->getPermohonanBoneBol();
 
         $data = [
             'title' => 'Koperasi',
@@ -927,7 +977,7 @@ class Koperasi extends BaseController
             'trayek' => $this->trayekModel->getTrayek($kdt),
             'wilayah' => $this->asalTujuanModel->getWilayah(),
         ];
-        return view('cetak/cetakBonebBol', $data);
+        return view('cetak/cetakBoneBol', $data);
     }
     public function cetakGorut($slug, $id)
     {

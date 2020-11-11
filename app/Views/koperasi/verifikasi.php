@@ -237,6 +237,65 @@
                                 </div>
                             </div>
                         </div>
+
+                        <h5 class="text-dark font-weight-bold card-title mt-5">Foto 4 Sisi Kendaraan</h5>
+                        <p class="card-text">Foto 4 Sisi Kendaraan</p>
+
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="card">
+                                    <div class="view overlay">
+                                        <img class="card-img-top" src="/img/foto_depan/<?= $permohonan['foto_depan'] ?>" alt="Card image cap">
+                                        <a href="#!">
+                                            <div class="mask rgba-white-slight"></div>
+                                        </a>
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <h4 class="card-title">Foto Depan</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="card">
+                                    <div class="view overlay">
+                                        <img class="card-img-top" src="/img/foto_belakang/<?= $permohonan['foto_belakang'] ?>" alt="Card image cap">
+                                        <a href="#!">
+                                            <div class="mask rgba-white-slight"></div>
+                                        </a>
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <h4 class="card-title">Foto Belakang</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="card">
+                                    <div class="view overlay">
+                                        <img class="card-img-top" src="/img/foto_kanan/<?= $permohonan['foto_kanan'] ?>" alt="Card image cap">
+                                        <a href="#!">
+                                            <div class="mask rgba-white-slight"></div>
+                                        </a>
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <h4 class="card-title">Foto Samping Kanan</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="card">
+                                    <div class="view overlay">
+                                        <img class="card-img-top" src="/img/foto_kiri/<?= $permohonan['foto_kiri'] ?>" alt="Card image cap">
+                                        <a href="#!">
+                                            <div class="mask rgba-white-slight"></div>
+                                        </a>
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <h4 class="card-title">Foto Samping Kiri</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
