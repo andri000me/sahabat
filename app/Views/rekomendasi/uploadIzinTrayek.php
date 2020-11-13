@@ -5,6 +5,10 @@
 
 
         <input name="id" type="hidden" value="<?= $detail['idpermohonan'] ?>">
+        <input name="kode_booking" type="hidden" value="<?= $detail['kode_booking'] ?>">
+        <input name="jenis_permohonan" type="hidden" value="<?= $detail['jenis_permohonan'] ?>">
+        <input name="trayek_dilayani" type="hidden" value="<?= $detail['trayek_dilayani'] ?>">
+
         <input name="img_izin_trayek_lama" type="hidden" value="<?= $detail['img_izin_trayek'] ?>">
 
         <div class="my-4 px-3 py-3" style="width:1000px;">
@@ -35,9 +39,19 @@
                             <input type="file" name="img_izin_trayek" id="uploadImage">
                         </div>
 
-                        <a href="/img/img_izin_trayek/<?= $detail['img_izin_trayek'] ?>" target="_blank" type="button" class="btn btn-sm btn-danger"><i class="fa fa-eye mr-1"></i> Lihat dokumen</a>
+                        <?php
+                        if ($detail['img_izin_trayek']) {
+                            $btn = "btn-success";
+                        } else {
+                            $btn = "btn-danger";
+                        }
+                        ?>
+                        <a href="/img/img_izin_trayek/<?= $detail['img_izin_trayek'] ?>" target="_blank" type="button" class="btn btn-sm <?= $btn ?>"><i class="fa fa-eye mr-1"></i> Lihat dokumen</a>
                         <div class="file-path-wrapper">
                             <input name="img_izin_trayek" class="file-path validate" type="text" placeholder="Izin Trayek">
+                        </div>
+                        <div class="kacili" style="margin-left:280px;">
+                            <?= $validation->getError('img_izin_trayek') ?>
                         </div>
                     </div>
                 </div>

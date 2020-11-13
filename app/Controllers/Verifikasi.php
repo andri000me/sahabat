@@ -81,7 +81,9 @@ class Verifikasi extends BaseController
             'detail' => $this->verifikasiModel->getRekomendasi($id),
             // 'jenis' => $this->jenisPermohonanModel->getJenisPermohonan($kdp),
             'trayek' => $this->trayekModel->getTrayek($kdt),
-            'session' => $this->user
+            'session' => $this->user,
+            'validation' => \Config\Services::validation(),
+
         ];
         return view('rekomendasi/uploadIzinTrayek', $data);
     }
@@ -166,7 +168,25 @@ class Verifikasi extends BaseController
 
     public function saveUploadIzinTrayek()
     {
+
         $img_izin_trayek = $this->request->getFile('img_izin_trayek');
+        $kode_booking = $this->request->getVar('kode_booking');
+        $jenis_permohonan = $this->request->getVar('jenis_permohonan');
+        $trayek_dilayani = $this->request->getVar('trayek_dilayani');
+
+        if (!$this->validate([
+            'img_izin_trayek' => [
+                'rules' => 'uploaded[img_izin_trayek]|max_size[img_izin_trayek,1024]|is_image[img_izin_trayek]|mime_in[img_izin_trayek,image/jpg,image/jpeg,image/png]',
+                'errors' => [
+                    'uploaded' => 'Pilih gambar dokumen terlebih dahulu',
+                    'max_size' => 'Ukuran gambar terlalu besar (Maksimal 1Mb)',
+                    'is_image' => 'Ini bukan gambar',
+                    'mime_in' => 'Ini bukan gambar'
+                ]
+            ],
+        ])) {
+            return redirect()->to('/verifikasi/uploadIzinTrayek/' . $kode_booking . '/' . $jenis_permohonan . '/' . $trayek_dilayani . '')->withInput();
+        }
 
         if ($img_izin_trayek) {
 

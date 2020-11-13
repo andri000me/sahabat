@@ -99,13 +99,13 @@
                                     <div class="col-sm-1 ">
                                     </div>
                                     <div class="col-sm-11" style="margin-left:-60px;">
-                                        5. Peraturan Daerah Kabupaten / Kota ..................
+                                        5. Peraturan Daerah Kabupaten Pohuwato
                                     </div>
 
                                     <div class="col-sm-1 ">
                                     </div>
                                     <div class="col-sm-11" style="margin-left:-60px;">
-                                        6. Peraturan Bupati / Walikota ................
+                                        6. Peraturan Bupati Kabupaten Pohuwato
                                     </div>
                                 </div>
 
@@ -129,7 +129,11 @@
                                         :
                                     </div>
                                     <div class="col-sm-7" style="margin-left:-55px;">
-                                        <?= $permohonan['created_at'] ?>
+                                        <?php
+                                        $originalDate = $permohonan['created_at'];
+                                        $newDate = date("d F Y", strtotime($originalDate));
+                                        ?>
+                                        <?= $newDate ?>
                                     </div>
 
                                     <div class="col-sm-4" style="margin-left:25px;">
@@ -166,7 +170,7 @@
                             </div>
 
                             <div class="text-center" style="margin-left: -90px;">
-                                <h5 class="text-dark mt-4">MENERANGKAN</h5>
+                                <h5 class="text-dark mt-4 font-weight-bold">MENERANGKAN</h5>
                             </div>
 
                             <div class="mt-4">
@@ -189,8 +193,8 @@
                                     <div class="col-sm-1">
                                         :
                                     </div>
-                                    <div class="col-sm-7" style="margin-left: -50px;">
-                                        ...
+                                    <div class="col-sm-7 font-weight-bold" style="margin-left: -50px;">
+                                        <?= $koperasi['nama_perusahaan'] ?>
                                     </div>
 
                                     <div class="col-sm-4">
@@ -200,7 +204,7 @@
                                         :
                                     </div>
                                     <div class="col-sm-7" style="margin-left: -50px;">
-                                        ...
+                                        <?= $permohonan['nama_pemilik'] ?>
                                     </div>
 
                                     <div class="col-sm-4">
@@ -210,7 +214,7 @@
                                         :
                                     </div>
                                     <div class="col-sm-7" style="margin-left: -50px;">
-                                        ...
+                                        <?= $permohonan['nomor_kendaraan'] ?>
                                     </div>
 
                                     <div class="col-sm-4">
@@ -220,7 +224,7 @@
                                         :
                                     </div>
                                     <div class="col-sm-7" style="margin-left: -50px;">
-                                        ...
+                                        <?= $permohonan['jenis_kendaraan'] ?>
                                     </div>
 
                                     <div class="col-sm-4">
@@ -230,7 +234,7 @@
                                         :
                                     </div>
                                     <div class="col-sm-7" style="margin-left: -50px;">
-                                        ...
+                                        <?= $permohonan['tahun_pembuatan'] ?>
                                     </div>
 
                                     <div class="col-sm-4">
@@ -240,7 +244,7 @@
                                         :
                                     </div>
                                     <div class="col-sm-7" style="margin-left: -50px;">
-                                        ...
+                                        <?= $permohonan['nomor_kir'] ?>
                                     </div>
 
                                     <div class="col-sm-4">
@@ -250,7 +254,7 @@
                                         :
                                     </div>
                                     <div class="col-sm-7" style="margin-left: -50px;">
-                                        ...
+                                        <?= $permohonan['nomor_chasis'] ?>
                                     </div>
 
                                     <div class="col-sm-4">
@@ -260,7 +264,7 @@
                                         :
                                     </div>
                                     <div class="col-sm-7" style="margin-left: -50px;">
-                                        ...
+                                        <?= $permohonan['nomor_mesin'] ?>
                                     </div>
                                 </div>
 
@@ -315,7 +319,7 @@
                                         :
                                     </div>
                                     <div class="col-sm-2" style="margin-left: -70px;">
-                                        Gorontalo
+                                        Pohuwato
                                     </div>
 
                                     <div class="col-sm-7">
@@ -328,7 +332,11 @@
                                         :
                                     </div>
                                     <div class="col-sm-2" style="margin-left: -70px;">
-                                        12 Agustus 2020
+                                        <?php
+                                        $originalDate = $permohonan['tgl_approve'];
+                                        $newDate = date("d F Y", strtotime($originalDate));
+                                        ?>
+                                        <?= $newDate ?>
                                     </div>
                                 </div>
 
