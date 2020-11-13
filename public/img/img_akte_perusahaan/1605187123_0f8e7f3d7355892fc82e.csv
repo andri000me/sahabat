@@ -1,0 +1,605 @@
+-- phpMyAdmin SQL Dump
+-- version 5.0.2
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Oct 07, 2020 at 02:18 AM
+-- Server version: 10.4.13-MariaDB
+-- PHP Version: 7.4.7
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `dishub`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `berita`
+--
+
+CREATE TABLE `berita` (
+  `id` int(111) NOT NULL,
+  `judul` varchar(512) NOT NULL,
+  `isi` text NOT NULL,
+  `image` varchar(128) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `view` int(128) NOT NULL,
+  `penting` varchar(512) NOT NULL,
+  `date_created` varchar(512) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `berita`
+--
+
+INSERT INTO `berita` (`id`, `judul`, `isi`, `image`, `user_id`, `view`, `penting`, `date_created`) VALUES
+(1, 'Gubernur Gorontalo Laporkan Perkembangan Daerah ke Menko Polhukam', 'Jakarta, Humas – Gubernur Gorontalo Rusli Habibie melaporkan perkembangan daerah ke Menteri Koordinator bidang Politik Hukum dan Keamanan (Menko Polhukam) Mahfud MD, Selasa (28/7/2020). Ada tiga isu utama yang dibahas yakni perkembangan penanganan covid-19, penanganan banjir serta kesiapan pilkada di tiga kabupaten.\r\n\r\n“Untuk penanganan covid-19, saya sampaikan kita mengalami lonjakan yang cukup tinggi seminggu terakhir ini. Ini tentu menjadi perhatian pemerintah pusat dan kita semua di daerah,” tutur Rusli usai pertemuan.\r\n\r\nGubernur dua periode itu juga menyampaikan kesiapan pilkada di tiga daerah yakni Kabupaten Pohuwato, Bone Bolango dan Kabupaten Gorontalo. Selain sudah memasuki tahapan pencocokan dan penelitian data pemilih, saat ini sudah berlangsung pendaftaran dan penyerahan dukungan bagi bakal calon kepala daerah dan wakil kepala daerah dari jalur perseorangan.\r\n\r\n“Saya juga mengundang Pak Mahfudi bisa datang ke Gorontalo bersama menteri-menteri di bawah koordinasi beliau seperti Mendagri, Kapolri dan Panglima TNI untuk melakukan pembinaan aparat pemerintah di Gorontalo,” imbuh mantan Bupati Gorontalo Utara itu.\r\n\r\nSelain bertandang ke Menko Polhukam, Gubernur Rusli juga bertamu ke Istana Negara yang diterima Kepala Sekretariat Presiden Heru Budi Hartono. Kehadirannya bermaksud untuk mengundang Presiden Jokowi ke Gorontalo untuk melepas ekspor 12.500 ton jagung ke Filipina.', '1.png', 1, 227, 'tidak', '2020-02-21'),
+(3, 'Wagub Gorontalo Ikuti Peluncuran MTQ Nasional ke-28', 'KOTA GORONTALO, Humas – Wakil Gubernur Gorontalo H. Idris Rahim mengikuti peluncuran Musabaqah Tilawatil Quran (MTQ) Nasional ke-28 secara virtual oleh Menteri Agama RI, Fachrul Razi, yang disiarkan dari Kantor Kementerian Agama RI di Jakarta, Selasa (28/7/2020).\r\n\r\n“Launching MTQ ini menjadi penanda bagi khalayak dan tuan rumah siap menyongsong pelaksanaan MTQ Tingkat Nasional,” kata Menag, Fachrul Razi, dalam sambutannya.\r\n\r\nMTQ Nasional ke-28 akan digelar di Kota Padang, Sumatera Barat, pada bulan November 2020. Meski diselenggarakan di tengah pandemi Covid-19, Fachrul Razi mengatakan hal itu tidak boleh menjadi alasan untuk tidak produktif melaksanakan agenda nasional. Menurutnya, MTQ  tidak hanya sebagai ajang kontestasi semata, tetapi lebih dari itu MTQ  harus dimaknai sebagai upaya menstimulasi umat lebih mencintai dan mendalami aturan dan ajaran yang terkandung dalam Alquran.\r\n\r\n“Indeks literasi umat Islam terhadap Alquran masih sangat rendah. Ini menjadi tanggung jawab kita bersama untuk mengatasinya. MTQ merupakan siar Islam yang harus dibina dan dikembangkan serta dilestarikan,” ujarnya.\r\n\r\nUsai peluncuran MTQ Nasional ke-28 itu, Wagub Idris Rahim meminta kepada Lembaga Pengembangan Tilawatil Quran (LPTQ) Provinsi Gorontalo untuk berkoordinasi dan mempersiapkan pelaksanaan MTQ tingkat Provinsi Gorontalo yang akan dilaksanakan di Kabupaten Gorontalo Utara. Sejatinya, MTQ tingkat Provinsi Gorontalo akan digelar pada Juli 2020, namun karena pandemi Covid-19, pelaksanaan MTQ ditunda hingga akhir Agustus atau awal September 2020..\r\n\r\nArtikel Terkait  Menkes Akui Belajar Banyak Dari Kunjungannya ke Gorontalo\r\n“Segera koordinasikan dan persiapkan semua hal terkait pelaksanaan MTQ di Gorut, termasuk mekanisme penerapan protokol kesehatan bagi peserta, panitia, dan dewan hakim,” ucap Wagub ke Ketua LPTQ Budiyanto Sidiki dan Sekretaris LPTQ Yasir Arafat Dama yang turut mendampinginya pada peluncuran MTQ Nasional.\r\n\r\nMTQ tingkat Provinsi Gorontalo rencananya akan diikuti oleh enam kafilah dari kabupaten/kota se Provinsi Gorontalo dengan jumlah peserta sebanyak 240 orang. Cabang yang dilombakan pada MTQ Provinsi Gorontalo sebanyak delapan cabang, yaitu seni baca Alquran, qiraat Alquran, hafalan Alquran, tafsir Alquran, fahmil Quran, syahril Quran, lomba kaligrafi, serta karya tulis ilmiah Alquran.', 'f01483e3770469690762372f14621690.png', 1, 442, 'tidak', '2020-09-02'),
+(4, 'Covid-19 Gorontalo Meningkat, Kepala Daerah Diminta Jaga Kondusifitas', 'KOTA GORONTALO, Humas – Gubernur Gorontalo Rusli Habibie meminta kepada para bupati dan wali kota untuk menjaga kondusifitas daerah di tengah wabah covid-19 yang terus meningkat. Sebagai pemimpin masyarakat, mereka diminta untuk bersikap dan bertutur kata yang sejuk dan menenangkan.\r\n\r\n“Semua harus bahu-membahu memikirkan solusi terbaik untuk memutus covid-19 di Provinsi Gorontalo. Hindari persoalan persoalan yang mengakibatkan daerah tidak kondusif. Kepada bupati, wali kota juga harus mengimbau masyarakat secara persuasif, menyampaikan kalimat yang sopan dan mudah dimengerti oleh masyarakat di berbagai media,” ucap Rusli, Selasa (28/7/2020).\r\n\r\nLebih lanjut kata Rusli, kondisi negara dan daerah saat ini lagi serba susah. Pertumbuhan ekonomi bergerak lambat, daya beli masyarakat menurun bahkan daerah kesulitan APBD untuk membiayai berbagai sektor.\r\n\r\nKondisi tersebut harus disikapi dengan kebijakan yang strategis dan pro rakyat. Bupati dan wali kota didorong untuk melahirkan inovasi yang diharapkan bisa mencegah dan memutus mata rantai penularan covid-19. Dirinya bersama TNI dan Polri siap mendukung kebijakan-kebijakan yang dilahirkan oleh pemerintah kabupaten dan kota.\r\n\r\n“Di situasi sekarang jangan dulu melakukan hal-hal yang tidak pro rakyat. Bupati dan wali kota harus mengayomi masyarakat. Jangan menggunakan kata-kata yang tidak sopan kepada ASN atau masyarakat. Pemimpin itu dalam adat kita loiya lo tauwa tauwa lo loiya (ucapan pemimpin adalah setinggi-tingginya ucapan),” tegasnya.\r\n\r\nArtikel Terkait  Berakhir di Toraja Utara, Tour JWS Hari Pertama Selesai\r\nImbauan juga disampaikan kepada aktivis mahasiswa, LSM dan organisasi lain untuk bersama pemerintah berjuang melawan corona. Menurut Rusli, jika ada aspirasi yang ingin disampaikan maka ia siap berdiskusi.\r\n\r\n“Pak Gubernur siap berdiskusi, tidak harus unjuk rasa. Sekarang kondisi kita di daerah lagi serba sulit,” imbuhnya.\r\n\r\nHingga Senin 27 Juli 2020 laporan positif covid-19 di Gorontalo sudah mencapai 851 kasus. Rinciannya 421 dirawat atau karantina mandiri, 397 sembuh dan 33 diantaranya meninggal dunia.', '3.png', 1, 1463, 'tidak', '2020-02-20'),
+(5, 'Temui Gubernur, Kepala BPKP Gorontalo Kuatkan Sinergitas Hadapi Covid-19', 'KOTA GORONTALO, Humas – Kepala Perwakilan Badan Pengawasan Keuangan dan Pembangunan (BPKP) Provinsi Gorontalo, Raden Murwantara kembali bertemu Gubernur Gorontalo Rusli Habibie, Senin (27/07/2020).\r\n\r\nKunjungan kedua kalinya usai resmi ditugaskan di Gorontalo ini dilakukan untuk memperkuat sinergitas antara Pemerintah Provinsi Gorontalo dan BPKP Gorontalo dalam menghadapi pandemi Covid-19.\r\n\r\n“Tadi beliau pesan tentang pendampingan terkait percepatan penanganan Covid-19 di bidang aset, jasa, UMKM. Karena saya juga masih baru, jadi masih banyak yang perlu di dalami, kondisi terkini disini seperti apa,” ungkap Raden Murwantara, Kepala Perwakilan BPKP Provinsi Gorontalo.\r\n\r\nDi bidang UMKM, Murwantara menjelaskan saat ini ada program Presiden Joko Widodo yang membantu pelaku usaha mikro, kecil, menengah di masa pandemi. Olehnya, saat ini BPKP tengah memperbarui data para pelaku UMKM.\r\n\r\n“Khususnya yang terdampak Covid-19 yang tidak punya akses ke Bank. Kita lakukan pendataan keseluruhan kira-kira potensi Provinsi Gorontalo itu berapa. Kita memohon bantuan ke Pak Gubernur untuk menyampaikan ke OPD terkait dengan koperasi, terkait usaha kecil dan lainnya untuk kita capture datanya itu semaksimal mungkin,” lanjutnya.\r\n\r\nLebih lanjut Murwantara menilai, bantuan bagi UMKM ini akan memulihkan perekonomian para pelaku usaha. Apalagi di saat pandemi yang belum diketahui kapan berakhir.\r\n\r\nSementara itu, untuk sektor pengadaan barang dan jasa serta aset, Murwantara menuturkan, dirinya diminta secara khusus oleh Gubernur untuk melakukan pendampingan. Termasuk didalamnya realokasi dan refocusing anggaran Covid-19.', '4.png', 2, 8049, 'tidak', '2020-02-20'),
+(6, 'Rakor Gugus Area Dan Transportasi Publik Untuk Antisipasi Covid-19a', 'GORONTALO - Dinas Perhubungan Provinsi Gorontalo menggelar rapat koordinasi melalui sambungan video conference untuk menindaklanjuti hasil rapat Forum Koordinasi Pimpinan Daerah (Forkopimda), Rabu (1/04/2020).\r\n\r\nRapat dipimpin Kepala Dinas Perhubungan, M Jamal Nganro beserta seluruh kepala dinas perhubungan kabupaten/kota se-Provinsi Gorontalo.\r\n\r\nDalam pertemuan ini M Jamal Nganro menyampaikan beberapa hasil rapat Forkopimda yang berangsung pada 30 Maret lalu terkait pencegahan Covid-19 yang perlu dukungan dan tindaklanjut dari pemerintah kabupaten/kota.\r\n\r\nSalah satunya adalah perubahan struktur gugus tugas yang menyesuaikan dengan edaran Menteri Dalam Negeri nomor  440/2622/SJ tanggal 29 Maret 2020, di mana gubernur, bupati atau walikota adalah ketua gugus tugas.\r\n\r\n“Kami meminta masukan dan laporan kondisi terkini di masing-masing  kabupaten/kota terutama daerah-daerah yang berbatasan dengan provinsi tetangga yang sudah positif corona,” kata M Jamal Nganro.\r\n\r\nDalam pertemuan ini juga dinas perhubungan kabupaten/kota meminta data detail asal tujuan orang masuk ke Gorontalo melalui perbatasan, abndar udara dan pelabuhan.\r\n\r\nMenjawab permintaan ini, M Jamal Nganro menjelaskan data tersebut adalah ranahnya dinas kesehatan provinsi dan kabupaten/kota,  dinas perhubungan diminta untuk berkoordinasi dengan dinas kesehatan masing-masing daerah atau provinsi.\r\n\r\n“Data tersebut bukan untuk konsumsi public, (data) itu hanya untuk pelaporan ke pimpinan,” ujar M Jamal Nganro.\r\n\r\nRapat daring ini masing-masing dinas perhubungan menyampaikan kondisi penanganan Covid-19 serta permasalahan yang ditemui selama ini di lapangan.\r\n\r\n“Kami mmeinta Kepala Dinas Perhubungan kabupaten/kota membuat kajian upaya masif dalam percepatan penanganan Covid-19, misalnya mengenai perlunya posko pemantauan pergerakan orang antarkabupaten/kota lingkup Provinsi Gorontalo, atau misalnya urgensi pelarangan pergerakan orang menuju konsentrasi massa seperti tempat nongkrong, rumah makan,” ujar M Jamal Nganro.\r\n\r\nM Jamal Nganro meminta setiap pekan dilakukan koordinasi atau jika menemukan permasalahan di lapangan sehingga membutuhkan koordinasi lintas wilayah', 'perhub1.jpg', 1, 12145, 'tidak', '2020-09-10'),
+(7, 'Penetapan Lokasi Pembangunan Secaba TNI-AD Dimatangkan', 'KOTA GORONTALO, Humas – Penetapan lokasi pembangunan Sekolah Calon Bintara (SECABA) TNI-AD terus dimatangkan. Hal itu dibahas dalam rapat yang dipimpin oleh Sekretaris Daerah Provinsi Gorontalo Darda Daraba bersama Danrem 133/NWB dan beberapa pihak terkait, di Ruang Huyula kompleks Gubernuran.\r\n\r\nUsai rapat, Asisten II Setdaprov Gorontalo Sutan Rusdi menjelaskan saat ini tanah yang sudah disiapkan untuk pembangunan seluas 50 hektar. Luas itu adalah sebagian dari total keseluruhan tanah yakni 100 hektar.\r\n\r\n“Untuk mempercepat itu difokuskan dulu kepada lahan eks HGU. 100 hektar sebenarnya yang dibutuhkan. Tapi yang akan kami gunakan diawal adalah 50 hektar lahan HGU yang telah habis masa haknya tahun 2009 jadi statusnya sudah milik negara,” jelas Sutan, Jumat (07/08/2020).\r\n\r\nSutan melanjutkan, ada empat tahap yang dilewati dalam proses pembangunan Secaba TNI-AD nanti. Diawali dengan perencanaan, selanjutnya yakni proses persiapan pengadaan.\r\n\r\n“Sebenarnya hari ini mau disiapkan surat keputusan penetapan lokasi tapi outputnya belum keluar. Nah untuk penetapan lokasi ini adalah kewenangan Gubernur, tapi sudah kita delegasikan ke Bupati supaya cepat dan efisien. Tim persiapannya juga di kabupaten. Kalau sudah, baru pengadaan tanah oleh BPN,” lanjut Sutan.\r\n\r\nTahapan berikutnya adalah pengadaan tanah oleh tim pelaksana pengadaan. Dalam proses pengadaan ini juga meliputi pembebasan lahan. Di tahap akhir adalah proses pensertifikatan oleh Badan Pertanahan Nasional Provinsi Gorontalo.', 'perhub2.jpg', 2, 375, 'tidak', '2020-05-03'),
+(8, 'Nomor Telepon Seluler Gubernur Gorontalo Diretasa', 'KOTA GORONTALO, Humas – Nomor telepon seluler Gubernur Gorontalo Rusli Habibie diretas oleh orang yang tidak bertanggungjawab. Akibatnya aplikasi pesan WhatsApp dengan nomor 0813-1342-4131 sudah tidak lagi dapat diaksesnya.</p><p xss=removed>“Saat ini nomor HP bapak gubernur yang biasa diumumkan di koran dan media sosial untuk melayani komunikasi dengan warga sudah diretas oleh orang tidak bertanggungjawab. Kami berharap masyarakat lebih berhati-hati apabila menerima pesan dari nomor tersebut, apalagi sampai meminta uang dan sebagainya,” ucap Kepala Biro Humas dan Protokol, Masran Rauf, Senin (31/8/2020).</p><p xss=removed>Dijelaskan Masran, saat ini kasus tersebut sedang didalami oleh tim cyber crime Polri. Nomor tersebut untuk sementara belum digunakan baik untuk kepentingan telepon maupun aplikasi pesan.</p><p xss=removed>“Apabila ada keperluan mendesak bisa menghubungi nomor ajudan atau ke saya selaku Karo Humas di nomor  +62 811-4315-227,” imbuhnya.</p><p xss=removed>Kasus kejahatan siber yang mengatasnamakan Rusli Habibie bukan kali ini saja terjadi. Beberapa akun Facebook yang mencatut dirinya beberapa kali sukses menipu para korban. Akun-akun tersebut tidak dibuat dan dipegang oleh Gubernur Gorontalo dua periode itu.</p><p xss=removed>Saat ini Gubernur Rusli masih berada di Jakarta untuk memperjuangkan penanganan banjir Gorontalo untuk menjadi Peraturan Presiden (Perpres). Ia berharap doa dan dukungan masyarakat dan seluruh pemangku kepentingan agar banjir Gorontalo bisa dilaksanakan secara komprehensif dan lintas sektor.</p>', '92aefd27ad2adcbaf3ee3b05b7492eaa.png', 1, 0, 'tidak', '2020-09-02'),
+(9, 'Peserta JWS 2020 : Pulo Cinta Itu Menakjubkan', 'BOALEMO, Humas – Para peserta Touring Jelajah Wisata Sulawesi (JWS) 2020 mengaku takjub dengan keindahan Pulo Cinta di Gorontalo. Hal itu mereka sampaikan saat berwisata ke destinasi unggulan Gorontalo tersebut di sela-sela tour JWS, Rabu (20/02/2020).</p><p xss=removed>Dengan jarak tempuh kurang lebih 15 menit dari dermaga, peserta menaiki perahu yang telah disiapkan oleh panitia.</p><p xss=removed>Ketua JK Merah Putih Community (JKMPC) H. Bakrie mengungkapkan terpesona dengan keindahan Pulo Cinta. Ia berencana akan datang lagi ke Pulo Cinta bersama keluarga dan teman-temannya.</p><p xss=removed>“Ini ada teman-teman saya dari Jakarta, Bandung, Solo. Kami sudah bicarakan untuk datang lagi kesini bareng keluarga,” ungkap Bakrie.</p><p xss=removed>Pulo Cinta adalah spot petualangan yang romantic di Gorontalo. Tidak melulu soal pulau tak bertuan yang berbentuk hati, namun nuansa romantisme juga bisa dilihat dari segi cerita sejarah yang ada di Pulo Cinta.</p><p xss=removed>Ditempat yang sama, Ari Yulianto yang menjabat sebagai Sekjen JKMPC menuturkan selama ini ia belum menemukan objek wisata yang unik dan menarik seperti Pulo Cinta.</p><p xss=removed>“Saya kunjungi Jawa, Bali, Lombok, tapi tidak ada yang seperti ini. Pulo Cinta ini unik. Pulaunya berbentuk hati, terus tadi juga jembatannya berbentuk hati. Sayang kalau dilewatkan begitu saja,” ucap Ari.</p><p xss=removed>Senada dengan Sekjen JKMPC, Road Captain JWS 2020 Yani Naue yang juga putra asli Gorontalo menuturkan keindahan Pulo Cinta harus dijaga dan dipelihara, bahkan bisa lebih ditingkatkan fasilitasnya.</p><p xss=removed>“Contoh Sungai Chao Praya di Thailand, sebenarnya tidak ada yang menarik disitu. Hanya saja mereka punya terobosan-terobosan. Seperti menaruh ikan di tempat itu, jadi semua orang bisa memberi makan ikan,” tuturnya.</p><p xss=removed>Di akhir acara para peserta melakukan selebrasi dengan berdiri membentuk hati.</p><p xss=removed><strong xss=removed>Pewarta : Gina</strong></p><p xss=removed><strong xss=removed>Editor : Isham</strong></p>', 'e9d4314c170c93a13e616cd2ff5e2d0f.png', 1, 3, 'tidak', '2020-09-02'),
+(13, 'Pemprov Gorontalo Lelang Enam Jabatan yang Lowong', 'Humas – Gubernur Gorontalo Rusli Habibie melaporkan perkembangan daerah ke </span><span lang=\"EN-GB\" xss=\"removed\" xss=removed>Menteri Koordinator bidang Politik Hukum dan Keamanan (Menko Polhukam) Mahfud </span><span lang=\"EN-GB\" xss=\"removed\" xss=removed>MD, Selasa (28/7/2020). Ada tiga isu utama yang dibahas yakni perkembangan </span><span lang=\"EN-GB\" xss=\"removed\" xss=removed>penanganan covid-19, penanganan banjir serta kesiapan pilkada di tiga </span><span lang=\"EN-GB\" xss=\"removed\" xss=removed>kabupaten. “Untuk penanganan covid-19, saya sampaikan kita mengalami lonjakan </span><span lang=\"EN-GB\" xss=\"removed\" xss=removed>yang cukup tinggi seminggu terakhir ini. Ini tentu menjadi perhatian pemerintah </span><span lang=\"EN-GB\" xss=\"removed\" xss=removed>pusat dan kita semua di daerah,” tutur Rusli usai  Pertemuan. Gubernur dua </span><span lang=\"EN-GB\" xss=\"removed\" xss=removed>periode itu juga menyampaikan kesiapan pilkada di tiga daerah yakni Kabupaten </span><span lang=\"EN-GB\" xss=\"removed\" xss=removed>Pohuwato, Bone Bolango dan Kabupaten Gorontalo. Selain sudah  Memasuki tahapan </span><span lang=\"EN-GB\" xss=\"removed\" xss=removed>pencocokan dan penelitian data pemilih, saat ini sudah berlangsung pendaftaran </span><span lang=\"EN-GB\" xss=\"removed\" xss=removed>dan penyerahan dukungan bagi bakal calon kepala daerah dan wakil kepala  Daerah </span><span lang=\"EN-GB\" xss=\"removed\" xss=removed>dari jalur perseorangan. “Saya juga mengundang Pak Mahfudi bisa datang ke </span><span lang=\"EN-GB\" xss=\"removed\" xss=removed>Gorontalo bersama menteri-menteri di bawah koordinasi beliau seperti Mendagri, </span><span lang=\"EN-GB\" xss=\"removed\" xss=removed>Kapolri dan Panglima TNI untuk melakukan pembinaan aparat pemerintah di </span><span lang=\"EN-GB\" xss=\"removed\" xss=removed>Gorontalo,” imbuh mantan Bupati Gorontalo Utara itu. Selain bertandang ke Menko </span><span lang=\"EN-GB\" xss=\"removed\" xss=removed>Polhukam, Gubernur Rusli juga bertamu ke Istana Negara yang diterima Kepala </span><span lang=\"EN-GB\" xss=\"removed\" xss=removed>Sekretariat Presiden Heru Budi Hartono. Kehadirannya bermaksud untuk mengundang </span><span lang=\"EN-GB\" xss=\"removed\" xss=removed>Presiden Jokowi ke Gorontalo untuk  elepas ekspor 12.500 ton jagung ke Filipina', '45.png', 1, 34, 'tidak', '2020-09-02'),
+(15, 'Dishub Provinsi Gorontalo laksanakan  Apel Hari Perhubungan Nasional Tahun 2020', '<p xss=\"removed\"><span xss=\"removed\">Bertempat\r\ndi Halaman Kantor Dinas Perhubungan Provinsi Gorontalo, Kamis (17/09), Kepala\r\nDinas Perhubungan Provinsi Gorontalo, Jamal Nganro memimpin Apel Hari Perhubungan\r\nNasional Tahun 2020 yang dilaksanakan secara terbatas, yang  hanya diikuti oleh Pejabat Administrator,\r\nPejabat Pengawas dan perwakilan Pelaksana di lingkungan Dinas Perhubungan\r\nProvinsi Gorontalo.</span></p><p xss=\"removed\"><span xss=\"removed\"><br></span><span xss=removed>Jamal,\r\nmenjelaskan bahwa peringatan Harhubnas Tahun 2020 kali ini, berbeda dengan\r\ntahun-tahun sebelumnya. Tahun ini kita berada pada masa pandemi Covid 19,  olehnya  sebagaimana arahan  Kementerian Perhubungan yang meminta kepada\r\nDaerah dapat melaksanakan peringatan Hari Perhubungan Nasional sesuai dengan\r\nkondisi dan peraturan daerah setempat dengan tetap menerapkan protokol\r\nkesehatan pencegahan dan penanganan Covid 19. Sementara itu, untuk teman-teman\r\ndi UPT Kementerian Perhubungan yang ada di Provinsi Goronalo juga melaksanakan\r\nperingatan Hari Perhubungan Nasional Tahun 2020 sesuai protokol kesehatan,\r\nlanjut Jamal.</span></p><p xss=\"removed\"><span xss=\"removed\"><o></o></span></p><p xss=\"removed\"><span xss=\"removed\">Menindaklanjuti\r\narahan Kementerian Perhubungan tersebut, sebelumnya kami telah melapor ke\r\npimpinan untuk dapat melaksanakan Apel Hari Perhubungan Nasional Tahun 2020 di\r\nlingkugan Dinas Perhubungan Provinsi Gorontalo, dan <i>Alhamdulillah </i>Pimpinan setuju, dengan syarat tetap memperhatikan\r\nprotokol kesehatan pada pelaksanaan Apel, diantaranya mencuci tangan, wajib\r\nmenggunakan menggunakan masker, jaga jarak, serta menjauhi kerumunan jelas\r\nJamal Nganro.</span></p><p xss=\"removed\"><span xss=\"removed\">  <o></o></span></p><p xss=\"removed\"><span xss=\"removed\">Hari\r\nPerhubungan Nasional Tahun 2020 mengusung tema “<strong><span xss=\"removed\">Wujudkan\r\nAsa, Majukan Indonesia</span></strong>” yang mempunyai makna filosofis yaitu <em><span xss=\"removed\">saat ini dunia\r\ntertimpa pandemik Covid-19, begitu pula dengan Indonesia, di mana pandemik ini berdampak\r\npada permasalahan di berbagai sektor perekonomian tanpa terkecuali di sektor transportasi.\r\nNamun Indonesia tidak hanya berdiam saja, khususnya Insan Perhubungan, kita\r\nbangkit dengan adaptasi kebiasaan baru yang dilakukan. Hal ini mengingat sektor\r\ntransportasi adalah sektor yang dibutuhkan oleh sektor-sektor yang lain, seperti\r\nsektor perdagangan, pendidikan, industri UKM hingga pariwisata. Artinya\r\ntransportasi memiliki peranan yang amat strategis dalam kehidupan berbangsa dan\r\nbernegara, terang Jamal.</span></em></span></p><p xss=\"removed\"><span xss=\"removed\"><em><span xss=\"removed\"><br></span></em></span></p><p xss=\"removed\"><span xss=\"removed\"><em><span xss=\"removed\"><o></o></span></em></span></p><p xss=\"removed\"><em><span xss=\"removed\">Insan Perhubungan memiliki\r\nsemangat untuk mewujudkan harapan kedepan, untuk Indonesia Maju,  olehnya pembangunan sektor transportasi terus\r\ndilakukan , perubahan-perubahan terhadap regulasi terus dilakukan saat adaptasi\r\nkebiasaan baru ini, semua itu dilakukan untuk memberikan pelayanan transportasi\r\nyang selamat, aman , nyaman serta sehat baik di Darat, Laut maupun Udara, ujar\r\nJamal Nganro.</span></em></p><p xss=\"removed\"><em><span xss=\"removed\"><br></span></em><span xss=\"removed\"> <o></o></span></p><p>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n</p><p xss=\"removed\"><span xss=\"removed\">Jamal berharap, melalui Peringatan Hari Perhubungan Nasional\r\nTahun 2020 dapat dijadikan momentum pemersatu bagi Insan Perhubungan di\r\nProvinsi Gorontalo untuk terus memberikan pelayanan transportasi yang terbaik kepada\r\nmasyarakat Gorontalo. </span><span xss=\"removed\">Kami Insan Perhubungan\r\nakan menyatu bagaikan simpul tali untuk memberikan harapan yang lebih baik\r\nuntuk Negara   tercinta, menjadikan\r\nIndonesia maju, dan Gorontalo Unggul tutup Jamal Nganro.</span></p><p xss=\"removed\"><span xss=\"removed\"><span xss=\"removed\"><o><br></o></span></span></p><p xss=\"removed\"><span xss=\"removed\"><span xss=\"removed\"><o><br></o></span></span></p>', '7232d5ec175d1b5f5bedc930d3d8beb6.png', 1, 9, 'tidak', '2020-09-23');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `berkala`
+--
+
+CREATE TABLE `berkala` (
+  `id` int(11) NOT NULL,
+  `judul` text NOT NULL,
+  `isi` text NOT NULL,
+  `date_created` varchar(512) NOT NULL,
+  `date_modified` varchar(512) NOT NULL,
+  `no_urut` varchar(512) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `berkala`
+--
+
+INSERT INTO `berkala` (`id`, `judul`, `isi`, `date_created`, `date_modified`, `no_urut`) VALUES
+(1, 'Profil Kementerian Perhubungan', '<p><b>Profil Kementerian Perhubungan</b></p><p>Deskripsi :</p><p><span xss=removed><b>1. Informasi mengenai Profil Kementerian Perhubungan :</b></span><br></p><p><span xss=removed><b>Alamat Lengkap Kementerian Perhubungan</b></span><br></p><p>- Jalan Medan Merdeka Barat No. 8 Gambir Jakarta Pusat <span xss=removed>DKI Jakarta 10110 </span></p><p><span xss=removed><br></span><span xss=removed><b>Tugas</b></span></p><p>- Membantu Presiden dalam menyelenggarakan sebagian tugas pemerintahan di bidang perhubungan.</p><p><br></p><p><b>Fungsi</b></p><p> - Perumusan kebijakan nasional, kebijakan pelaksanaan dan kebijakan teknis di bidang perhubungan;</p><p> - Pelaksanaan urusan pemerintahan di bidang perhubungan;</p><p> - Pengelolaan barang milik / kekayaan negara yang menjadi tanggung jawab Departemen Perhubungan;</p><p> - Pengawasan dan pelaksanaan tugas dibidang perhubungan;</p><p> - Penyampaian laporan hasil evaluasi, saran dan pertimbangan di bidang tugas dan fungsi bidang perhubungan kepada Presiden.</p>', '', '2020-09-06', ''),
+(5, 'Kegiatan, Program dan Rencana', '<p><font color=\"#212529\" face=\"Roboto Slab, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji\">Deskripsi :</font></p><p><font color=\"#212529\" face=\"Roboto Slab, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji\">Informasi mengenai Ringkasan Program dan Rencana Kegiatan yang di jalankan di lingkungan Kementerian Perhubungan :</font></p><p><font color=\"#212529\" face=\"Roboto Slab, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji\">- Rencana Jangak Panjang;</font></p><p><font color=\"#212529\" face=\"Roboto Slab, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji\">- RKA/KL</font></p><p><font color=\"#212529\" face=\"Roboto Slab, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji\">- Rencana Kerja;</font></p><p><font color=\"#212529\" face=\"Roboto Slab, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji\">- Kalender Kegiatan / Kerja;</font></p><p><font color=\"#212529\" face=\"Roboto Slab, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji\">- Informasi mengenai penerimaan calon peserta didik pada Kementerian Perhubungan;</font></p><p><font color=\"#212529\" face=\"Roboto Slab, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji\">- Informasi mengenai penerimaan calon pegawai Kementerian Perhubungan.</font></p>', '', '2020-09-06', ''),
+(6, 'Laporan Pelaksanaan Kegiatan', '<p>Deskripsi :</p><p>Informasi mengenai ringkasan laporan pelaksanaan kegiatan berjalan di lingkungan Kementerian Perhubungan :</p><p><br></p><p>- Laporan Tahunan (LAPTAH);</p><p>- Laporan Akuntabilitas Kinerja Instansi Pemerintah (LAKIP) </p><p>- Laporan Keuangan (Audited);</p><p>- Laporan Barang Milik Negara.</p>', '', '2020-09-06', ''),
+(7, 'Peraturan, Keputusan dan atau Kebijakan', '', '', '', ''),
+(8, 'Informasi dan Pengaduan', '', '', '', ''),
+(9, 'Layanan Informasi', '', '', '', ''),
+(10, 'Daftar Penelitian', '', '', '2020-08-21', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `carousel`
+--
+
+CREATE TABLE `carousel` (
+  `id` int(11) NOT NULL,
+  `judul` text NOT NULL,
+  `isi` text NOT NULL,
+  `image` text NOT NULL,
+  `user_id` varchar(512) NOT NULL,
+  `view` int(100) NOT NULL,
+  `date_created` varchar(512) NOT NULL,
+  `date_modified` varchar(512) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `carousel`
+--
+
+INSERT INTO `carousel` (`id`, `judul`, `isi`, `image`, `user_id`, `view`, `date_created`, `date_modified`) VALUES
+(1, 'Download Peraturan Gubernur Gorontalo Nomor 41 Tahun 2020', '<p><p xss=removed>Peraturan Gubernur Gorontalo (Pergub) nomor 41 Tahun 2020 tentang Penerapan Disiplin dan Penegakan Hukum Protokol Kesehatan Sebagai Upaya Pencegahan dan Pengendalian Covid-19 mulai disosialisasikan kepada masyarakat, Selasa (18/8/2020).</p><span xss=removed>Sosialisasi dihadiri oleh Kapolda Gorontalo Irjenpol Adnas, Danrem 133/Nani Wartabone Brigjen TNI Bagus Antonov Hardito, Kabinda Oneng Subroto serta perwakilan Kejaksaan Tinggi. Sosialisasi ditandai dengan penyerahan Pergub 41 Tahun 2020 dan masker oleh Gubernur Rusli Habibie kepada perwakilan tokoh agama, tokoh adat, tokoh pemuda dan unsur mahasiswa.</span></p><p><span xss=removed><br></span>Download Peraturan Gubernur Gorontalo Nomor 41 Tahun 2020 <a href=\"https://drive.google.com/folderview?id=1korIDl-QcDTxLHMRoJorZswslGzbTGS4\" target=\"_blank\">Disini</a></p>', 'slide-1.jpg', '1', 12, '2020-10-10', '2020-09-10'),
+(3, 'Download Peraturan Gubernur Gorontalo Nomor 41 Tahun 2020', '<p xss=\"removed\">Peraturan Gubernur Gorontalo (Pergub) nomor 41 Tahun 2020 tentang Penerapan Disiplin dan Penegakan Hukum Protokol Kesehatan Sebagai Upaya Pencegahan dan Pengendalian Covid-19 mulai disosialisasikan kepada masyarakat, Selasa (18/8/2020).</p><p><span xss=\"removed\">Sosialisasi dihadiri oleh Kapolda Gorontalo Irjenpol Adnas, Danrem 133/Nani Wartabone Brigjen TNI Bagus Antonov Hardito, Kabinda Oneng Subroto serta perwakilan Kejaksaan Tinggi. Sosialisasi ditandai dengan penyerahan Pergub 41 Tahun 2020 dan masker oleh Gubernur Rusli Habibie kepada perwakilan tokoh agama, tokoh adat, tokoh pemuda dan unsur mahasiswa.</span></p><p></p><p><span xss=\"removed\"><br></span>Download Peraturan Gubernur Gorontalo Nomor 41 Tahun 2020 <a href=\"https://drive.google.com/folderview?id=1korIDl-QcDTxLHMRoJorZswslGzbTGS4\" target=\"_blank\">Disini</a></p>', 'slide-1.jpg', '1', 0, '2020-10-10', '2020-09-10');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `foto`
+--
+
+CREATE TABLE `foto` (
+  `id` int(11) NOT NULL,
+  `judul` text NOT NULL,
+  `image` varchar(512) NOT NULL,
+  `date_created` varchar(512) NOT NULL,
+  `date_modified` varchar(512) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `foto`
+--
+
+INSERT INTO `foto` (`id`, `judul`, `image`, `date_created`, `date_modified`) VALUES
+(7, 'Piket jaga Perbatasan', 'bf5c52fc289a0198e213d12c8d0a55f9.jpeg', '2020-09-09', '2020-09-10'),
+(13, 'Monitoring Perbatasan Atinggola - Sulawesi Utara', 'f174c55a7aac30d859e4b626a4b54b82.jpg', '2020-08-06', ''),
+(14, 'Monitroting Bus Siswa NKRI Kecamatan Tolinggula Kabupaten Gorontalo Utara', 'dec13615555adeebb570dab7b03b3090.jpg', '2020-08-06', ''),
+(15, 'Monitroting Bus Siswa NKRI Kecamatan Biluhu Kabupaten Gorontalo', 'd098b5dbd7d82795a9e48ade3c899040.jpg', '2020-07-22', ''),
+(16, 'Giat pimpinan kecamatan popayato barat yang melibatkan unsur TNI, Polri, Dishub Provinsi dan Satpol PP Provinsi melakukan swipping masker dan pembagian masker di perbatasan molosipat.', 'f104a222b0f4c6055ad4e066962d4efe.jpg', '2020-09-10', ''),
+(17, 'Apel Memperingati Hari Perhubungan Nasional Tahun 2020', '5f1fced7e328923f175423bdba31c374.JPG', '2020-09-17', ''),
+(18, ' Tes Kesamaptaan Sipencatar di Makorem 133 Gorontalo', '91ac90fcdd91b8be12c4e69e7657bcb5.jpg', '2020-09-23', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pegawai`
+--
+
+CREATE TABLE `pegawai` (
+  `id` int(11) NOT NULL,
+  `nama` text NOT NULL,
+  `nip` varchar(512) NOT NULL,
+  `jabatan` text NOT NULL,
+  `image` text NOT NULL,
+  `bidang` text NOT NULL,
+  `user_id` varchar(512) NOT NULL,
+  `date_created` varchar(512) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `pegawai`
+--
+
+INSERT INTO `pegawai` (`id`, `nama`, `nip`, `jabatan`, `image`, `bidang`, `user_id`, `date_created`) VALUES
+(2, 'Abdul Musakir Radjak, S.Kom', '1236788123912', 'Staff', 'f80d75b714c69a66a5d04d74638572dd.jpg', 'Angkutan Jalan', '', '2020-09-06'),
+(3, 'Mh. Rezha Bokings', '123123123', 'Staff', 'ab341e5c8c9a0a628a2477769367a379.jpg', 'Angkutan Jalan', '', '2020-09-06'),
+(4, 'yghhgkj', '123123123', 'Staff', '2d10e93409d0adcb96cb03f52f5e161b.jpg', 'Sekretariat', '', '2020-09-08');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pengumuman`
+--
+
+CREATE TABLE `pengumuman` (
+  `id` int(11) NOT NULL,
+  `judul` text NOT NULL,
+  `isi` text NOT NULL,
+  `date_created` varchar(512) NOT NULL,
+  `date_modified` varchar(512) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `pengumuman`
+--
+
+INSERT INTO `pengumuman` (`id`, `judul`, `isi`, `date_created`, `date_modified`) VALUES
+(1, 'Pemberitahuan', '<div>Izin teman-teman</div><div>Disampaikan kepada seluruh ASN dan PTT dilingkup DISHUB PROVINSI GOTORONTALO.dimohon agar kiranya besok Hari Jumat,tgl 4 September 2020 seluruh ASN dan PTT melakukan bersih-bersih Kantor dengan Pakaian Olah Raga Dishub dari Pukul 07.30  s/d 10.00 Wita.Sekretariat akan menyediakan Konsumsi Ringan.Demikiab untuk menjadi perhatian..Terima Kasih.   Acc. Kadishub</div>', '2020-09-07', '2020-09-10'),
+(2, 'Pemberitahuan Gaji PTT', '<div>Asalamualaikum,, Gaji sudah masuk di rek masing2 ya...silahkan dicek</div><div>Kecuali Alhusain Tute,, tagihanx masih di menunggu di ttd pak kabid P3...</div><div>Terima Kasih</div>', '2020-09-07', '2020-09-10');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `perizinan`
+--
+
+CREATE TABLE `perizinan` (
+  `id` int(11) NOT NULL,
+  `judul` text NOT NULL,
+  `isi` text NOT NULL,
+  `waktu_proses` text NOT NULL,
+  `masa_berlaku` text NOT NULL,
+  `biaya` text NOT NULL,
+  `persyaratan` text NOT NULL,
+  `keterangan` text NOT NULL,
+  `bidang` text NOT NULL,
+  `date_created` varchar(512) NOT NULL,
+  `date_modified` varchar(512) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `perizinan`
+--
+
+INSERT INTO `perizinan` (`id`, `judul`, `isi`, `waktu_proses`, `masa_berlaku`, `biaya`, `persyaratan`, `keterangan`, `bidang`, `date_created`, `date_modified`) VALUES
+(11, 'Izin Penyelenggaraan Angkutan Orang Dalam Trayek ', '<p></p><p></p><p><b><font color=\"#000000\">1. Dasar Hukum</font></b></p><p><br></p><table class=\"table table-bordered\"><tbody><tr><td><span xss=\"removed\">a. </span><br></td><td>Undang-Undang Nomor 22 Tahun 2009 tentang  tentang Lalu Lintas Dan Angkutan Jalan;<br></td></tr><tr><td><span xss=\"removed\">b.</span><br></td><td>Undang-Undang Nomor 23 Tahun 2014 tentang Pemerintahan Daerah;<br></td></tr><tr><td><span xss=\"removed\">c.</span><br></td><td>Peraturan Pemerintah Nomor 79 Tahun 2013 tentang  tentang Jaringan Lalu Lintas Dan Angkutan Jalan;<br></td></tr><tr><td><span xss=\"removed\">d. </span><br></td><td>Peraturan Pemerintah Nomor 74 Tahun 2014 tentang  tentang Angkutan Jalan;<br></td></tr><tr><td><span xss=\"removed\">e. </span><br></td><td>Peraturan Pemerintah Nomor 24 Tahun 2018 tentang Pelayanan Perizinan Berusaha Terintegrasi Secara Elektronik<br></td></tr><tr><td><span xss=\"removed\">f. </span><br></td><td>Peraturan Menteri Perhubungan Nomor PM 15 Tahun 2019 tentang Penyelenggaraan Angkutan Orang  Dengan Kendaraan Bermotor Umum Dalam Trayek<br></td></tr><tr><td><span xss=\"removed\">g. </span><br></td><td>Peraturan Menteri Perhubungan Nomor PM 45  Tahun 2019 tentang NSPK Perizinan Berusaha  Terintegrasi Secara Elektronik Sektor Perhubungan  Di Bidang Darat<br></td></tr><tr><td><span xss=\"removed\">h. </span><br></td><td>Peraturan Daerah Nomor 3 Tahun 2017 tentang Penyelenggaraan Pelayanan Terpadu Satu Pintu<br></td></tr><tr><td><span xss=\"removed\">i. </span><br></td><td>Peraturan Gubernur Gorontalo Nomor 46 Tahun  2019 tentang Jarigan Trayek Angkutan Antarkota  Dalam Provinsi Gorontalo.<br></td></tr></tbody></table><b><font color=\"#000000\" xss=\"removed\">2.<span xss=\"removed\"> </span>Persyaratan :</font></b><p></p><p><b><br></b></p><table class=\"table table-bordered\"><tbody><tr><td>a.</td><td>Surat Permohonan Ditujukan Kepada Kepala DINAS PENANAMAN MODAL, ESDM DAN TRANSMIGRASI Provinsi Gorontalo yang ditandatangani oleh pemohon (Pemohon badan usaha BUMN/BUMD/PT/ Koperasi);</td></tr><tr><td>b.</td><td>Akte Badan Usaha beserta pengesahan dari instansi berwenang<br></td></tr><tr><td>c.</td><td>Nomor Induk Berusaha (NIB)<br></td></tr><tr><td>d.</td><td>SIUP<br></td></tr><tr><td>e.</td><td>NPWP Perusahaan<br></td></tr><tr><td>f.</td><td>KTP Direktur<br></td></tr><tr><td>g.</td><td>SPTJM<br></td></tr><tr><td>h.</td><td>Izin diberikan setelah Konfirmasi Status Wajib Pajak (KSWP) valid <br></td></tr><tr><td><font color=\"#424242\">i.</font></td><td><font color=\"#424242\">Izin Baru :</font><br></td></tr><tr><td><br></td><td><b><font color=\"#000000\">1)<span xss=\"removed\"> </span>Persyaratan Administrasi :</font></b><br></td></tr><tr><td>a.</td><td>Surat Permohonan.<br></td></tr><tr><td>b.</td><td>Surat pernyataan kesanggupan untuk memenuhi seluruh kewajiban sebagai pemegang izin penyelenggaraan Angkutan Orang dengan Kendaraan Bermotor Umum Dalam Trayek, bermaterai, dan ditandatangani pimpinan perusahaan;<br></td></tr><tr><td>c.</td><td>Surat pernyataan kesanggupan memiliki dan/atau bekeijasama dengan pihak lain yang mampu menyediakan fasilitas pemeliharaan kendaraan bermotor, bermeterai, dan ditandatangani pimpinan perusahaan.<br></td></tr><tr><td>d.</td><td>Surat pernyataan kesanggupan memiliki dan/atau bekeijasama dengan pihak lain yang mampu menyediakan fasilitas pemeliharaan kendaraan bermotor, bermeterai, dan ditandatangani pimpinan perusahaan.<br></td></tr><tr><td>e.</td><td>Surat Keterangan Anggota dan atau perjanjian antara pemilik kendaraan dengan badan usaha yang berbentuk Koperasi;<br></td></tr><tr><td>f.</td><td>Surat persetujuan penyelenggaraan angkutan orang dalam trayek dari asal tujuan trayek;<br></td></tr><tr><td>g.</td><td>Salinan STNK;<br></td></tr><tr><td>h.</td><td>Salinan sumbangan wajib dana kecelakaan lalu lintas jalan (Jasa Raharja)<br></td></tr><tr><td>i.</td><td>Salinan bukti lulus uji berkala <br></td></tr><tr><td>j.</td><td>Foto kendaraan yang akan diberi izin<br></td></tr><tr><td><br></td><td><b><font color=\"#000000\">2)<span xss=\"removed\"> </span>Persyaratan Teknis:</font></b><br></td></tr><tr><td>a.</td><td>Memiliki dan/atau menguasai tempat penyimpanan kendaraan yang memenuhi persyaratan teknis dan mampu menampung sesuai jumlah kendaraan yang dimiliki dan dibuktikan dengan surat keterangan dari Pemerintah Daerah setempat yang  menyatakan luasnya mampu menyimpan kendaraan sesuai dengan jumlah kendaraan yang dimiliki;<br></td></tr><tr><td>b.</td><td>Kesesuaian dengan perencanaan kebutuhan kendaraan (kuota) <br></td></tr><tr><td>c.</td><td>Menyusun Rencana bisnis (business plan) Perusahaan Angkutan Umum yang dituangkan dalam bentuk dokumen<br></td></tr><tr><td>d.</td><td>Menyiapkan dokumen Sistem Manajemen Keselamatan paling lama 3 (tiga) bulan sejak izin penyelenggaraan angkutan  diberikan  orang<br></td></tr><tr><td><br></td><td><b><font color=\"#000000\">Pembaruan Masa Berlaku Izin :</font></b><br></td></tr><tr><td>a.</td><td>Surat permohonan pembaruan masa berlaku;<br></td></tr><tr><td>b.</td><td>Asli Surat Keputusan Izin Penyelenggaraan Angkutan Orang;<br></td></tr><tr><td>c.</td><td>Salinan STNK<br></td></tr><tr><td>d.</td><td>Salinan bukti lulus uji berkala<br></td></tr><tr><td>e.</td><td>Salinan sumbangan wajib dana kecelakaan lalu lintas jalan (Jasa Raharja)<br></td></tr><tr><td>f.</td><td>Surat Keterangan Anggota dan atau perjanjian antara pemilik kendaraan dengan badan usaha yang berbentuk Koperasi;<br></td></tr><tr><td>g.</td><td>Surat pernyataan kesanggupan untuk memenuhi seluruh kewajiban sebagai pemegang izin penyelenggaraan Angkutan Orang dengan Kendaraan Bermotor Umum Dalam Trayek, bermaterai, dan ditandatangani pimpinan perusahaan.<br></td></tr><tr><td>h.</td><td>Foto Kendaraan<br></td></tr><tr><td><br></td><td><b><font color=\"#000000\">Penggantian Dokumen Izin Yang Hilang dan atau Rusak :</font></b><br></td></tr><tr><td>a.</td><td>Surat permohonan penggantian dokumen yang hilang atau rusak<br></td></tr><tr><td>b.</td><td>Surat Keterangan tanda laporan kehilangan dari Kepolisian Negara Republik Indonesia untuk dokumen yang hilang<br></td></tr><tr><td>c.</td><td>Melampirkan bukti  dokumen yang rusak<br></td></tr><tr><td>d.</td><td>Salinan Surat Keterangan Anggota dan atau perjanjian antara pemilik  kendaraan dengan badan usaha yang berbentuk Koperasi;<br></td></tr><tr><td><br></td><td><b><font color=\"#000000\" xss=\"removed\">Penambahan kendaraan :</font></b><br></td></tr><tr><td>a.</td><td>Surat permohonan penambahan kendaraan<br></td></tr><tr><td>b.</td><td>Salinan Surat Keputusan Izin Penyelenggaraan Angkutan Orang;<br></td></tr><tr><td>c.</td><td>Laporan operasional pelayanan angkutan orang;<br></td></tr><tr><td>d.</td><td>Surat persetujuan penambahan kendaraan angkutan orang;<br></td></tr><tr><td>e.</td><td>Salinan STNK<br></td></tr><tr><td>f.</td><td>Salinan bukti lulus uji berkala<br></td></tr><tr><td>g.</td><td>Salinan sumbangan wajib dana kecelakaan lalu lintas jalan (Jasa Raharja)<br></td></tr><tr><td>h.</td><td>Foto kendaraan tambahan</td></tr><tr><td><br></td><td><font color=\"#000000\"><b>Penggantian/ Peremajaan Kendaraan :</b></font><br></td></tr><tr><td>a.</td><td>Surat permohonan penggantian/peremajaan kendaraan<br></td></tr><tr><td>b.</td><td>Salinan Surat Keputusan Izin Penyelenggaraan Angkutan Orang<br></td></tr><tr><td>c.</td><td>Salinan STNK<br></td></tr><tr><td>d.</td><td>Salinan bukti lulus uji berkala<br></td></tr><tr><td>e.</td><td>Salinan sumbangan wajib dana kecelakaan lalu lintas jalan (Jasa Raharja)<br></td></tr><tr><td>f.</td><td>Salinan Surat Keterangan Anggota dan atau perjanjian antara pemilik kendaraan dengan badan usaha yang berbentuk Koperasi<br></td></tr><tr><td>g.</td><td>Surat pernyataan kesanggupan untuk memenuhi seluruh kewajiban sebagai pemegang izin penyelenggaraan angkutan orang, bermaterai, dan ditandatangani pimpinan perusahaan.<br></td></tr><tr><td>h.</td><td><p>Foto kendaraan<br></p><p><br></p></td></tr></tbody></table><b><font color=\"#000000\">3.<span xss=\"removed\"> </span>Perubahan Identitas Perusahaan :</font></b><p></p><p><b><font color=\"#000000\"><br></font></b></p><table class=\"table table-bordered\"><tbody><tr><td>a.</td><td>Surat permohonan perubahan identitas perusahaan<br></td></tr><tr><td>b.</td><td>Akta perubahan badan Hukum yang telah mendapatkan pengesahan dari instansi berwenang;<br></td></tr><tr><td>c.</td><td>Nomor Induk Berusaha (NIB)<br></td></tr><tr><td>d.</td><td>SIUP<br></td></tr><tr><td>e.</td><td>NPWP Perusahaan<br></td></tr><tr><td>f.</td><td>KTP Direktur<br></td></tr><tr><td>g.</td><td>Surat keterangan domisili yang dikeluarkan oleh instansi yang berwenang<br></td></tr><tr><td>h.</td><td>Salinan surat keputusan izin penyelenggaraan angkutan orang<br></td></tr></tbody></table><p><font color=\"#000000\" xss=\"removed\"><b><br></b></font></p><p><font color=\"#000000\" xss=\"removed\"><b>4.<span xss=\"removed\"> </span>Pembukaan Cabang Perusahaan :</b><br></font></p><p><font color=\"#000000\" xss=\"removed\"><br></font></p><table class=\"table table-bordered\"><tbody><tr><td>a.</td><td>Surat permohonan pembukaan cabang perusahaan<br></td></tr><tr><td>b.</td><td>Akta pendirian dan atau perubahan terakhir<br></td></tr><tr><td>c.</td><td>Bukti pengesahan sebagai badan hukum dari Kemenkum Ham<br></td></tr><tr><td>d.</td><td>Surat keterangan domisili yang dikeluarkan oleh pejabat berwenang<br></td></tr><tr><td>e.</td><td>Surat pernyataan kesanggupan memiliki dan/atau bekerjasama dengan pihak lain yang mampu menyediakan fasilitas  pemeliharaan kendaraan bermotor, bermeterai, dan ditandatangani pimpinan perusahaan<br></td></tr><tr><td>f.</td><td>Memiliki dan/atau menguasai tempat penyimpanan kendaraan yang memenuhi persyaratan teknis dan mampu menampung  sesuai jumlah kendaraan yang dimiliki dan dibuktikan dengan surat keterangan dari Pemerintah Daerah setempat yang  menyatakan luasnya mampu menyimpan kendaraan sesuai dengan jumlah kendaraan yang dimiliki<br></td></tr><tr><td>g.</td><td>Rencana bisnis (business plan) Perusahaan Angkutan Umum yang dituangkan dalam bentuk dokumen<br></td></tr></tbody></table><p><font color=\"#000000\" xss=\"removed\"><br></font></p><p><font color=\"#000000\" xss=\"removed\"><b>5.<span xss=\"removed\"> </span>Waktu Penyelesaian :</b></font></p><p><font xss=\"removed\"><font color=\"#636363\">Maksimal 5 (lima) hari kerja</font></font></p><p><font xss=\"removed\"><b xss=\"removed\"><font color=\"#000000\"><br></font></b></font></p><p><font xss=\"removed\"><b xss=\"removed\"><font color=\"#000000\">6.<span xss=\"removed\"> </span>Biaya Pelayanan :</font></b></font></p><p><font xss=\"removed\"><font xss=\"removed\"><font color=\"#636363\">Gratis dan atau akan sesuaikan dengan  PNBP bidang perhubungan sesuai Permenhub RI Nomor 45 Tahun 2019</font><br></font></font></p><p><font xss=\"removed\"><b xss=\"removed\"><font color=\"#000000\"><br></font></b><br><br><br></font></p><p></p><p></p>', 'qwe', 'qwe', 'qwe', 'qwe', 'qwe', 'Direktorat Jenderal Perhubungan Udara', '2020-09-07', '2020-09-07'),
+(12, 'Izin Penyelenggaraan Angkutan Orang Tidak Dalam Trayek (Angkutan Taksi, Angkutan Antar Jemput Antarprovinsi)', '<p><b><font color=\"#000000\">1. Dasar Hukum</font></b></p><p><b><font color=\"#000000\"><br></font></b></p><table class=\"table table-bordered\"><tbody><tr><td>a.</td><td>Undang-Undang Nomor 22 Tahun 2009 tentang tentang Lalu Lintas Dan Angkutan Jalan;<br></td></tr><tr><td>b.</td><td>Undang-Undang Nomor 23 Tahun 2014 tentang Pemerintahan Daerah;<br></td></tr><tr><td>c.</td><td>Peraturan Pemerintah Nomor 79 Tahun 2013 tentang tentang Jaringan Lalu Lintas Dan Angkutan Jalan;<br></td></tr><tr><td>d.</td><td>Peraturan Pemerintah Nomor 74 Tahun 2014 tentang tentang Angkutan Jalan;<br></td></tr><tr><td>e.</td><td>Peraturan Pemerintah Nomor 24 Tahun 2018 tentang Pelayanan Perizinan Berusaha Terintegrasi Secara Elektronik;<br></td></tr><tr><td>f.</td><td>Peraturan Menteri Perhubungan Nomor PM 117 Tahun 2018 tentang Penyelenggaraan Angkutan Orang Tidak Dalam Trayek;<br></td></tr><tr><td>g.</td><td>Peraturan Menteri Perhubungan Nomor PM 45 Tahun 2019 tentang NSPK Perizinan Berusaha Terintegrasi Secara Elektronik Sektor Perhubungan Di Bidang Darat;<br></td></tr><tr><td>h.</td><td>Peraturan Daerah Nomor 3 Tahun 2017 tentang Penyelenggaraan Pelayanan Terpadu Satu Pintu;<br></td></tr></tbody></table><p><font color=\"#000000\" xss=\"removed\"><b><br></b></font></p><p><font color=\"#000000\" xss=\"removed\"><b>2. <span xss=\"removed\"> </span>Persyaratan :</b></font></p><p><font color=\"#000000\" xss=\"removed\"><br></font></p><table class=\"table table-bordered\"><tbody><tr><td>a.</td><td>Surat Permohonan Ditujukan Kepada Kepala DINAS PENANAMAN MODAL, ESDM DAN TRANSMIGRASI Provinsi Gorontalo yang ditandatangani oleh pemohon (Pemohon adalah Perseorangan, Ketua Koperasi, atau nama yang tercamtum dalam akte notaries untuk badan usaha)<br></td></tr><tr><td>b.</td><td>Persyaratan Badan Usaha, dengan ketentuan memiliki Nomor Induk Berusaha (NIB) <br></td></tr><tr><td>c.</td><td>SPTJM<br></td></tr><tr><td>d.</td><td>Izin diberikan setelah Konfirmasi Status Wajib Pajak (KSWP) valid<br></td></tr><tr><td><b><br></b></td><td><b><font color=\"#000000\">Izin Baru</font></b><br></td></tr><tr><td><br></td><td>1) Persyaratan Administrasi :<br></td></tr><tr><td><br></td><td><br></td></tr><tr><td>a.</td><td>Surat Permohonan.  <br></td></tr><tr><td>b.</td><td>Surat pernyataan kesanggupan untuk memenuhi seluruh kewajiban sebagai\r\npemegang izin penyelenggaraan Angkutan Orang dengan Kendaraan\r\nBermotor Umum Dalam Trayek, bermaterai, dan ditandatangani pimpinan\r\nperusahaan; <br></td></tr><tr><td>c.</td><td>Surat pernyataan kesanggupan memiliki dan/atau bekeijasama dengan pihak\r\nlain yang mampu menyediakan fasilitas pemeliharaan kendaraan bermotor,\r\nbermeterai, dan ditandatangani pimpinan perusahaan.<br></td></tr><tr><td>d.</td><td>Surat Keterangan Anggota dan atau perjanjian antara pemilik kendaraan\r\ndengan badan usaha yang berbentuk Koperasi;  <br></td></tr><tr><td>e.</td><td>Surat persetujuan penyelenggaraan angkutan orang dalam trayek dari asal\r\ntujuan trayek; <br></td></tr><tr><td>f.</td><td>Salinan STNK;  <br></td></tr><tr><td>g.</td><td>Salinan sumbangan wajib dana kecelakaan lalu lintas jalan (Jasa Raharja) <br></td></tr><tr><td>h.</td><td>Salinan bukti lulus uji berkala  <br></td></tr><tr><td>i.</td><td>Foto kendaraan yang akan diberi izin <br></td></tr><tr><td><br></td><td><b>2) Persyaratan Teknis:</b><br></td></tr><tr><td>a.</td><td>Memiliki dan/atau menguasai tempat penyimpanan kendaraan yang\r\nmemenuhi persyaratan teknis dan mampu menampung sesuai jumlah\r\nkendaraan yang dimiliki dan dibuktikan dengan surat keterangan dari\r\nPemerintah Daerah setempat yang menyatakan luasnya mampu menyimpan\r\nkendaraan sesuai dengan jumlah kendaraan yang dimiliki; <br></td></tr><tr><td>b.</td><td>Kesesuaian dengan perencanaan kebutuhan kendaraan (kuota)<br></td></tr><tr><td>c.</td><td>Menyusun Rencana bisnis (business plan) Perusahaan Angkutan Umum yang\r\ndituangkan dalam bentuk dokumen<br></td></tr><tr><td>d.</td><td>Menyiapkan dokumen Sistem Manajemen Keselamatan paling lama 3 (tiga)\r\nbulan sejak izin penyelenggaraan angkutan diberikan orang <br></td></tr></tbody></table><p><br></p><p><b><font color=\"#000000\">k. Pembaruan Masa Berlaku Izin : </font></b> </p><p><br></p><table class=\"table table-bordered\"><tbody><tr><td><br></td><td><br></td></tr><tr><td>a.</td><td>Surat permohonan pembaruan masa berlaku; <br></td></tr><tr><td>b.</td><td>Asli Surat Keputusan Izin Penyelenggaraan Angkutan Orang; <br></td></tr><tr><td>c.</td><td>Salinan STNK<br></td></tr><tr><td>d.</td><td>Salinan bukti lulus uji berkala <br></td></tr><tr><td>e.</td><td>Salinan sumbangan wajib dana kecelakaan lalu lintas jalan (Jasa Raharja)  <br></td></tr><tr><td>f.</td><td>Surat Keterangan Anggota dan atau perjanjian antara pemilik kendaraan dengan\r\nbadan usaha yang berbentuk Koperasi; <br></td></tr><tr><td>g.</td><td>Surat pernyataan kesanggupan untuk memenuhi seluruh kewajiban sebagai\r\npemegang izin penyelenggaraan Angkutan Orang dengan Kendaraan Bermotor\r\nUmum Dalam Trayek, bermaterai, dan ditandatangani pimpinan perusahaan.  <br></td></tr><tr><td>h.</td><td>Foto Kendaraan;<br></td></tr></tbody></table><p><br></p><p><b><font color=\"#000000\">l. Penggantian Dokumen Izin Yang Hilang dan atau Rusak : </font></b></p><p><b><font color=\"#000000\"><br></font></b></p><table class=\"table table-bordered\"><tbody><tr><td>a.</td><td>Surat permohonan penggantian dokumen yang hilang atau rusak <br></td></tr><tr><td>b.</td><td>Surat Keterangan tanda laporan kehilangan dari Kepolisian Negara Republik\r\nIndonesia untuk dokumen yang hilang <br></td></tr><tr><td>c.</td><td>Melampirkan bukti dokumen yang rusak<br></td></tr><tr><td>d.</td><td>Salinan Surat Keterangan Anggota dan atau perjanjian antara pemilik\r\nkendaraan dengan badan usaha yang berbentuk Koperasi;  <br></td></tr></tbody></table><p><b><font color=\"#000000\"><br></font></b></p><p><b><font color=\"#000000\">m. Penambahan kendaraan :  </font></b></p><p><b><font color=\"#000000\"><br></font></b></p><table class=\"table table-bordered\"><tbody><tr><td>a.</td><td>Surat permohonan penambahan kendaraan <br></td></tr><tr><td>b.</td><td> Salinan Surat Keputusan Izin Penyelenggaraan Angkutan Orang;  <br></td></tr><tr><td>c.</td><td>Laporan operasional pelayanan angkutan orang;  <br></td></tr><tr><td>d.</td><td>Surat persetujuan penambahan kendaraan angkutan orang;  <br></td></tr><tr><td>e.</td><td>Salinan STNK<br></td></tr><tr><td>f.</td><td>Salinan bukti lulus uji berkala<br></td></tr><tr><td>g.</td><td>Salinan sumbangan wajib dana kecelakaan lalu lintas jalan (Jasa Raharja)  <br></td></tr><tr><td>h.</td><td>Foto kendaraan tambahan;  <br></td></tr></tbody></table><p><b><font color=\"#000000\"><br></font></b></p><p><b><font color=\"#000000\">n. Penggantian/ Peremajaan Kendaraan :</font></b></p><p><b><font color=\"#000000\"><br></font></b></p><table class=\"table table-bordered\"><tbody><tr><td>a.</td><td>Surat permohonan penggantian/peremajaan kendaraan  <br></td></tr><tr><td>b.</td><td>Salinan Surat Keputusan Izin Penyelenggaraan Angkutan Orang  <br></td></tr><tr><td>c.</td><td>Salinan STNK<br></td></tr><tr><td>d.</td><td>Salinan bukti lulus uji berkala <br></td></tr><tr><td>e.</td><td>Salinan sumbangan wajib dana kecelakaan lalu lintas jalan (Jasa Raharja)<br></td></tr><tr><td>f.</td><td>Salinan Surat Keterangan Anggota dan atau perjanjian antara pemilik kendaraan\r\ndengan badan usaha yang berbentuk Koperasi  <br></td></tr><tr><td>g.</td><td>Surat pernyataan kesanggupan untuk memenuhi seluruh kewajiban sebagai\r\npemegang izin penyelenggaraan angkutan orang, bermaterai, dan ditandatangani\r\npimpinan perusahaan. <br></td></tr><tr><td>h.</td><td>Foto kendaraan; <br></td></tr></tbody></table><p><b><br></b></p><p>3. Perubahan Identitas Perusahaan :  </p><p><br></p><table class=\"table table-bordered\"><tbody><tr><td>a.</td><td>Surat permohonan perubahan identitas perusahaan<br></td></tr><tr><td>b.</td><td>Akta perubahan badan Hukum yang telah mendapatkan pengesahan dari instansi\r\nberwenang; <br></td></tr><tr><td>c.</td><td>Nomor Induk Berusaha (NIB) <br></td></tr><tr><td>d.</td><td>SIUP  <br></td></tr><tr><td>e.</td><td>NPWP Perusahaan <br></td></tr><tr><td>f.</td><td>KTP Direktur <br></td></tr><tr><td>g.</td><td>Surat keterangan domisili yang dikeluarkan oleh instansi yang berwenang  <br></td></tr><tr><td>h.</td><td>Salinan surat keputusan izin penyelenggaraan angkutan orang <br></td></tr></tbody></table><p><br></p><p>4. Pembukaan Cabang Perusahaan :  </p><p><br></p><table class=\"table table-bordered\"><tbody><tr><td>a.</td><td>Surat permohonan pembukaan cabang perusahaan  <br></td></tr><tr><td>b.</td><td>Akta pendirian dan atau perubahan terakhir<br></td></tr><tr><td>c.</td><td>Bukti pengesahan sebagai badan hukum dari Kemenkum Ham<br></td></tr><tr><td>d.</td><td>Surat keterangan domisili yang dikeluarkan oleh pejabat berwenang <br></td></tr><tr><td>e.</td><td>Surat pernyataan kesanggupan memiliki dan/atau bekerjasama dengan pihak lain\r\nyang mampu menyediakan fasilitas pemeliharaan kendaraan bermotor, bermeterai,\r\ndan ditandatangani pimpinan perusahaan <br></td></tr><tr><td>f.</td><td>Memiliki dan/atau menguasai tempat penyimpanan kendaraan yang memenuhi\r\npersyaratan teknis dan mampu menampung sesuai jumlah kendaraan yang dimiliki\r\ndan dibuktikan dengan surat keterangan dari Pemerintah Daerah setempat yang\r\nmenyatakan luasnya mampu menyimpan kendaraan sesuai dengan jumlah kendaraan\r\nyang dimiliki; dan <br></td></tr><tr><td>g.</td><td>Rencana bisnis (business plan) Perusahaan Angkutan Umum yang dituangkan dalam\r\nbentuk dokumen<br></td></tr></tbody></table><p><br></p><p>5. Waktu Penyelesaian : maksimal 5 (lima) hari kerja</p><p>6. Biaya Pelayanan : Gratis dan atau akan sesuaikan dengan PNBP bidang perhubungan\r\nsesuai Permenhub RI Nomor 45 Tahun 2019; <br></p>', '', '', '', '', '', '', '2020-09-07', '2020-09-10');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `profil`
+--
+
+CREATE TABLE `profil` (
+  `id` int(11) NOT NULL,
+  `judul` text NOT NULL,
+  `isi` text NOT NULL,
+  `image` varchar(512) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `profil`
+--
+
+INSERT INTO `profil` (`id`, `judul`, `isi`, `image`) VALUES
+(2, 'Visi & Misi', '<p>      </p><p>            </p><p></p><h5><p class=\"MsoNormal\" xss=\"removed\"><b><span lang=\"IN\" xss=\"removed\"><span xss=\"removed\"><font color=\"#000000\">Visi</font></span><o></o></span></b></p>\r\n\r\n<p class=\"MsoNormal\" xss=\"removed\"><span lang=\"IN\" xss=\"removed\">Terwujudnya transportasi yang tertib, lancar dan selamat\r\nmenuju masyarakat Gorontalo yang unggul, maju dan sejahtera</span></p><p class=\"MsoNormal\" xss=\"removed\"><span lang=\"IN\" xss=\"removed\"><br></span></p>\r\n\r\n<p class=\"MsoNormal\" xss=\"removed\"><b><span lang=\"IN\" xss=\"removed\"><font color=\"#000000\">Misi</font><o></o></span></b></p>\r\n\r\n<p class=\"MsoNormal\" xss=\"removed\"><span lang=\"IN\" xss=\"removed\">Misi adalah implementasi dari Visi yaitu harus\r\ndilaksanakan agar tujuan organisasi dapat terlaksana dan berhasil dengan baik\r\nsesuai dengan Visi yang telah ditetapkan.<o></o></span></p>\r\n\r\n<p class=\"MsoNormal\" xss=\"removed\"><span lang=\"IN\" xss=\"removed\">Dengan adanya misi diharapkan seluruh pegawai dapat\r\nmengenal instansi Dinas Perhubungan Provinsi Gorontalo mengetahui peran yang\r\nakan dijalankan dan hasil yang akan diperoleh dimasa yang akan datang. Untuk\r\nmewujudkan Visi Dinas Perhubungan Provinsi Gorontalo</span></p><p class=\"MsoNormal\" xss=\"removed\"><span lang=\"IN\" xss=\"removed\"><br></span></p><p class=\"MsoNormal\" xss=\"removed\"><span xss=\"removed\">1. Meningkatkan kapasitas dan layanan transportasi</span></p>\r\n\r\n<p class=\"MsoListParagraphCxSpLast\" xss=\"removed\"><span lang=\"IN\" xss=\"removed\">2. Meningkatkan keselamatan dalam penyelenggaraan pelayanan\r\ntransportasi<o></o></span></p>\r\n\r\n<p class=\"MsoNormal\" xss=\"removed\"><span lang=\"IN\" xss=\"removed\"><o> </o></span></p>\r\n\r\n<p class=\"MsoNormal\" xss=\"removed\"><b><span lang=\"IN\" xss=\"removed\"><font color=\"#000000\">Penjelasan Visi dan Misi\r\n:<o></o></font></span></b></p>\r\n\r\n<p class=\"MsoNormal\" xss=\"removed\"><b><span lang=\"IN\" xss=\"removed\"><font color=\"#000000\"><br></font></span></b></p><p class=\"MsoNormal\" xss=\"removed\"><b><span lang=\"IN\" xss=\"removed\"><font color=\"#000000\">Penjelasan Visi :</font></span></b></p><p class=\"MsoNormal\" xss=\"removed\"><b><span lang=\"IN\" xss=\"removed\"><font color=\"#000000\"><br></font><o></o></span></b></p>\r\n\r\n<p class=\"MsoNormal\" xss=\"removed\"><span lang=\"IN\" xss=\"removed\">Terwujudnya transportasi yang tertib, lancar dan selamat\r\nmenuju masyarakat unggul, maju dan sejahtera</span></p>\r\n\r\n<p class=\"MsoNormal\" xss=\"removed\"><span lang=\"IN\" xss=\"removed\">a. Pelayanan transportasi yang handal diindikasikan\r\ndengan tertib, lancar, selamat dengan penjelasan sebagai berikut :</span></p></h5><table class=\"table table-bordered\"><tbody><tr><td>-</td><td><span xss=\"removed\">Tertib diindikasikan dengan tertibnya pelaku transportasi dalam menggunakan sarana dan prasarana perhubungan darat, laut, udara dan kereta api</span><br></td></tr><tr><td>-</td><td><span xss=\"removed\">Lancar diindikasikan pada kelancaran angkutan dan penumpang di terminal, pelabuhan dan bandara serta lancarnya aktivitas bongkar muat barang di pelabuhan dan bandara; adanya ketersediaan transportasi antara pemandu moda sehingga terkoneksinya jaringan transportasi antara bandara, pelabuhan, dan terminal; adanya ketersediaan angkutan transportasi ke daerah terpencil.</span><br></td></tr><tr><td>-</td><td><span xss=\"removed\">Selamat diindikasikan dengan tersedianya fasilitas penunjang keselamatan LLAJ pada ruas jalan Provinsi yang ikut berperan dalam menurunkan jumlah kecelakaan lalu lintas di jalan raya serta meningkatnya kesadaran masyarakat akan keselamatan transportasi.</span><br></td></tr></tbody></table><h5>\r\n\r\n<p class=\"MsoNormal\" xss=\"removed\"><span lang=\"IN\" xss=\"removed\"><o><br> </o></span></p>\r\n\r\n<p class=\"MsoNormal\" xss=\"removed\"><b><span lang=\"IN\" xss=\"removed\"><font color=\"#000000\">Penjelasan Misi</font></span></b></p><p class=\"MsoNormal\" xss=\"removed\"><b><span lang=\"IN\" xss=\"removed\"><o><br></o></span></b></p></h5><table class=\"table table-bordered\"><tbody><tr><td>1.</td><td><span xss=\"removed\">Meningkatkan kapasitas dan layanan transportasi Diarahkan untuk meningkatkan dan memelihara sarana dan prasarana perhubungan.</span><br></td></tr><tr><td>2.</td><td><span xss=\"removed\">Meningkatkan keselamatan dalam penyelenggaraan pelayanan transportasi Diarahkan untuk meningkatkan kapasitas keselamatan dalam pelayanan transportasi.</span><br></td></tr></tbody></table><h5><p class=\"MsoNormal\" xss=\"removed\"><br></p></h5>            <p></p>        <p></p>    <p></p>', 'image1.jpg'),
+(4, 'Tugas Pokok dan Fungsi', '<p><b><font color=\"#000000\">Dinas Perhubungan mempunyai tugas pokok sebagai perangkat Daerah yang membantu Gubernur dalam penyelenggaraan pemerintahan di bidang Perhubungan.\r\n- Fungsi\r\nUntuk menyelenggarakan tugas dimaksud, maka Dinas Perhubungan Provinsi Gorontalo mempunyai fungsi :</font></b></p><p><br></p><table class=\"table table-bordered\"><tbody><tr><td>1</td><td>Melaksanakan pengumpulan dan pengolahan data, penyusunan dan pengelolaan keuangan, penyusunan rencana dan program dibidang Perhubungan,<br></td></tr><tr><td>2</td><td>Melaksanakan penyiapan perumusan kebijakan tugas dibidang Perhubungan<br></td></tr><tr><td>3</td><td> Menyiapkan pelaksanaan urusan kepegawaian, keuangan, perlengkapan dan tata usaha Dinas Perhubungan.<br></td></tr><tr><td>4</td><td>Melaksanakan tugas Konsultasi dan koordinasi dibidang perhubungan,<br></td></tr></tbody></table><p><b><font color=\"#000000\"><br>\r\nDalam menyelenggarakan fungsi sebagaimana dimaksud, Dinas mempunyai kewenangan sebagai berikut :</font></b></p><p><br></p><table class=\"table table-bordered\"><tbody><tr><td>-</td><td>Menyusun rencana strategis Dinas, Program / Kegiatan tahunan bidang Perhubungan;<br></td></tr><tr><td>-</td><td>Memberikan pelayanan perizinan dibidang Perhubungan, sesuai dengan peraturan perundang-undangan<br></td></tr><tr><td>-</td><td>Menyusun laporan akuntabilitas kinerja instansi pemerintah (LKIP)<br></td></tr></tbody></table>', ''),
+(5, '5 Citra Manusia Perhubungan', '1. Taqwa terhadap Tuhan yang Maha Esa.<br>2. Tanggap terhadap kebutuhan masyarakat akan pelayanan jasa yang tertib, teratur, tepat waktu, bersih dan nyaman.<br>3. Tangguh menghadapi tantangan.<br>4. Terampil dan berprilaku jujur, gesit, ramah, sopan serta lugas.<br>5. Tanggung Jawab terhadap keselamatan dan keamanan jasa perhubungan.<br>\r\n\r\n', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `role`
+--
+
+CREATE TABLE `role` (
+  `id` int(11) NOT NULL,
+  `role` varchar(512) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `role`
+--
+
+INSERT INTO `role` (`id`, `role`) VALUES
+(1, 'Super Admin'),
+(2, 'Admin Berita & Informasi'),
+(3, 'Admin Perizinan');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sertamerta`
+--
+
+CREATE TABLE `sertamerta` (
+  `id` int(11) NOT NULL,
+  `judul` text NOT NULL,
+  `isi` text NOT NULL,
+  `date_created` varchar(512) NOT NULL,
+  `date_modified` varchar(512) NOT NULL,
+  `no_urut` varchar(512) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `sertamerta`
+--
+
+INSERT INTO `sertamerta` (`id`, `judul`, `isi`, `date_created`, `date_modified`, `no_urut`) VALUES
+(2, 'Petunjuk Teknis Pengendalian Transportasi di Wilayah Jabodetabek dalam Rangka Pencegahan Penyebaran Covid-19', '<p>Deskripsi :</p><p>Peraturan Kepala BPTJ SK.108 BPTJ Tahun 2020 tanggal 24 April 2020 tentang Petunjuk Teknis Pengendalian Transportasi di Wilayah Jabodetabek dalam Rangka Pencegahan Penyebaran Covid-19</p>', '2020-08-13', '2020-09-06', ''),
+(3, 'Pengendalian Transportasi dalam Rangka Pencegahan Penyebaran Corona Virus Disease 2019 (COVID-19)', '<p>Deskripsi :</p><p>Permenhub Nomor PM. 18 Tahun 2020 tentang Pengendalian Transportasi dalam Rangka Pencegahan Penyebaran Corona Virus Disease 2019 (COVID-19)</p>', '2020-08-13', '2020-09-06', ''),
+(4, 'Pengendalian Transportasi Selama Masa Mudik Idul Fitri Tahun 1441 H dalam rangka Pencegahan Penyebaran Corona Virus Disease 2019 (COVID-19)', '<p>Deskripsi :</p><p>Permenhub Nomor PM. 18 Tahun 2020 tentang Pengendalian Transportasi dalam Rangka Pencegahan Penyebaran Corona Virus Disease 2019 (COVID-19)</p>', '2020-08-13', '2020-09-06', ''),
+(5, 'Pembatasan Penggunaan Moda Transportasi untuk Mengurangi Pergerakan Orang dari dan ke Wilayah Jabodetabek selama Masa Pandemik Covid-19', '', '2020-08-13', '', ''),
+(6, 'SOP Pencegahan Penyebaran Covid-19 di Lingkungan Terminal Penumpang Tipe A yang berada di bawah pengelolaan BPTJ', '', '2020-08-13', '', ''),
+(7, 'Pembukaan Rute Baru Angkutan Jabodetabek Residence (JR) Connexion Lintas Bogor-Jakarta', '', '2020-08-13', '', ''),
+(8, 'Penghentian Sementara Pengaturan Lalu Lintas dengan Sistem Ganjil Genap pada Ruas Tol Jakarta-Cikampek, Jakarta-Bogor-Ciawi, dan Jakarta-Tangerang', '', '2020-08-13', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `setiapsaat`
+--
+
+CREATE TABLE `setiapsaat` (
+  `id` int(11) NOT NULL,
+  `judul` text NOT NULL,
+  `isi` text NOT NULL,
+  `date_created` varchar(512) NOT NULL,
+  `date_modified` varchar(512) NOT NULL,
+  `no_urut` varchar(512) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `setiapsaat`
+--
+
+INSERT INTO `setiapsaat` (`id`, `judul`, `isi`, `date_created`, `date_modified`, `no_urut`) VALUES
+(1, 'Informasi Berkala', '<p>Deskripsi :</p><p>Seluruh Informasi berkala merupakan Informasi yang wajib disediakan setiap saat.</p>', '2020-08-13', '2020-09-06', ''),
+(2, 'Perizinan', '<p>Deskripsi :</p><p>Informasi mengenai ringkasan berupa syarat dan SOP perizinan di lingkungan Kementerian Perhubungan :</p>', '2020-08-13', '2020-09-06', ''),
+(3, 'Organisasi, Administrasi, Kepegawaian dan Keuangan', '<p>Deskripsi :</p><p>Informasi mengenai Pedoman Organisasi :</p><p>Informasi mengenai Pedoman Administrasi :</p><p>Sistem Administrasi Perkantoran, yang terdiri dari :</p><p>Informasi mengenai Pedoman Kepegawaian :</p><p>Informasi mengenai Keuangan :</p>', '2020-08-13', '2020-09-06', ''),
+(4, 'Statistik dan Informasi Transportasi', '', '2020-08-13', '', ''),
+(5, 'Persuratan Kementerian Perhubungan', '', '2020-08-13', '', ''),
+(6, 'Dokumen Pendukung', '', '2020-08-13', '', ''),
+(7, 'Dokumen Perjanjian Kerja', '', '2020-08-13', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(128) NOT NULL,
+  `name` varchar(512) NOT NULL,
+  `jenkel` varchar(512) NOT NULL,
+  `email` varchar(512) NOT NULL,
+  `password` varchar(512) NOT NULL,
+  `alamat` text NOT NULL,
+  `hp` varchar(512) NOT NULL,
+  `image` varchar(512) NOT NULL,
+  `id_role` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `name`, `jenkel`, `email`, `password`, `alamat`, `hp`, `image`, `id_role`) VALUES
+(1, 'Abd. Musakir Radjak', 'Laki-Laki', 'zack@gmail.com', '$2y$10$9D1pDwGmo2rSaYad3TiC.elY5pzSo5rhUu2kJcgr1z2S988hkj9zC', 'Lorong Kambing', '0822878378278', '1570615528116.jpg', 1),
+(2, 'Moh. Rezha Bokings', 'Laki-Laki', 'rezha@gmail.com', '$2y$10$jkteK.2gl2qOtaBzWJ0giOx4HVwojGubms3VNzPHc50tQlT8U.PF.', 'Kota Gorontalo', '0822345343343', 'blog-author.jpg', 2),
+(6, 'Riansyah Inde', 'Laki-Laki', 'angkutan@gmail.com', '$2y$10$GjC8WixxdYwOn6xxK2j6WuOcLFLMoqJSf7HqK5taOqOmKH.66NHUy', 'Gorontalo', '082291239232', 'profile.png', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `video`
+--
+
+CREATE TABLE `video` (
+  `id` int(11) NOT NULL,
+  `judul` varchar(512) NOT NULL,
+  `link` text NOT NULL,
+  `image` varchar(512) NOT NULL,
+  `date_created` varchar(512) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `video`
+--
+
+INSERT INTO `video` (`id`, `judul`, `link`, `image`, `date_created`) VALUES
+(1, 'Giat ABC (Angkutan Bebas Corona)', 'https://www.youtube.com/embed/2gKJtgNr-es', '17d2c52010855c680f936d5b3fd00826.png', '2020-09-09'),
+(2, 'Gubernur Gorontalo Ingin Desa Meranti Jadi Wisata Minat Khusus Humas Gorontalo Prov', 'https://www.youtube.com/embed/PpqN5qoIx98', 'entertaiment-02.jpg', '2020-09-09'),
+(3, 'Gubernur Gorontalo Ingin Desa Meranti Jadi Wisata Minat Khusus Humas Gorontalo Prov', 'asdasdasd', 'ae37a981cac7127cb1cb4a79b6430f24.jpg', '2020-09-09'),
+(4, 'Gubernur Gorontalo Ingin Desa Meranti Jadi Wisata Minat Khusus Humas Gorontalo Prov', 'asdasdasd', 'afcde9d4484333154710ce276fe7ee20.jpg', '2020-09-09'),
+(5, 'PSBB (Pembatasan Sosial Bersekala Besar )', 'Gubernur Gorontalo Ingin Desa Meranti Jadi Wisata Minat Khusus Humas Gorontalo Prov', 'fe4f8e2897923b614fc124fba0371146.jpg', '2020-09-09');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `visitor`
+--
+
+CREATE TABLE `visitor` (
+  `ip` varchar(512) NOT NULL,
+  `date` date NOT NULL,
+  `hits` int(128) NOT NULL,
+  `online` varchar(512) NOT NULL,
+  `time` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `visitor`
+--
+
+INSERT INTO `visitor` (`ip`, `date`, `hits`, `online`, `time`) VALUES
+('::1', '2020-07-31', 142, '1596205920', '2020-07-31 11:57:35'),
+('192.168.9.3', '2020-07-31', 4, '1596206147', '2020-07-31 14:11:40'),
+('192.168.9.2', '2020-07-31', 4, '1596206209', '2020-07-31 16:32:47'),
+('::1', '2020-08-03', 2, '1596461436', '2020-08-03 00:50:07'),
+('192.168.9.2', '2020-08-03', 4, '1596408767', '2020-08-03 00:50:12'),
+('10.32.12.193', '2020-08-03', 3, '1596461750', '2020-08-03 15:32:44'),
+('10.32.12.35', '2020-08-03', 1, '1596461613', '2020-08-03 15:33:33'),
+('10.32.12.145', '2020-08-03', 5, '1596462408', '2020-08-03 15:44:53'),
+('::1', '2020-08-04', 1, '1596525053', '2020-08-04 09:10:53'),
+('10.32.12.193', '2020-08-04', 156, '1596537781', '2020-08-04 09:11:22'),
+('::1', '2020-08-07', 1, '1596805695', '2020-08-07 15:08:15'),
+('10.32.12.193', '2020-08-07', 59, '1596809627', '2020-08-07 15:12:23'),
+('10.32.12.193', '2020-08-10', 9, '1597061899', '2020-08-10 09:53:19'),
+('192.168.9.2', '2020-08-10', 1, '1597060854', '2020-08-10 14:00:54'),
+('192.168.9.2', '2020-08-11', 11, '1597157645', '2020-08-11 00:18:44'),
+('::1', '2020-08-11', 1, '1597157638', '2020-08-11 16:53:58'),
+('192.168.9.2', '2020-08-12', 2, '1597236119', '2020-08-12 14:29:23'),
+('192.168.9.3', '2020-08-12', 1, '1597241740', '2020-08-12 16:15:40'),
+('10.32.12.193', '2020-08-13', 400, '1597321070', '2020-08-13 08:59:44'),
+('10.32.12.121', '2020-08-13', 10, '1597331040', '2020-08-13 10:45:47'),
+('192.168.9.2', '2020-08-13', 23, '1597317950', '2020-08-13 12:04:31'),
+('192.168.9.2', '2020-08-14', 17, '1597384086', '2020-08-14 07:39:54'),
+('192.168.9.2', '2020-08-15', 33, '1597468517', '2020-08-15 02:54:24'),
+('192.168.9.2', '2020-08-16', 53, '1597553528', '2020-08-16 01:39:51'),
+('192.168.9.2', '2020-08-18', 3, '1597752354', '2020-08-18 14:04:37'),
+('192.168.9.2', '2020-08-19', 2, '1597798394', '2020-08-19 02:53:13'),
+('192.168.9.2', '2020-08-20', 2, '1597912261', '2020-08-20 10:31:00'),
+('192.168.9.2', '2020-08-21', 25, '1598008035', '2020-08-21 01:28:04'),
+('192.168.9.2', '2020-08-22', 29, '1598102953', '2020-08-22 02:55:50'),
+('192.168.9.2', '2020-08-23', 434, '1598191374', '2020-08-23 02:37:42'),
+('::1', '2020-08-27', 1, '1598533460', '2020-08-27 15:04:20'),
+('10.32.12.43', '2020-08-27', 7, '1598534659', '2020-08-27 15:05:20'),
+('10.32.12.43', '2020-08-29', 9, '1598684230', '2020-08-29 08:11:44'),
+('10.32.12.43', '2020-09-01', 594, '1598949127', '2020-09-01 02:06:10'),
+('10.32.12.99', '2020-09-01', 4, '1598931914', '2020-09-01 05:32:41'),
+('10.32.12.43', '2020-09-02', 98, '1599035200', '2020-09-02 02:20:07'),
+('10.32.12.142', '2020-09-02', 1, '1599020062', '2020-09-02 06:14:22'),
+('192.168.9.2', '2020-09-02', 24, '1599050546', '2020-09-02 12:54:12'),
+('192.168.9.2', '2020-09-03', 5, '1599144002', '2020-09-03 14:15:03'),
+('10.32.12.43', '2020-09-04', 8, '1599207455', '2020-09-04 09:51:16'),
+('10.32.12.203', '2020-09-04', 3, '1599207785', '2020-09-04 10:17:43'),
+('192.168.9.2', '2020-09-05', 3, '1599307067', '2020-09-05 03:09:16'),
+('192.168.9.2', '2020-09-06', 16, '1599404935', '2020-09-06 02:24:31'),
+('10.32.12.48', '2020-09-07', 30, '1599447264', '2020-09-07 02:04:46'),
+('192.168.9.2', '2020-09-07', 4, '1599478465', '2020-09-07 13:33:53'),
+('10.32.12.48', '2020-09-08', 7, '1599538664', '2020-09-08 01:58:06'),
+('10.32.12.48', '2020-09-09', 63, '1599640173', '2020-09-09 05:25:19'),
+('10.32.12.80', '2020-09-09', 4, '1599639364', '2020-09-09 10:11:44'),
+('10.32.12.48', '2020-09-10', 156, '1599725588', '2020-09-10 02:12:50'),
+('10.32.12.177', '2020-09-10', 3, '1599704487', '2020-09-10 03:51:00'),
+('10.32.12.65', '2020-09-10', 2, '1599724832', '2020-09-10 09:59:13'),
+('10.32.12.48', '2020-09-11', 10, '1599793013', '2020-09-11 03:11:29'),
+('10.32.12.68', '2020-09-23', 6, '1600822270', '2020-09-23 02:28:40'),
+('10.32.12.68', '2020-09-24', 4, '1600920911', '2020-09-24 05:38:56'),
+('192.168.9.2', '2020-10-07', 3, '1602029782', '2020-10-07 02:15:37');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `berita`
+--
+ALTER TABLE `berita`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `berkala`
+--
+ALTER TABLE `berkala`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `carousel`
+--
+ALTER TABLE `carousel`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `foto`
+--
+ALTER TABLE `foto`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pegawai`
+--
+ALTER TABLE `pegawai`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pengumuman`
+--
+ALTER TABLE `pengumuman`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `perizinan`
+--
+ALTER TABLE `perizinan`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `profil`
+--
+ALTER TABLE `profil`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `role`
+--
+ALTER TABLE `role`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sertamerta`
+--
+ALTER TABLE `sertamerta`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `setiapsaat`
+--
+ALTER TABLE `setiapsaat`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `video`
+--
+ALTER TABLE `video`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `berita`
+--
+ALTER TABLE `berita`
+  MODIFY `id` int(111) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT for table `berkala`
+--
+ALTER TABLE `berkala`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `carousel`
+--
+ALTER TABLE `carousel`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `foto`
+--
+ALTER TABLE `foto`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT for table `pegawai`
+--
+ALTER TABLE `pegawai`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `pengumuman`
+--
+ALTER TABLE `pengumuman`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `perizinan`
+--
+ALTER TABLE `perizinan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `profil`
+--
+ALTER TABLE `profil`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `role`
+--
+ALTER TABLE `role`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `sertamerta`
+--
+ALTER TABLE `sertamerta`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `setiapsaat`
+--
+ALTER TABLE `setiapsaat`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(128) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `video`
+--
+ALTER TABLE `video`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
