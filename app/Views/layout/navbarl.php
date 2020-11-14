@@ -80,6 +80,30 @@
           <a class="dropdown-item" href="/koperasi">Data Permohonan</a>
         </div>
       </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" <?= $hidden_ptsp ?><?= $hidden_approver ?> <?= $hidden_vers ?> <?= $hidden_kota ?>>Persetujuan AOTDT
+        </a>
+        <div class="dropdown-menu dropdown-warning" aria-labelledby="navbarDropdownMenuLink-555">
+          <a class="dropdown-item" href="/ask">Buat Persetujuan Permohonan AOTDT</a>
+          <a class="dropdown-item" href="/ask/permohonanSaya">Data Persetujuan Permohonan AOTDT</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" <?= $hidden_ptsp ?><?= $hidden_approver ?> <?= $hidden_vers ?> <?= $hidden_kota ?>>Rekomendasi Izin AOTDT
+        </a>
+        <div class="dropdown-menu dropdown-warning" aria-labelledby="navbarDropdownMenuLink-555">
+          <a class="dropdown-item" href="/ask">Buat Rekomendasi Permohonan Izin AOTDT</a>
+          <a class="dropdown-item" href="/ask/permohonanSaya">Data Rekomendasi Permohonan Izin AOTDT</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" <?= $hidden_ptsp ?><?= $hidden_approver ?> <?= $hidden_vers ?> <?= $hidden_kota ?>>Penerbitan Izin AOTDT
+        </a>
+        <div class="dropdown-menu dropdown-warning" aria-labelledby="navbarDropdownMenuLink-555">
+          <a class="dropdown-item" href="/ask">Buat Rekomendasi Penertiban Izin AOTDT</a>
+          <a class="dropdown-item" href="/ask/permohonanSaya">Data Rekomendasi Penertiban Izin AOTDT</a>
+        </div>
+      </li>
 
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" <?= $hidden_approver ?> <?= $hidden_vers ?><?= $hidden_kota ?> <?= $hidden_koperasi ?>>Data Permohonan
