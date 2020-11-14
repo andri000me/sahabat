@@ -42,12 +42,11 @@ class Ranmor extends BaseController
     {
         if (!$this->validate([
             'img_ranmor' => [
-                'rules' => 'uploaded[img_ranmor]|max_size[img_ranmor,1024]|is_image[img_ranmor]|mime_in[img_ranmor,image/jpg,image/jpeg,image/png]',
+                'rules' => 'uploaded[img_ranmor]|max_size[img_ranmor,3068]|mime_in[img_ranmor,image/jpg,image/jpeg,image/png,application/pdf]',
                 'errors' => [
-                    'uploaded' => 'Pilih gambar dokumen terlebih dahulu',
-                    'max_size' => 'Ukuran gambar terlalu besar (Maksimal 1Mb)',
-                    'is_image' => 'Ini bukan gambar',
-                    'mime_in' => 'Ini bukan gambar',
+                    'uploaded' => 'Pilih dokumen terlebih dahulu',
+                    'max_size' => 'Ukuran dokumen terlalu besar (Maksimal 3Mb)',
+                    'mime_in' => 'Format tidak sesuai',
                 ],
             ],
 
@@ -94,5 +93,14 @@ class Ranmor extends BaseController
         } else {
             return redirect()->to('login/login');
         }
+    }
+
+    public function hapus($id, $slug, $kode_registrasi)
+    {
+        $this->ranmorModel->delete([
+            'id' => $id,
+        ]);
+
+        return redirect()->to("/ask/lengkapiBerkas/$slug/$kode_registrasi");
     }
 }

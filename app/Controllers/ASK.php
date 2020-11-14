@@ -37,79 +37,87 @@ class ASK extends BaseController
         }
     }
 
+    public function detailAOTDT($slug, $kode_registrasi)
+    {
+        session();
+        if ($this->user) {
+            $data = [
+                'title' => 'Permohonan Angkutan Orang Tidak Dalam Trayek',
+                'session' => $this->user,
+                'validation' => \Config\Services::validation(),
+                'ask' => $this->askModel->getAsk($kode_registrasi),
+            ];
+            return view('ask/detail_aotdt', $data);
+        } else {
+            return redirect()->to('login/login');
+        }
+    }
+
     public function save()
     {
         if (!$this->validate([
             'img_surat_permohonan' => [
-                'rules' => 'uploaded[img_surat_permohonan]|max_size[img_surat_permohonan,1024]|is_image[img_surat_permohonan]|mime_in[img_surat_permohonan,image/jpg,image/jpeg,image/png]',
+                'rules' => 'uploaded[img_surat_permohonan]|max_size[img_surat_permohonan,1024]|mime_in[img_surat_permohonan,image/jpg,image/jpeg,image/png,application/pdf]',
                 'errors' => [
                     'uploaded' => 'Pilih gambar dokumen terlebih dahulu',
                     'max_size' => 'Ukuran gambar terlalu besar (Maksimal 1Mb)',
-                    'is_image' => 'Ini bukan gambar',
-                    'mime_in' => 'Ini bukan gambar',
+                    'mime_in' => 'Format tidak sesuai',
                 ],
             ],
             'img_bukti_pengesahan' => [
-                'rules' => 'uploaded[img_bukti_pengesahan]|max_size[img_bukti_pengesahan,1024]|is_image[img_bukti_pengesahan]|mime_in[img_bukti_pengesahan,image/jpg,image/jpeg,image/png]',
+                'rules' => 'uploaded[img_bukti_pengesahan]|max_size[img_bukti_pengesahan,1024]|mime_in[img_bukti_pengesahan,image/jpg,image/jpeg,image/png,application/pdf]',
                 'errors' => [
                     'uploaded' => 'Pilih gambar dokumen terlebih dahulu',
                     'max_size' => 'Ukuran gambar terlalu besar (Maksimal 1Mb)',
-                    'is_image' => 'Ini bukan gambar',
-                    'mime_in' => 'Ini bukan gambar',
+                    'mime_in' => 'Format tidak sesuai',
                 ],
             ],
             'img_domisili' => [
-                'rules' => 'uploaded[img_domisili]|max_size[img_domisili,1024]|is_image[img_domisili]|mime_in[img_domisili,image/jpg,image/jpeg,image/png]',
+                'rules' => 'uploaded[img_domisili]|max_size[img_domisili,1024]|mime_in[img_domisili,image/jpg,image/jpeg,image/png,application/pdf]',
                 'errors' => [
                     'uploaded' => 'Pilih gambar dokumen terlebih dahulu',
                     'max_size' => 'Ukuran gambar terlalu besar (Maksimal 1Mb)',
-                    'is_image' => 'Ini bukan gambar',
-                    'mime_in' => 'Ini bukan gambar',
+                    'mime_in' => 'Format tidak sesuai',
                 ],
             ],
             'img_pernyataan_kesanggupan' => [
-                'rules' => 'uploaded[img_pernyataan_kesanggupan]|max_size[img_pernyataan_kesanggupan,1024]|is_image[img_pernyataan_kesanggupan]|mime_in[img_pernyataan_kesanggupan,image/jpg,image/jpeg,image/png]',
+                'rules' => 'uploaded[img_pernyataan_kesanggupan]|max_size[img_pernyataan_kesanggupan,1024]|mime_in[img_pernyataan_kesanggupan,image/jpg,image/jpeg,image/png,application/pdf]',
                 'errors' => [
                     'uploaded' => 'Pilih gambar dokumen terlebih dahulu',
                     'max_size' => 'Ukuran gambar terlalu besar (Maksimal 1Mb)',
-                    'is_image' => 'Ini bukan gambar',
-                    'mime_in' => 'Ini bukan gambar',
+                    'mime_in' => 'Format tidak sesuai',
                 ],
             ],
             'img_pernyataan_kerjasama' => [
-                'rules' => 'uploaded[img_pernyataan_kerjasama]|max_size[img_pernyataan_kerjasama,1024]|is_image[img_pernyataan_kerjasama]|mime_in[img_pernyataan_kerjasama,image/jpg,image/jpeg,image/png]',
+                'rules' => 'uploaded[img_pernyataan_kerjasama]|max_size[img_pernyataan_kerjasama,1024]|mime_in[img_pernyataan_kerjasama,image/jpg,image/jpeg,image/png,application/pdf]',
                 'errors' => [
                     'uploaded' => 'Pilih gambar dokumen terlebih dahulu',
                     'max_size' => 'Ukuran gambar terlalu besar (Maksimal 1Mb)',
-                    'is_image' => 'Ini bukan gambar',
-                    'mime_in' => 'Ini bukan gambar',
+                    'mime_in' => 'Format tidak sesuai',
                 ],
             ],
             'img_perjanjian' => [
-                'rules' => 'uploaded[img_perjanjian]|max_size[img_perjanjian,1024]|is_image[img_perjanjian]|mime_in[img_perjanjian,image/jpg,image/jpeg,image/png]',
+                'rules' => 'uploaded[img_perjanjian]|max_size[img_perjanjian,1024]|mime_in[img_perjanjian,image/jpg,image/jpeg,image/png,application/pdf]',
                 'errors' => [
                     'uploaded' => 'Pilih gambar dokumen terlebih dahulu',
                     'max_size' => 'Ukuran gambar terlalu besar (Maksimal 1Mb)',
-                    'is_image' => 'Ini bukan gambar',
-                    'mime_in' => 'Ini bukan gambar',
+                    'mime_in' => 'Format tidak sesuai',
                 ],
             ],
             'img_pemda' => [
-                'rules' => 'uploaded[img_pemda]|max_size[img_pemda,1024]|is_image[img_pemda]|mime_in[img_pemda,image/jpg,image/jpeg,image/png]',
+                'rules' => 'uploaded[img_pemda]|max_size[img_pemda,1024]|mime_in[img_pemda,image/jpg,image/jpeg,image/png,application/pdf]',
                 'errors' => [
                     'uploaded' => 'Pilih gambar dokumen terlebih dahulu',
                     'max_size' => 'Ukuran gambar terlalu besar (Maksimal 1Mb)',
-                    'is_image' => 'Ini bukan gambar',
-                    'mime_in' => 'Ini bukan gambar',
+                    'mime_in' => 'Format tidak sesuai',
                 ],
             ],
             'img_rencana_bisnis' => [
-                'rules' => 'uploaded[img_rencana_bisnis]|max_size[img_rencana_bisnis,1024]|is_image[img_rencana_bisnis]|mime_in[img_rencana_bisnis,image/jpg,image/jpeg,image/png]',
+                'rules' => 'uploaded[img_rencana_bisnis]|max_size[img_rencana_bisnis,1024]|mime_in[img_rencana_bisnis,image/jpg,image/jpeg,image/png,application/pdf]',
                 'errors' => [
                     'uploaded' => 'Pilih gambar dokumen terlebih dahulu',
                     'max_size' => 'Ukuran gambar terlalu besar (Maksimal 1Mb)',
-                    'is_image' => 'Ini bukan gambar',
-                    'mime_in' => 'Ini bukan gambar',
+                    'mime_in' => 'Format tidak sesuai',
                 ],
             ],
         ])) {
@@ -200,6 +208,7 @@ class ASK extends BaseController
             'dishub' => 0,
             'status_dishub' => 0,
             'pelayanan_dimohon' => $this->request->getVar('pelayanan_dimohon'),
+            'jumlah_kendaraan' => $this->request->getVar('jumlah_kendaraan'),
             'img_surat_permohonan' => $nama_img_surat_permohonan,
             'img_bukti_pengesahan' => $nama_img_bukti_pengesahan,
             'img_domisili' => $nama_img_domisili,
@@ -251,12 +260,20 @@ class ASK extends BaseController
 
     public function batalkanPengajuan($kode_registrasi)
     {
-        $this->askModel->delete([
-            'kode_registrasi' => $kode_registrasi,
+        $this->askModel->batalkanPengajuan($kode_registrasi);
+        $this->ranmorModel->batalkanPengajuan($kode_registrasi);
+
+        return redirect()->to('/ask/permohonanSaya');
+    }
+
+    public function ajukanPTSP($id)
+    {
+        session();
+        $this->askModel->save([
+            'id' => $id,
+            'status_ptsp' => 1
         ]);
-        $this->ranmorModel->delete([
-            'ask_kode_registrasi' => $kode_registrasi,
-        ]);
+
         return redirect()->to('/ask/permohonanSaya');
     }
 }

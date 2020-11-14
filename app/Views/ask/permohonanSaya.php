@@ -7,7 +7,7 @@
             <div class="">
                 <div class="card-body">
 
-                    <h5 class="text-dark font-weight-bold card-title">Data Permohonan Rekomendasi AOTDT</h5>
+                    <h5 class="text-dark font-weight-bold card-title">Data Persetujuan Permohonan Rekomendasi AOTDT</h5>
                     <p class="card-text">Silahkan lengkapi berkas kendaraan anda sesuai dengan jumlah kendaraan yang dimohon, <br>
                     </p>
 
@@ -18,7 +18,11 @@
                                     <tr>
                                         <td class="th-sm">No
                                         </td>
+                                        <td class="th-sm">Kode Registrasi
+                                        </td>
                                         <td class="th-sm">Nama Perusahaan
+                                        </td>
+                                        <td class="th-sm">Jumlah Kendaraan
                                         </td>
                                         <td class="th-sm" style="width: 120px;">Tanggal Pengajuan
                                         </td>
@@ -36,7 +40,7 @@
                                         <?php
                                         if ($ran['status_ptsp'] == 0) {
                                             $btn1 = '<a href="" class="badge badge-danger">Belum di ajukan</a>';
-                                            $btn2 = '<a href="" class="btn btn-sm btn-info mr-1">Detail</a>';
+                                            $btn2 = '<a href="/ask/detailAOTDT/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-info mr-1">Periksa & Ajukan</a>';
                                             $btn3 = '<a onclick="return confirm(\'Apakah anda yakin ingin membatalkan pengajuan ini ?\')" href="/ask/batalkanPengajuan/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-danger">Batalkan</a>';
                                         }
                                         if ($ran['status_ptsp'] == 1) {
@@ -52,7 +56,9 @@
                                         ?>
                                         <tr>
                                             <td><?= $i++ ?></td>
+                                            <td><a href="#" class="font-weight-bold text-primary"><?= $ran['kode_registrasi'] ?></a></td>
                                             <td><?= $ran['nama_perusahaan'] ?></td>
+                                            <td><a href="" class="font-weight-bold text-dark"><?= $ran['jumlah_kendaraan'] ?> Orang</a></td>
                                             <td><?= $ran['created_at'] ?></td>
                                             <td>
                                                 <?= $btn1 ?>

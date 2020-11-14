@@ -93,7 +93,7 @@ class AskModel extends model
             $this->db->table('ask');
             $this->select('
             ask.id as idask,
-            ask.slug as slugask,
+            ask.slug,
             ask.kode_registrasi, 
             ask.ptsp, 
             ask.status_ptsp, 
@@ -142,5 +142,12 @@ class AskModel extends model
             $query = $this->first();
             return $query;
         }
+    }
+
+    public function batalkanPengajuan($kode_registrasi)
+    {
+        $sql = 'DELETE FROM ask WHERE kode_registrasi = ' . $kode_registrasi . ' ';
+        $query = $this->db->query($sql);
+        return $query;
     }
 }

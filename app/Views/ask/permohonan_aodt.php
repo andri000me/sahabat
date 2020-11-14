@@ -7,7 +7,7 @@
             <div class="">
                 <div class="card-body">
 
-                    <h5 class="text-dark font-weight-bold card-title">Permohonan Izin Penyelenggaraan Angkutan Orang Tidak Dalam Trayek (AOTDT)</h5>
+                    <h5 class="text-dark font-weight-bold card-title">Persetujuan Permohonan Izin Penyelenggaraan Angkutan Orang Tidak Dalam Trayek (AOTDT)</h5>
                     <p class="card-text">Untuk mengajukan permohonan Permohonan Izin Penyelenggaraan Angkutan Orang Tidak Dalam Trayek atau Permohonan Izin AOTDT, <br>
                         Silahkan lengkapi berkas dibawah ini, pastikan data yang anda upload adalah benar <br>
                     </p>
@@ -23,6 +23,14 @@
                                 <label for="form18">Pelayanan yang dimohon</label>
                                 <div class="invalid-feedback">
                                     Pelayanan yang dimohon
+                                </div>
+                            </div>
+
+                            <div class="md-form">
+                                <input name="jumlah_kendaraan" type="number" id="form2" class="form-control" required>
+                                <label for="form2">Jumlah Kendaraan</label>
+                                <div class="invalid-feedback">
+                                    Jumlah Kendaraan tidak boleh kosong
                                 </div>
                             </div>
 

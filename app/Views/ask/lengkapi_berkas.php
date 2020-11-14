@@ -81,7 +81,7 @@
                     <?php
                     } else {
                     ?>
-                        <a href="" type="button" class="btn btn-md btn-success">Ajukan Permohonan <i class="fa fa-check ml-1"></i> </a>
+                        <a href="/ask/ajukanPTSP/<?= $ask['idask'] ?>" onclick="return confirm('Ajukan permohonan ini ?')" type="button" class="btn btn-md btn-success">Ajukan Permohonan <i class="fa fa-check ml-1"></i> </a>
                     <?php
                     }
                     ?>
@@ -115,8 +115,8 @@
                                         <td><?= $ran['nomor_uji'] ?></td>
                                         <td><?= $ran['kapasitas'] ?></td>
                                         <td>
-                                            <a href="" class="btn btn-sm btn-danger mr-1">Hapus</a>
-                                            <a href="" class="btn btn-sm btn-success">Lihat Dokumen</a>
+                                            <a href="/ranmor/hapus/<?= $ran['idranmor'] ?>/<?= $ask['slug'] ?>/<?= $ask['kode_registrasi'] ?>" onclick="return confirm('Apakah anda yakin ?')" class="btn btn-sm btn-danger mr-1">Hapus</a>
+                                            <a href="/img/img_ranmor/<?= $ran['img_ranmor'] ?>" target="_blank" class="btn btn-sm btn-success">Lihat Dokumen</a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>

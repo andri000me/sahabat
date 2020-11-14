@@ -70,4 +70,11 @@ class RanmorModel extends model
         $query = $this->findAll();
         return $query;
     }
+
+    public function batalkanPengajuan($kode_registrasi)
+    {
+        $sql = 'DELETE FROM ranmor WHERE ask_kode_registrasi = ' . $kode_registrasi . ' ';
+        $query = $this->db->query($sql);
+        return $query;
+    }
 }

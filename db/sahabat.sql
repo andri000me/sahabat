@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 14, 2020 at 10:38 AM
+-- Generation Time: Nov 14, 2020 at 12:23 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -55,7 +55,7 @@ CREATE TABLE `ask` (
 --
 
 INSERT INTO `ask` (`id`, `slug`, `kode_registrasi`, `id_koperasi`, `ptsp`, `status_ptsp`, `dishub`, `status_dishub`, `pelayanan_dimohon`, `jumlah_kendaraan`, `img_surat_permohonan`, `img_bukti_pengesahan`, `img_domisili`, `img_pernyataan_kesanggupan`, `img_pernyataan_kerjasama`, `img_perjanjian`, `img_pemda`, `img_rencana_bisnis`, `created_at`, `updated_at`) VALUES
-(6, 'ksu-tetap-setia-bhayangkara', '20201113095535', '6', '1', '0', '0', '0', 'rwqe', '2', '1605282961_0c852c327850eaab6dc1.jpeg', '1605282961_8e2574a03ad1746a4d15.jpeg', '1605282961_5ebeafeaf0b28fd6324e.jpeg', '1605282961_414d8d65719265970c67.jpeg', '1605282961_ba5a3a9e1b0f29938f4b.jpeg', '1605282961_7a317b9c347de8a86709.jpeg', '1605282961_c617e0bd7aa42b91f489.jpeg', '1605282961_721b9978fc4f38ec1e4d.jpeg', '2020-11-13 09:56:01', '2020-11-13 09:56:01');
+(10, 'ksu-tetap-setia-bhayangkara', '20201114043847', '6', '1', '1', '0', '0', 'asdasd', '1', '1605350350_b69ef400eaf2e8a76599.jpeg', '1605350350_aaa3463e029324b74be0.png', '1605350350_8dc2a4abba2047477082.jpeg', '1605350350_ba9d0d86c798e1a57675.jpeg', '1605350350_cc81c1ac2646b2b86fe4.jpeg', '1605350350_1ffeb7bc08f5e2514a54.jpeg', '1605350350_9e219a1e92b5f8182959.jpeg', '1605350350_017e9cf0037d20293034.jpeg', '2020-11-14 04:39:10', '2020-11-14 04:58:11');
 
 -- --------------------------------------------------------
 
@@ -261,8 +261,7 @@ CREATE TABLE `ranmor` (
 --
 
 INSERT INTO `ranmor` (`id`, `ask_kode_registrasi`, `nomor_kendaraan`, `nomor_uji`, `kapasitas`, `img_ranmor`, `created_at`, `updated_at`) VALUES
-(1, '20201113095535', 'asda', 'asd', 'asd', '1605291514_cc399c3b86dcab20c81f.jpeg', '2020-11-13 12:18:34', '2020-11-13 12:18:34'),
-(4, '20201113095535', 'DM1234AS', 'DB.123.SDS.12', '12', '1605324071_de52a4aa78d62d9da1a1.jpeg', '2020-11-13 21:21:11', '2020-11-13 21:21:11');
+(13, '20201114043847', 'sda', 'asd', 'asd', '1605351480_43a2cb979aff2b88d790.pdf', '2020-11-14 04:58:00', '2020-11-14 04:58:00');
 
 -- --------------------------------------------------------
 
@@ -465,7 +464,7 @@ ALTER TABLE `wilayah`
 -- AUTO_INCREMENT for table `ask`
 --
 ALTER TABLE `ask`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `jenis_permohonan`
@@ -501,7 +500,7 @@ ALTER TABLE `permohonan_kabkota`
 -- AUTO_INCREMENT for table `ranmor`
 --
 ALTER TABLE `ranmor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `trayek`
