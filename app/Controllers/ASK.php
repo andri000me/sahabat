@@ -46,6 +46,7 @@ class ASK extends BaseController
                 'session' => $this->user,
                 'validation' => \Config\Services::validation(),
                 'ask' => $this->askModel->getAsk($kode_registrasi),
+                'ranmor' => $this->ranmorModel->getAllRanmor($kode_registrasi),
             ];
             return view('ask/detail_aotdt', $data);
         } else {
@@ -204,7 +205,7 @@ class ASK extends BaseController
             'kode_registrasi' => $this->request->getVar('kode_registrasi'),
             'id_koperasi' => $this->user['id'],
             'ptsp' => 1,
-            'status_ptsp' => 0,
+            'status_ptsp' => 1,
             'dishub' => 0,
             'status_dishub' => 0,
             'pelayanan_dimohon' => $this->request->getVar('pelayanan_dimohon'),
@@ -221,7 +222,7 @@ class ASK extends BaseController
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
 
-        return redirect()->to('/ask/lengkapiBerkas/' . $slug . '/' . $this->request->getVar('kode_registrasi') . '');
+        return redirect()->to('/ask/permohonanSaya');
     }
 
     public function lengkapiBerkas($slug, $kode_registrasi)
@@ -240,8 +241,7 @@ class ASK extends BaseController
             return redirect()->to('login/login');
         }
     }
-
-    public function permohonanSaya()
+    public function ajukanPermohonan($slug, $kode_registrasi)
     {
         session();
         if ($this->user) {
@@ -249,8 +249,43 @@ class ASK extends BaseController
                 'title' => 'Permohonan Angkutan Orang Tidak Dalam Trayek',
                 'session' => $this->user,
                 'validation' => \Config\Services::validation(),
+                'ranmor' => $this->ranmorModel->getAllRanmor($kode_registrasi),
+                'ask' => $this->askModel->getAsk($kode_registrasi),
+            ];
+            return view('ask/ajukanpermohonan', $data);
+        } else {
+            return redirect()->to('login/login');
+        }
+    }
+
+    public function berkaskendaraan($slug, $kode_registrasi)
+    {
+        session();
+        if ($this->user) {
+            $data = [
+                'title' => 'Permohonan Angkutan Orang Tidak Dalam Trayek',
+                'session' => $this->user,
+                'validation' => \Config\Services::validation(),
+                'ranmor' => $this->ranmorModel->getAllRanmor($kode_registrasi),
+                'ask' => $this->askModel->getAsk($kode_registrasi),
+            ];
+            return view('ask/berkas_kendaraan', $data);
+        } else {
+            return redirect()->to('login/login');
+        }
+    }
+
+    public function permohonanSaya()
+    {
+        $id = $this->user['id'];
+        session();
+        if ($this->user) {
+            $data = [
+                'title' => 'Permohonan Angkutan Orang Tidak Dalam Trayek',
+                'session' => $this->user,
+                'validation' => \Config\Services::validation(),
                 'ranmor' => $this->ranmorModel->getRanmor(),
-                'ask' => $this->askModel->getAskSaya(),
+                'ask' => $this->askModel->getAskSaya($id),
             ];
             return view('ask/permohonanSaya', $data);
         } else {
@@ -271,9 +306,226 @@ class ASK extends BaseController
         session();
         $this->askModel->save([
             'id' => $id,
+            'ptsp' => 1,
             'status_ptsp' => 1
         ]);
 
         return redirect()->to('/ask/permohonanSaya');
+    }
+    public function terima($id, $slug, $kode_registrasi)
+    {
+        session();
+        $this->askModel->save([
+            'id' => $id,
+            'status_ptsp' => 2
+        ]);
+
+        return redirect()->to('/ask/verifikasiaotdt');
+    }
+    public function tolak($id, $slug, $kode_registrasi)
+    {
+        session();
+        $this->askModel->save([
+            'id' => $id,
+            'status_ptsp' => 3
+        ]);
+
+        return redirect()->to('/ask/verifikasiaotdt');
+    }
+
+    public function verifikasiaotdt()
+    {
+        session();
+        if ($this->user) {
+            $data = [
+                'title' => 'Permohonan Angkutan Orang Tidak Dalam Trayek',
+                'session' => $this->user,
+                'validation' => \Config\Services::validation(),
+                'ranmor' => $this->ranmorModel->getRanmor(),
+                'ask' => $this->askModel->getAskPTSP(),
+            ];
+            return view('ask/verifikasiaotdt', $data);
+        } else {
+            return redirect()->to('login/login');
+        }
+    }
+
+    public function permohonanIzin()
+    {
+        session();
+        $id = $this->user['id'];
+        if ($this->user) {
+            $data = [
+                'title' => 'Permohonan Angkutan Orang Tidak Dalam Trayek',
+                'session' => $this->user,
+                'validation' => \Config\Services::validation(),
+                'ranmor' => $this->ranmorModel->getRanmor(),
+                'ask' => $this->askModel->getAskDishub($id),
+            ];
+            return view('ask/permohonanIzin', $data);
+        } else {
+            return redirect()->to('login/login');
+        }
+    }
+
+
+    public function detailverifikasiaotdt($slug, $kode_registrasi)
+    {
+        session();
+        if ($this->user) {
+            $data = [
+                'title' => 'Permohonan Angkutan Orang Tidak Dalam Trayek',
+                'session' => $this->user,
+                'validation' => \Config\Services::validation(),
+                'ask' => $this->askModel->getAsk($kode_registrasi),
+                'ranmor' => $this->ranmorModel->getAllRanmor($kode_registrasi),
+
+            ];
+            return view('ask/detailverifikasiaotdt', $data);
+        } else {
+            return redirect()->to('login/login');
+        }
+    }
+
+    public function uploadPenolakanPTSP($slug, $kode_registrasi)
+    {
+        session();
+        if ($this->user) {
+            $data = [
+                'title' => 'Permohonan Angkutan Orang Tidak Dalam Trayek',
+                'session' => $this->user,
+                'validation' => \Config\Services::validation(),
+                'ask' => $this->askModel->getAskPTSP($kode_registrasi),
+                'ranmor' => $this->ranmorModel->getAllRanmor($kode_registrasi),
+
+            ];
+            return view('ask/upload_penolakan_ptsp', $data);
+        } else {
+            return redirect()->to('login/login');
+        }
+    }
+
+    public function savePenolakanPTSP()
+    {
+        if (!$this->validate([
+            'img_penolakan_ptsp' => [
+                'rules' => 'uploaded[img_penolakan_ptsp]|max_size[img_penolakan_ptsp,3068]|mime_in[img_penolakan_ptsp,image/jpg,image/jpeg,image/png,application/pdf]',
+                'errors' => [
+                    'uploaded' => 'Pilih dokumen terlebih dahulu',
+                    'max_size' => 'Ukuran dokumen terlalu besar (Maksimal 3Mb)',
+                    'mime_in' => 'Format tidak sesuai',
+                ],
+            ],
+
+        ])) {
+            return redirect()->to('/ask/uploadpenolakanptsp/' . $this->request->getVar('slug') . '/' . $this->request->getVar('kode_registrasi') . '')->withInput();
+        }
+
+        $img_penolakan_ptsp = $this->request->getFile('img_penolakan_ptsp');
+
+        if ($img_penolakan_ptsp->getError() == 4) {
+            $nama_img_penolakan_ptsp = "default.png";
+        } else {
+            $nama_img_penolakan_ptsp = $img_penolakan_ptsp->getRandomName();
+            $img_penolakan_ptsp->move('img/img_penolakan_ptsp', $nama_img_penolakan_ptsp);
+        }
+
+        $slug = url_title($this->user['nama_perusahaan'], '-', true);
+
+        $this->askModel->save([
+            'id' => $this->request->getVar('id'),
+            'img_penolakan_ptsp' => $nama_img_penolakan_ptsp,
+        ]);
+
+        return redirect()->to('/ask/uploadpenolakanptsp/' . $this->request->getVar('slug') . '/' . $this->request->getVar('kode_registrasi') . '');
+    }
+
+
+    public function uploadPersetujuanPTSP($slug, $kode_registrasi)
+    {
+        session();
+        if ($this->user) {
+            $data = [
+                'title' => 'Permohonan Angkutan Orang Tidak Dalam Trayek',
+                'session' => $this->user,
+                'validation' => \Config\Services::validation(),
+                'ask' => $this->askModel->getAskPTSP($kode_registrasi),
+                'ranmor' => $this->ranmorModel->getAllRanmor($kode_registrasi),
+
+            ];
+            return view('ask/upload_persetujuan_ptsp', $data);
+        } else {
+            return redirect()->to('login/login');
+        }
+    }
+
+    public function savepersetujuanPTSP()
+    {
+        if (!$this->validate([
+            'img_persetujuan_ptsp' => [
+                'rules' => 'uploaded[img_persetujuan_ptsp]|max_size[img_persetujuan_ptsp,3068]|mime_in[img_persetujuan_ptsp,image/jpg,image/jpeg,image/png,application/pdf]',
+                'errors' => [
+                    'uploaded' => 'Pilih dokumen terlebih dahulu',
+                    'max_size' => 'Ukuran dokumen terlalu besar (Maksimal 3Mb)',
+                    'mime_in' => 'Format tidak sesuai',
+                ],
+            ],
+
+        ])) {
+            return redirect()->to('/ask/uploadpersetujuanptsp/' . $this->request->getVar('slug') . '/' . $this->request->getVar('kode_registrasi') . '')->withInput();
+        }
+
+        $img_persetujuan_ptsp = $this->request->getFile('img_persetujuan_ptsp');
+
+        if ($img_persetujuan_ptsp->getError() == 4) {
+            $nama_img_persetujuan_ptsp = "default.png";
+        } else {
+            $nama_img_persetujuan_ptsp = $img_persetujuan_ptsp->getRandomName();
+            $img_persetujuan_ptsp->move('img/img_persetujuan_ptsp', $nama_img_persetujuan_ptsp);
+        }
+
+        $slug = url_title($this->user['nama_perusahaan'], '-', true);
+
+        $this->askModel->save([
+            'id' => $this->request->getVar('id'),
+            'img_persetujuan_ptsp' => $nama_img_persetujuan_ptsp,
+        ]);
+
+        return redirect()->to('/ask/uploadpersetujuanptsp/' . $this->request->getVar('slug') . '/' . $this->request->getVar('kode_registrasi') . '');
+    }
+
+    public function uploadpersetujuan()
+    {
+        if (!$this->validate([
+            'img_surat_persetujuan' => [
+                'rules' => 'uploaded[img_surat_persetujuan]|max_size[img_surat_persetujuan,3068]|mime_in[img_surat_persetujuan,image/jpg,image/jpeg,image/png,application/pdf]',
+                'errors' => [
+                    'uploaded' => 'Pilih dokumen terlebih dahulu',
+                    'max_size' => 'Ukuran dokumen terlalu besar (Maksimal 3Mb)',
+                    'mime_in' => 'Format tidak sesuai',
+                ],
+            ],
+
+        ])) {
+            return redirect()->to('/ask/ajukanpermohonan/' . $this->request->getVar('slug') . '/' . $this->request->getVar('kode_registrasi') . '')->withInput();
+        }
+
+        $img_surat_persetujuan = $this->request->getFile('img_surat_persetujuan');
+
+        if ($img_surat_persetujuan->getError() == 4) {
+            $nama_img_surat_persetujuan = "default.png";
+        } else {
+            $nama_img_surat_persetujuan = $img_surat_persetujuan->getRandomName();
+            $img_surat_persetujuan->move('img/img_surat_persetujuan', $nama_img_surat_persetujuan);
+        }
+
+        $slug = url_title($this->user['nama_perusahaan'], '-', true);
+
+        $this->askModel->save([
+            'id' => $this->request->getVar('id'),
+            'img_surat_persetujuan' => $nama_img_surat_persetujuan,
+        ]);
+
+        return redirect()->to('/ask/ajukanpermohonan/' . $this->request->getVar('slug') . '/' . $this->request->getVar('kode_registrasi') . '');
     }
 }

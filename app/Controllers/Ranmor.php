@@ -75,7 +75,7 @@ class Ranmor extends BaseController
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
 
-        return redirect()->to('/ask/lengkapiBerkas/' . $slug . '/' . $this->request->getVar('kode_registrasi') . '');
+        return redirect()->to('/ask/berkaskendaraan/' . $slug . '/' . $this->request->getVar('kode_registrasi') . '');
     }
 
 
@@ -101,6 +101,6 @@ class Ranmor extends BaseController
             'id' => $id,
         ]);
 
-        return redirect()->to("/ask/lengkapiBerkas/$slug/$kode_registrasi");
+        return redirect()->to("/ask/berkaskendaraan/$slug/$kode_registrasi");
     }
 }

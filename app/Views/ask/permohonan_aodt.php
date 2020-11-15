@@ -161,7 +161,7 @@
                     </div>
 
                     <div class="buttons mt-5">
-                        <button type="submit button" class="btn btn-md btn-info">Lanjutkan <i class="fa fa-arrow-right ml-1"></i> </button>
+                        <button type="submit button" class="btn btn-md btn-info">Ajukan Permohonan <i class="fa fa-arrow-right ml-1"></i> </button>
                     </div>
                     </form>
                 </div>

@@ -88,21 +88,13 @@
           <a class="dropdown-item" href="/ask/permohonanSaya">Data Persetujuan Permohonan AOTDT</a>
         </div>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" <?= $hidden_ptsp ?><?= $hidden_approver ?> <?= $hidden_vers ?> <?= $hidden_kota ?>>Rekomendasi Izin AOTDT
-        </a>
-        <div class="dropdown-menu dropdown-warning" aria-labelledby="navbarDropdownMenuLink-555">
-          <a class="dropdown-item" href="/ask">Buat Rekomendasi Permohonan Izin AOTDT</a>
-          <a class="dropdown-item" href="/ask/permohonanSaya">Data Rekomendasi Permohonan Izin AOTDT</a>
-        </div>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/ask/permohonanIzin" <?= $hidden_ptsp ?><?= $hidden_approver ?> <?= $hidden_vers ?> <?= $hidden_kota ?>>Rekomendasi Permohonan AOTDT</a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" <?= $hidden_ptsp ?><?= $hidden_approver ?> <?= $hidden_vers ?> <?= $hidden_kota ?>>Penerbitan Izin AOTDT
-        </a>
-        <div class="dropdown-menu dropdown-warning" aria-labelledby="navbarDropdownMenuLink-555">
-          <a class="dropdown-item" href="/ask">Buat Rekomendasi Penertiban Izin AOTDT</a>
-          <a class="dropdown-item" href="/ask/permohonanSaya">Data Rekomendasi Penertiban Izin AOTDT</a>
-        </div>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/ask/persetujuanIzin<?= $href ?>" <?= $hidden_ptsp ?><?= $hidden_approver ?> <?= $hidden_vers ?> <?= $hidden_kota ?>>Rekomendasi Penerbitan AOTDT</a>
       </li>
 
       <li class="nav-item dropdown">
@@ -123,13 +115,8 @@
         </div>
       </li>
 
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" <?= $hidden_approver ?> <?= $hidden_vers ?><?= $hidden_kota ?> <?= $hidden_koperasi ?>>Izin Operasional ASK
-        </a>
-        <div class="dropdown-menu dropdown-warning" aria-labelledby="navbarDropdownMenuLink-555">
-          <a class="dropdown-item" href="#!">Regis Baru</a>
-          <a class="dropdown-item" href="#!">Perpanjangan</a>
-        </div>
+      <li class="nav-item">
+        <a class="nav-link" href="/ask/verifikasiAOTDT" <?= $hidden_approver ?> <?= $hidden_vers ?><?= $hidden_kota ?> <?= $hidden_koperasi ?>>Verifikasi Persetujuan AOTDT</a>
       </li>
 
       <li class="nav-item">

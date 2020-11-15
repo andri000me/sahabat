@@ -8,20 +8,12 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col">
-                            <h5 class="text-dark font-weight-bold card-title">Persetujuan Permohonan Izin Penyelenggaraan Angkutan Orang Tidak Dalam Trayek (AOTDT)</h5>
-                            <p class="card-text">Untuk mengajukan permohonan Permohonan Izin Penyelenggaraan Angkutan Orang Tidak Dalam Trayek atau Permohonan Izin AOTDT, <br>
-                                Silahkan lengkapi berkas dibawah ini, pastikan data yang anda upload adalah benar <br>
+                            <h5 class="text-dark font-weight-bold card-title">Verifikasi Permohonan Izin Penyelenggaraan Angkutan Orang Tidak Dalam Trayek (AOTDT)</h5>
                             </p>
                         </div>
                         <div class="text-right col">
-                            <?php
-                            if (count($ranmor) == $ask['jumlah_kendaraan']) {
-                            ?>
-                                <a href="/ask/ajukanPTSP/<?= $ask['idask'] ?>" onclick="return confirm('Ajukan permohonan ini ?')" type="button" class="btn btn-sm btn-success">Ajukan Permohonan <i class="fa fa-check ml-1"></i> </a>
-                                <a href="/ask/lengkapiBerkas/<?= $ask['slug'] ?>/<?= $ask['kode_registrasi'] ?>" class="btn btn-sm btn-primary"> Data Kendaraan <i class="fa fa-arrow-right"></i></a>
-                            <?php } else { ?>
-                                <a href="/ask/lengkapiBerkas/<?= $ask['slug'] ?>/<?= $ask['kode_registrasi'] ?>" class="btn btn-sm btn-primary"> Data Kendaraan <i class="fa fa-arrow-right"></i></a>
-                            <?php } ?>
+                            <a onclick="return confirm('Apakah anda yakin?')" href="/ask/terima/<?= $ask['idask'] ?>/<?= $ask['slug'] ?>/<?= $ask['kode_registrasi'] ?>" class="btn btn-sm btn-success"> Terima <i class="fa fa-check"></i></a>
+                            <a onclick="return confirm('Apakah anda yakin melakukan penolakan?')" href="/ask/tolak/<?= $ask['idask'] ?>/<?= $ask['slug'] ?>/<?= $ask['kode_registrasi'] ?>" class="btn btn-sm btn-danger"> Tolak <i class="fa fa-ban"></i></a>
                         </div>
                     </div>
 

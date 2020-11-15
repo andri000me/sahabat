@@ -28,6 +28,8 @@
                                         </td>
                                         <td class="th-sm">Status
                                         </td>
+                                        <td class="th-sm">Status Upload
+                                        </td>
                                         <td class="th-sm" style="width:360px;">Action
                                         </td>
                                     </tr>
@@ -38,33 +40,29 @@
                                     ?>
                                     <?php foreach ($ask as $ran) : ?>
                                         <?php
-                                        if ($ran['status_ptsp'] == 0) {
-                                            $btn1 = '<a href="" class="badge badge-danger">Belum di ajukan</a>';
-                                            $btn2 = '<a href="/ask/detailAOTDT/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-info mr-1">Periksa & Ajukan</a>';
-                                            $btn3 = '<a onclick="return confirm(\'Apakah anda yakin ingin membatalkan pengajuan ini ?\')" href="/ask/batalkanPengajuan/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-danger">Batalkan</a>';
-                                        }
                                         if ($ran['status_ptsp'] == 1) {
-                                            $btn1 = '<a href="" class="badge badge-warning">Sedang Diverifikasi oleh status_PTSP</a>';
-                                            $btn2 = '';
+                                            $btn1 = '<a href="" class="badge badge-warning">Lakukan Verifikasi</a></a>';
+                                            $btn2 = '<a href="/ask/detailverifikasiaotdt/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-warning">Verifikasi</a>';
                                             $btn3 = '';
                                         }
                                         if ($ran['status_ptsp'] == 2) {
                                             $btn1 = '<a href="" class="badge badge-success">Diterima</a>';
                                             $btn2 = '';
-                                            if ($ran['img_persetujuan_ptsp']) {
-                                                $btn3 = '<a href="" class="btn btn-sm btn-success">Cetak Persetujuan</a>';
-                                            } else {
-                                                $btn3 = '';
-                                            }
+                                            $btn3 = '<a href="/ask/uploadpersetujuanptsp/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-success">Upload Persetujuan</a>';
                                         }
                                         if ($ran['status_ptsp'] == 3) {
-                                            $btn1 = '<a href="" class="badge badge-danger">Ditolak</a>';
+                                            $btn1 = '<a href="" class="badge badge-danger">Dtolak</a>';
                                             $btn2 = '';
-                                            if ($ran['img_penolakan_ptsp']) {
-                                                $btn3 = '<a href="" class="btn btn-sm btn-danger">Cetak Penolakan</a>';
-                                            } else {
-                                                $btn3 = '';
-                                            }
+                                            $btn3 = '<a href="/ask/uploadpenolakanptsp/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-danger">Upload Penolakan</a>';
+                                        }
+                                        ?>
+                                        <?php
+                                        if ($ran['img_penolakan_ptsp']) {
+                                            $status2  = '<a href="" class="badge badge-success">File telah di upload</a>';
+                                        } else if ($ran['img_persetujuan_ptsp']) {
+                                            $status2  = '<a href="" class="badge badge-success">File telah di upload</a>';
+                                        } else {
+                                            $status2  = '<a href="" class="badge badge-danger">File belum di upload</a>';
                                         }
                                         ?>
                                         <tr>
@@ -75,6 +73,9 @@
                                             <td><?= $ran['created_at'] ?></td>
                                             <td>
                                                 <?= $btn1 ?>
+                                            </td>
+                                            <td>
+                                                <?= $status2 ?>
                                             </td>
                                             <td>
                                                 <?= $btn2 ?>

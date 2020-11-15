@@ -27,6 +27,9 @@ class AskModel extends model
         'img_perjanjian',
         'img_pemda',
         'img_rencana_bisnis',
+        'img_penolakan_ptsp',
+        'img_persetujuan_ptsp',
+        'img_surat_persetujuan',
         'created_at',
         'updated_at'
     ];
@@ -53,6 +56,9 @@ class AskModel extends model
             ask.img_perjanjian, 
             ask.img_pemda, 
             ask.img_rencana_bisnis, 
+            ask.img_penolakan_ptsp, 
+            ask.img_persetujuan_ptsp, 
+            ask.img_surat_persetujuan, 
             ask.created_at, 
             ask.updated_at');
             $this->join('user', 'ask.id_koperasi = user.id');
@@ -78,6 +84,9 @@ class AskModel extends model
             ask.img_perjanjian, 
             ask.img_pemda, 
             ask.img_rencana_bisnis, 
+            ask.img_penolakan_ptsp, 
+            ask.img_persetujuan_ptsp, 
+            ask.img_surat_persetujuan, 
             ask.created_at, 
             ask.updated_at');
             $this->where(['ask.kode_registrasi' => $kode_registrasi]);
@@ -87,7 +96,7 @@ class AskModel extends model
         }
     }
 
-    public function getAskSaya($kode_registrasi = false)
+    public function getAskSaya($id, $kode_registrasi = false)
     {
         if ($kode_registrasi == false) {
             $this->db->table('ask');
@@ -109,9 +118,13 @@ class AskModel extends model
             ask.img_perjanjian, 
             ask.img_pemda, 
             ask.img_rencana_bisnis, 
+            ask.img_penolakan_ptsp, 
+            ask.img_persetujuan_ptsp, 
+            ask.img_surat_persetujuan, 
             ask.created_at, 
             ask.updated_at,
             user.nama_perusahaan');
+            $this->where(['ask.id_koperasi' => $id]);
             $this->join('user', 'ask.id_koperasi = user.id');
             $query = $this->findAll();
             return $query;
@@ -135,8 +148,149 @@ class AskModel extends model
             ask.img_perjanjian, 
             ask.img_pemda, 
             ask.img_rencana_bisnis, 
+            ask.img_penolakan_ptsp, 
+            ask.img_persetujuan_ptsp, 
+            ask.img_surat_persetujuan, 
             ask.created_at, 
             ask.updated_at');
+            $this->where(['ask.id_koperasi' => $id]);
+            $this->where(['ask.kode_registrasi' => $kode_registrasi]);
+            $this->join('user', 'ask.id_koperasi = user.id');
+            $query = $this->first();
+            return $query;
+        }
+    }
+
+    public function getAskPTSP($kode_registrasi = false)
+    {
+        if ($kode_registrasi == false) {
+            $this->db->table('ask');
+            $this->select('
+            ask.id as idask,
+            ask.slug,
+            ask.kode_registrasi, 
+            ask.ptsp, 
+            ask.status_ptsp, 
+            ask.dishub, 
+            ask.status_dishub, 
+            ask.pelayanan_dimohon, 
+            ask.jumlah_kendaraan, 
+            ask.img_surat_permohonan, 
+            ask.img_bukti_pengesahan, 
+            ask.img_domisili, 
+            ask.img_pernyataan_kesanggupan, 
+            ask.img_pernyataan_kerjasama, 
+            ask.img_perjanjian, 
+            ask.img_pemda, 
+            ask.img_rencana_bisnis, 
+            ask.img_penolakan_ptsp, 
+            ask.img_persetujuan_ptsp, 
+            ask.img_surat_persetujuan, 
+            ask.created_at, 
+            ask.updated_at,
+            user.nama_perusahaan');
+            $this->where('ask.ptsp', 1);
+            $this->join('user', 'ask.id_koperasi = user.id');
+            $query = $this->findAll();
+            return $query;
+        } else {
+            $this->db->table('ask');
+            $this->select('
+            ask.id as idask,
+            ask.slug,
+            ask.kode_registrasi, 
+            ask.ptsp, 
+            ask.status_ptsp, 
+            ask.dishub, 
+            ask.status_dishub, 
+            ask.pelayanan_dimohon, 
+            ask.jumlah_kendaraan, 
+            ask.img_surat_permohonan, 
+            ask.img_bukti_pengesahan, 
+            ask.img_domisili, 
+            ask.img_pernyataan_kesanggupan, 
+            ask.img_pernyataan_kerjasama, 
+            ask.img_perjanjian, 
+            ask.img_pemda, 
+            ask.img_rencana_bisnis, 
+            ask.img_penolakan_ptsp, 
+            ask.img_persetujuan_ptsp, 
+            ask.img_surat_persetujuan, 
+            ask.created_at, 
+            ask.updated_at,
+            user.nama_perusahaan');
+            $this->where('ask.ptsp', 1);
+            $this->where(['ask.kode_registrasi' => $kode_registrasi]);
+            $this->join('user', 'ask.id_koperasi = user.id');
+            $query = $this->first();
+            return $query;
+        }
+    }
+    public function getAskDishub($id, $kode_registrasi = false)
+    {
+        if ($kode_registrasi == false) {
+            $this->db->table('ask');
+            $this->select('
+            ask.id as idask,
+            ask.slug,
+            ask.kode_registrasi, 
+            ask.ptsp, 
+            ask.status_ptsp, 
+            ask.dishub, 
+            ask.status_dishub, 
+            ask.pelayanan_dimohon, 
+            ask.jumlah_kendaraan, 
+            ask.img_surat_permohonan, 
+            ask.img_bukti_pengesahan, 
+            ask.img_domisili, 
+            ask.img_pernyataan_kesanggupan, 
+            ask.img_pernyataan_kerjasama, 
+            ask.img_perjanjian, 
+            ask.img_pemda, 
+            ask.img_rencana_bisnis, 
+            ask.img_penolakan_ptsp, 
+            ask.img_persetujuan_ptsp, 
+            ask.img_surat_persetujuan, 
+            ask.img_surat_persetujuan, 
+            ask.created_at, 
+            ask.updated_at,
+            user.nama_perusahaan');
+            $this->where(['ask.id_koperasi' => $id]);
+            $this->where('ask.status_ptsp', 2);
+            $this->where('ask.img_persetujuan_ptsp IS NOT NULL');
+            $this->where('ask.img_surat_persetujuan IS NOT NULL');
+            $this->join('user', 'ask.id_koperasi = user.id');
+            $query = $this->findAll();
+            return $query;
+        } else {
+            $this->db->table('ask');
+            $this->select('
+            ask.id as idask,
+            ask.slug,
+            ask.kode_registrasi, 
+            ask.ptsp, 
+            ask.status_ptsp, 
+            ask.dishub, 
+            ask.status_dishub, 
+            ask.pelayanan_dimohon, 
+            ask.jumlah_kendaraan, 
+            ask.img_surat_permohonan, 
+            ask.img_bukti_pengesahan, 
+            ask.img_domisili, 
+            ask.img_pernyataan_kesanggupan, 
+            ask.img_pernyataan_kerjasama, 
+            ask.img_perjanjian, 
+            ask.img_pemda, 
+            ask.img_rencana_bisnis, 
+            ask.img_penolakan_ptsp, 
+            ask.img_persetujuan_ptsp, 
+            ask.img_surat_persetujuan, 
+            ask.img_surat_persetujuan, 
+            ask.created_at, 
+            ask.updated_at,
+            user.nama_perusahaan');
+            $this->where(['ask.id_koperasi' => $id]);
+            $this->where('ask.status_ptsp', 2);
             $this->where(['ask.kode_registrasi' => $kode_registrasi]);
             $this->join('user', 'ask.id_koperasi = user.id');
             $query = $this->first();

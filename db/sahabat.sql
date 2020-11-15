@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 14, 2020 at 12:23 PM
+-- Generation Time: Nov 15, 2020 at 12:09 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -46,6 +46,9 @@ CREATE TABLE `ask` (
   `img_perjanjian` text NOT NULL,
   `img_pemda` text NOT NULL,
   `img_rencana_bisnis` text NOT NULL,
+  `img_penolakan_ptsp` text DEFAULT NULL,
+  `img_persetujuan_ptsp` text DEFAULT NULL,
+  `img_surat_persetujuan` text NOT NULL,
   `created_at` text NOT NULL,
   `updated_at` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -54,8 +57,11 @@ CREATE TABLE `ask` (
 -- Dumping data for table `ask`
 --
 
-INSERT INTO `ask` (`id`, `slug`, `kode_registrasi`, `id_koperasi`, `ptsp`, `status_ptsp`, `dishub`, `status_dishub`, `pelayanan_dimohon`, `jumlah_kendaraan`, `img_surat_permohonan`, `img_bukti_pengesahan`, `img_domisili`, `img_pernyataan_kesanggupan`, `img_pernyataan_kerjasama`, `img_perjanjian`, `img_pemda`, `img_rencana_bisnis`, `created_at`, `updated_at`) VALUES
-(10, 'ksu-tetap-setia-bhayangkara', '20201114043847', '6', '1', '1', '0', '0', 'asdasd', '1', '1605350350_b69ef400eaf2e8a76599.jpeg', '1605350350_aaa3463e029324b74be0.png', '1605350350_8dc2a4abba2047477082.jpeg', '1605350350_ba9d0d86c798e1a57675.jpeg', '1605350350_cc81c1ac2646b2b86fe4.jpeg', '1605350350_1ffeb7bc08f5e2514a54.jpeg', '1605350350_9e219a1e92b5f8182959.jpeg', '1605350350_017e9cf0037d20293034.jpeg', '2020-11-14 04:39:10', '2020-11-14 04:58:11');
+INSERT INTO `ask` (`id`, `slug`, `kode_registrasi`, `id_koperasi`, `ptsp`, `status_ptsp`, `dishub`, `status_dishub`, `pelayanan_dimohon`, `jumlah_kendaraan`, `img_surat_permohonan`, `img_bukti_pengesahan`, `img_domisili`, `img_pernyataan_kesanggupan`, `img_pernyataan_kerjasama`, `img_perjanjian`, `img_pemda`, `img_rencana_bisnis`, `img_penolakan_ptsp`, `img_persetujuan_ptsp`, `img_surat_persetujuan`, `created_at`, `updated_at`) VALUES
+(10, 'ksu-tetap-setia-bhayangkara', '20201114043847', '6', '1', '2', '0', '0', 'asdasd', '1', '1605350350_b69ef400eaf2e8a76599.jpeg', '1605350350_aaa3463e029324b74be0.png', '1605350350_8dc2a4abba2047477082.jpeg', '1605350350_ba9d0d86c798e1a57675.jpeg', '1605350350_cc81c1ac2646b2b86fe4.jpeg', '1605350350_1ffeb7bc08f5e2514a54.jpeg', '1605350350_9e219a1e92b5f8182959.jpeg', '1605350350_017e9cf0037d20293034.jpeg', NULL, '1605388422_b96a88a7a847472c11e4.jpg', '1605404115_937ae975c9102fec5afd.jpg', '2020-11-14 04:39:10', '2020-11-14 19:35:15'),
+(11, 'koperasi-krawang-jaya-bersama', '20201114072844', '19', '1', '3', '0', '0', 'qwe', '2', '1605360555_dd9895138b15468e5fbf.jpg', '1605360555_674226a17283ffac777e.jpg', '1605360555_efa5e5ca1a34c969f6cc.jpg', '1605360555_7e0a8417d644f7f5acd9.jpg', '1605360555_1d9b407c6d01be94cb65.jpg', '1605360555_557f53b0a63490cb0993.jpg', '1605360555_3aa595e22ed82c68e7c3.jpg', '1605360555_42c05b7135d3c0a33eeb.jpg', '1605388741_2d504bac8473ad80841a.jpeg', NULL, '', '2020-11-14 07:29:15', '2020-11-14 15:19:01'),
+(13, 'koperasi-krawang-jaya-bersama', '20201114100914', '19', '1', '2', '0', '0', 'as', '1', '1605370177_e6122a8f3fc7ac0ad7ed.jpeg', '1605370177_eb6e79c6ce6f33763980.jpeg', '1605370177_75c64ac4967165d94298.jpeg', '1605370177_1d114f85ffe325c74486.jpeg', '1605370177_5739f4ba9d1d9f468cb9.png', '1605370177_6f7879225db75db9b708.jpeg', '1605370177_3fc997371165e4e67030.jpeg', '1605370177_4955b02c76ee2bb69dd8.jpeg', NULL, '1605396623_f0b9603d5a09b0022074.jpeg', '', '2020-11-14 10:09:37', '2020-11-14 17:30:23'),
+(15, 'koperasi-krawang-jaya-bersama', '20201114172707', '19', '1', '2', '0', '0', 'asd', '1', '1605396452_9d9dca8d92b3a359302c.jpg', '1605396452_33ba56b70186513684a7.jpg', '1605396452_97e6ab54b5b44004bc37.jpg', '1605396452_46ba04d900bc78b4b777.jpg', '1605396452_d5d88d5ccae0f3c43f01.jpg', '1605396452_035b8145727a09e78ff0.jpg', '1605396452_6f864316a9535bec8411.jpg', '1605396452_4bb44e2d5bd16022b3e6.jpg', NULL, NULL, '', '2020-11-14 17:27:32', '2020-11-14 17:29:35');
 
 -- --------------------------------------------------------
 
@@ -261,7 +267,10 @@ CREATE TABLE `ranmor` (
 --
 
 INSERT INTO `ranmor` (`id`, `ask_kode_registrasi`, `nomor_kendaraan`, `nomor_uji`, `kapasitas`, `img_ranmor`, `created_at`, `updated_at`) VALUES
-(13, '20201114043847', 'sda', 'asd', 'asd', '1605351480_43a2cb979aff2b88d790.pdf', '2020-11-14 04:58:00', '2020-11-14 04:58:00');
+(14, '20201114072844', 'sdf', 'asd', 'asdasdasd', '1605360565_836516c2624ab88fde3d.jpg', '2020-11-14 07:29:25', '2020-11-14 07:29:25'),
+(15, '20201114072844', 'asd', 'asd', 'asd', '1605360573_b497dfcca8802d729906.jpg', '2020-11-14 07:29:33', '2020-11-14 07:29:33'),
+(17, '20201114100914', 'sda', 'asd', 'asd', '1605370550_e6c11f6d7c41f46a6a93.jpg', '2020-11-14 10:15:50', '2020-11-14 10:15:50'),
+(22, '20201114043847', '123', '123', '123', '1605402831_d1bf1d44a0ebaa956196.png', '2020-11-14 19:13:51', '2020-11-14 19:13:51');
 
 -- --------------------------------------------------------
 
@@ -365,7 +374,8 @@ INSERT INTO `user` (`id`, `wilayah_id`, `nama`, `email`, `password`, `hp`, `role
 (12, 4, 'Gorut', 'kabgorut', '$2y$10$b7pHWWygsTwnGq8lUREsMuU9z7Pl8PoaXiBLU7UC/G2/8rUvGXOXG', '08121312312323', '8', '', '', 'Admin Dinas Perhubungan Kabupaten Gorontalo Utara', '', '', '', '', '', '', '', '', '', '2020-10-24 10:02:47', '2020-10-24 10:02:47'),
 (13, 5, 'Boalemo', 'kabboalemo', '$2y$10$/MYwtBVD7taFgDXiqhk9Lu8BXjklOVjXRvQrz9JmAhXA8sHSqCF8i', '08121312312323', '9', '', '', 'Admin Dinas Perhubungan Kabupaten Boalemo', '', '', '', '', '', '', '', '', '', '2020-10-24 10:03:29', '2020-10-24 10:03:29'),
 (14, 6, 'Pohuwato', 'kabpohuwato', '$2y$10$ovwxJcIHynt3AohGx418dOX1J/5PqZs/Imh7oG3rGl4XbxGn4Z3va', '08121312312323', '10', '', '', 'Admin Dinas Perhubungan Kabupaten Pohuwato', '', '', '', '', '', '', '', '', '', '2020-10-24 10:03:56', '2020-10-24 10:03:56'),
-(19, 7, 'Mus Zakaria', 'kja.krawangjayabersama@gmail.com', '$2y$10$ovwxJcIHynt3AohGx418dOX1J/5PqZs/Imh7oG3rGl4XbxGn4Z3va', '081340223678 ', '0', '7504042910560001', 'MUS ZAKARIA', 'KOPERASI KRAWANG JAYA BERSAMA', 'Dungingi, Kota Gorontalo', '', '1603591745_15c3c837d8ea19b120c7.jpg', '1603591745_2ee7a5b48e4a11bda8fb.jpg', '1603591745_2235f6ccaf8c97addea3.jpg', '1603591745_e2e51b0a31d20cab7bef.jpg', '1603591745_8d16dc15a5963bb76a4d.jpg', '1603591745_11dbf003b0c8e29de235.jpg', '1603591745_6798f6f22351ceeb3d1f.jpg', '2020-10-24 21:05:05', '2020-10-24 21:15:26');
+(19, 7, 'Mus Zakaria', 'kja.krawangjayabersama@gmail.com', '$2y$10$LutpR..sxvpiIs.7.1HQd.4qk.WX.5nOock4/rI.WGjJ1h7./0KC2', '081340223678 ', '0', '7504042910560001', 'MUS ZAKARIA', 'KOPERASI KRAWANG JAYA BERSAMA', 'Dungingi, Kota Gorontalo', '', '1603591745_15c3c837d8ea19b120c7.jpg', '1603591745_2ee7a5b48e4a11bda8fb.jpg', '1603591745_2235f6ccaf8c97addea3.jpg', '1603591745_e2e51b0a31d20cab7bef.jpg', '1603591745_8d16dc15a5963bb76a4d.jpg', '1603591745_11dbf003b0c8e29de235.jpg', '1603591745_6798f6f22351ceeb3d1f.jpg', '2020-10-24 21:05:05', '2020-10-24 21:15:26'),
+(20, 0, 'Zakir', 'Z', '$2y$10$LutpR..sxvpiIs.7.1HQd.4qk.WX.5nOock4/rI.WGjJ1h7./0KC2', '123546456', '0', '', '', '', '', '', '', '', '', '', '', '', '', '2020-11-14 09:24:36', '2020-11-14 09:24:36');
 
 -- --------------------------------------------------------
 
@@ -464,7 +474,7 @@ ALTER TABLE `wilayah`
 -- AUTO_INCREMENT for table `ask`
 --
 ALTER TABLE `ask`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `jenis_permohonan`
@@ -500,7 +510,7 @@ ALTER TABLE `permohonan_kabkota`
 -- AUTO_INCREMENT for table `ranmor`
 --
 ALTER TABLE `ranmor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `trayek`
@@ -512,7 +522,7 @@ ALTER TABLE `trayek`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `wilayah`
