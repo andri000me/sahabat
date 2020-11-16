@@ -49,7 +49,7 @@
                                         if ($ran['status_dishub'] == 2 && $ran['dishub_approve'] == 0) {
                                             $btn1 = '<a href="" class="badge badge-warning">Selesai verifikasi, Menunggu Approve</a>';
                                             $btn2 = '';
-                                            $btn3 = '<a href="/ask/detailverifikasidishub/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-primary">Detail</a>
+                                            $btn3 = '<a href="/ask/detailverifikasiapprove/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-primary">Detail</a>
                                             <a onclick="return confirm(\'Yakin Approve?\')" href="/ask/approve1/' . $ran['idask'] . '/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-success">Approve</a>
                                            ';
                                             if ($ran['img_permohonan']) {
@@ -63,7 +63,7 @@
                                             $btn2 = '';
                                             $btn3 = '<a href="/ask/detailverifikasidishub/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-primary">Detail</a>
                                             <a href="/ask/uploadpersetujuandishub/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-dark">Cetak</a>
-                                            <a href="/ask/uploadpersetujuandishub/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-success">Upload Persetujuan</a>';
+                                            <a href="/ask/uploadrekomendasi/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-success">Upload Permohonan</a>';
                                             if ($ran['img_permohonan']) {
                                                 $status2  = '<a href="" class="badge badge-success">File telah di upload</a>';
                                             } else {

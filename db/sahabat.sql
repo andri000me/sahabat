@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 16, 2020 at 02:10 PM
+-- Generation Time: Nov 17, 2020 at 12:06 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -37,6 +37,8 @@ CREATE TABLE `ask` (
   `ptsp_approve` int(11) NOT NULL,
   `dishub` text NOT NULL,
   `status_dishub` varchar(512) NOT NULL,
+  `penerbitan` text NOT NULL,
+  `status_penerbitan` text NOT NULL,
   `dishub_approve` int(11) NOT NULL,
   `dishub_approvve` int(11) NOT NULL,
   `pelayanan_dimohon` text NOT NULL,
@@ -71,8 +73,8 @@ CREATE TABLE `ask` (
 -- Dumping data for table `ask`
 --
 
-INSERT INTO `ask` (`id`, `slug`, `kode_registrasi`, `id_koperasi`, `ptsp`, `status_ptsp`, `ptsp_approve`, `dishub`, `status_dishub`, `dishub_approve`, `dishub_approvve`, `pelayanan_dimohon`, `jumlah_kendaraan`, `jenis_kendaraan`, `kapasitas_angkut`, `wilayah_operasi`, `pengaruh`, `kelas_jalan`, `fasilitas_pool`, `fasilitas_perawatan`, `img_surat_permohonan`, `img_bukti_pengesahan`, `img_domisili`, `img_pernyataan_kesanggupan`, `img_pernyataan_kerjasama`, `img_perjanjian`, `img_pemda`, `img_rencana_bisnis`, `img_penolakan_ptsp`, `img_persetujuan_ptsp`, `img_surat_persetujuan`, `img_permohonan`, `img_penolakan_permohonan`, `img_penerbitan`, `img_penolakan_penerbitan`, `created_at`, `updated_at`) VALUES
-(16, 'ksu-tetap-setia-bhayangkara', '20201115094826', '6', '1', '2', 0, '1', '2', 1, 0, 'Angkutan Sewa Khusus yang bekerjasama dengan Perusahaan Aplikasi di Bidang Transportasi Darat PT. Solusi Transportasi Indonesia (Grab)\r\n', '5', 'Minibus / Mobil Penumpang', '4', 'Kota Gorontalo dan sekitarnya', 'Mendukung Pelayanan Angkutan', 'Jalan Arteri dan Jalan Kolektor', 'Ada', ' Ada', '1605455403_70a0b7f32372acaad77e.jpeg', '1605455403_3b746415e809fabab915.jpeg', '1605455403_3d09f6eb3f4d1d3a3b86.jpeg', '1605455403_7892f7bd5fa81642fd56.jpeg', '1605455403_6da140ad98eb268df0fa.jpeg', '1605455403_866da22bd585f32227b3.jpeg', '1605455403_8d0b2936e02a5820fdc1.jpeg', '1605455403_6bcc4ee4e0d1de272bda.jpeg', NULL, '1605456254_2750e40f34bb930d7cff.jpeg', '1605456269_8f7f4206fca8cc817798.jpeg', '', '', '', '', '2020-11-15 09:50:03', '2020-11-15 10:42:14');
+INSERT INTO `ask` (`id`, `slug`, `kode_registrasi`, `id_koperasi`, `ptsp`, `status_ptsp`, `ptsp_approve`, `dishub`, `status_dishub`, `penerbitan`, `status_penerbitan`, `dishub_approve`, `dishub_approvve`, `pelayanan_dimohon`, `jumlah_kendaraan`, `jenis_kendaraan`, `kapasitas_angkut`, `wilayah_operasi`, `pengaruh`, `kelas_jalan`, `fasilitas_pool`, `fasilitas_perawatan`, `img_surat_permohonan`, `img_bukti_pengesahan`, `img_domisili`, `img_pernyataan_kesanggupan`, `img_pernyataan_kerjasama`, `img_perjanjian`, `img_pemda`, `img_rencana_bisnis`, `img_penolakan_ptsp`, `img_persetujuan_ptsp`, `img_surat_persetujuan`, `img_permohonan`, `img_penolakan_permohonan`, `img_penerbitan`, `img_penolakan_penerbitan`, `created_at`, `updated_at`) VALUES
+(17, 'ksu-tetap-setia-bhayangkara', '20201116071742', '6', '1', '2', 0, '1', '2', '', '', 1, 0, 'a', '1', 'a', 'a', 'a', 'a', 'a', 'Ada', ' Ada', '1605532703_2c14dc3cec2e139430e5.jpeg', '1605532703_ab981ca671783fbcec52.jpeg', '1605532703_a85a6b7007b9156b8769.jpeg', '1605532703_484aa070ea58a7bfe180.jpeg', '1605532703_9242835e2be3aafbbb50.jpeg', '1605532703_fc487c2d6b35108ecf28.jpeg', '1605532703_a146ce63cae79d105b59.jpeg', '1605532703_a233cca84dacae2126e7.jpeg', '1605533864_f14d9d9db37fbe57b7ec.jpeg', '1605532767_82fbcf5522e79df7e5d5.jpeg', '1605532919_3249bccc490e8173f2f7.jpg', '1605534030_6ad080941fb12e127ef9.jpeg', '', '', '', '2020-11-16 07:18:23', '2020-11-16 07:40:30');
 
 -- --------------------------------------------------------
 
@@ -286,7 +288,8 @@ INSERT INTO `ranmor` (`id`, `ask_kode_registrasi`, `nomor_kendaraan`, `nomor_uji
 (25, '20201115094826', 'DM 1832 DB', 'DM 4614 AO', '4', '1605456313_6f0335f1298793904085.jpeg', '2020-11-15 10:05:13', '2020-11-15 10:05:13'),
 (26, '20201115094826', 'DM 1832 DB', 'DM 4614 AO', '4', '1605456324_9d4555dd6b5258ded449.jpeg', '2020-11-15 10:05:24', '2020-11-15 10:05:24'),
 (27, '20201115094826', 'DM 1832 DB', 'DM 4614 AO', '4', '1605456335_c366192784a7baf82e57.jpeg', '2020-11-15 10:05:35', '2020-11-15 10:05:35'),
-(28, '20201115094826', 'DM 1832 DB', 'DM 4614 AO', '4', '1605456362_f0acec55398bad104efa.jpeg', '2020-11-15 10:06:02', '2020-11-15 10:06:02');
+(28, '20201115094826', 'DM 1832 DB', 'DM 4614 AO', '4', '1605456362_f0acec55398bad104efa.jpeg', '2020-11-15 10:06:02', '2020-11-15 10:06:02'),
+(29, '20201116071742', 'dm', 'dm', '12', '1605532938_c34a43dcbda31be98238.jpeg', '2020-11-16 07:22:18', '2020-11-16 07:22:18');
 
 -- --------------------------------------------------------
 
@@ -490,7 +493,7 @@ ALTER TABLE `wilayah`
 -- AUTO_INCREMENT for table `ask`
 --
 ALTER TABLE `ask`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `jenis_permohonan`
@@ -526,7 +529,7 @@ ALTER TABLE `permohonan_kabkota`
 -- AUTO_INCREMENT for table `ranmor`
 --
 ALTER TABLE `ranmor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `trayek`

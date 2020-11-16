@@ -48,9 +48,9 @@
                                                 $button = '';
                                             }
                                             if ($ran['status_dishub'] == 2) {
-                                                $status = '<a href="" class="badge badge-warning">Diterima</a>';
+                                                $status = '<a href="" class="badge badge-success">Diterima</a>';
                                                 if ($ran['img_permohonan']) {
-                                                    $button = '<a href="/ask/cetakpermohonan/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-success">Cetak Permohonan <i class="fa fa-arrow-right"></i></a>';
+                                                    $button = '<a target="_blank" href="/img/img_permohonan/' . $ran['img_permohonan'] . '" class="btn btn-sm btn-success">Cetak Permohonan <i class="fa fa-arrow-right"></i></a>';
                                                 } else {
                                                     $button = '';
                                                 }

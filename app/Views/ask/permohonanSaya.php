@@ -52,7 +52,7 @@
                                             $btn1 = '<a href="" class="badge badge-success">Diterima</a>';
                                             $btn2 = '';
                                             if ($ran['img_persetujuan_ptsp']) {
-                                                $btn3 = '<a href="" class="btn btn-sm btn-success">Cetak Persetujuan</a>';
+                                                $btn3 = '<a target="_blank" href="/img/img_persetujuan_ptsp/' . $ran['img_persetujuan_ptsp'] . '" class="btn btn-sm btn-success">Cetak Persetujuan</a>';
                                             } else {
                                                 $btn3 = '';
                                             }

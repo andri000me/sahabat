@@ -1,7 +1,7 @@
 <?= $this->extend('layout/templatel') ?>
 <?= $this->section('content'); ?>
 <div class="container-fluid" style="margin-bottom:300px;">
-    <form method="POST" class="needs-validation md-form text-left" style="color: #757575;" action="/ask/savePenolakanPTSP" enctype="multipart/form-data" novalidate>
+    <form method="POST" class="needs-validation md-form text-left" style="color: #757575;" action="/ask/saveUploadRekomendasi" enctype="multipart/form-data" novalidate>
 
         <input name="id" type="hidden" value="<?= $ask['idask'] ?>">
         <input name="slug" type="hidden" value="<?= $ask['slug'] ?>">
@@ -31,7 +31,7 @@
                     <div class="file-field">
                         <div class="btn btn-primary btn-sm float-left">
                             <span><i class="fa fa-image mr-1"></i> Pilih File Dokumen</span>
-                            <input type="file" name="img_penolakan_ptsp" id="uploadImage">
+                            <input type="file" name="img_permohonan" id="uploadImage">
                         </div>
 
                         <?php

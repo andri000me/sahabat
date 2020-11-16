@@ -94,7 +94,7 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="/ask/persetujuanIzin<?= $href ?>" <?= $hidden_ptsp ?><?= $hidden_approver ?> <?= $hidden_vers ?> <?= $hidden_kota ?>>Rekomendasi Penerbitan AOTDT</a>
+        <a class="nav-link" href="/ask/persetujuanIzin<?= $href ?>" <?= $hidden_ptsp ?><?= $hidden_approver ?> <?= $hidden_vers ?> <?= $hidden_kota ?>>Penerbitan AOTDT</a>
       </li>
 
       <li class="nav-item dropdown">
@@ -137,6 +137,14 @@
 
       <li class="nav-item">
         <a class="nav-link" href="/verifikasi/terverifikasi<?= $href ?>" <?= $hidden_ptsp ?><?= $hidden_vers ?><?= $hidden_koperasi ?> <?= $hidden_kota ?>>Data Rekomendasi</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/ask/approvepermohonan" <?= $hidden_ptsp ?><?= $hidden_vers ?><?= $hidden_koperasi ?> <?= $hidden_kota ?>>Data Penerbitan AOTDT</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/ask/terverifikasi<?= $href ?>" <?= $hidden_ptsp ?><?= $hidden_vers ?><?= $hidden_koperasi ?> <?= $hidden_kota ?>>Data Penerbitan AOTDT</a>
       </li>
     </ul>
     <ul class="navbar-nav ml-auto nav-flex-icons">

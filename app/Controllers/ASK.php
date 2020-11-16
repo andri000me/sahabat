@@ -564,6 +564,41 @@ class ASK extends BaseController
         return redirect()->to('/ask/uploadpenolakanptsp/' . $this->request->getVar('slug') . '/' . $this->request->getVar('kode_registrasi') . '');
     }
 
+    public function saveUploadRekomendasi()
+    {
+        if (!$this->validate([
+            'img_permohonan' => [
+                'rules' => 'uploaded[img_permohonan]|max_size[img_permohonan,3068]|mime_in[img_permohonan,image/jpg,image/jpeg,image/png,application/pdf]',
+                'errors' => [
+                    'uploaded' => 'Pilih dokumen terlebih dahulu',
+                    'max_size' => 'Ukuran dokumen terlalu besar (Maksimal 3Mb)',
+                    'mime_in' => 'Format tidak sesuai',
+                ],
+            ],
+
+        ])) {
+            return redirect()->to('/ask/uploadrekomendasi/' . $this->request->getVar('slug') . '/' . $this->request->getVar('kode_registrasi') . '')->withInput();
+        }
+
+        $img_permohonan = $this->request->getFile('img_permohonan');
+
+        if ($img_permohonan->getError() == 4) {
+            $nama_img_permohonan = "default.png";
+        } else {
+            $nama_img_permohonan = $img_permohonan->getRandomName();
+            $img_permohonan->move('img/img_permohonan', $nama_img_permohonan);
+        }
+
+        $slug = url_title($this->user['nama_perusahaan'], '-', true);
+
+        $this->askModel->save([
+            'id' => $this->request->getVar('id'),
+            'img_permohonan' => $nama_img_permohonan,
+        ]);
+
+        return redirect()->to('/ask/uploadrekomendasi/' . $this->request->getVar('slug') . '/' . $this->request->getVar('kode_registrasi') . '');
+    }
+
 
     public function uploadPersetujuanPTSP($slug, $kode_registrasi)
     {
