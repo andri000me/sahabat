@@ -90,7 +90,7 @@
                     <?php
                     } else {
                     ?>
-                        <a href="/ask/ajukanPTSP/<?= $ask['idask'] ?>" onclick="return confirm('Ajukan permohonan ini ?')" type="button" class="btn btn-md btn-success">Ajukan Permohonan <i class="fa fa-check ml-1"></i> </a>
+                        <a href="/ask/ajukandishub/<?= $ask['slug'] ?>/<?= $ask['kode_registrasi'] ?>/<?= $ask['idask'] ?>" onclick="return confirm('Ajukan permohonan ini ?')" type="button" class="btn btn-md btn-success">Ajukan Permohonan <i class="fa fa-check ml-1"></i> </a>
                     <?php
                     }
                     ?>

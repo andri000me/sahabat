@@ -8,12 +8,10 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col">
-                            <h5 class="text-dark font-weight-bold card-title">Verifikasi Persetujuan Permohonan Izin Penyelenggaraan Angkutan Orang Tidak Dalam Trayek (AOTDT)</h5>
+                            <h5 class="text-dark font-weight-bold card-title">Verifikasi Permohonan Izin Penyelenggaraan Angkutan Orang Tidak Dalam Trayek (AOTDT)</h5>
                             </p>
                         </div>
                         <div class="text-right col">
-                            <a onclick="return confirm('Apakah anda yakin?')" href="/ask/terima/<?= $ask['idask'] ?>/<?= $ask['slug'] ?>/<?= $ask['kode_registrasi'] ?>" class="btn btn-sm btn-success"> Terima <i class="fa fa-check"></i></a>
-                            <a onclick="return confirm('Apakah anda yakin melakukan penolakan?')" href="/ask/tolak/<?= $ask['idask'] ?>/<?= $ask['slug'] ?>/<?= $ask['kode_registrasi'] ?>" class="btn btn-sm btn-danger"> Tolak <i class="fa fa-ban"></i></a>
                         </div>
                     </div>
 
@@ -68,6 +66,18 @@
                                     </tr>
                                 </tbody>
                             </table>
+                        </div>
+
+                        <div class="md-form">
+                            <div class="file-field">
+                                <a href="/img/img_surat_persetujuan/<?= $ask['img_surat_persetujuan'] ?>" target="_blank" type="button" class="btn btn-sm btn-success"><i class="fa fa-eye mr-1"></i> Lihat dokumen</a>
+                                <div class="file-path-wrapper">
+                                    <input name="img_surat_persetujuan" class="file-path validate" type="text" placeholder="Scan / Foto Surat Persetujuan Permohonanan Izin Penyelenggaraan AOTDT dari PTSP (Jelas)">
+                                </div>
+                            </div>
+                            <div class="kacili" style="margin-left:280px;">
+                                <?= $validation->getError('img_surat_persetujuan') ?>
+                            </div>
                         </div>
 
                         <div class="md-form">
@@ -163,6 +173,53 @@
                             </div>
                             <div class="kacili" style="margin-left:280px;">
                                 <?= $validation->getError('img_rencana_bisnis') ?>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row mb-5 wow fadeInRight mt-5">
+                        <div class="col-sm-12 mb-3 mb-md-0">
+                            <div class="">
+                                <h5 class="text-dark font-weight-bold card-title">Data kendaraan</h5>
+                                <p class="card-text">Data Kendaraan<br>
+                                </p>
+                                <div class="cards px-4 py-3">
+                                    <div class="table-responsive animated zoomIn">
+                                        <table id="dtMaterialDesignExample" class="table table-bordered table-striped" cellspacing="0" width="100%">
+                                            <thead class="primary-color-dark white-text">
+                                                <tr>
+                                                    <td class="th-sm">No
+                                                    </td>
+                                                    <td class="th-sm">Nomor Kendaraan
+                                                    </td>
+                                                    <td class="th-sm" style="width: 120px;">Nomor UJI
+                                                    </td>
+                                                    <td class="th-sm">Kapasitas
+                                                    </td>
+                                                    <td class="th-sm" style="width:360px;">Action
+                                                    </td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                $i = 1
+                                                ?>
+                                                <?php foreach ($ranmor as $ran) : ?>
+                                                    <tr>
+                                                        <td><?= $i++ ?></td>
+                                                        <td><?= $ran['nomor_kendaraan'] ?></td>
+                                                        <td><?= $ran['nomor_uji'] ?></td>
+                                                        <td><?= $ran['kapasitas'] ?></td>
+                                                        <td>
+                                                            <a href="/img/img_ranmor/<?= $ran['img_ranmor'] ?>" target="_blank" class="btn btn-sm btn-success">Lihat Dokumen</a>
+                                                        </td>
+                                                    </tr>
+                                                <?php endforeach; ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -58,7 +58,7 @@
                     </div>
 
                     <div class="buttons mt-5">
-                        <button type="submit button" class="btn btn-md btn-success">Lanjutkan <i class="fa fa-arrow-right ml-1"></i> </button>
+                        <button type="submit button" class="btn btn-md btn-success">Simpan <i class="fa fa-check ml-1"></i> </button>
                     </div>
                     </form>
                 </div>

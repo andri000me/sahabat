@@ -210,6 +210,13 @@ class ASK extends BaseController
             'status_dishub' => 0,
             'pelayanan_dimohon' => $this->request->getVar('pelayanan_dimohon'),
             'jumlah_kendaraan' => $this->request->getVar('jumlah_kendaraan'),
+            'jenis_kendaraan' => $this->request->getVar('jenis_kendaraan'),
+            'kapasitas_angkut' => $this->request->getVar('kapasitas_angkut'),
+            'wilayah_operasi' => $this->request->getVar('wilayah_operasi'),
+            'pengaruh' => $this->request->getVar('pengaruh'),
+            'kelas_jalan' => $this->request->getVar('kelas_jalan'),
+            'fasilitas_pool' => $this->request->getVar('fasilitas_pool'),
+            'fasilitas_perawatan' => $this->request->getVar('fasilitas_perawatan'),
             'img_surat_permohonan' => $nama_img_surat_permohonan,
             'img_bukti_pengesahan' => $nama_img_bukti_pengesahan,
             'img_domisili' => $nama_img_domisili,
@@ -312,6 +319,19 @@ class ASK extends BaseController
 
         return redirect()->to('/ask/permohonanSaya');
     }
+
+    public function ajukandishub($slug, $kode_registrasi, $id)
+    {
+        session();
+        $this->askModel->save([
+            'id' => $id,
+            'dishub' => 1,
+            'status_dishub' => 1
+        ]);
+
+
+        return redirect()->to('/ask/permohonanizin');
+    }
     public function terima($id, $slug, $kode_registrasi)
     {
         session();
@@ -321,6 +341,16 @@ class ASK extends BaseController
         ]);
 
         return redirect()->to('/ask/verifikasiaotdt');
+    }
+    public function approve1($id, $slug, $kode_registrasi)
+    {
+        session();
+        $this->askModel->save([
+            'id' => $id,
+            'dishub_approve' => 1
+        ]);
+
+        return redirect()->to('/ask/approvepermohonan');
     }
     public function tolak($id, $slug, $kode_registrasi)
     {
@@ -332,6 +362,30 @@ class ASK extends BaseController
 
         return redirect()->to('/ask/verifikasiaotdt');
     }
+
+
+    public function terimapermohonandishub($id, $slug, $kode_registrasi)
+    {
+        session();
+        $this->askModel->save([
+            'id' => $id,
+            'status_dishub' => 2
+        ]);
+
+        return redirect()->to('/ask/verifikasipermohonandishub');
+    }
+
+    public function tolakpermohonandishub($id, $slug, $kode_registrasi)
+    {
+        session();
+        $this->askModel->save([
+            'id' => $id,
+            'status_dishub' => 3
+        ]);
+
+        return redirect()->to('/ask/verifikasipermohonandishub');
+    }
+
 
     public function verifikasiaotdt()
     {
@@ -345,6 +399,40 @@ class ASK extends BaseController
                 'ask' => $this->askModel->getAskPTSP(),
             ];
             return view('ask/verifikasiaotdt', $data);
+        } else {
+            return redirect()->to('login/login');
+        }
+    }
+
+    public function verifikasipermohonandishub()
+    {
+        session();
+        if ($this->user) {
+            $data = [
+                'title' => 'Permohonan Angkutan Orang Tidak Dalam Trayek',
+                'session' => $this->user,
+                'validation' => \Config\Services::validation(),
+                'ranmor' => $this->ranmorModel->getRanmor(),
+                'ask' => $this->askModel->getPermohonanDishub(),
+            ];
+            return view('ask/verifikasidishub', $data);
+        } else {
+            return redirect()->to('login/login');
+        }
+    }
+
+    public function approvepermohonan()
+    {
+        session();
+        if ($this->user) {
+            $data = [
+                'title' => 'Permohonan Angkutan Orang Tidak Dalam Trayek',
+                'session' => $this->user,
+                'validation' => \Config\Services::validation(),
+                'ranmor' => $this->ranmorModel->getRanmor(),
+                'ask' => $this->askModel->getPermohonanDishubApprove(),
+            ];
+            return view('ask/approvepermohonan', $data);
         } else {
             return redirect()->to('login/login');
         }
@@ -382,6 +470,42 @@ class ASK extends BaseController
 
             ];
             return view('ask/detailverifikasiaotdt', $data);
+        } else {
+            return redirect()->to('login/login');
+        }
+    }
+
+    public function detailverifikasidishub($slug, $kode_registrasi)
+    {
+        session();
+        if ($this->user) {
+            $data = [
+                'title' => 'Permohonan Angkutan Orang Tidak Dalam Trayek',
+                'session' => $this->user,
+                'validation' => \Config\Services::validation(),
+                'ask' => $this->askModel->getAsk($kode_registrasi),
+                'ranmor' => $this->ranmorModel->getAllRanmor($kode_registrasi),
+
+            ];
+            return view('ask/detailverifikasidishub', $data);
+        } else {
+            return redirect()->to('login/login');
+        }
+    }
+
+    public function detailverifikasiapprove($slug, $kode_registrasi)
+    {
+        session();
+        if ($this->user) {
+            $data = [
+                'title' => 'Permohonan Angkutan Orang Tidak Dalam Trayek',
+                'session' => $this->user,
+                'validation' => \Config\Services::validation(),
+                'ask' => $this->askModel->getAsk($kode_registrasi),
+                'ranmor' => $this->ranmorModel->getAllRanmor($kode_registrasi),
+
+            ];
+            return view('ask/detailverifikasiapprove', $data);
         } else {
             return redirect()->to('login/login');
         }
@@ -454,6 +578,25 @@ class ASK extends BaseController
 
             ];
             return view('ask/upload_persetujuan_ptsp', $data);
+        } else {
+            return redirect()->to('login/login');
+        }
+    }
+
+
+    public function uploadrekomendasi($slug, $kode_registrasi)
+    {
+        session();
+        if ($this->user) {
+            $data = [
+                'title' => 'Permohonan Angkutan Orang Tidak Dalam Trayek',
+                'session' => $this->user,
+                'validation' => \Config\Services::validation(),
+                'ask' => $this->askModel->getAskPTSP($kode_registrasi),
+                'ranmor' => $this->ranmorModel->getAllRanmor($kode_registrasi),
+
+            ];
+            return view('ask/uploadrekomendasi', $data);
         } else {
             return redirect()->to('login/login');
         }

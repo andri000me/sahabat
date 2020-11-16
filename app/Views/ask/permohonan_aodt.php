@@ -35,6 +35,76 @@
                             </div>
 
                             <div class="md-form">
+                                <input name="jenis_kendaraan" type="text" id="form2" class="form-control" required>
+                                <label for="form2">Model/Jenis Kendaraan</label>
+                                <div class="invalid-feedback">
+                                    Model/Jenis Kendaraan tidak boleh kosong
+                                </div>
+                            </div>
+
+                            <div class="md-form">
+                                <input name="kapasitas_angkut" type="text" id="form2" class="form-control" required>
+                                <label for="form2">Kapasitas angkut penumpang</label>
+                                <div class="invalid-feedback">
+                                    Kapasitas angkut penumpang tidak boleh kosong
+                                </div>
+                            </div>
+
+                            <div class="md-form">
+                                <input name="wilayah_operasi" type="text" id="form2" class="form-control" required>
+                                <label for="form2">Wilayah Operasi</label>
+                                <div class="invalid-feedback">
+                                    Wilayah Operasi tidak boleh kosong
+                                </div>
+                            </div>
+
+                            <div class="md-form">
+                                <input name="pengaruh" type="text" id="form2" class="form-control" required>
+                                <label for="form2">Pengaruh terhadap jenis pelayanan lainnya</label>
+                                <div class="invalid-feedback">
+                                    Pengaruh terhadap jenis pelayanan lainnya tidak boleh kosong
+                                </div>
+                            </div>
+
+                            <div class="md-form">
+                                <input name="kelas_jalan" type="text" id="form2" class="form-control" required>
+                                <label for="form2">Kelas jalan yang dilalui</label>
+                                <div class="invalid-feedback">
+                                    Kelas jalan yang dilalui tidak boleh kosong
+                                </div>
+                            </div>
+
+                            <div class="form-group mb-5">
+                                <select name="fasilitas_pool" class="mdb-select md-form mt-5" searchable="Fasilitas penyimpanan kendaraan bermotor atau Pool">
+                                    <option value="" disabled selected>Pilih</option>
+                                    <option value="Ada">Ada</option>
+                                    <option value="Tidak Ada">Tidak Ada</option>
+                                </select>
+                                <label class="mdb-main-label">Fasilitas penyimpanan kendaraan bermotor atau Pool</label>
+                                <div class="kacili" style="margin-top:-20px;">
+                                    <?= $validation->getError('nama_pemohon') ?>
+                                </div>
+                            </div>
+
+                            <div class="form-group my-5">
+                                <select name="fasilitas_perawatan" class="mdb-select md-form mt-5" searchable="Fasilitas pemeliharaan atau perawatan kendaraan">
+                                    <option value="" disabled selected>Pilih</option>
+                                    <option value=" Ada">Ada</option>
+                                    <option value="Tidak Ada">Tidak Ada</option>
+                                </select>
+                                <label class="mdb-main-label">Fasilitas pemeliharaan atau perawatan kendaraan</label>
+                                <div class="kacili" style="margin-top:-20px;">
+                                    <?= $validation->getError('nama_pemohon') ?>
+                                </div>
+                            </div>
+
+                            <hr class="mt-5">
+                            <h5 class="text-dark font-weight-bold card-title">Upload Dokumen</h5>
+                            <p class="card-text">Upload dokumen persyaratan
+                            </p>
+
+
+                            <div class="md-form mt-5">
                                 <div class="file-field">
                                     <div class="btn primary-color-dark text-light btn-sm float-left">
                                         <span><i class="fa fa-image mr-1"></i> Pilih File Dokumen</span>

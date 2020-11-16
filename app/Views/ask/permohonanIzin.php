@@ -38,16 +38,42 @@
                                     ?>
                                     <?php foreach ($ask as $ran) : ?>
                                         <tr>
+                                            <?php
+                                            if ($ran['status_dishub'] == 0) {
+                                                $status = '<a href="" class="badge badge-warning">Lengkapi Berkas</a>';
+                                                $button = '<a href="/ask/ajukanpermohonan/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-secondary">Ajukan Permohonan <i class="fa fa-arrow-right"></i></a>';
+                                            }
+                                            if ($ran['status_dishub'] == 1) {
+                                                $status = '<a href="" class="badge badge-warning">Sedang diverifikasi oleh Dishub</a>';
+                                                $button = '';
+                                            }
+                                            if ($ran['status_dishub'] == 2) {
+                                                $status = '<a href="" class="badge badge-warning">Diterima</a>';
+                                                if ($ran['img_permohonan']) {
+                                                    $button = '<a href="/ask/cetakpermohonan/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-success">Cetak Permohonan <i class="fa fa-arrow-right"></i></a>';
+                                                } else {
+                                                    $button = '';
+                                                }
+                                            }
+                                            if ($ran['status_dishub'] == 3) {
+                                                $status = '<a href="" class="badge badge-danger">Ditolak</a>';
+                                                if ($ran['img_permohonan']) {
+                                                    $button = '<a href="/ask/cetakpenolakanpermohonan/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-success">Cetak Penolakan <i class="fa fa-arrow-right"></i></a>';
+                                                } else {
+                                                    $button = '';
+                                                }
+                                            }
+                                            ?>
                                             <td><?= $i++ ?></td>
                                             <td><a href="#" class="font-weight-bold text-primary"><?= $ran['kode_registrasi'] ?></a></td>
                                             <td><?= $ran['nama_perusahaan'] ?></td>
                                             <td><a href="" class="font-weight-bold text-dark"><?= $ran['jumlah_kendaraan'] ?></a></td>
                                             <td><?= $ran['created_at'] ?></td>
                                             <td>
-                                                <a href="" class="badge badge-success">Diterima</a>
+                                                <?= $status ?>
                                             </td>
                                             <td>
-                                                <a href="/ask/ajukanpermohonan/<?= $ran['slug'] ?>/<?= $ran['kode_registrasi'] ?>" class="btn btn-sm btn-secondary">Ajukan Permohonan <i class="fa fa-arrow-right"></i></a>
+                                                <?= $button ?>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

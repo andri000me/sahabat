@@ -12,25 +12,73 @@
                             </p>
                         </div>
                         <div class="text-right col">
-                            <a onclick="return confirm('Apakah anda yakin?')" href="/ask/terima/<?= $ask['idask'] ?>/<?= $ask['slug'] ?>/<?= $ask['kode_registrasi'] ?>" class="btn btn-sm btn-success"> Terima <i class="fa fa-check"></i></a>
-                            <a onclick="return confirm('Apakah anda yakin melakukan penolakan?')" href="/ask/tolak/<?= $ask['idask'] ?>/<?= $ask['slug'] ?>/<?= $ask['kode_registrasi'] ?>" class="btn btn-sm btn-danger"> Tolak <i class="fa fa-ban"></i></a>
+                            <a onclick="return confirm('Apakah anda yakin?')" href="/ask/terimapermohonandishub/<?= $ask['idask'] ?>/<?= $ask['slug'] ?>/<?= $ask['kode_registrasi'] ?>" class="btn btn-sm btn-success"> Terima <i class="fa fa-check"></i></a>
+                            <a onclick="return confirm('Apakah anda yakin melakukan penolakan?')" href="/ask/tolakpermohonandishub/<?= $ask['idask'] ?>/<?= $ask['slug'] ?>/<?= $ask['kode_registrasi'] ?>" class="btn btn-sm btn-danger"> Tolak <i class="fa fa-ban"></i></a>
                         </div>
                     </div>
 
                     <div class="cards px-4 py-3">
-                        <div class="md-form mb-4 pink-textarea active-textarea">
-                            <textarea name="pelayanan_dimohon" id="form18" class="md-textarea form-control" rows="3" disabled><?= $ask['pelayanan_dimohon'] ?></textarea>
-                            <label for="form18">Pelayanan yang dimohon</label>
-                            <div class="invalid-feedback">
-                                Pelayanan yang dimohon
-                            </div>
+                        <div class="mt-3">
+                            <table id=" dtMaterialDesignExample" class="table table-bordered" cellspacing="0" width="100%">
+                                <tbody>
+                                    <tr>
+                                        <td class="font-weight-bold" width="300" style="font-size: 15px;">Pemohon</td>
+                                        <td class="font-weight-bold">
+                                            <a style="font-size: 15px;"><?= $ask['nama_perusahaan'] ?></a><br>
+                                            <?= $ask['alamat'] ?><br>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <td class="" width="300" style="font-size: 15px;">Tanggal Permohonan</td>
+                                        <td class="">
+                                            <a style="font-size: 15px;"><?= $ask['created_at'] ?></a><br>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <td class="" style="font-size: 15px;">Pelayanan yang dimohon</td>
+                                        <td class="" style="font-size: 15px;"><?= $ask['pelayanan_dimohon'] ?></td>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <td class="" style="font-size: 15px;">Jumlah Kendaraan</td>
+                                        <td class=""><?= $ask['jumlah_kendaraan'] ?> Unit Kendaraan</td>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <td class="" style="font-size: 15px;">Model/Jenis Kendaraan</td>
+                                        <td class=""><?= $ask['jenis_kendaraan'] ?> UNIT</td>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <td class="" style="font-size: 15px;">Kapasitas Angkutan</td>
+                                        <td class=""><?= $ask['kapasitas_angkut'] ?> Orang</td>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <td class="" style="font-size: 15px;">Wilayah Operasi</td>
+                                        <td class=""><?= $ask['wilayah_operasi'] ?> Orang</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
 
                         <div class="md-form">
-                            <input name="jumlah_kendaraan" type="number" id="form2" class="form-control" value="<?= $ask['jumlah_kendaraan'] ?>" disabled>
-                            <label for="form2">Jumlah Kendaraan</label>
-                            <div class="invalid-feedback">
-                                Jumlah Kendaraan tidak boleh kosong
+                            <div class="file-field">
+                                <a href="/img/img_surat_persetujuan/<?= $ask['img_surat_persetujuan'] ?>" target="_blank" type="button" class="btn btn-sm btn-success"><i class="fa fa-eye mr-1"></i> Lihat dokumen</a>
+                                <div class="file-path-wrapper">
+                                    <input name="img_surat_persetujuan" class="file-path validate" type="text" placeholder="Scan / Foto Surat Persetujuan Permohonanan Izin Penyelenggaraan AOTDT dari PTSP (Jelas)">
+                                </div>
+                            </div>
+                            <div class="kacili" style="margin-left:280px;">
+                                <?= $validation->getError('img_surat_persetujuan') ?>
                             </div>
                         </div>
 

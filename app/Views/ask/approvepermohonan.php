@@ -40,29 +40,45 @@
                                     ?>
                                     <?php foreach ($ask as $ran) : ?>
                                         <?php
-                                        if ($ran['status_ptsp'] == 1) {
+                                        if ($ran['status_dishub'] == 1) {
                                             $btn1 = '<a href="" class="badge badge-warning">Lakukan Verifikasi</a></a>';
-                                            $btn2 = '<a href="/ask/detailverifikasiaotdt/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-warning">Verifikasi</a>';
+                                            $btn2 = '<a href="/ask/detailverifikasidishub/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-warning">Verifikasi</a>';
                                             $btn3 = '';
+                                            $status2 = "";
                                         }
-                                        if ($ran['status_ptsp'] == 2) {
-                                            $btn1 = '<a href="" class="badge badge-success">Diterima</a>';
+                                        if ($ran['status_dishub'] == 2 && $ran['dishub_approve'] == 0) {
+                                            $btn1 = '<a href="" class="badge badge-warning">Selesai verifikasi, Menunggu Approve</a>';
                                             $btn2 = '';
-                                            $btn3 = '<a href="/ask/uploadpersetujuanptsp/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-success">Upload Persetujuan</a>';
+                                            $btn3 = '<a href="/ask/detailverifikasidishub/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-primary">Detail</a>
+                                            <a onclick="return confirm(\'Yakin Approve?\')" href="/ask/approve1/' . $ran['idask'] . '/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-success">Approve</a>
+                                           ';
+                                            if ($ran['img_permohonan']) {
+                                                $status2  = '<a href="" class="badge badge-success">File telah di upload</a>';
+                                            } else {
+                                                $status2  = '<a href="" class="badge badge-danger">File belum di upload</a>';
+                                            }
                                         }
-                                        if ($ran['status_ptsp'] == 3) {
+                                        if ($ran['status_dishub'] == 2 && $ran['dishub_approve'] == 1) {
+                                            $btn1 = '<a href="" class="badge badge-success">Diapprove</a>';
+                                            $btn2 = '';
+                                            $btn3 = '<a href="/ask/detailverifikasidishub/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-primary">Detail</a>
+                                            <a href="/ask/uploadpersetujuandishub/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-dark">Cetak</a>
+                                            <a href="/ask/uploadpersetujuandishub/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-success">Upload Persetujuan</a>';
+                                            if ($ran['img_permohonan']) {
+                                                $status2  = '<a href="" class="badge badge-success">File telah di upload</a>';
+                                            } else {
+                                                $status2  = '<a href="" class="badge badge-danger">File belum di upload</a>';
+                                            }
+                                        }
+                                        if ($ran['status_dishub'] == 3) {
                                             $btn1 = '<a href="" class="badge badge-danger">Dtolak</a>';
                                             $btn2 = '';
-                                            $btn3 = '<a href="/ask/uploadpenolakanptsp/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-danger">Upload Penolakan</a>';
-                                        }
-                                        ?>
-                                        <?php
-                                        if ($ran['img_penolakan_ptsp']) {
-                                            $status2  = '<a href="" class="badge badge-success">File telah di upload</a>';
-                                        } else if ($ran['img_persetujuan_ptsp']) {
-                                            $status2  = '<a href="" class="badge badge-success">File telah di upload</a>';
-                                        } else {
-                                            $status2  = '<a href="" class="badge badge-danger">File belum di upload</a>';
+                                            $btn3 = '<a href="/ask/uploadpenolakandishub/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-danger">Upload Penolakan</a>';
+                                            if ($ran['img_penolakan_permohonan']) {
+                                                $status2  = '<a href="" class="badge badge-success">File telah di upload</a>';
+                                            } else {
+                                                $status2  = '<a href="" class="badge badge-danger">File belum di upload</a>';
+                                            }
                                         }
                                         ?>
                                         <tr>

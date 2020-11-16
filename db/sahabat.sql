@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 15, 2020 at 12:09 PM
+-- Generation Time: Nov 16, 2020 at 02:10 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -34,10 +34,20 @@ CREATE TABLE `ask` (
   `id_koperasi` text NOT NULL,
   `ptsp` text NOT NULL,
   `status_ptsp` varchar(512) NOT NULL,
+  `ptsp_approve` int(11) NOT NULL,
   `dishub` text NOT NULL,
   `status_dishub` varchar(512) NOT NULL,
+  `dishub_approve` int(11) NOT NULL,
+  `dishub_approvve` int(11) NOT NULL,
   `pelayanan_dimohon` text NOT NULL,
   `jumlah_kendaraan` varchar(512) NOT NULL,
+  `jenis_kendaraan` text NOT NULL,
+  `kapasitas_angkut` text NOT NULL,
+  `wilayah_operasi` text NOT NULL,
+  `pengaruh` text NOT NULL,
+  `kelas_jalan` text NOT NULL,
+  `fasilitas_pool` text NOT NULL,
+  `fasilitas_perawatan` text NOT NULL,
   `img_surat_permohonan` text NOT NULL,
   `img_bukti_pengesahan` text NOT NULL,
   `img_domisili` text NOT NULL,
@@ -49,6 +59,10 @@ CREATE TABLE `ask` (
   `img_penolakan_ptsp` text DEFAULT NULL,
   `img_persetujuan_ptsp` text DEFAULT NULL,
   `img_surat_persetujuan` text NOT NULL,
+  `img_permohonan` text NOT NULL,
+  `img_penolakan_permohonan` text NOT NULL,
+  `img_penerbitan` text NOT NULL,
+  `img_penolakan_penerbitan` text NOT NULL,
   `created_at` text NOT NULL,
   `updated_at` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -57,11 +71,8 @@ CREATE TABLE `ask` (
 -- Dumping data for table `ask`
 --
 
-INSERT INTO `ask` (`id`, `slug`, `kode_registrasi`, `id_koperasi`, `ptsp`, `status_ptsp`, `dishub`, `status_dishub`, `pelayanan_dimohon`, `jumlah_kendaraan`, `img_surat_permohonan`, `img_bukti_pengesahan`, `img_domisili`, `img_pernyataan_kesanggupan`, `img_pernyataan_kerjasama`, `img_perjanjian`, `img_pemda`, `img_rencana_bisnis`, `img_penolakan_ptsp`, `img_persetujuan_ptsp`, `img_surat_persetujuan`, `created_at`, `updated_at`) VALUES
-(10, 'ksu-tetap-setia-bhayangkara', '20201114043847', '6', '1', '2', '0', '0', 'asdasd', '1', '1605350350_b69ef400eaf2e8a76599.jpeg', '1605350350_aaa3463e029324b74be0.png', '1605350350_8dc2a4abba2047477082.jpeg', '1605350350_ba9d0d86c798e1a57675.jpeg', '1605350350_cc81c1ac2646b2b86fe4.jpeg', '1605350350_1ffeb7bc08f5e2514a54.jpeg', '1605350350_9e219a1e92b5f8182959.jpeg', '1605350350_017e9cf0037d20293034.jpeg', NULL, '1605388422_b96a88a7a847472c11e4.jpg', '1605404115_937ae975c9102fec5afd.jpg', '2020-11-14 04:39:10', '2020-11-14 19:35:15'),
-(11, 'koperasi-krawang-jaya-bersama', '20201114072844', '19', '1', '3', '0', '0', 'qwe', '2', '1605360555_dd9895138b15468e5fbf.jpg', '1605360555_674226a17283ffac777e.jpg', '1605360555_efa5e5ca1a34c969f6cc.jpg', '1605360555_7e0a8417d644f7f5acd9.jpg', '1605360555_1d9b407c6d01be94cb65.jpg', '1605360555_557f53b0a63490cb0993.jpg', '1605360555_3aa595e22ed82c68e7c3.jpg', '1605360555_42c05b7135d3c0a33eeb.jpg', '1605388741_2d504bac8473ad80841a.jpeg', NULL, '', '2020-11-14 07:29:15', '2020-11-14 15:19:01'),
-(13, 'koperasi-krawang-jaya-bersama', '20201114100914', '19', '1', '2', '0', '0', 'as', '1', '1605370177_e6122a8f3fc7ac0ad7ed.jpeg', '1605370177_eb6e79c6ce6f33763980.jpeg', '1605370177_75c64ac4967165d94298.jpeg', '1605370177_1d114f85ffe325c74486.jpeg', '1605370177_5739f4ba9d1d9f468cb9.png', '1605370177_6f7879225db75db9b708.jpeg', '1605370177_3fc997371165e4e67030.jpeg', '1605370177_4955b02c76ee2bb69dd8.jpeg', NULL, '1605396623_f0b9603d5a09b0022074.jpeg', '', '2020-11-14 10:09:37', '2020-11-14 17:30:23'),
-(15, 'koperasi-krawang-jaya-bersama', '20201114172707', '19', '1', '2', '0', '0', 'asd', '1', '1605396452_9d9dca8d92b3a359302c.jpg', '1605396452_33ba56b70186513684a7.jpg', '1605396452_97e6ab54b5b44004bc37.jpg', '1605396452_46ba04d900bc78b4b777.jpg', '1605396452_d5d88d5ccae0f3c43f01.jpg', '1605396452_035b8145727a09e78ff0.jpg', '1605396452_6f864316a9535bec8411.jpg', '1605396452_4bb44e2d5bd16022b3e6.jpg', NULL, NULL, '', '2020-11-14 17:27:32', '2020-11-14 17:29:35');
+INSERT INTO `ask` (`id`, `slug`, `kode_registrasi`, `id_koperasi`, `ptsp`, `status_ptsp`, `ptsp_approve`, `dishub`, `status_dishub`, `dishub_approve`, `dishub_approvve`, `pelayanan_dimohon`, `jumlah_kendaraan`, `jenis_kendaraan`, `kapasitas_angkut`, `wilayah_operasi`, `pengaruh`, `kelas_jalan`, `fasilitas_pool`, `fasilitas_perawatan`, `img_surat_permohonan`, `img_bukti_pengesahan`, `img_domisili`, `img_pernyataan_kesanggupan`, `img_pernyataan_kerjasama`, `img_perjanjian`, `img_pemda`, `img_rencana_bisnis`, `img_penolakan_ptsp`, `img_persetujuan_ptsp`, `img_surat_persetujuan`, `img_permohonan`, `img_penolakan_permohonan`, `img_penerbitan`, `img_penolakan_penerbitan`, `created_at`, `updated_at`) VALUES
+(16, 'ksu-tetap-setia-bhayangkara', '20201115094826', '6', '1', '2', 0, '1', '2', 1, 0, 'Angkutan Sewa Khusus yang bekerjasama dengan Perusahaan Aplikasi di Bidang Transportasi Darat PT. Solusi Transportasi Indonesia (Grab)\r\n', '5', 'Minibus / Mobil Penumpang', '4', 'Kota Gorontalo dan sekitarnya', 'Mendukung Pelayanan Angkutan', 'Jalan Arteri dan Jalan Kolektor', 'Ada', ' Ada', '1605455403_70a0b7f32372acaad77e.jpeg', '1605455403_3b746415e809fabab915.jpeg', '1605455403_3d09f6eb3f4d1d3a3b86.jpeg', '1605455403_7892f7bd5fa81642fd56.jpeg', '1605455403_6da140ad98eb268df0fa.jpeg', '1605455403_866da22bd585f32227b3.jpeg', '1605455403_8d0b2936e02a5820fdc1.jpeg', '1605455403_6bcc4ee4e0d1de272bda.jpeg', NULL, '1605456254_2750e40f34bb930d7cff.jpeg', '1605456269_8f7f4206fca8cc817798.jpeg', '', '', '', '', '2020-11-15 09:50:03', '2020-11-15 10:42:14');
 
 -- --------------------------------------------------------
 
@@ -270,7 +281,12 @@ INSERT INTO `ranmor` (`id`, `ask_kode_registrasi`, `nomor_kendaraan`, `nomor_uji
 (14, '20201114072844', 'sdf', 'asd', 'asdasdasd', '1605360565_836516c2624ab88fde3d.jpg', '2020-11-14 07:29:25', '2020-11-14 07:29:25'),
 (15, '20201114072844', 'asd', 'asd', 'asd', '1605360573_b497dfcca8802d729906.jpg', '2020-11-14 07:29:33', '2020-11-14 07:29:33'),
 (17, '20201114100914', 'sda', 'asd', 'asd', '1605370550_e6c11f6d7c41f46a6a93.jpg', '2020-11-14 10:15:50', '2020-11-14 10:15:50'),
-(22, '20201114043847', '123', '123', '123', '1605402831_d1bf1d44a0ebaa956196.png', '2020-11-14 19:13:51', '2020-11-14 19:13:51');
+(23, '20201114043847', 'asd', 'asd', 'asd', '1605443634_a87c63b3190a77a0ec8d.jpeg', '2020-11-15 06:33:54', '2020-11-15 06:33:54'),
+(24, '20201115094826', 'DM 4614 AO', 'DM 4614 AO', '4', '1605456299_2238856fd87e388d5fc0.jpeg', '2020-11-15 10:04:59', '2020-11-15 10:04:59'),
+(25, '20201115094826', 'DM 1832 DB', 'DM 4614 AO', '4', '1605456313_6f0335f1298793904085.jpeg', '2020-11-15 10:05:13', '2020-11-15 10:05:13'),
+(26, '20201115094826', 'DM 1832 DB', 'DM 4614 AO', '4', '1605456324_9d4555dd6b5258ded449.jpeg', '2020-11-15 10:05:24', '2020-11-15 10:05:24'),
+(27, '20201115094826', 'DM 1832 DB', 'DM 4614 AO', '4', '1605456335_c366192784a7baf82e57.jpeg', '2020-11-15 10:05:35', '2020-11-15 10:05:35'),
+(28, '20201115094826', 'DM 1832 DB', 'DM 4614 AO', '4', '1605456362_f0acec55398bad104efa.jpeg', '2020-11-15 10:06:02', '2020-11-15 10:06:02');
 
 -- --------------------------------------------------------
 
@@ -474,7 +490,7 @@ ALTER TABLE `wilayah`
 -- AUTO_INCREMENT for table `ask`
 --
 ALTER TABLE `ask`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `jenis_permohonan`
@@ -510,7 +526,7 @@ ALTER TABLE `permohonan_kabkota`
 -- AUTO_INCREMENT for table `ranmor`
 --
 ALTER TABLE `ranmor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `trayek`
