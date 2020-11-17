@@ -59,7 +59,7 @@
                                         if ($ran['status_dishub'] == 2 && $ran['dishub_approve'] == 1) {
                                             $btn1 = '<a href="" class="badge badge-success">Diapprove</a>';
                                             $btn2 = '';
-                                            $btn3 = '<a href="/ask/uploadpersetujuandishub/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-dark">Cetak</a>
+                                            $btn3 = '<a target="_blank" href="/ask/cetakpermohonan/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-dark">Cetak</a>
                                             <a href="/ask/uploadrekomendasi/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-success">Upload Persetujuan</a>';
                                             if ($ran['img_permohonan']) {
                                                 $status2  = '<a href="" class="badge badge-success">File telah di upload</a>';

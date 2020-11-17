@@ -39,29 +39,25 @@
                                     <?php foreach ($ask as $ran) : ?>
                                         <tr>
                                             <?php
-                                            if ($ran['status_dishub'] == 0) {
-                                                $status = '<a href="" class="badge badge-warning">Lengkapi Berkas</a>';
-                                                $button = '<a href="/ask/ajukanpermohonan/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-secondary">Ajukan Permohonan <i class="fa fa-arrow-right"></i></a>';
-                                            }
-                                            if ($ran['status_dishub'] == 1) {
-                                                $status = '<a href="" class="badge badge-warning">Sedang diverifikasi oleh Dishub</a>';
+                                            if ($ran['rekompersetujuan'] == 1 && $ran['status_rekompersetujuan'] == 0) {
+                                                $status = '<a href="" class="badge badge-warning">Sedang diverifikasi oleh PTSP</a>';
                                                 $button = '';
                                             }
-                                            if ($ran['status_dishub'] == 2) {
-                                                $status = '<a href="" class="badge badge-success">Diterima</a>';
-                                                if ($ran['img_permohonan']) {
-                                                    $button = '<a target="_blank" href="/img/img_permohonan/' . $ran['img_permohonan'] . '" class="btn btn-sm btn-success">Cetak Permohonan <i class="fa fa-arrow-right"></i></a>';
-                                                } else {
-                                                    $button = '';
-                                                }
+                                            if ($ran['rekompersetujuan'] == 1 && $ran['status_rekompersetujuan'] == 1) {
+                                                $status = '<a href="" class="badge badge-warning">Lakukan Verifikasi Oleh Dishub</a>';
+                                                $button = '';
                                             }
-                                            if ($ran['status_dishub'] == 3) {
-                                                $status = '<a href="" class="badge badge-danger">Ditolak</a>';
-                                                if ($ran['img_permohonan']) {
-                                                    $button = '<a href="/ask/cetakpenolakanpermohonan/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-success">Cetak Penolakan <i class="fa fa-arrow-right"></i></a>';
-                                                } else {
-                                                    $button = '';
-                                                }
+                                            if ($ran['rekompersetujuan'] == 1 && $ran['status_rekompersetujuan'] == 2) {
+                                                $status = '<a href="" class="badge badge-warning">Menunggu approve</a>';
+                                                $button = '';
+                                            }
+                                            if ($ran['rekompersetujuan'] == 1 && $ran['status_rekompersetujuan'] == 3) {
+                                                $status = '<a href="" class="badge badge-warning">Lengkapi Berkas</a>';
+                                                $button = '<a href="/ask/lengkapiberkas/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-secondary">Ajukan Permohonan</a>';
+                                            }
+                                            if ($ran['rekompersetujuan'] == 1 && $ran['status_rekompersetujuan'] == 4) {
+                                                $status = '<a href="" class="badge badge-danger">Persetujuan Rekomendasi Dtolak</a>';
+                                                $button = '';
                                             }
                                             ?>
                                             <td><?= $i++ ?></td>

@@ -12,8 +12,8 @@
                             </p>
                         </div>
                         <div class="text-right col">
-                            <a onclick="return confirm('Apakah anda yakin?')" href="/ask/terima/<?= $ask['idask'] ?>/<?= $ask['slug'] ?>/<?= $ask['kode_registrasi'] ?>" class="btn btn-sm btn-success"> Terima <i class="fa fa-check"></i></a>
-                            <a onclick="return confirm('Apakah anda yakin melakukan penolakan?')" href="/ask/tolak/<?= $ask['idask'] ?>/<?= $ask['slug'] ?>/<?= $ask['kode_registrasi'] ?>" class="btn btn-sm btn-danger"> Tolak <i class="fa fa-ban"></i></a>
+                            <!-- <a onclick="return confirm('Apakah anda yakin?')" href="/ask/terima/<?= $ask['idask'] ?>/<?= $ask['slug'] ?>/<?= $ask['kode_registrasi'] ?>" class="btn btn-sm btn-success"> Terima <i class="fa fa-check"></i></a>
+                            <a onclick="return confirm('Apakah anda yakin melakukan penolakan?')" href="/ask/tolak/<?= $ask['idask'] ?>/<?= $ask['slug'] ?>/<?= $ask['kode_registrasi'] ?>" class="btn btn-sm btn-danger"> Tolak <i class="fa fa-ban"></i></a> -->
                         </div>
                     </div>
 
@@ -64,7 +64,7 @@
                                 <tbody>
                                     <tr>
                                         <td class="" style="font-size: 15px;">Wilayah Operasi</td>
-                                        <td class=""><?= $ask['wilayah_operasi'] ?> Orang</td>
+                                        <td class=""><?= $ask['wilayah_operasi'] ?></td>
                                     </tr>
                                 </tbody>
                             </table>

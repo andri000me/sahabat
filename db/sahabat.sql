@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 17, 2020 at 03:01 AM
+-- Generation Time: Nov 17, 2020 at 08:51 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -42,6 +42,8 @@ CREATE TABLE `ask` (
   `status_penerbitan` text NOT NULL,
   `dishub_approve` int(11) NOT NULL,
   `dishub_approvve` int(11) NOT NULL,
+  `rekompersetujuan` text NOT NULL,
+  `status_rekompersetujuan` text NOT NULL,
   `pelayanan_dimohon` text NOT NULL,
   `jumlah_kendaraan` varchar(512) NOT NULL,
   `jenis_kendaraan` text NOT NULL,
@@ -71,6 +73,13 @@ CREATE TABLE `ask` (
   `created_at` text NOT NULL,
   `updated_at` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `ask`
+--
+
+INSERT INTO `ask` (`id`, `slug`, `kode_registrasi`, `id_koperasi`, `ptsp`, `status_ptsp`, `ptsp_approve`, `dishub`, `status_dishub`, `penerbitan`, `ptsp_penerbitan`, `status_penerbitan`, `dishub_approve`, `dishub_approvve`, `rekompersetujuan`, `status_rekompersetujuan`, `pelayanan_dimohon`, `jumlah_kendaraan`, `jenis_kendaraan`, `kapasitas_angkut`, `wilayah_operasi`, `pengaruh`, `kelas_jalan`, `fasilitas_pool`, `fasilitas_perawatan`, `img_surat_permohonan`, `img_bukti_pengesahan`, `img_domisili`, `img_pernyataan_kesanggupan`, `img_pernyataan_kerjasama`, `img_perjanjian`, `img_pemda`, `img_rencana_bisnis`, `img_penolakan_ptsp`, `img_persetujuan_ptsp`, `img_surat_persetujuan`, `img_permohonan`, `img_penolakan_permohonan`, `img_penerbitan`, `img_penolakan_penerbitan`, `img_izin`, `img_penolakan_izin`, `created_at`, `updated_at`) VALUES
+(19, 'ksu-tetap-setia-bhayangkara', '20201117003941', '6', '1', '1', 0, '0', '0', '0', 0, '0', 0, 0, '1', '3', 'a', '2', 'a', '2', 'a', 'a', 'a', 'Ada', ' Ada', '1605595417_f415f119b96f3c96aa9e.jpg', '1605595417_2e5c9abaa543f4b645cd.jpg', '1605595417_0d444a15b160e05f5ad9.jpg', '1605595417_8994ad8c6688b48b5905.jpg', '1605595417_d83cbf6fc601db175ff6.jpg', '1605595417_92e1ec4b3835d40cd92b.jpg', '1605595417_f28ba2f5b9cd53723cb8.jpg', '1605595417_821484a1df5fffb5ef90.jpg', NULL, NULL, '', '', '', '', '', '', '', '2020-11-17 00:43:37', '2020-11-17 01:31:10');
 
 -- --------------------------------------------------------
 
@@ -239,6 +248,14 @@ CREATE TABLE `ranmor` (
   `created_at` varchar(512) NOT NULL,
   `updated_at` varchar(512) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `ranmor`
+--
+
+INSERT INTO `ranmor` (`id`, `ask_kode_registrasi`, `nomor_kendaraan`, `nomor_uji`, `kapasitas`, `img_ranmor`, `created_at`, `updated_at`) VALUES
+(30, '20201116233228', 'DM1234AS', 'DB.123.SDS.12', '4', '1605591709_fb196e8d6c4c9a1c8fdb.jpeg', '2020-11-16 23:41:49', '2020-11-16 23:41:49'),
+(31, '20201116233228', 'DM1234AS', 'DB.123.SDS.12', '4', '1605591815_b978127193063cc192a7.jpeg', '2020-11-16 23:43:35', '2020-11-16 23:43:35');
 
 -- --------------------------------------------------------
 
@@ -442,7 +459,7 @@ ALTER TABLE `wilayah`
 -- AUTO_INCREMENT for table `ask`
 --
 ALTER TABLE `ask`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `jenis_permohonan`
@@ -478,7 +495,7 @@ ALTER TABLE `permohonan_kabkota`
 -- AUTO_INCREMENT for table `ranmor`
 --
 ALTER TABLE `ranmor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `trayek`

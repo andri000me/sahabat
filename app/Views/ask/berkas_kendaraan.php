@@ -2,14 +2,14 @@
 <?= $this->section('content'); ?>
 <div class="container-fluid">
 
-    <div class="row" style="margin-top: -4px;">
-        <div class="col success-color text-white text-center py-2" style="border: 1px solid white;">
-            <a href="/ask/ajukanpermohonan/<?= $ask['slug'] ?>/<?= $ask['kode_registrasi'] ?>" class="text-white"> Upload Berkas</a>
-        </div>
-        <div class="col success-color-dark text-white text-center py-2" style="border: 1px solid white;">
-            <a href="#" class="text-white"> Berkas Kendaraan</a>
-        </div>
-    </div>
+    <!--<div class="row" style="margin-top: -4px;">-->
+    <!--    <div class="col success-color text-white text-center py-2" style="border: 1px solid white;">-->
+    <!--        <a href="/ask/ajukanpermohonan/<?= $ask['slug'] ?>/<?= $ask['kode_registrasi'] ?>" class="text-white"> Upload Berkas</a>-->
+    <!--    </div>-->
+    <!--    <div class="col success-color-dark text-white text-center py-2" style="border: 1px solid white;">-->
+    <!--        <a href="#" class="text-white"> Berkas Kendaraan</a>-->
+    <!--    </div>-->
+    <!--</div>-->
 
     <div class="row mb-5 wow fadeInRight">
         <div class="col-sm-12 mb-3 mb-md-0">
