@@ -547,6 +547,8 @@ class AskModel extends model
             user.alamat,
             user.nama_perusahaan,
             user.nama_direktur');
+            $this->where('ask.rekompersetujuan', 1);
+            $this->where('ask.img_persetujuan_ptsp IS NOT NULL');
             $this->where(['ask.id_koperasi' => $id]);
             $this->join('user', 'ask.id_koperasi = user.id');
             $query = $this->findAll();
@@ -600,6 +602,8 @@ class AskModel extends model
             user.alamat,
             user.nama_perusahaan,
             user.nama_direktur');
+            $this->where('ask.rekompersetujuan', 1);
+            $this->where('ask.img_persetujuan_ptsp IS NOT NULL');
             $this->where(['ask.id_koperasi' => $id]);
             $this->where(['ask.kode_registrasi' => $kode_registrasi]);
             $this->join('user', 'ask.id_koperasi = user.id');
@@ -660,7 +664,8 @@ class AskModel extends model
             user.nama_perusahaan,
             user.nama_direktur');
             $this->where(['ask.id_koperasi' => $id]);
-            $this->where('ask.penerbitan', 1);
+            $this->where('ask.rekompersetujuan', 1);
+            $this->where('ask.img_persetujuan_ptsp IS NOT NULL');
             $this->join('user', 'ask.id_koperasi = user.id');
             $query = $this->findAll();
             return $query;
@@ -714,7 +719,123 @@ class AskModel extends model
             user.nama_perusahaan,
             user.nama_direktur');
             $this->where(['ask.id_koperasi' => $id]);
-            $this->where('ask.penerbitan', 1);
+            $this->where('ask.rekompersetujuan', 1);
+            $this->where('ask.img_persetujuan_ptsp IS NOT NULL');
+            $this->where(['ask.kode_registrasi' => $kode_registrasi]);
+            $this->join('user', 'ask.id_koperasi = user.id');
+            $query = $this->first();
+            return $query;
+        }
+    }
+
+
+    public function getAskDishubVerifikasi($kode_registrasi = false)
+    {
+        if ($kode_registrasi == false) {
+            $this->db->table('ask');
+            $this->select('
+            ask.id as idask,
+            ask.slug,
+            ask.kode_registrasi, 
+            ask.ptsp, 
+            ask.status_ptsp, 
+            ask.dishub, 
+            ask.status_dishub, 
+            ask.ptsp_approve, 
+            ask.dishub_approve,
+            ask.penerbitan,
+            ask.status_penerbitan,
+            ask.ptsp_penerbitan, 
+            ask.rekompersetujuan, 
+            ask.status_rekompersetujuan, 
+            ask.pelayanan_dimohon, 
+            ask.jumlah_kendaraan, 
+            ask.jenis_kendaraan,
+            ask.kapasitas_angkut,
+            ask.wilayah_operasi,
+            ask.pengaruh,
+            ask.kelas_jalan,
+            ask.fasilitas_pool,
+            ask.fasilitas_perawatan,
+            ask.img_surat_permohonan, 
+            ask.img_bukti_pengesahan, 
+            ask.img_domisili, 
+            ask.img_pernyataan_kesanggupan, 
+            ask.img_pernyataan_kerjasama, 
+            ask.img_perjanjian, 
+            ask.img_pemda, 
+            ask.img_rencana_bisnis, 
+            ask.img_penolakan_ptsp, 
+            ask.img_persetujuan_ptsp, 
+            ask.img_surat_persetujuan, 
+            ask.img_surat_persetujuan, 
+            ask.img_permohonan, 
+            ask.img_penolakan_permohonan, 
+            ask.img_penerbitan, 
+            ask.img_penolakan_penerbitan,
+            ask.img_izin,
+            ask.img_penolakan_izin,
+            ask.created_at, 
+            ask.updated_at,
+            user.alamat,
+            user.nama_perusahaan,
+            user.nama_direktur');
+            $this->where('ask.rekompersetujuan', 1);
+            $this->where('ask.img_persetujuan_ptsp IS NOT NULL');
+            $this->join('user', 'ask.id_koperasi = user.id');
+            $query = $this->findAll();
+            return $query;
+        } else {
+            $this->db->table('ask');
+            $this->select('
+            ask.id as idask,
+            ask.slug,
+            ask.kode_registrasi, 
+            ask.ptsp, 
+            ask.status_ptsp, 
+            ask.dishub, 
+            ask.status_dishub, 
+            ask.ptsp_approve, 
+            ask.dishub_approve,
+            ask.penerbitan,
+            ask.status_penerbitan,
+            ask.ptsp_penerbitan, 
+            ask.rekompersetujuan, 
+            ask.status_rekompersetujuan, 
+            ask.pelayanan_dimohon, 
+            ask.jumlah_kendaraan, 
+            ask.jenis_kendaraan,
+            ask.kapasitas_angkut,
+            ask.wilayah_operasi,
+            ask.pengaruh,
+            ask.kelas_jalan,
+            ask.fasilitas_pool,
+            ask.fasilitas_perawatan,
+            ask.img_surat_permohonan, 
+            ask.img_bukti_pengesahan, 
+            ask.img_domisili, 
+            ask.img_pernyataan_kesanggupan, 
+            ask.img_pernyataan_kerjasama, 
+            ask.img_perjanjian, 
+            ask.img_pemda, 
+            ask.img_rencana_bisnis, 
+            ask.img_penolakan_ptsp, 
+            ask.img_persetujuan_ptsp, 
+            ask.img_surat_persetujuan, 
+            ask.img_surat_persetujuan, 
+            ask.img_permohonan, 
+            ask.img_penolakan_permohonan, 
+            ask.img_penerbitan, 
+            ask.img_penolakan_penerbitan,
+            ask.img_izin,
+            ask.img_penolakan_izin,
+            ask.created_at, 
+            ask.updated_at,
+            user.alamat,
+            user.nama_perusahaan,
+            user.nama_direktur');
+            $this->where('ask.rekompersetujuan', 1);
+            $this->where('ask.img_persetujuan_ptsp IS NOT NULL');
             $this->where(['ask.kode_registrasi' => $kode_registrasi]);
             $this->join('user', 'ask.id_koperasi = user.id');
             $query = $this->first();
@@ -773,8 +894,7 @@ class AskModel extends model
             user.alamat,
             user.nama_perusahaan,
             user.nama_direktur');
-            $this->where('ask.penerbitan', 1);
-            $this->where('ask.ptsp_penerbitan', 1);
+            $this->where('ask.rekompersetujuan', 1);
             $this->join('user', 'ask.id_koperasi = user.id');
             $query = $this->findAll();
             return $query;
@@ -827,8 +947,7 @@ class AskModel extends model
             user.alamat,
             user.nama_perusahaan,
             user.nama_direktur');
-            $this->where('ask.penerbitan', 1);
-            $this->where('ask.ptsp_penerbitan', 1);
+            $this->where('ask.rekompersetujuan', 1);
             $this->where(['ask.kode_registrasi' => $kode_registrasi]);
             $this->join('user', 'ask.id_koperasi = user.id');
             $query = $this->first();

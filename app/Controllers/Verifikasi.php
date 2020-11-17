@@ -7,6 +7,7 @@ use App\Models\LoginModel;
 use App\Models\MsgPenolakanModel;
 use App\Models\JenisPermohonanModel;
 use App\Models\TrayekModel;
+use App\Models\KoperasiModel;
 use chillerlan\QRCode\QRCode;
 
 
@@ -18,6 +19,7 @@ class Verifikasi extends BaseController
     protected $msgPenolakanModel;
     protected $jenisPermohonanModel;
     protected $trayekModel;
+    protected $koperasiModel;
 
     public function __construct()
     {
@@ -26,6 +28,7 @@ class Verifikasi extends BaseController
         $this->loginModel = new LoginModel();
         $this->jenisPermohonanModel = new JenisPermohonanModel();
         $this->trayekModel = new TrayekModel();
+        $this->koperasiModel = new KoperasiModel();
         $this->session = session();
         $this->user = $this->loginModel->where('email', $this->session->get('email'))->first();
     }
@@ -48,6 +51,34 @@ class Verifikasi extends BaseController
                 'session' => $this->user
             ];
             return view('verifikasi/rekomendasi', $data);
+        } else {
+            return view('blank');
+        }
+    }
+
+    public function verifikasiptsp()
+    {
+        if ($this->user) {
+            $data = [
+                'title' => 'Data Permohonan',
+                'permohonan' => $this->verifikasiModel->getRekomendasiVerifikasi(),
+                'session' => $this->user
+            ];
+            return view('verifikasi/verifikasiptsp', $data);
+        } else {
+            return view('blank');
+        }
+    }
+
+    public function approverekomendasi()
+    {
+        if ($this->user) {
+            $data = [
+                'title' => 'Data Permohonan',
+                'permohonan' => $this->verifikasiModel->getRekomendasiVerifikasi(),
+                'session' => $this->user
+            ];
+            return view('verifikasi/approverekomendasi', $data);
         } else {
             return view('blank');
         }
@@ -79,13 +110,28 @@ class Verifikasi extends BaseController
         $data = [
             'title' => 'Detail Data Permohonan',
             'detail' => $this->verifikasiModel->getRekomendasi($id),
-            // 'jenis' => $this->jenisPermohonanModel->getJenisPermohonan($kdp),
             'trayek' => $this->trayekModel->getTrayek($kdt),
             'session' => $this->user,
             'validation' => \Config\Services::validation(),
 
         ];
         return view('rekomendasi/uploadIzinTrayek', $data);
+    }
+
+    public function uploadpengantarptsp($id, $ids)
+    {
+        session();
+        $asal = $this->koperasiModel->where('id', $ids)->first();
+        $kdt = $asal['trayek_dilayani'];
+        $data = [
+            'title' => 'Detail Data Permohonan',
+            'detail' => $this->verifikasiModel->getRekomendasi($id),
+            'trayek' => $this->trayekModel->getTrayek($kdt),
+            'session' => $this->user,
+            'validation' => \Config\Services::validation(),
+
+        ];
+        return view('verifikasi/uploadpengantarptsp', $data);
     }
 
     public function cetakKP($id, $kdp, $kdt)
@@ -109,11 +155,13 @@ class Verifikasi extends BaseController
         ];
         return view('verifikasi/cetakKP', $data);
     }
-    public function detail($kd)
+
+    public function details($id, $tr)
     {
         $data = [
             'title' => 'Detail Data Permohonan',
-            'detail' => $this->verifikasiModel->getRekomendasi($kd),
+            'detail' => $this->verifikasiModel->getRekomendasi($id),
+            'at' => $this->koperasiModel->getKoperasiVer($tr),
             'session' => $this->user
         ];
         return view('verifikasi/detailRekomendasi', $data);
@@ -141,13 +189,15 @@ class Verifikasi extends BaseController
 
         // quick and simple:
         $qrcode = '<img width="150" src="' . (new QRCode)->render($qr) . '" alt="QR Code" />';
+        $at = $this->koperasiModel->getKoperasiVer($kdt);
+        $kode_trayek = $at['trayek_dilayani'];
 
         $data = [
             'title' => 'Cetak Permohonan',
             'detail' => $this->verifikasiModel->getRekomendasi($kd),
             'count' => $this->verifikasiModel->getRekomendasi(),
             'jenis' => $this->jenisPermohonanModel->getJenisPermohonan($kdp),
-            'trayek' => $this->trayekModel->getTrayek($kdt),
+            'trayek' => $this->trayekModel->getTrayek($kode_trayek),
             'session' => $this->user,
             'qrq' => $qrcode
         ];
@@ -210,6 +260,50 @@ class Verifikasi extends BaseController
         return redirect()->to('/rekomendasi/rekomendasi/');
     }
 
+    public function saveuploadpengantarptsp()
+    {
+
+        $img_pengantar_ptsp = $this->request->getFile('img_pengantar_ptsp');
+        $kode_booking = $this->request->getVar('kode_booking');
+        $jenis_permohonan = $this->request->getVar('jenis_permohonan');
+        $trayek_dilayani = $this->request->getVar('trayek_dilayani');
+
+        if (!$this->validate([
+            'img_pengantar_ptsp' => [
+                'rules' => 'uploaded[img_pengantar_ptsp]|max_size[img_pengantar_ptsp,1024]|is_image[img_pengantar_ptsp]|mime_in[img_pengantar_ptsp,image/jpg,image/jpeg,image/png]',
+                'errors' => [
+                    'uploaded' => 'Pilih gambar dokumen terlebih dahulu',
+                    'max_size' => 'Ukuran gambar terlalu besar (Maksimal 1Mb)',
+                    'is_image' => 'Ini bukan gambar',
+                    'mime_in' => 'Ini bukan gambar'
+                ]
+            ],
+        ])) {
+            return redirect()->to('/verifikasi/uploadIzinTrayek/' . $kode_booking . '/' . $jenis_permohonan . '/' . $trayek_dilayani . '')->withInput();
+        }
+
+        if ($img_pengantar_ptsp) {
+
+            if ($img_pengantar_ptsp->getError() == 4) {
+                $nama_img_pengantar_ptsp = $this->request->getVar('img_pengantar_ptsp_lama');
+            } else {
+                $nama_img_pengantar_ptsp = $img_pengantar_ptsp->getRandomName();
+                $img_pengantar_ptsp->move('img/img_pengantar_ptsp', $nama_img_pengantar_ptsp);
+                if ($this->request->getVar('img_pengantar_ptsp_lama')) {
+                    unlink('img/img_pengantar_ptsp/' . $this->request->getVar('img_pengantar_ptsp_lama'));
+                } else {
+                }
+            }
+        }
+        $this->verifikasiModel->save([
+            'id' => $this->request->getVar('id'),
+            'img_pengantar_ptsp' => $nama_img_pengantar_ptsp,
+        ]);
+
+        session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Berhasil Di Upload</div>');
+        return redirect()->to('/verifikasi/verifikasiptsp/');
+    }
+
     public function tolak($id)
     {
         $this->msgPenolakanModel->save([
@@ -235,5 +329,83 @@ class Verifikasi extends BaseController
 
         session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data berhasil dikirim, mengunngu verivikasi</div>');
         return redirect()->to('/verifikasi/terverifikasi/');
+    }
+
+    public function terimaptsp($id)
+    {
+        $this->verifikasiModel->save([
+            'id' => $id,
+            'status_verifikasi' => 1,
+        ]);
+
+        session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data berhasil dikirim, mengunngu verivikasi</div>');
+        return redirect()->to('/verifikasi/verifikasiptsp/');
+    }
+    public function tolakptsp($id, $idasal)
+    {
+        $this->verifikasiModel->save([
+            'id' => $id,
+            'status_verifikasi' => 4,
+        ]);
+
+        $this->koperasiModel->save([
+            'id' => $idasal,
+            'used' => 0,
+        ]);
+
+        session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data berhasil dikirim, mengunngu verivikasi</div>');
+        return redirect()->to('/verifikasi/verifikasiptsp/');
+    }
+
+    public function terimaverifikator($id)
+    {
+        $this->verifikasiModel->save([
+            'id' => $id,
+            'status_verifikasi' => 2,
+        ]);
+
+        session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data berhasil dikirim, mengunngu verivikasi</div>');
+        return redirect()->to('/verifikasi/rekomendasi/');
+    }
+    public function tolakverifikator($id, $idasal)
+    {
+        $this->verifikasiModel->save([
+            'id' => $id,
+            'status_verifikasi' => 4,
+        ]);
+
+        $this->koperasiModel->save([
+            'id' => $idasal,
+            'used' => 0,
+        ]);
+
+        session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data berhasil dikirim, mengunngu verivikasi</div>');
+        return redirect()->to('/verifikasi/rekomendasi/');
+    }
+
+    public function saveapprove($id)
+    {
+        $this->verifikasiModel->save([
+            'id' => $id,
+            'status_verifikasi' => 3,
+        ]);
+
+        session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data berhasil dikirim, mengunngu verivikasi</div>');
+        return redirect()->to('/verifikasi/approverekomendasi/');
+    }
+    public function tolaksaveapprove($id, $idasal)
+    {
+        $this->verifikasiModel->save([
+            'id' => $id,
+            'status_verifikasi' => 4,
+        ]);
+
+        $this->koperasiModel->save([
+            'id' => $idasal,
+            'used' => 0,
+        ]);
+
+        session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data berhasil dikirim, mengunngu verivikasi</div>');
+        return redirect()->to('/verifikasi/approverekomendasi/');
     }
 }

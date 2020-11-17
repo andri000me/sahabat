@@ -24,7 +24,7 @@
             <ul class="stepper stepper-horizontal">
 
                 <?php
-                if ($step5['img_surat_permohonan'] && $step5['img_pengantar_ptsp'] && $step5['tgl_permohonan'] && $step5['nama_pemohon'] && $step5['jenis_permohonan']) {
+                if ($step5['img_surat_permohonan'] && $step5['tgl_permohonan'] && $step5['nama_pemohon'] && $step5['jenis_permohonan']) {
                     $complete = "completed";
                 } else {
                     $complete = "";
@@ -38,7 +38,7 @@
                 </li>
 
                 <?php
-                if ($step5['img_trayek'] && $step5['img_trayek_tujuan'] && $step5['trayek_dilayani']) {
+                if ($step5['trayek_dilayani']) {
                     $complete = "completed";
                 } else {
                     $complete = "";

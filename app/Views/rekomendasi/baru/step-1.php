@@ -75,21 +75,6 @@
                             <div class="file-field">
                                 <div class="btn btn-primary btn-sm float-left">
                                     <span><i class="fa fa-image mr-1"></i> Pilih File Dokumen</span>
-                                    <input type="file" name="img_pengantar_ptsp" id="uploadImage">
-                                </div>
-                                <div class="file-path-wrapper">
-                                    <input name="img_pengantar_ptsp" class="file-path validate" type="text" placeholder="Surat Pengantar dai PTSP">
-                                </div>
-                            </div>
-                            <div class="kacili" style="margin-left:160px;">
-                                <?= $validation->getError('img_pengantar_ptsp') ?>
-                            </div>
-                        </div>
-
-                        <div class="md-form">
-                            <div class="file-field">
-                                <div class="btn btn-primary btn-sm float-left">
-                                    <span><i class="fa fa-image mr-1"></i> Pilih File Dokumen</span>
                                     <input type="file" name="img_permohonan" id="uploadImage">
                                 </div>
                                 <div class="file-path-wrapper">
@@ -100,11 +85,6 @@
                                 <?= $validation->getError('img_permohonan') ?>
                             </div>
                         </div>
-
-                        <!-- <div class="md-form">
-                            <img id="uploadPreview" src="<?= base_url(); ?>/assets/img/foto/default.png" style="width:250px;" alt="IMG">
-                            <label for="form1"></label>
-                        </div> -->
 
                         <div class="md-form mt-5">
                             <input name="tgl_permohonan" placeholder="Tanggal Permohonan" type="text" id="date-picker-example" class="form-control datepicker" required value="<?= old('tgl_permohonan') ?>">

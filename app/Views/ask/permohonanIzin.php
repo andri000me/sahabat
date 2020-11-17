@@ -39,25 +39,63 @@
                                     <?php foreach ($ask as $ran) : ?>
                                         <tr>
                                             <?php
-                                            if ($ran['rekompersetujuan'] == 1 && $ran['status_rekompersetujuan'] == 0) {
-                                                $status = '<a href="" class="badge badge-warning">Sedang diverifikasi oleh PTSP</a>';
+                                            if ($ran['rekompersetujuan'] == 1 && $ran['status_rekompersetujuan'] == 0 && $ran['status_penerbitan'] == 0) {
+                                                $status = '<a href="" class="badge badge-warning">Sedang Diverifikasi oleh PTSP</a>';
                                                 $button = '';
+                                                $btn3 = '';
                                             }
-                                            if ($ran['rekompersetujuan'] == 1 && $ran['status_rekompersetujuan'] == 1) {
-                                                $status = '<a href="" class="badge badge-warning">Lakukan Verifikasi Oleh Dishub</a>';
+                                            if ($ran['rekompersetujuan'] == 1 && $ran['status_rekompersetujuan'] == 1 && $ran['status_penerbitan'] == 0) {
+                                                $status = '<a href="" class="badge badge-warning">Sedang Di Verifikasi oleh Dishub</a></a>';
                                                 $button = '';
+                                                $btn3 = '';
                                             }
-                                            if ($ran['rekompersetujuan'] == 1 && $ran['status_rekompersetujuan'] == 2) {
+                                            if ($ran['rekompersetujuan'] == 1 && $ran['status_rekompersetujuan'] == 2 && $ran['status_penerbitan'] == 0) {
                                                 $status = '<a href="" class="badge badge-warning">Menunggu approve</a>';
                                                 $button = '';
+                                                $btn3 = '';
                                             }
-                                            if ($ran['rekompersetujuan'] == 1 && $ran['status_rekompersetujuan'] == 3) {
-                                                $status = '<a href="" class="badge badge-warning">Lengkapi Berkas</a>';
-                                                $button = '<a href="/ask/lengkapiberkas/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-secondary">Ajukan Permohonan</a>';
+                                            if ($ran['rekompersetujuan'] == 1 && $ran['status_rekompersetujuan'] == 3 && $ran['status_penerbitan'] == 0) {
+                                                $status = '<a href="" class="badge badge-warning">Lengkapi Berkas Kendaraan</a>';
+                                                $button = '<a href="/ask/lengkapiberkas/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-secondary">Ajukan Permohonan Penerbitan Izin <i class="fa fa-arrow-right"></i> </a>';
+                                                $btn3 = '';
                                             }
-                                            if ($ran['rekompersetujuan'] == 1 && $ran['status_rekompersetujuan'] == 4) {
-                                                $status = '<a href="" class="badge badge-danger">Persetujuan Rekomendasi Dtolak</a>';
+                                            if ($ran['rekompersetujuan'] == 1 && $ran['status_rekompersetujuan'] == 4 && $ran['status_penerbitan'] == 0) {
+                                                $status = '<a href="" class="badge badge-danger">Dtolak</a>';
                                                 $button = '';
+                                                $btn3 = '<a href="/ask/uploadpenolakanptsp/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-danger">Cetak Penolakan</a>';
+                                            }
+                                            if ($ran['rekompersetujuan'] == 1 && $ran['status_rekompersetujuan'] == 3 && $ran['status_penerbitan'] == 1) {
+                                                $status = '<a href="" class="badge badge-warning">Sedang Di Verifikasi oleh PTSP</a></a>';
+                                                $button = '';
+                                                $btn3 = '';
+                                            }
+                                            if ($ran['rekompersetujuan'] == 1 && $ran['status_rekompersetujuan'] == 3 && $ran['status_penerbitan'] == 2) {
+                                                $status = '<a href="" class="badge badge-warning">Sedang Di Verifikasi oleh Dishub</a></a>';
+                                                $button = '';
+                                                $btn3 = '';
+                                            }
+                                            if ($ran['rekompersetujuan'] == 1 && $ran['status_rekompersetujuan'] == 3 && $ran['status_penerbitan'] == 3) {
+                                                $status = '<a href="" class="badge badge-warning">Menunggu Approve</a></a>';
+                                                $button = '';
+                                                $btn3 = '';
+                                            }
+                                            if ($ran['rekompersetujuan'] == 1 && $ran['status_rekompersetujuan'] == 3 && $ran['status_penerbitan'] == 4) {
+                                                $status = '<a href="" class="badge badge-success">Diapprove</a></a>';
+                                                $button = '<a href="/ask/lengkapiberkas/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-secondary">Cetak Rekomendasi Penerbitan <i class="fa fa-arrow-right"></i> </a>';
+                                                if ($ran['img_izin']) {
+                                                    $btn3 = '<a href="/ask/lengkapiberkas/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-success">Cetak Izin AOTDT <i class="fa fa-print"></i> </a>';
+                                                } else {
+                                                    $btn3 = "";
+                                                }
+                                            }
+                                            if ($ran['rekompersetujuan'] == 1 && $ran['status_rekompersetujuan'] == 3 && $ran['status_penerbitan'] == 5) {
+                                                $status = '<a href="" class="badge badge-danger">Ditolak</a></a>';
+                                                $button = '<a href="/ask/lengkapiberkas/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-secondary">Cetak Rekomendasi Penerbitan <i class="fa fa-arrow-right"></i> </a>';
+                                                if ($ran['img_izin']) {
+                                                    $btn3 = '<a href="/ask/lengkapiberkas/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-danger">Cetak Penolakan Izin AOTDT <i class="fa fa-print"></i> </a>';
+                                                } else {
+                                                    $btn3 = "";
+                                                }
                                             }
                                             ?>
                                             <td><?= $i++ ?></td>

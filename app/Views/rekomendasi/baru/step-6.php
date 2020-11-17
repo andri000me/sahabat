@@ -24,7 +24,7 @@
             <ul class="stepper stepper-horizontal">
 
                 <?php
-                if ($step6['img_surat_permohonan'] && $step6['img_pengantar_ptsp'] && $step6['tgl_permohonan'] && $step6['nama_pemohon'] && $step6['jenis_permohonan']) {
+                if ($step6['img_surat_permohonan'] && $step6['tgl_permohonan'] && $step6['nama_pemohon'] && $step6['jenis_permohonan']) {
                     $complete = "completed";
                 } else {
                     $complete = "";
@@ -38,7 +38,7 @@
                 </li>
 
                 <?php
-                if ($step6['img_trayek'] && $step6['img_trayek_tujuan'] && $step6['trayek_dilayani']) {
+                if ($step6['trayek_dilayani']) {
                     $complete = "completed";
                 } else {
                     $complete = "";
@@ -131,17 +131,17 @@
 
                     </form>
 
-                    <form id="s5form" method="POST" class="needs-validation md-form text-left" style="color: #757575;" action="/rekomendasi/finish/<?= $step6['idpermohonan'] ?>" enctype="multipart/form-data" novalidate>
+                    <form id="s5form" method="POST" class="needs-validation md-form text-left" style="color: #757575;" action="/rekomendasi/finish/<?= $step6['idpermohonan'] ?>/<?= $step6['trayek_dilayani'] ?>" enctype="multipart/form-data" novalidate>
                         <div class="buttons mt-5">
                             <?php
-                            if ($step6['tgl_permohonan'] && $step6['nama_pemohon'] && $step6['jenis_permohonan'] && $step6['trayek_dilayani'] && $step6['nomor_kendaraan'] && $step6['nama_pemilik'] && $step6['alamat_pemilik'] && $step6['jenis_kendaraan'] && $step6['tahun_pembuatan'] && $step6['nomor_kir'] && $step6['kapasitas_angkutan'] && $step6['uji_berkala_berlaku'] && $step6['stnkb_berlaku'] && $step6['pkb_berlaku'] && $step6['jasa_raharja_berlaku'] && $step6['img_surat_permohonan'] && $step6['img_pengantar_ptsp']  && $step6['img_trayek'] && $step6['img_stnkb_pkb'] && $step6['img_kir'] && $step6['img_jasa_raharja'] && $step6['img_surat_pernyataan']) {
+                            if ($step6['tgl_permohonan'] && $step6['nama_pemohon'] && $step6['jenis_permohonan'] && $step6['trayek_dilayani'] && $step6['nomor_kendaraan'] && $step6['nama_pemilik'] && $step6['alamat_pemilik'] && $step6['jenis_kendaraan'] && $step6['tahun_pembuatan'] && $step6['nomor_kir'] && $step6['kapasitas_angkutan'] && $step6['uji_berkala_berlaku'] && $step6['stnkb_berlaku'] && $step6['pkb_berlaku'] && $step6['jasa_raharja_berlaku'] && $step6['img_surat_permohonan'] && $step6['img_stnkb_pkb'] && $step6['img_kir'] && $step6['img_jasa_raharja'] && $step6['img_surat_pernyataan']) {
                                 $class = 'class="btn btn-md btn-success"';
                             } else {
                                 $class = 'class="btn btn-md btn-light" disabled';
                             }
                             ?>
                             <button type="button" class="btn btn-md btn-dark"><i class="fa fa-arrow-left mr-1"></i> Sebelumnya</button>
-                            <button type="submit button" <?= $class ?>>Finish <i class="fa fa-check ml-1"></i></button>
+                            <a onclick="return confirm('Apakah anda yakin ?')" href="/rekomendasi/finish/<?= $step6['idpermohonan'] ?>/<?= $step6['trayek_dilayani'] ?>" type="submit button" <?= $class ?>>Finish <i class="fa fa-check ml-1"></i></a>
                         </div>
                     </form>
                 </div>

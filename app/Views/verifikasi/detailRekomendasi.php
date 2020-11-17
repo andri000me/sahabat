@@ -1,13 +1,13 @@
 <?= $this->extend('layout/templatel') ?>
 <?= $this->section('content'); ?>
-<div class="container">
+<div class="container-fluid">
     <!-- <div class="judul pl-4 wow fadeInLeft"><i class="fa fa-eye mr-2"></i> Detail data rekomendasi</div> -->
 
     <div class="row mb-5 wow fadeInRight">
         <div class="col-sm-12 mb-3 mb-md-0">
             <div class="cards px-4 pt-3">
                 <div class="card-body">
-                    <div class="container">
+                    <div class="container-fluid">
 
                         <div class="row mb-5">
                             <div class="col-md-8">
@@ -16,8 +16,8 @@
                             </div>
 
                             <div class="col text-right">
-                                <a href="/verifikasi/terima/<?= $detail['idpermohonan'] ?>" type="btn" class="ml-auto btn btn-sm btn-success"><i class="fa fa-check"></i> Terima</a>
-                                <a data-toggle="modal" data-target="#modalContactForm" type="btn" class="ml-auto btn btn-sm btn-danger"><i class="fa fa-ban"></i> Tolak</a>
+                                <!-- <a href="/verifikasi/terima/<?= $detail['idpermohonan'] ?>" type="btn" class="ml-auto btn btn-sm btn-success"><i class="fa fa-check"></i> Terima</a>
+                                <a data-toggle="modal" data-target="#modalContactForm" type="btn" class="ml-auto btn btn-sm btn-danger"><i class="fa fa-ban"></i> Tolak</a> -->
                             </div>
                             </form>
 
@@ -184,12 +184,12 @@
                                 <tr>
                                     <th scope="row">7</th>
                                     <td>Rekomendasi Asal Trayek </td>
-                                    <td><a href="/img/img_trayek/<?= $detail['img_trayek'] ?>" target="_blank" type="btn" class="ml-auto btn btn-sm btn-cyan"><i class="fa fa-eye"></i> Lihat Dokumen</a></td>
+                                    <td><a href="/img/img_rekomendasi/<?= $at['img_rekomendasi_asal'] ?>" target="_blank" type="btn" class="ml-auto btn btn-sm btn-cyan"><i class="fa fa-eye"></i> Lihat Dokumen</a></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">7</th>
                                     <td>Rekomendasi Tujuan Trayek </td>
-                                    <td><a href="/img/img_trayek_tujuan/<?= $detail['img_trayek_tujuan'] ?>" target="_blank" type="btn" class="ml-auto btn btn-sm btn-cyan"><i class="fa fa-eye"></i> Lihat Dokumen</a></td>
+                                    <td><a href="/img/img_rekomendasi/<?= $at['img_rekomendasi_tujuan'] ?>" target="_blank" type="btn" class="ml-auto btn btn-sm btn-cyan"><i class="fa fa-eye"></i> Lihat Dokumen</a></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">8</th>

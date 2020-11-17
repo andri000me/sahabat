@@ -55,8 +55,12 @@
                                         }
                                         if ($ran['rekompersetujuan'] == 1 && $ran['status_rekompersetujuan'] == 3) {
                                             $status = '<a href="" class="badge badge-success">Diapprove</a>';
-                                            $btn2 = '';
-                                            $btn3 = '<a href="/ask/uploadpenolakanptsp/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-success">Cetak Persetujuan Izin</a>';
+                                            $btn2 = '<a target="_blank" href="/ask/cetakpermohonan/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-dark">Cetak Rekomendasi Persetujuan</a>';
+                                            if ($ran['img_persetujuan_ptsp']) {
+                                                $btn3 = '<a target="_blank" href="/img/img_persetujuan_ptsp/' . $ran['img_persetujuan_ptsp'] . '" class="btn btn-sm btn-success">Cetak Persetujuan Izin</a>';
+                                            } else {
+                                                $btn3 = "";
+                                            }
                                         }
                                         if ($ran['rekompersetujuan'] == 1 && $ran['status_rekompersetujuan'] == 4) {
                                             $status = '<a href="" class="badge badge-danger">Dtolak</a>';

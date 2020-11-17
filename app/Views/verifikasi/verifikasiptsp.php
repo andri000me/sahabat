@@ -49,30 +49,43 @@
                                         <td><?= $status ?></td>
                                         <?php
                                         if ($tr['status_verifikasi'] == 0) {
-                                            $st = '<span class="badge badge-warning"><i class="fas fa-stopwatch"></i> Sedang Diverifikasi Oleh PTSP</span>';
-                                            $btn = "";
+                                            if ($tr['img_pengantar_ptsp']) {
+                                                $st = '<span class="badge badge-success"><i class="fas fa-stopwatch"></i> Berkas Lengkap, Silahkan Ajukan Permohonan</span>';
+                                                $btn2 = '<a onclick="return confirm(\'Apakah anda yakin ?\')" href="/verifikasi/terimaptsp/' . $tr['idpermohonan'] . '" type="btn" class="ml-auto btn btn-sm btn-rounded btn-success animated rotateIn"><i class="fa fa-check"></i> Ajukan</a>';
+                                            } else {
+                                                $st = '<span class="badge badge-warning"><i class="fas fa-stopwatch"></i> Lengkapi Dokumen</span>';
+                                                $btn2 = "";
+                                            }
+                                            $btn = '<a href="/verifikasi/details/' . $tr['kode_booking'] . '/' . $tr['trayek_dilayani'] . '" type="btn" class="ml-auto btn btn-sm btn-rounded btn-warning animated rotateIn"><i class="fa fa-check"></i> Verivikasi</a>
+                                            <a href="/verifikasi/uploadpengantarptsp/' . $tr['kode_booking'] . '/' . $tr['trayek_dilayani'] . '" type="btn" class="ml-auto btn btn-sm btn-rounded btn-secondary animated rotateIn"><i class="fa fa-check"></i> Lengkapi</a>
+                                            <a onclick="return confirm(\'Apakah anda yakin ?\')" href="/verifikasi/tolakptsp/' . $tr['idpermohonan'] . '/' . $tr['trayek_dilayani'] . '" type="btn" class="ml-auto btn btn-sm btn-rounded btn-danger animated rotateIn"><i class="fa fa-ban"></i> Tolak Permohonan</a>';
                                         }
                                         if ($tr['status_verifikasi'] == 1) {
-                                            $st = '';
-                                            $btn = '<a href="/verifikasi/details/' . $tr['kode_booking'] . '/' . $tr['trayek_dilayani'] . '" type="btn" class="ml-auto btn btn-sm btn-rounded btn-warning animated rotateIn"><i class="fa fa-check"></i> Verivikasi</a>
-                                            <a onclick="return confirm(\'Apakah anda yakin ?\')" href="/verifikasi/terimaverifikator/' . $tr['idpermohonan'] . '" type="btn" class="ml-auto btn btn-sm btn-rounded btn-success animated rotateIn"><i class="fa fa-check"></i> Terima</a>
-                                            <a onclick="return confirm(\'Apakah anda yakin ?\')" href="/verifikasi/tolakverifikator/' . $tr['idpermohonan'] . '/' . $tr['trayek_dilayani'] . '" type="btn" class="ml-auto btn btn-sm btn-rounded btn-danger animated rotateIn"><i class="fa fa-ban"></i> Tolak</a>';
+                                            $st = '<span class="badge badge-warning"><i class="fas fa-stopwatch"></i> Sedang Diverifikasi Oleh Dishub</span>';
+                                            $btn = "";
+                                            $btn2 = "";
                                         }
                                         if ($tr['status_verifikasi'] == 2) {
                                             $st = '<span class="badge badge-warning"><i class="fas fa-stopwatch"></i> Menunggu Approve</span>';
                                             $btn = "";
+                                            $btn2 = "";
                                         }
                                         if ($tr['status_verifikasi'] == 3) {
                                             $st = '<span class="badge badge-success"><i class="fas fa-stopwatch"></i> Diapprove</span>';
                                             $btn = '<a href="/verifikasi/cetak/' . $tr['kode_booking'] . '/' . $tr['jenis_permohonan']  . '/' . $tr['trayek_dilayani']  . '" target="_blank" type="btn" class="ml-auto btn btn-sm btn-rounded btn-success animated rotateIn"><i class="fa fa-check"></i> Cetak Rekomendasi Izin AKDP</a>';
+                                            $btn2 = "";
                                         }
                                         if ($tr['status_verifikasi'] == 4) {
                                             $st = '<span class="badge badge-danger"><i class="fas fa-stopwatch"></i> Ditolak</span>';
                                             $btn = "";
+                                            $btn2 = "";
                                         }
                                         ?>
                                         <td><?= $st ?></td>
-                                        <td><?= $btn ?></td>
+                                        <td>
+                                            <?= $btn2 ?>
+                                            <?= $btn ?>
+                                        </td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>

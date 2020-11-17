@@ -8,6 +8,7 @@ use App\Models\TrayekModel;
 use App\Models\MsgPenolakanModel;
 use App\Models\UserModel;
 use App\Models\LoginModel;
+use App\Models\KoperasiModel;
 use chillerlan\QRCode\QRCode;
 
 class Rekomendasi extends BaseController
@@ -18,6 +19,7 @@ class Rekomendasi extends BaseController
     protected $msgPenolakanModel;
     protected $userModel;
     protected $loginModel;
+    protected $koperasiModel;
     protected $user;
 
     public function __construct()
@@ -28,6 +30,7 @@ class Rekomendasi extends BaseController
         $this->msgPenolakanModel = new MsgPenolakanModel();
         $this->loginModel = new LoginModel();
         $this->userModel = new UserModel();
+        $this->koperasiModel = new KoperasiModel();
         $this->session = session();
         $this->user = $this->loginModel->where('email', $this->session->get('email'))->first();
     }
@@ -61,15 +64,23 @@ class Rekomendasi extends BaseController
         }
     }
 
-    public function finish($id)
+    public function finish($id, $idasal)
     {
         $this->verifikasiModel->save([
             'id' => $id,
             'status_verifikasi' => 0,
         ]);
+        $this->koperasiModel->save([
+            'id' => $idasal,
+            'used' => 1,
+        ]);
 
         session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data berhasil dikirim, mengunngu verivikasi</div>');
         return redirect()->to('/rekomendasi/rekomendasi/');
+    }
+
+    public function _finish()
+    {
     }
 
     public function rekomendasi()
@@ -129,15 +140,6 @@ class Rekomendasi extends BaseController
                     'mime_in' => 'Ini bukan gambar'
                 ]
             ],
-            'img_pengantar_ptsp' => [
-                'rules' => 'uploaded[img_pengantar_ptsp]|max_size[img_pengantar_ptsp,1024]|is_image[img_pengantar_ptsp]|mime_in[img_pengantar_ptsp,image/jpg,image/jpeg,image/png]',
-                'errors' => [
-                    'uploaded' => 'Pilih gambar dokumen terlebih dahulu',
-                    'max_size' => 'Ukuran gambar terlalu besar (Maksimal 1Mb)',
-                    'is_image' => 'Ini bukan gambar',
-                    'mime_in' => 'Ini bukan gambar'
-                ]
-            ],
             'jenis_permohonan' => [
                 'rules' => 'required',
                 'errors' => [
@@ -160,23 +162,23 @@ class Rekomendasi extends BaseController
             $img_permohonan->move('img/img_permohonan', $nama_img);
         }
 
-        $img_pengantar_ptsp = $this->request->getFile('img_pengantar_ptsp');
+        // $img_pengantar_ptsp = $this->request->getFile('img_pengantar_ptsp');
 
-        if ($img_pengantar_ptsp->getError() == 4) {
-            $nama_img_pengantar = "default.png";
-        } else {
-            $nama_img_pengantar = $img_pengantar_ptsp->getRandomName();
-            $img_pengantar_ptsp->move('img/img_pengantar_ptsp', $nama_img_pengantar);
-        }
+        // if ($img_pengantar_ptsp->getError() == 4) {
+        //     $nama_img_pengantar = "default.png";
+        // } else {
+        //     $nama_img_pengantar = $img_pengantar_ptsp->getRandomName();
+        //     $img_pengantar_ptsp->move('img/img_pengantar_ptsp', $nama_img_pengantar);
+        // }
 
         $slug = url_title($this->request->getVar('nama_pemohon'), '-', true);
 
         $this->verifikasiModel->save([
             'slug' => $slug,
             'status' => 1,
-            'status_verifikasi' => 4,
+            'status_verifikasi' => 5,
             'img_surat_permohonan' => $nama_img,
-            'img_pengantar_ptsp' => $nama_img_pengantar,
+            // 'img_pengantar_ptsp' => $nama_img_pengantar,
             'tgl_permohonan' => $this->request->getVar('tgl_permohonan_submit'),
             'kode_booking' => $this->request->getVar('kdb'),
             'nama_pemohon' => $this->request->getVar('nama_pemohon'),
@@ -207,15 +209,15 @@ class Rekomendasi extends BaseController
                     'mime_in' => 'Ini bukan gambar'
                 ]
             ],
-            'img_pengantar_ptsp' => [
-                'rules' => 'uploaded[img_pengantar_ptsp]|max_size[img_pengantar_ptsp,1024]|is_image[img_pengantar_ptsp]|mime_in[img_permohonan,image/jpg,image/jpeg,image/png]',
-                'errors' => [
-                    'uploaded' => 'Pilih gambar dokumen terlebih dahulu',
-                    'max_size' => 'Ukuran gambar terlalu besar (Maksimal 1Mb)',
-                    'is_image' => 'Ini bukan gambar',
-                    'mime_in' => 'Ini bukan gambar'
-                ]
-            ],
+            // 'img_pengantar_ptsp' => [
+            //     'rules' => 'uploaded[img_pengantar_ptsp]|max_size[img_pengantar_ptsp,1024]|is_image[img_pengantar_ptsp]|mime_in[img_permohonan,image/jpg,image/jpeg,image/png]',
+            //     'errors' => [
+            //         'uploaded' => 'Pilih gambar dokumen terlebih dahulu',
+            //         'max_size' => 'Ukuran gambar terlalu besar (Maksimal 1Mb)',
+            //         'is_image' => 'Ini bukan gambar',
+            //         'mime_in' => 'Ini bukan gambar'
+            //     ]
+            // ],
             'jenis_permohonan' => [
                 'rules' => 'required',
                 'errors' => [
@@ -238,22 +240,22 @@ class Rekomendasi extends BaseController
             $img_permohonan->move('img/img_permohonan', $nama_img);
         }
 
-        $img_pengantar_ptsp = $this->request->getFile('img_pengantar_ptsp');
+        // $img_pengantar_ptsp = $this->request->getFile('img_pengantar_ptsp');
 
-        if ($img_pengantar_ptsp->getError() == 4) {
-            $nama_img_pengantar = "default.png";
-        } else {
-            $nama_img_pengantar = $img_pengantar_ptsp->getRandomName();
-            $img_pengantar_ptsp->move('img/img_pengantar_ptsp', $nama_img);
-        }
+        // if ($img_pengantar_ptsp->getError() == 4) {
+        //     $nama_img_pengantar = "default.png";
+        // } else {
+        //     $nama_img_pengantar = $img_pengantar_ptsp->getRandomName();
+        //     $img_pengantar_ptsp->move('img/img_pengantar_ptsp', $nama_img);
+        // }
 
         $slug = url_title($this->request->getVar('nama_pemohon'), '-', true);
         $this->verifikasiModel->save([
             'slug' => $slug,
             'status' => 2,
-            'status_verifikasi' => 4,
+            'status_verifikasi' => 5,
             'img_surat_permohonan' => $nama_img,
-            'img_pengantar_ptsp' => $nama_img_pengantar,
+            // 'img_pengantar_ptsp' => $nama_img_pengantar,
             'tgl_permohonan' => $this->request->getVar('tgl_permohonan_submit'),
             'kode_booking' => $this->request->getVar('kdb'),
             'nama_pemohon' => $this->request->getVar('nama_pemohon'),
@@ -268,10 +270,11 @@ class Rekomendasi extends BaseController
     public function step2($id)
     {
         session();
-
+        $ids = $this->user['id'];
         $data = [
             'title' => 'Buat Permohonan',
             'trayek' => $this->trayekModel->getTrayek(),
+            'at' => $this->koperasiModel->getKoperasiR($ids),
             'step2' => $this->verifikasiModel->getRekomendasi($id),
             'validation' => \Config\Services::validation(),
             'session' => $this->user
@@ -302,56 +305,13 @@ class Rekomendasi extends BaseController
                         'required' => 'Trayek yang dilayani belum dipilih'
                     ]
                 ],
-                'img_trayek' => [
-                    'rules' => 'uploaded[img_trayek]|max_size[img_trayek,1024]|is_image[img_trayek]|mime_in[img_trayek,image/jpg,image/jpeg,image/png]',
-                    'errors' => [
-                        'uploaded' => 'Pilih gambar dokumen terlebih dahulu',
-                        'max_size' => 'Ukuran gambar terlalu besar (Maksimal 1Mb)',
-                        'is_image' => 'Ini bukan gambar',
-                        'mime_in' => 'Ini bukan gambar'
-                    ]
-                ],
             ])) {
                 return redirect()->to('/rekomendasi/step2/' . $kdb . '')->withInput();
             }
         }
 
-        $img_trayek = $this->request->getFile('img_trayek');
-        //abil gambar
-
-        if ($img_trayek) {
-            if ($img_trayek->getError() == 4) {
-                $nama_img = $this->request->getVar('img_trayek_lama');
-            } else {
-                $nama_img = $img_trayek->getRandomName();
-                $img_trayek->move('img/img_trayek', $nama_img);
-                if ($this->request->getVar('img_trayek_lama')) {
-                    unlink('img/img_trayek/' . $this->request->getVar('img_trayek_lama'));
-                } else {
-                }
-            }
-        }
-
-        $img_trayek_tujuan = $this->request->getFile('img_trayek_tujuan');
-        //abil gambar
-
-        if ($img_trayek_tujuan) {
-            if ($img_trayek_tujuan->getError() == 4) {
-                $nama_img_tujuan = $this->request->getVar('img_trayek_tujuan_lama');
-            } else {
-                $nama_img_tujuan = $img_trayek_tujuan->getRandomName();
-                $img_trayek_tujuan->move('img/img_trayek_tujuan', $nama_img_tujuan);
-                if ($this->request->getVar('img_trayek_tujuan_lama')) {
-                    unlink('img/img_trayek_tujuan/' . $this->request->getVar('img_trayek_tujuan_lama'));
-                } else {
-                }
-            }
-        }
-
         $this->verifikasiModel->save([
             'id' => $id,
-            'img_trayek' => $nama_img,
-            'img_trayek_tujuan' => $nama_img_tujuan,
             'trayek_dilayani' => $this->request->getVar('trayek_dilayani'),
         ]);
 
@@ -901,29 +861,29 @@ class Rekomendasi extends BaseController
             }
         }
 
-        $img_pengantar_ptsp = $this->request->getFile('img_pengantar_ptsp');
+        // $img_pengantar_ptsp = $this->request->getFile('img_pengantar_ptsp');
 
-        if ($img_pengantar_ptsp) {
+        // if ($img_pengantar_ptsp) {
 
-            if ($img_pengantar_ptsp->getError() == 4) {
-                $nama_img_pengantar_ptsp = $this->request->getVar('img_pengantar_ptsp_lama');
-            } else {
-                $nama_img_pengantar_ptsp = $img_pengantar_ptsp->getRandomName();
-                $img_pengantar_ptsp->move('img/img_pengantar_ptsp', $nama_img_pengantar_ptsp);
+        //     if ($img_pengantar_ptsp->getError() == 4) {
+        //         $nama_img_pengantar_ptsp = $this->request->getVar('img_pengantar_ptsp_lama');
+        //     } else {
+        //         $nama_img_pengantar_ptsp = $img_pengantar_ptsp->getRandomName();
+        //         $img_pengantar_ptsp->move('img/img_pengantar_ptsp', $nama_img_pengantar_ptsp);
 
-                if ($this->request->getVar('img_pengantar_ptsp_lama')) {
-                    unlink('img/img_pengantar_ptsp/' . $this->request->getVar('img_pengantar_ptsp_lama'));
-                } else {
-                }
-            }
-        }
+        //         if ($this->request->getVar('img_pengantar_ptsp_lama')) {
+        //             unlink('img/img_pengantar_ptsp/' . $this->request->getVar('img_pengantar_ptsp_lama'));
+        //         } else {
+        //         }
+        //     }
+        // }
         $slug = url_title($this->request->getVar('nama_pemohon'), '-', true);
         $this->verifikasiModel->save([
             'id' => $id,
             'slug' => $slug,
             'status' => 1,
             'img_surat_permohonan' => $nama_img,
-            'img_pengantar_ptsp' => $nama_img_pengantar_ptsp,
+            // 'img_pengantar_ptsp' => $nama_img_pengantar_ptsp,
             'tgl_permohonan' => $this->request->getVar('tgl_permohonan_submit'),
             'nama_pemohon' => $this->request->getVar('nama_pemohon'),
             'alamat_pemohon' => $this->request->getVar('alamat_pemohon'),

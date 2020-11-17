@@ -8,12 +8,12 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col">
-                            <h5 class="text-dark font-weight-bold card-title">Verifikasi Permohonan Izin Penyelenggaraan Angkutan Orang Tidak Dalam Trayek (AOTDT)</h5>
+                            <h5 class="text-dark font-weight-bold card-title">Verifikasi Permohonan Realisasi/Penerbitan Izin Penyelenggaraan Angkutan Orang Tidak Dalam Trayek (AOTDT)</h5>
                             </p>
                         </div>
                         <div class="text-right col">
-                            <a onclick="return confirm('Apakah anda yakin?')" href="/ask/terimapenerbitan/<?= $ask['idask'] ?>/<?= $ask['slug'] ?>/<?= $ask['kode_registrasi'] ?>" class="btn btn-sm btn-success"> Terima <i class="fa fa-check"></i></a>
-                            <a onclick="return confirm('Apakah anda yakin melakukan penolakan?')" href="/ask/tolakpenerbitan/<?= $ask['idask'] ?>/<?= $ask['slug'] ?>/<?= $ask['kode_registrasi'] ?>" class="btn btn-sm btn-danger"> Tolak <i class="fa fa-ban"></i></a>
+                            <!-- <a onclick="return confirm('Apakah anda yakin?')" href="/ask/terimapenerbitan/<?= $ask['idask'] ?>/<?= $ask['slug'] ?>/<?= $ask['kode_registrasi'] ?>" class="btn btn-sm btn-success"> Terima <i class="fa fa-check"></i></a>
+                            <a onclick="return confirm('Apakah anda yakin melakukan penolakan?')" href="/ask/tolakpenerbitan/<?= $ask['idask'] ?>/<?= $ask['slug'] ?>/<?= $ask['kode_registrasi'] ?>" class="btn btn-sm btn-danger"> Tolak <i class="fa fa-ban"></i></a> -->
                         </div>
                     </div>
 

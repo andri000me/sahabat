@@ -10,7 +10,9 @@ class KoperasiModel extends model
     protected $primaryKey = 'id';
     protected $useTimestamps = true;
     protected $allowedFields = [
+        'id',
         'slug',
+        'used',
         'status_asal',
         'status_tujuan',
         'koperasi_id',
@@ -50,7 +52,9 @@ class KoperasiModel extends model
         if ($id == false) {
             $this->db->table('permohonan_kabkota');
             $this->select('
+            permohonan_kabkota.id,
             permohonan_kabkota.slug,
+            permohonan_kabkota.used, 
             permohonan_kabkota.alamat_pemilik, 
             permohonan_kabkota.id as idpermohonan, 
             permohonan_kabkota.koperasi_id, 
@@ -94,7 +98,9 @@ class KoperasiModel extends model
         } else {
             $this->db->table('permohonan_kabkota');
             $this->select('
+            permohonan_kabkota.id,
             permohonan_kabkota.slug,
+            permohonan_kabkota.used, 
             permohonan_kabkota.alamat_pemilik, 
             permohonan_kabkota.id as idpermohonan, 
             permohonan_kabkota.koperasi_id, 
@@ -143,7 +149,9 @@ class KoperasiModel extends model
     {
         $this->db->table('permohonan_kabkota');
         $this->select('
+            permohonan_kabkota.id,
             permohonan_kabkota.slug,
+        permohonan_kabkota.used, 
         permohonan_kabkota.alamat_pemilik, 
         permohonan_kabkota.id as idpermohonan, 
         permohonan_kabkota.koperasi_id, 
@@ -193,7 +201,9 @@ class KoperasiModel extends model
         if ($slug == false && $id == false) {
             $this->db->table('permohonan_kabkota');
             $this->select('
+            permohonan_kabkota.id,
             permohonan_kabkota.slug,
+            permohonan_kabkota.used, 
             permohonan_kabkota.alamat_pemilik, 
             permohonan_kabkota.id as idpermohonan, 
             permohonan_kabkota.koperasi_id, 
@@ -260,7 +270,9 @@ class KoperasiModel extends model
         } else {
             $this->db->table('permohonan_kabkota');
             $this->select('
+            permohonan_kabkota.id,
             permohonan_kabkota.slug,
+            permohonan_kabkota.used, 
             permohonan_kabkota.alamat_pemilik, 
             permohonan_kabkota.id as idpermohonan, 
             permohonan_kabkota.koperasi_id, 
@@ -313,7 +325,9 @@ class KoperasiModel extends model
         if ($slug == false && $id == false) {
             $this->db->table('permohonan_kabkota');
             $this->select('
+            permohonan_kabkota.id,
             permohonan_kabkota.slug,
+            permohonan_kabkota.used, 
             permohonan_kabkota.alamat_pemilik, 
             permohonan_kabkota.id as idpermohonan, 
             permohonan_kabkota.koperasi_id, 
@@ -380,7 +394,9 @@ class KoperasiModel extends model
         } else {
             $this->db->table('permohonan_kabkota');
             $this->select('
+            permohonan_kabkota.id,
             permohonan_kabkota.slug,
+            permohonan_kabkota.used, 
             permohonan_kabkota.alamat_pemilik, 
             permohonan_kabkota.id as idpermohonan, 
             permohonan_kabkota.koperasi_id, 
@@ -433,7 +449,9 @@ class KoperasiModel extends model
         if ($slug == false && $id == false) {
             $this->db->table('permohonan_kabkota');
             $this->select('
+            permohonan_kabkota.id,
             permohonan_kabkota.slug,
+            permohonan_kabkota.used, 
             permohonan_kabkota.alamat_pemilik, 
             permohonan_kabkota.id as idpermohonan, 
             permohonan_kabkota.koperasi_id, 
@@ -500,7 +518,9 @@ class KoperasiModel extends model
         } else {
             $this->db->table('permohonan_kabkota');
             $this->select('
+            permohonan_kabkota.id,
             permohonan_kabkota.slug,
+            permohonan_kabkota.used, 
             permohonan_kabkota.alamat_pemilik, 
             permohonan_kabkota.id as idpermohonan, 
             permohonan_kabkota.koperasi_id, 
@@ -554,7 +574,9 @@ class KoperasiModel extends model
         if ($slug == false && $id == false) {
             $this->db->table('permohonan_kabkota');
             $this->select('
+            permohonan_kabkota.id,
             permohonan_kabkota.slug,
+            permohonan_kabkota.used, 
             permohonan_kabkota.alamat_pemilik, 
             permohonan_kabkota.id as idpermohonan, 
             permohonan_kabkota.koperasi_id, 
@@ -621,7 +643,9 @@ class KoperasiModel extends model
         } else {
             $this->db->table('permohonan_kabkota');
             $this->select('
+            permohonan_kabkota.id,
             permohonan_kabkota.slug,
+            permohonan_kabkota.used, 
             permohonan_kabkota.alamat_pemilik, 
             permohonan_kabkota.id as idpermohonan, 
             permohonan_kabkota.koperasi_id, 
@@ -673,7 +697,9 @@ class KoperasiModel extends model
         if ($slug == false && $id == false) {
             $this->db->table('permohonan_kabkota');
             $this->select('
+            permohonan_kabkota.id,
             permohonan_kabkota.slug,
+            permohonan_kabkota.used, 
             permohonan_kabkota.alamat_pemilik, 
             permohonan_kabkota.id as idpermohonan, 
             permohonan_kabkota.koperasi_id, 
@@ -740,7 +766,9 @@ class KoperasiModel extends model
         } else {
             $this->db->table('permohonan_kabkota');
             $this->select('
+            permohonan_kabkota.id,
             permohonan_kabkota.slug,
+            permohonan_kabkota.used, 
             permohonan_kabkota.alamat_pemilik, 
             permohonan_kabkota.id as idpermohonan, 
             permohonan_kabkota.koperasi_id, 
@@ -787,12 +815,15 @@ class KoperasiModel extends model
             return $query;
         }
     }
+
     public function getPermohonanPohuwato($slug = false, $id = false)
     {
         if ($slug == false && $id == false) {
             $this->db->table('permohonan_kabkota');
             $this->select('
+            permohonan_kabkota.id,
             permohonan_kabkota.slug,
+            permohonan_kabkota.used, 
             permohonan_kabkota.alamat_pemilik, 
             permohonan_kabkota.id as idpermohonan, 
             permohonan_kabkota.koperasi_id, 
@@ -859,7 +890,9 @@ class KoperasiModel extends model
         } else {
             $this->db->table('permohonan_kabkota');
             $this->select('
+            permohonan_kabkota.id,
             permohonan_kabkota.slug,
+            permohonan_kabkota.used, 
             permohonan_kabkota.alamat_pemilik, 
             permohonan_kabkota.id as idpermohonan, 
             permohonan_kabkota.koperasi_id, 
@@ -901,6 +934,249 @@ class KoperasiModel extends model
             $this->where(['permohonan_kabkota.slug' => $slug]);
             $this->where(['permohonan_kabkota.id' => $id]);
 
+            $this->join('trayek', 'permohonan_kabkota.trayek_dilayani = trayek.kode_trayek');
+            $query = $this->first();
+            return $query;
+        }
+    }
+    public function getKoperasiR($ids)
+    {
+        if ($ids == false) {
+            $this->db->table('permohonan_kabkota');
+            $this->select('
+            permohonan_kabkota.id,
+            permohonan_kabkota.slug,
+            permohonan_kabkota.used, 
+            permohonan_kabkota.alamat_pemilik, 
+            permohonan_kabkota.id as idpermohonan, 
+            permohonan_kabkota.koperasi_id, 
+            permohonan_kabkota.kabkota_id, 
+            permohonan_kabkota.status_asal, 
+            permohonan_kabkota.status_tujuan, 
+            permohonan_kabkota.trayek_dilayani, 
+            permohonan_kabkota.asal, 
+            permohonan_kabkota.tujuan, 
+            permohonan_kabkota.nomor_kendaraan, 
+            permohonan_kabkota.nama_pemilik, 
+            permohonan_kabkota.jenis_kendaraan, 
+            permohonan_kabkota.nomor_kir, 
+            permohonan_kabkota.merk, 
+            permohonan_kabkota.tahun_pembuatan, 
+            permohonan_kabkota.nomor_chasis, 
+            permohonan_kabkota.nomor_mesin, 
+            permohonan_kabkota.nomor_regis_pkb, 
+            permohonan_kabkota.img_surat_permohonan_koperasi, 
+            permohonan_kabkota.img_ktp_pemilik, 
+            permohonan_kabkota.img_stnkb, 
+            permohonan_kabkota.img_jasa_raharja, 
+            permohonan_kabkota.img_kir, 
+            permohonan_kabkota.img_penolakan_tujuan, 
+            permohonan_kabkota.img_penolakan_asal, 
+            permohonan_kabkota.img_rekomendasi_asal, 
+            permohonan_kabkota.img_rekomendasi_tujuan, 
+            permohonan_kabkota.foto_depan, 
+            permohonan_kabkota.foto_belakang, 
+            permohonan_kabkota.foto_kanan, 
+            permohonan_kabkota.foto_kiri, 
+            permohonan_kabkota.tgl_approve, 
+            permohonan_kabkota.created_at, 
+            permohonan_kabkota.updated_at, 
+            trayek.id as idtrayek, 
+            trayek.kode_trayek, 
+            trayek.trayek,
+            user.nama,
+            user.email,
+            user.hp,
+            user.role,
+            user.nik_direktur,
+            user.nama_direktur,
+            user.nama_perusahaan,
+            user.alamat,
+            user.npwp,
+            user.img_akte_perusahaan,
+            user.img_izin_angkutan,
+            user.img_tdp,
+            user.img_npwp,
+            user.img_ktp_direktur,
+            user.img_siup,
+            user.img_nib,
+            user.wilayah_id');
+            $this->where('permohonan_kabkota.koperasi_id', $ids);
+            $this->where('permohonan_kabkota.used', 0);
+            $this->where('permohonan_kabkota.img_rekomendasi_asal IS NOT NULL');
+            $this->where('permohonan_kabkota.img_rekomendasi_tujuan IS NOT NULL');
+            $this->join('trayek', 'permohonan_kabkota.trayek_dilayani = trayek.kode_trayek');
+            $this->join('user', 'permohonan_kabkota.koperasi_id = user.id');
+            $query = $this->findAll();
+            return $query;
+        } else {
+            $this->db->table('permohonan_kabkota');
+            $this->select('
+            permohonan_kabkota.id,
+            permohonan_kabkota.slug,
+            permohonan_kabkota.used, 
+            permohonan_kabkota.alamat_pemilik, 
+            permohonan_kabkota.id as idpermohonan, 
+            permohonan_kabkota.koperasi_id, 
+            permohonan_kabkota.kabkota_id, 
+            permohonan_kabkota.status_asal, 
+            permohonan_kabkota.status_tujuan, 
+            permohonan_kabkota.trayek_dilayani, 
+            permohonan_kabkota.asal, 
+            permohonan_kabkota.tujuan, 
+            permohonan_kabkota.nomor_kendaraan, 
+            permohonan_kabkota.nama_pemilik, 
+            permohonan_kabkota.jenis_kendaraan, 
+            permohonan_kabkota.nomor_kir, 
+            permohonan_kabkota.merk, 
+            permohonan_kabkota.tahun_pembuatan, 
+            permohonan_kabkota.nomor_chasis, 
+            permohonan_kabkota.nomor_mesin, 
+            permohonan_kabkota.nomor_regis_pkb, 
+            permohonan_kabkota.img_surat_permohonan_koperasi, 
+            permohonan_kabkota.img_ktp_pemilik, 
+            permohonan_kabkota.img_stnkb, 
+            permohonan_kabkota.img_jasa_raharja, 
+            permohonan_kabkota.img_kir, 
+            permohonan_kabkota.img_penolakan_tujuan, 
+            permohonan_kabkota.img_penolakan_asal, 
+            permohonan_kabkota.img_rekomendasi_asal, 
+            permohonan_kabkota.img_rekomendasi_tujuan, 
+            permohonan_kabkota.foto_depan, 
+            permohonan_kabkota.foto_belakang, 
+            permohonan_kabkota.foto_kanan, 
+            permohonan_kabkota.foto_kiri, 
+            permohonan_kabkota.tgl_approve, 
+            permohonan_kabkota.created_at, 
+            permohonan_kabkota.updated_at, 
+            trayek.id as idtrayek, 
+            trayek.kode_trayek, 
+            trayek.trayek');
+            $this->where('permohonan_kabkota.koperasi_id', $ids);
+            $this->where('permohonan_kabkota.used', 0);
+            $this->where('permohonan_kabkota.img_rekomendasi_asal IS NOT NULL');
+            $this->where('permohonan_kabkota.img_rekomendasi_tujuan IS NOT NULL');
+            $this->join('trayek', 'permohonan_kabkota.trayek_dilayani = trayek.kode_trayek');
+            $query = $this->findAll();
+            return $query;
+        }
+    }
+
+    public function getKoperasiVer($tr)
+    {
+        if ($tr == false) {
+            $this->db->table('permohonan_kabkota');
+            $this->select('
+            permohonan_kabkota.id,
+            permohonan_kabkota.slug,
+            permohonan_kabkota.used, 
+            permohonan_kabkota.alamat_pemilik, 
+            permohonan_kabkota.id as idpermohonan, 
+            permohonan_kabkota.koperasi_id, 
+            permohonan_kabkota.kabkota_id, 
+            permohonan_kabkota.status_asal, 
+            permohonan_kabkota.status_tujuan, 
+            permohonan_kabkota.trayek_dilayani, 
+            permohonan_kabkota.asal, 
+            permohonan_kabkota.tujuan, 
+            permohonan_kabkota.nomor_kendaraan, 
+            permohonan_kabkota.nama_pemilik, 
+            permohonan_kabkota.jenis_kendaraan, 
+            permohonan_kabkota.nomor_kir, 
+            permohonan_kabkota.merk, 
+            permohonan_kabkota.tahun_pembuatan, 
+            permohonan_kabkota.nomor_chasis, 
+            permohonan_kabkota.nomor_mesin, 
+            permohonan_kabkota.nomor_regis_pkb, 
+            permohonan_kabkota.img_surat_permohonan_koperasi, 
+            permohonan_kabkota.img_ktp_pemilik, 
+            permohonan_kabkota.img_stnkb, 
+            permohonan_kabkota.img_jasa_raharja, 
+            permohonan_kabkota.img_kir, 
+            permohonan_kabkota.img_penolakan_tujuan, 
+            permohonan_kabkota.img_penolakan_asal, 
+            permohonan_kabkota.img_rekomendasi_asal, 
+            permohonan_kabkota.img_rekomendasi_tujuan, 
+            permohonan_kabkota.foto_depan, 
+            permohonan_kabkota.foto_belakang, 
+            permohonan_kabkota.foto_kanan, 
+            permohonan_kabkota.foto_kiri, 
+            permohonan_kabkota.tgl_approve, 
+            permohonan_kabkota.created_at, 
+            permohonan_kabkota.updated_at, 
+            trayek.id as idtrayek, 
+            trayek.kode_trayek, 
+            trayek.trayek,
+            user.nama,
+            user.email,
+            user.hp,
+            user.role,
+            user.nik_direktur,
+            user.nama_direktur,
+            user.nama_perusahaan,
+            user.alamat,
+            user.npwp,
+            user.img_akte_perusahaan,
+            user.img_izin_angkutan,
+            user.img_tdp,
+            user.img_npwp,
+            user.img_ktp_direktur,
+            user.img_siup,
+            user.img_nib,
+            user.wilayah_id');
+            $this->where('permohonan_kabkota.id', $tr);
+            $this->where('permohonan_kabkota.img_rekomendasi_asal IS NOT NULL');
+            $this->where('permohonan_kabkota.img_rekomendasi_tujuan IS NOT NULL');
+            $this->join('trayek', 'permohonan_kabkota.trayek_dilayani = trayek.kode_trayek');
+            $this->join('user', 'permohonan_kabkota.koperasi_id = user.id');
+            $query = $this->findAll();
+            return $query;
+        } else {
+            $this->db->table('permohonan_kabkota');
+            $this->select('
+            permohonan_kabkota.id,
+            permohonan_kabkota.slug,
+            permohonan_kabkota.used, 
+            permohonan_kabkota.alamat_pemilik, 
+            permohonan_kabkota.id as idpermohonan, 
+            permohonan_kabkota.koperasi_id, 
+            permohonan_kabkota.kabkota_id, 
+            permohonan_kabkota.status_asal, 
+            permohonan_kabkota.status_tujuan, 
+            permohonan_kabkota.trayek_dilayani, 
+            permohonan_kabkota.asal, 
+            permohonan_kabkota.tujuan, 
+            permohonan_kabkota.nomor_kendaraan, 
+            permohonan_kabkota.nama_pemilik, 
+            permohonan_kabkota.jenis_kendaraan, 
+            permohonan_kabkota.nomor_kir, 
+            permohonan_kabkota.merk, 
+            permohonan_kabkota.tahun_pembuatan, 
+            permohonan_kabkota.nomor_chasis, 
+            permohonan_kabkota.nomor_mesin, 
+            permohonan_kabkota.nomor_regis_pkb, 
+            permohonan_kabkota.img_surat_permohonan_koperasi, 
+            permohonan_kabkota.img_ktp_pemilik, 
+            permohonan_kabkota.img_stnkb, 
+            permohonan_kabkota.img_jasa_raharja, 
+            permohonan_kabkota.img_kir, 
+            permohonan_kabkota.img_penolakan_tujuan, 
+            permohonan_kabkota.img_penolakan_asal, 
+            permohonan_kabkota.img_rekomendasi_asal, 
+            permohonan_kabkota.img_rekomendasi_tujuan, 
+            permohonan_kabkota.foto_depan, 
+            permohonan_kabkota.foto_belakang, 
+            permohonan_kabkota.foto_kanan, 
+            permohonan_kabkota.foto_kiri, 
+            permohonan_kabkota.tgl_approve, 
+            permohonan_kabkota.created_at, 
+            permohonan_kabkota.updated_at, 
+            trayek.id as idtrayek, 
+            trayek.kode_trayek, 
+            trayek.trayek');
+            $this->where('permohonan_kabkota.id', $tr);
+            $this->where('permohonan_kabkota.img_rekomendasi_asal IS NOT NULL');
+            $this->where('permohonan_kabkota.img_rekomendasi_tujuan IS NOT NULL');
             $this->join('trayek', 'permohonan_kabkota.trayek_dilayani = trayek.kode_trayek');
             $query = $this->first();
             return $query;

@@ -46,16 +46,22 @@
                                     if ($tr['status_verifikasi'] == 0) {
                                         $href2 = 'data-toggle="modal" data-target="#centralModalDanger2"';
                                         $href = 'data-toggle="modal" data-target="#centralModalDanger2"';
-                                        $st = '<span class="badge badge-warning"><i class="fas fa-stopwatch"></i> Sedang Diverifikasi</span>';
+                                        $st = '<span class="badge badge-warning"><i class="fas fa-stopwatch"></i> Sedang Diverifikasi Oleh PTSP</span>';
                                         $h = "";
                                     }
                                     if ($tr['status_verifikasi'] == 1) {
                                         $href2 = 'data-toggle="modal" data-target="#centralModalDanger"';
                                         $href = 'href=/verifikasi/approve/' . $tr['id'] . '';
-                                        $st = '<span class="badge badge-warning"><i class="fas fa-stopwatch"></i> Diverifikasi</span>';
+                                        $st = '<span class="badge badge-warning"><i class="fas fa-stopwatch"></i> Sedang Diverifikasi oleh Dishub</span>';
                                         $h = "";
                                     }
                                     if ($tr['status_verifikasi'] == 2) {
+                                        $href2 = 'data-toggle="modal" data-target="#centralModalDanger"';
+                                        $href = 'href=/verifikasi/approve/' . $tr['id'] . '';
+                                        $st = '<span class="badge badge-warning"><i class="fas fa-stopwatch"></i> Menunggu Approve</span>';
+                                        $h = "";
+                                    }
+                                    if ($tr['status_verifikasi'] == 3) {
                                         if ($tr['img_izin_trayek']) {
                                             $print = '<a href="/verifikasi/cetakKP/' . $tr['kode_booking'] . '/' . $tr['jenis_permohonan'] . '/' . $tr['trayek_dilayani'] . '" type="btn" class="ml-auto btn btn-sm btn-rounded btn-success animated rotateIn"><i class="fa fa-print"></i> Cetak Kartu Pengawasan</a>';
                                         } else {
@@ -64,17 +70,15 @@
                                         $href2 = 'href=/verifikasi/cetak/' . $tr['kode_booking'] . '/' . $tr['jenis_permohonan'] . '/' . $tr['trayek_dilayani'] . ' target=_blank';
                                         $href = "";
                                         $st = '<span class="badge badge-success"><i class="fas fa-stopwatch"></i> Di Approve</span>';
-                                        $h = '<a href="/verifikasi/cetak/' . $tr['kode_booking'] . '/' . $tr['jenis_permohonan'] . '/' . $tr['trayek_dilayani'] . '" target="_blank" type="btn" class="mr-1 ml-auto btn btn-sm btn-rounded btn-light animated rotateIn"><i class="fa fa-print"></i> Cetak</a>
-                                        <a href="/verifikasi/uploadIzinTrayek/' . $tr['kode_booking'] . '/' . $tr['jenis_permohonan'] . '/' . $tr['trayek_dilayani'] . '" type="btn" class="mr-1 ml-auto btn btn-sm btn-rounded btn-primary animated rotateIn"><i class="fa fa-upload"></i> Upload Izin Trayek</a>' . $print . '';
+                                        $h = '<a href="/verifikasi/cetak/' . $tr['kode_booking'] . '/' . $tr['jenis_permohonan'] . '/' . $tr['trayek_dilayani'] . '" target="_blank" type="btn" class="mr-1 ml-auto btn btn-sm btn-rounded btn-light animated rotateIn"><i class="fa fa-print"></i> Cetak Rekomendasi Izin Trayek</a>';
                                     }
-                                    if ($tr['status_verifikasi'] == 3) {
+                                    if ($tr['status_verifikasi'] == 4) {
                                         $href2 = 'href=/verifikasi/cetak/' . $tr['kode_booking'] . '/' . $tr['jenis_permohonan'] . '/' . $tr['trayek_dilayani'] . ' target=_blank';
                                         $href = "";
                                         $st = '<span class="badge badge-danger"><i class="fas fa-stopwatch"></i> Ditolak</span>';
-                                        $h = '<a href="/rekomendasi/penolakan/' . $tr['kode_booking'] . '" type="btn" class="ml-auto btn btn-sm btn-rounded btn-cyan animated rotateIn"><i class="fa fa-eye"></i> Lihat Detail Penolakan</a>';
+                                        $h = '';
                                     }
-                                    // <a href="/rekomendasi/step11/' . $tr['kode_booking'] . '" type="btn" class="ml-auto btn btn-sm btn-rounded btn-danger animated rotateIn"><i class="fa fa-eye"></i> Perbaiki</a>
-                                    if ($tr['status_verifikasi'] == 4) {
+                                    if ($tr['status_verifikasi'] == 5) {
                                         $href2 = 'data-toggle="modal" data-target="#centralModalDanger2"';
                                         $href = 'data-toggle="modal" data-target="#centralModalDanger2"';
                                         $st = '<span class="badge badge-danger"><i class="fas fa-stopwatch"></i> Data Belum Lengkap !</span>';
@@ -85,8 +89,8 @@
                                     <tr>
                                         <td><?= $tr['nama_pemohon']; ?></td>
                                         <td><?= $tr['nomor_kendaraan']; ?></td>
-                                        <td><?= $st ?></td>
                                         <td><?= $status ?></td>
+                                        <td><?= $st ?></td>
                                         <td>
                                             <?= $h ?>
                                         </td>

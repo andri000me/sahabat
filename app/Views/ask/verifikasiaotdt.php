@@ -37,9 +37,9 @@
                                     <?php foreach ($ask as $ran) : ?>
                                         <?php
                                         if ($ran['rekompersetujuan'] == 1 && $ran['status_rekompersetujuan'] == 0) {
-                                            $status = '<a href="" class="badge badge-warning">Lakukan Verifikasi</a>
-                                            <a href="/ask/detailverifikasiaotdt/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-warning">Verifikasi</a>';
-                                            $btn2 = '';
+                                            $status = '<a href="" class="badge badge-warning">Lakukan Verifikasi</a>';
+                                            $btn2 = '<a href="/ask/detailverifikasiaotdt/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-warning">Verifikasi</a>
+                                            <a onclick="return confirm(\'Yakin lakukan pengajuan ?\')" href="/ask/ajukanpersetujuandishub/' . $ran['idask'] . '/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-secondary">Ajukan Rekomendasi</a>';
                                             $btn3 = '';
                                         }
                                         if ($ran['rekompersetujuan'] == 1 && $ran['status_rekompersetujuan'] == 1) {
@@ -55,7 +55,8 @@
                                         if ($ran['rekompersetujuan'] == 1 && $ran['status_rekompersetujuan'] == 3) {
                                             $status = '<a href="" class="badge badge-success">Diapprove</a>';
                                             $btn2 = '';
-                                            $btn3 = '<a href="/ask/uploadpenolakanptsp/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-success">Cetak Persetujuan Izin</a>';
+                                            $btn3 = '<a target="_blank" href="/ask/cetakpermohonan/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-dark">Cetak Rekomendasi Persetujuan</a>
+                                            <a href="/ask/uploadpersetujuanptsp/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-success">Upload Persetujuan Izin</a>';
                                         }
                                         if ($ran['rekompersetujuan'] == 1 && $ran['status_rekompersetujuan'] == 4) {
                                             $status = '<a href="" class="badge badge-danger">Dtolak</a>';
@@ -65,7 +66,7 @@
                                         ?>
                                         <tr>
                                             <td><?= $i++ ?></td>
-                                            <td><a href="#" class="font-weight-bold text-primary"><?= $ran['kode_registrasi'] ?></a></td>
+                                            <td><a href="/ask/detailverifikasiaotdt/<?= $ran['slug'] ?>/<?= $ran['kode_registrasi'] ?>" class="font-weight-bold text-primary"><?= $ran['kode_registrasi'] ?></a></td>
                                             <td><?= $ran['nama_perusahaan'] ?></td>
                                             <td><a href="" class="font-weight-bold text-dark"><?= $ran['jumlah_kendaraan'] ?></a></td>
                                             <td><?= $ran['created_at'] ?></td>

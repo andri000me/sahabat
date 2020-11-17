@@ -71,20 +71,7 @@
                     <!-- Form -->
                     <form method="POST" class="needs-validation md-form text-left" style="color: #757575;" action="/rekomendasi/savep" enctype="multipart/form-data" novalidate>
 
-                        <div class="md-form">
-                            <div class="file-field">
-                                <div class="btn btn-primary btn-sm float-left">
-                                    <span><i class="fa fa-image mr-1"></i> Pilih File Dokumen</span>
-                                    <input type="file" name="img_pengantar_ptsp" id="uploadImage">
-                                </div>
-                                <div class="file-path-wrapper">
-                                    <input name="img_pengantar_ptsp" class="file-path validate" type="text" placeholder="Surat Pengantar dai PTSP">
-                                </div>
-                            </div>
-                            <div class="kacili" style="margin-left:160px;">
-                                <?= $validation->getError('img_pengantar_ptsp') ?>
-                            </div>
-                        </div>
+
 
                         <div class="md-form">
                             <div class="file-field">

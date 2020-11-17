@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 17, 2020 at 08:51 AM
+-- Generation Time: Nov 17, 2020 at 06:15 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -79,7 +79,7 @@ CREATE TABLE `ask` (
 --
 
 INSERT INTO `ask` (`id`, `slug`, `kode_registrasi`, `id_koperasi`, `ptsp`, `status_ptsp`, `ptsp_approve`, `dishub`, `status_dishub`, `penerbitan`, `ptsp_penerbitan`, `status_penerbitan`, `dishub_approve`, `dishub_approvve`, `rekompersetujuan`, `status_rekompersetujuan`, `pelayanan_dimohon`, `jumlah_kendaraan`, `jenis_kendaraan`, `kapasitas_angkut`, `wilayah_operasi`, `pengaruh`, `kelas_jalan`, `fasilitas_pool`, `fasilitas_perawatan`, `img_surat_permohonan`, `img_bukti_pengesahan`, `img_domisili`, `img_pernyataan_kesanggupan`, `img_pernyataan_kerjasama`, `img_perjanjian`, `img_pemda`, `img_rencana_bisnis`, `img_penolakan_ptsp`, `img_persetujuan_ptsp`, `img_surat_persetujuan`, `img_permohonan`, `img_penolakan_permohonan`, `img_penerbitan`, `img_penolakan_penerbitan`, `img_izin`, `img_penolakan_izin`, `created_at`, `updated_at`) VALUES
-(19, 'ksu-tetap-setia-bhayangkara', '20201117003941', '6', '1', '1', 0, '0', '0', '0', 0, '0', 0, 0, '1', '3', 'a', '2', 'a', '2', 'a', 'a', 'a', 'Ada', ' Ada', '1605595417_f415f119b96f3c96aa9e.jpg', '1605595417_2e5c9abaa543f4b645cd.jpg', '1605595417_0d444a15b160e05f5ad9.jpg', '1605595417_8994ad8c6688b48b5905.jpg', '1605595417_d83cbf6fc601db175ff6.jpg', '1605595417_92e1ec4b3835d40cd92b.jpg', '1605595417_f28ba2f5b9cd53723cb8.jpg', '1605595417_821484a1df5fffb5ef90.jpg', NULL, NULL, '', '', '', '', '', '', '', '2020-11-17 00:43:37', '2020-11-17 01:31:10');
+(21, 'ksu-tetap-setia-bhayangkara', '20201117055834', '6', '1', '1', 0, '1', '1', '0', 0, '4', 0, 0, '1', '3', '', '2', 'Minibus / Mobil Penumpang', '4', 'Kota Gorontalo dan Sekitarnya', '', '', '', '', '1605614320_a5ae5b2fd449afa392b5.png', '1605614320_2016c4e5c65293c22f26.png', '1605614320_032cb7af705a29af8f11.png', '1605614320_8a62f76f432811eccd99.png', '1605614320_7d19fdee4b2240dc7c56.png', '1605614320_b9a0b721dafa9d901426.png', '1605614320_f1087a1f8fb66dd90f1e.png', '1605614320_afd9e81037ec7ed1eebd.png', NULL, '1605614935_1742d8ac8be6701d3b99.png', '', '', '', '', '', '1605619560_6165dad0eefffc5909eb.png', '', '2020-11-17 05:58:40', '2020-11-17 07:26:00');
 
 -- --------------------------------------------------------
 
@@ -188,6 +188,13 @@ CREATE TABLE `permohonan` (
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `permohonan`
+--
+
+INSERT INTO `permohonan` (`id`, `user_id`, `verificator_id`, `approver_id`, `slug`, `kode_booking`, `status`, `status_verifikasi`, `tgl_permohonan`, `nama_pemohon`, `alamat_pemohon`, `jenis_permohonan`, `trayek_dilayani`, `nomor_kendaraan`, `nama_pemilik`, `alamat_pemilik`, `jenis_kendaraan`, `tahun_pembuatan`, `nomor_kir`, `kapasitas_angkutan`, `uji_berkala_berlaku`, `stnkb_berlaku`, `pkb_berlaku`, `jasa_raharja_berlaku`, `img_surat_permohonan`, `img_akte_perusahaan`, `img_tdp`, `img_siup`, `img_npwp`, `img_ktp`, `img_trayek`, `img_trayek_tujuan`, `img_stnkb_pkb`, `img_kir`, `img_jasa_raharja`, `img_surat_pernyataan`, `img_pengantar_ptsp`, `img_izin_trayek`, `tgl_approve`, `masa_berlaku`, `created_at`, `updated_at`) VALUES
+(69, '', '', '', '6', '20201117092605', '1', 1, '2020-11-17', '6', '', 'JP1233414', '24', 'asd', 'asd', 'asd', 'asd', 'asd', 'DB.041.001.427', '1 Orang +1 Kg Barang', '2020-11-17', '2020-11-17', '2020-11-17', '2020-11-17', '1605626774_8f17aa0029dcc5a44f09.png', '', '', '', '', '', NULL, '', '1605626792_db8e5bf170886bdc9964.png', '1605626801_89a628257317c8a309bf.png', '1605626808_9a5a62dbdc23564cbbcd.png', '1605626812_252fa33e6e9228044063.png', '1605629626_b7bedea75a06f2ba40b5.png', '', '', '', '2020-11-17 09:26:14', '2020-11-17 10:14:30');
+
 -- --------------------------------------------------------
 
 --
@@ -197,6 +204,7 @@ CREATE TABLE `permohonan` (
 CREATE TABLE `permohonan_kabkota` (
   `id` int(11) NOT NULL,
   `slug` text NOT NULL,
+  `used` int(11) NOT NULL,
   `koperasi_id` varchar(512) NOT NULL,
   `kabkota_id` varchar(512) NOT NULL,
   `status_asal` varchar(512) NOT NULL,
@@ -220,9 +228,9 @@ CREATE TABLE `permohonan_kabkota` (
   `img_jasa_raharja` varchar(512) NOT NULL,
   `img_kir` varchar(512) NOT NULL,
   `img_penolakan_asal` text NOT NULL,
-  `img_rekomendasi_asal` text NOT NULL,
+  `img_rekomendasi_asal` text DEFAULT NULL,
   `img_penolakan_tujuan` text NOT NULL,
-  `img_rekomendasi_tujuan` text NOT NULL,
+  `img_rekomendasi_tujuan` text DEFAULT NULL,
   `foto_depan` text NOT NULL,
   `foto_belakang` text NOT NULL,
   `foto_kanan` text NOT NULL,
@@ -231,6 +239,13 @@ CREATE TABLE `permohonan_kabkota` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `permohonan_kabkota`
+--
+
+INSERT INTO `permohonan_kabkota` (`id`, `slug`, `used`, `koperasi_id`, `kabkota_id`, `status_asal`, `status_tujuan`, `trayek_dilayani`, `asal`, `tujuan`, `nomor_kendaraan`, `nama_pemilik`, `alamat_pemilik`, `jenis_kendaraan`, `nomor_kir`, `merk`, `tahun_pembuatan`, `nomor_chasis`, `nomor_mesin`, `nomor_regis_pkb`, `img_surat_permohonan_koperasi`, `img_ktp_pemilik`, `img_stnkb`, `img_jasa_raharja`, `img_kir`, `img_penolakan_asal`, `img_rekomendasi_asal`, `img_penolakan_tujuan`, `img_rekomendasi_tujuan`, `foto_depan`, `foto_belakang`, `foto_kanan`, `foto_kiri`, `tgl_approve`, `created_at`, `updated_at`) VALUES
+(24, 'a', 0, '6', '', '2', '2', 'AA-01', '1', '2', '123', 'A', 'A', 'Minibus ', 'DB.041.001.427', 'sdf', '2013', 'MHMU5WY2EEK003133 ', 'AG15-K40363 ', 'DB.041.001.427', '1605620815_3acb5c24b1658cade42f.png', '1605620815_0aa69a0de688c71ce41c.png', '1605620815_4d461e1ac4dd7b2d6827.png', '1605620815_cab9d547cae39909cc1c.png', '1605620815_d552bb6e4315261db565.png', '', '1605620838_2cad3ed21aab4be6f8e5.png', '', '1605620862_d81900f1c7ee495fcd13.png', '1605620815_64dc7948f92ad11893c8.png', '1605620815_0cba7e8d12ec7cb78bcf.png', '1605620815_7e10d211a51f25a9837c.png', '1605620815_b30f07ab00009641b42a.png', '2020-11-17', '2020-11-17 07:46:55', '2020-11-17 09:44:58');
 
 -- --------------------------------------------------------
 
@@ -255,7 +270,9 @@ CREATE TABLE `ranmor` (
 
 INSERT INTO `ranmor` (`id`, `ask_kode_registrasi`, `nomor_kendaraan`, `nomor_uji`, `kapasitas`, `img_ranmor`, `created_at`, `updated_at`) VALUES
 (30, '20201116233228', 'DM1234AS', 'DB.123.SDS.12', '4', '1605591709_fb196e8d6c4c9a1c8fdb.jpeg', '2020-11-16 23:41:49', '2020-11-16 23:41:49'),
-(31, '20201116233228', 'DM1234AS', 'DB.123.SDS.12', '4', '1605591815_b978127193063cc192a7.jpeg', '2020-11-16 23:43:35', '2020-11-16 23:43:35');
+(31, '20201116233228', 'DM1234AS', 'DB.123.SDS.12', '4', '1605591815_b978127193063cc192a7.jpeg', '2020-11-16 23:43:35', '2020-11-16 23:43:35'),
+(32, '20201117055834', 'DM 1832 DB', 'DM 4614 AO', '4', '1605616434_e01cfae0497a40ed8083.png', '2020-11-17 06:33:54', '2020-11-17 06:33:54'),
+(33, '20201117055834', 'sdf', 'DM 4614 AO', '1', '1605616444_14376680acfbdbf0c03d.png', '2020-11-17 06:34:04', '2020-11-17 06:34:04');
 
 -- --------------------------------------------------------
 
@@ -459,7 +476,7 @@ ALTER TABLE `wilayah`
 -- AUTO_INCREMENT for table `ask`
 --
 ALTER TABLE `ask`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `jenis_permohonan`
@@ -483,19 +500,19 @@ ALTER TABLE `nomor_surat`
 -- AUTO_INCREMENT for table `permohonan`
 --
 ALTER TABLE `permohonan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- AUTO_INCREMENT for table `permohonan_kabkota`
 --
 ALTER TABLE `permohonan_kabkota`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `ranmor`
 --
 ALTER TABLE `ranmor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `trayek`

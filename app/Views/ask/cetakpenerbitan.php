@@ -90,7 +90,7 @@
                         </div>
                         <div class="mt-3">
                             <div class="col text-center font-weight-bold " style="font-size:19px;margin-top: -5px;">
-                                <span> PERTIMBANGAN PERMOHONAN IZIN PENYELENGGARAAN </span><br>
+                                <span> PERTIMBANGAN PERMOHONAN REALISASI IZIN PENYELENGGARAAN </span><br>
                             </div>
                             <div class="col text-center font-weight-bold " style="font-size:19px;margin-top: -5px;">
                                 <span> ANGKUTAN ORANG DENGAN KENDARAAN BERMOTOR UMUM </span><br>
@@ -144,7 +144,7 @@
                         </div>
 
                         <div class="col mt-4 text-justify">
-                            Sesuai persyaratan administrasi teknis dan khusus, berdasarkan peraturan yang berlaku<b class="font-weight-bold"> Dapat diberikan Persetujuan </b> Izin Penyelenggaraan Angkutan Orang Dengan Kendaraan Bermotor Umum Tidak Dalam Trayek dengan ketentuan sebagai berikut :
+                            Sesuai persyaratan administrasi teknis dan khusus, berdasarkan peraturan yang berlaku<b class="font-weight-bold"> Dapat diberikan Persetujuan Realisasi</b> Izin Penyelenggaraan Angkutan Orang Dengan Kendaraan Bermotor Umum Tidak Dalam Trayek dengan ketentuan sebagai berikut :
                         </div>
 
                         <div class="row pl-3 mt-4">

@@ -24,7 +24,7 @@
             <ul class="stepper stepper-horizontal">
 
                 <?php
-                if ($step2['img_surat_permohonan'] && $step2['img_pengantar_ptsp'] && $step2['tgl_permohonan'] && $step2['nama_pemohon'] && $step2['jenis_permohonan']) {
+                if ($step2['img_surat_permohonan']  && $step2['tgl_permohonan'] && $step2['nama_pemohon'] && $step2['jenis_permohonan']) {
                     $complete = "completed";
                 } else {
                     $complete = "";
@@ -118,52 +118,10 @@
                         <input name="img_trayek_tujuan_lama" type="hidden" value="<?= $step2['img_trayek_tujuan'] ?>">
                         <input name="kode_booking" type="hidden" value="<?= $step2['kode_booking'] ?>">
 
-                        <div class="md-form">
-                            <div class="file-field">
-                                <div class="btn btn-primary btn-sm float-left">
-                                    <span><i class="fa fa-image mr-1"></i> Pilih File Dokumen</span>
-                                    <input type="file" name="img_trayek" id="uploadImage" onchange="PreviewImage()" value="<?= $step2['img_trayek'] ?>">
-                                </div>
-                                <a href="/img/img_trayek/<?= $step2['img_trayek'] ?>" target="_blank" type="button" class="btn btn-sm btn-danger"><i class="fa fa-eye mr-1"></i> Lihat dokumen</a>
-                                <div class="file-path-wrapper">
-                                    <input class="file-path validate" type="text" placeholder="Rekomendasi Asal Trayek">
-                                </div>
-                                <div class="kacili" style="margin-left:160px;">
-                                    <?= $validation->getError('img_trayek') ?>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="md-form">
-                            <div class="file-field">
-                                <div class="btn btn-primary btn-sm float-left">
-                                    <span><i class="fa fa-image mr-1"></i> Pilih File Dokumen</span>
-                                    <input type="file" name="img_trayek_tujuan" id="uploadImage" onchange="PreviewImage()" value="<?= $step2['img_trayek_tujuan'] ?>">
-                                </div>
-                                <a href="/img/img_trayek_tujuan/<?= $step2['img_trayek_tujuan'] ?>" target="_blank" type="button" class="btn btn-sm btn-danger"><i class="fa fa-eye mr-1"></i> Lihat dokumen</a>
-                                <div class="file-path-wrapper">
-                                    <input class="file-path validate" type="text" placeholder="Rekomendasi Tujuan Trayek">
-                                </div>
-                                <div class="kacili" style="margin-left:160px;">
-                                    <?= $validation->getError('img_trayek') ?>
-                                </div>
-                            </div>
-                        </div>
-
-                        <select name="trayek_dilayani" class="mdb-select md-form mt-5" searchable="Trayek Yang Dilayani">
-                            <option value="" disabled selected>Trayek Yang Dilayani</option>
-                            <?php foreach ($trayek as $tr) : ?>
-                                <?php
-                                if ($tr['kode_trayek'] == old('trayek_dilayani')) {
-                                    $x = "selected";
-                                }
-                                if ($step2['trayek_dilayani'] == $tr['kode_trayek']) {
-                                    $x = "selected";
-                                } else {
-                                    $x = "";
-                                }
-                                ?>
-                                <option value="<?= $tr['kode_trayek']; ?>" <?= $x ?>><?= $tr['trayek']; ?></option>
+                        <select name="trayek_dilayani" class="mdb-select md-form mt-5" searchable="Rekomendasi Asal Tujuan Trayek">
+                            <option value="" disabled selected>Pilih Rekomendasi Asal Tujuan Trayek</option>
+                            <?php foreach ($at as $tr) : ?>
+                                <option value="<?= $tr['id']; ?>"><?= $tr['nomor_kendaraan']; ?></option>
                             <?php endforeach; ?>
                         </select>
                         <div class="kacili" style="margin-top:-20px;">

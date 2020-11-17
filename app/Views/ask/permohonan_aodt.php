@@ -18,13 +18,13 @@
 
                             <input type="hidden" name="kode_registrasi" value="<?= date('YmdHis'); ?>">
 
-                            <div class="md-form mb-4 pink-textarea active-textarea">
+                            <!-- <div class="md-form mb-4 pink-textarea active-textarea">
                                 <textarea name="pelayanan_dimohon" id="form18" class="md-textarea form-control" rows="3" required></textarea>
                                 <label for="form18">Pelayanan yang dimohon</label>
                                 <div class="invalid-feedback">
                                     Pelayanan yang dimohon
                                 </div>
-                            </div>
+                            </div> -->
 
                             <div class="md-form">
                                 <input name="jumlah_kendaraan" type="number" id="form2" class="form-control" required>
@@ -50,47 +50,13 @@
                                 </div>
                             </div>
 
-                            <div class="md-form">
-                                <input name="wilayah_operasi" type="text" id="form2" class="form-control" required>
-                                <label for="form2">Wilayah Operasi</label>
-                                <div class="invalid-feedback">
-                                    Wilayah Operasi tidak boleh kosong
-                                </div>
-                            </div>
-
-                            <div class="md-form">
-                                <input name="pengaruh" type="text" id="form2" class="form-control" required>
-                                <label for="form2">Pengaruh terhadap jenis pelayanan lainnya</label>
-                                <div class="invalid-feedback">
-                                    Pengaruh terhadap jenis pelayanan lainnya tidak boleh kosong
-                                </div>
-                            </div>
-
-                            <div class="md-form">
-                                <input name="kelas_jalan" type="text" id="form2" class="form-control" required>
-                                <label for="form2">Kelas jalan yang dilalui</label>
-                                <div class="invalid-feedback">
-                                    Kelas jalan yang dilalui tidak boleh kosong
-                                </div>
-                            </div>
-
-                            <div class="form-group mb-5">
-                                <select name="fasilitas_pool" class="mdb-select md-form mt-5" searchable="Fasilitas penyimpanan kendaraan bermotor atau Pool">
-                                    <option value="" disabled selected>Pilih</option>
-                                    <option value="Ada">Ada</option>
-                                    <option value="Tidak Ada">Tidak Ada</option>
-                                </select>
-                                <label class="mdb-main-label">Fasilitas penyimpanan kendaraan bermotor atau Pool</label>
-                                <div class="kacili" style="margin-top:-20px;">
-                                    <?= $validation->getError('nama_pemohon') ?>
-                                </div>
-                            </div>
-
                             <div class="form-group my-5">
-                                <select name="fasilitas_perawatan" class="mdb-select md-form mt-5" searchable="Fasilitas pemeliharaan atau perawatan kendaraan">
+                                <select name="wilayah_operasi" class="mdb-select md-form mt-5" searchable="Wilayah Operasi">
                                     <option value="" disabled selected>Pilih</option>
-                                    <option value=" Ada">Ada</option>
-                                    <option value="Tidak Ada">Tidak Ada</option>
+                                    <option value="Kota Gorontalo dan Sekitarnya">Kota Gorontalo dan Sekitarnya</option>
+                                    <option value="Kabupaten Gorontalo Utara">Kabupaten Gorontalo Utara</option>
+                                    <option value="Kabupaten Boalemo">Kabupaten Boalemo</option>
+                                    <option value="Kabupaten Pohuwato">Kabupaten Pohuwato</option>
                                 </select>
                                 <label class="mdb-main-label">Fasilitas pemeliharaan atau perawatan kendaraan</label>
                                 <div class="kacili" style="margin-top:-20px;">
