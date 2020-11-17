@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 17, 2020 at 12:06 AM
+-- Generation Time: Nov 17, 2020 at 03:01 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -38,6 +38,7 @@ CREATE TABLE `ask` (
   `dishub` text NOT NULL,
   `status_dishub` varchar(512) NOT NULL,
   `penerbitan` text NOT NULL,
+  `ptsp_penerbitan` int(11) NOT NULL,
   `status_penerbitan` text NOT NULL,
   `dishub_approve` int(11) NOT NULL,
   `dishub_approvve` int(11) NOT NULL,
@@ -65,16 +66,11 @@ CREATE TABLE `ask` (
   `img_penolakan_permohonan` text NOT NULL,
   `img_penerbitan` text NOT NULL,
   `img_penolakan_penerbitan` text NOT NULL,
+  `img_izin` text NOT NULL,
+  `img_penolakan_izin` text NOT NULL,
   `created_at` text NOT NULL,
   `updated_at` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `ask`
---
-
-INSERT INTO `ask` (`id`, `slug`, `kode_registrasi`, `id_koperasi`, `ptsp`, `status_ptsp`, `ptsp_approve`, `dishub`, `status_dishub`, `penerbitan`, `status_penerbitan`, `dishub_approve`, `dishub_approvve`, `pelayanan_dimohon`, `jumlah_kendaraan`, `jenis_kendaraan`, `kapasitas_angkut`, `wilayah_operasi`, `pengaruh`, `kelas_jalan`, `fasilitas_pool`, `fasilitas_perawatan`, `img_surat_permohonan`, `img_bukti_pengesahan`, `img_domisili`, `img_pernyataan_kesanggupan`, `img_pernyataan_kerjasama`, `img_perjanjian`, `img_pemda`, `img_rencana_bisnis`, `img_penolakan_ptsp`, `img_persetujuan_ptsp`, `img_surat_persetujuan`, `img_permohonan`, `img_penolakan_permohonan`, `img_penerbitan`, `img_penolakan_penerbitan`, `created_at`, `updated_at`) VALUES
-(17, 'ksu-tetap-setia-bhayangkara', '20201116071742', '6', '1', '2', 0, '1', '2', '', '', 1, 0, 'a', '1', 'a', 'a', 'a', 'a', 'a', 'Ada', ' Ada', '1605532703_2c14dc3cec2e139430e5.jpeg', '1605532703_ab981ca671783fbcec52.jpeg', '1605532703_a85a6b7007b9156b8769.jpeg', '1605532703_484aa070ea58a7bfe180.jpeg', '1605532703_9242835e2be3aafbbb50.jpeg', '1605532703_fc487c2d6b35108ecf28.jpeg', '1605532703_a146ce63cae79d105b59.jpeg', '1605532703_a233cca84dacae2126e7.jpeg', '1605533864_f14d9d9db37fbe57b7ec.jpeg', '1605532767_82fbcf5522e79df7e5d5.jpeg', '1605532919_3249bccc490e8173f2f7.jpg', '1605534030_6ad080941fb12e127ef9.jpeg', '', '', '', '2020-11-16 07:18:23', '2020-11-16 07:40:30');
 
 -- --------------------------------------------------------
 
@@ -111,18 +107,6 @@ CREATE TABLE `msg_penolakan` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `msg_penolakan`
---
-
-INSERT INTO `msg_penolakan` (`id`, `kode_booking`, `msg`, `created_at`, `updated_at`) VALUES
-(1, '68728071114', 'Data KIR Di isi sesuai dengan dokumen !', NULL, NULL),
-(2, '68728071114', 'File dokumen surat permohonan yang anda upload tidak sesuai', NULL, NULL),
-(4, '68728071111', 'Ditolak men', '2020-10-18 09:18:47', '2020-10-18 09:18:47'),
-(5, '68728071112', 'STNK tidak sesuai', '2020-10-20 22:24:41', '2020-10-20 22:24:41'),
-(6, '68728071111', 'asdasd', '2020-10-25 03:34:50', '2020-10-25 03:34:50'),
-(7, '68728071112', 'a', '2020-10-25 22:11:25', '2020-10-25 22:11:25');
 
 -- --------------------------------------------------------
 
@@ -195,15 +179,6 @@ CREATE TABLE `permohonan` (
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `permohonan`
---
-
-INSERT INTO `permohonan` (`id`, `user_id`, `verificator_id`, `approver_id`, `slug`, `kode_booking`, `status`, `status_verifikasi`, `tgl_permohonan`, `nama_pemohon`, `alamat_pemohon`, `jenis_permohonan`, `trayek_dilayani`, `nomor_kendaraan`, `nama_pemilik`, `alamat_pemilik`, `jenis_kendaraan`, `tahun_pembuatan`, `nomor_kir`, `kapasitas_angkutan`, `uji_berkala_berlaku`, `stnkb_berlaku`, `pkb_berlaku`, `jasa_raharja_berlaku`, `img_surat_permohonan`, `img_akte_perusahaan`, `img_tdp`, `img_siup`, `img_npwp`, `img_ktp`, `img_trayek`, `img_trayek_tujuan`, `img_stnkb_pkb`, `img_kir`, `img_jasa_raharja`, `img_surat_pernyataan`, `img_pengantar_ptsp`, `img_izin_trayek`, `tgl_approve`, `masa_berlaku`, `created_at`, `updated_at`) VALUES
-(56, '', '', '', '6', '68728071111', '1', 2, '2020-10-30', '6', '', 'JP1233414', 'AA-01', 'DM 1832 DB', 'Ajis Nihali', 'Gorontalo', 'Minibus ', '2014', 'DB.041.001.427', '1 Orang +1 Kg Barang', '2020-10-25', '2020-10-25', '2020-10-25', '2020-10-25', '1603624096_83fee67bbefdac71ba85.jpg', '', '', '', '', '', '1604053164_bef88b2d95bc785476d3.png', '1604053164_14d352031eff4262c575.png', '1603624145_3a65037672033c2479ca.jpg', '1603624158_1ada5a92c9941a704ccf.jpg', '1603624165_ee156a3e29cbf830bae8.jpg', '1603624169_c2b6544db5f69b164ca0.jpg', '1604053153_8073154ed59b614d597c.png', '1604053019_de2f502cd935907ea1d2.png', '2020-10-30', '', '2020-10-25 05:53:21', '2020-10-30 05:19:56'),
-(65, '', '', '', '6', '68728071112', '2', 2, '2020-10-26', '6', '', 'JP1233414', 'AA-01', 'asd', 'asd', 'asd', 'asd', 'asd', 'asd', '12 Orang +12 Kg Barang', '2020-10-26', '2020-10-26', '2020-10-26', '2020-10-26', '1603687192_e5b5b917f7b1de070ae3.jpeg', '', '', '', '', '', '1603687208_04349655141525b6524a.jpeg', '1603687208_f4e1920fdd8697c044d7.jpeg', '1603687975_29723a614ad62cd1fe92.jpg', '1603688400_1b60919e3baa0bc58650.jpg', '1603688713_5ef6fad3e7b0079fbf91.png', '1603688831_8f2a6c4ca2e4ee68c23c.jpg', '1603687192_10decfd8ed9dc0d718e6.jpg', '1603699909_cb5dbe7e23acdbc84e24.jpg', '2020-10-26', '', '2020-10-25 23:39:52', '2020-10-26 03:11:49'),
-(66, '', '', '', '6', '68728071113', '1', 2, '2020-10-26', '6', '', 'JP1233414', 'AA-01', '12', 'qw', 'qw', 'qw', 'qw', '12', '12 Orang +12 Kg Barang', '2020-10-26', '2020-10-26', '2020-10-27', '2020-10-26', '1603695281_944c592a1ac66015684c.jpg', '', '', '', '', '', '1603695665_afd9280277618612ced6.jpg', '1603695665_2044626bb9d43330d1cb.jpg', '1603695680_4fd6b7d41ae468c56f3b.jpg', '1603695703_d07fde623b908b0633a1.jpg', '1603695711_18b8089b527e4ef3c988.jpg', '1603695716_573fba94386c6c493568.jpg', '1603695281_a9dcf2ef509ae3dc4b76.jpg', '1603699789_6c574124f814002f2634.jpg', '2020-10-26', '', '2020-10-26 01:54:41', '2020-10-26 03:09:49');
-
 -- --------------------------------------------------------
 
 --
@@ -248,16 +223,6 @@ CREATE TABLE `permohonan_kabkota` (
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `permohonan_kabkota`
---
-
-INSERT INTO `permohonan_kabkota` (`id`, `slug`, `koperasi_id`, `kabkota_id`, `status_asal`, `status_tujuan`, `trayek_dilayani`, `asal`, `tujuan`, `nomor_kendaraan`, `nama_pemilik`, `alamat_pemilik`, `jenis_kendaraan`, `nomor_kir`, `merk`, `tahun_pembuatan`, `nomor_chasis`, `nomor_mesin`, `nomor_regis_pkb`, `img_surat_permohonan_koperasi`, `img_ktp_pemilik`, `img_stnkb`, `img_jasa_raharja`, `img_kir`, `img_penolakan_asal`, `img_rekomendasi_asal`, `img_penolakan_tujuan`, `img_rekomendasi_tujuan`, `foto_depan`, `foto_belakang`, `foto_kanan`, `foto_kiri`, `tgl_approve`, `created_at`, `updated_at`) VALUES
-(13, 'abdul-musakir', '6', '', '1', '2', 'AA-01', '1', '6', 'DM 1234 A', 'ABDUL MUSAKIR', 'BATUDAA', 'SEPEDA', 'KIRA', 'POLIGON', '2020', 'CHASIS', 'MESIN', 'PKB', '1603636647_eae29d139be67324527e.jpeg', '1603636647_bd90f5a084e87f8ea39b.jpeg', '1603636647_9841c7904a6362133e96.jpeg', '1603636647_ae6165791a4b3502a5be.jpeg', '1603636647_3505cf44a3f86089afe4.jpeg', '', '', '', '1603637408_b07d15361807502f89c0.jpeg', '', '', '', '', '2020-11-12', '2020-10-25 09:37:27', '2020-11-12 21:29:34'),
-(15, 'asd', '6', '', '0', '0', 'AA-01', '1', '1', 'asd', 'asd', 'asd', 'asd', 'asd', 'asd', 'asd', 'asd', 'asd', 'asd', '1605055220_d0b3df977ec009075a14.png', '1605055220_7859cfe302836385c830.png', '1605055220_ca95bcb66897271a1e33.png', '1605055220_d29ba0f8dbf1c639cb3a.png', '1605055220_a09f2bad393a41f9780b.png', '', '', '', '', '1605055220_5977b3dcd2b7e2e8c899.png', '1605055220_5276a4a9ab6c427f7dd8.png', '1605055220_2b244c6a9eab8c935632.png', '1605055220_dd9fbea211a94f0dff04.png', '', '2020-11-10 18:40:20', '2020-11-10 18:40:20'),
-(16, 'abdul-musakir-radjak', '6', '', '2', '0', 'AA-01', '1', '2', 'asd', 'Abdul Musakir Radjak', 'asd', 'asd', 'asd', 'asdasd', 'asd', 'asd', 'asd', 'asd', '1605056406_397934c9848aa72e9fbe.jpeg', '1605056406_e1c474b71a23c4b90e6d.jpeg', '1605056406_2cbb93cc1a5c8b368958.jpeg', '1605056406_20a99f4db37328012177.jpeg', '1605056406_8a218984dbb26f0b8d1f.jpeg', '', '', '', '', '1605056406_5087a85bee86e86d500b.jpeg', '1603680216_899626fd54ff396a5e96.jpg', '1605056406_686b4202300ba7816061.jpeg', '1605056406_abc8846cd6c226ee4d6e.jpeg', '2020-11-10', '2020-11-10 19:00:06', '2020-11-10 19:31:18'),
-(17, '234', '6', '', '2', '3', 'AA-01', '1', '0', '234', '234', '234', '234', '234', '234', '234', '234', '234', '234', '1605238294_5d0caa3d64e47b1bb0b9.jpeg', '1605238294_e7231a3184997021cdf0.jpeg', '1605238294_37a49d7766fb6823eb67.jpeg', '1605238294_da631ce922428b0dd0fb.jpeg', '1605238294_486a1328f82f1a75baa8.jpeg', '', '1605238383_262a3e23b9d05b339543.jpeg', '', '', '1605238294_01378ce4fa0ae1555651.jpeg', '1605238294_ddd3c877d7b7a6f6cb59.jpeg', '1605238294_e6f398b81a90d06b6cb4.jpeg', '1605238294_35d4dda15921210f68db.jpeg', '2020-11-12', '2020-11-12 21:31:34', '2020-11-12 21:33:03');
-
 -- --------------------------------------------------------
 
 --
@@ -274,22 +239,6 @@ CREATE TABLE `ranmor` (
   `created_at` varchar(512) NOT NULL,
   `updated_at` varchar(512) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `ranmor`
---
-
-INSERT INTO `ranmor` (`id`, `ask_kode_registrasi`, `nomor_kendaraan`, `nomor_uji`, `kapasitas`, `img_ranmor`, `created_at`, `updated_at`) VALUES
-(14, '20201114072844', 'sdf', 'asd', 'asdasdasd', '1605360565_836516c2624ab88fde3d.jpg', '2020-11-14 07:29:25', '2020-11-14 07:29:25'),
-(15, '20201114072844', 'asd', 'asd', 'asd', '1605360573_b497dfcca8802d729906.jpg', '2020-11-14 07:29:33', '2020-11-14 07:29:33'),
-(17, '20201114100914', 'sda', 'asd', 'asd', '1605370550_e6c11f6d7c41f46a6a93.jpg', '2020-11-14 10:15:50', '2020-11-14 10:15:50'),
-(23, '20201114043847', 'asd', 'asd', 'asd', '1605443634_a87c63b3190a77a0ec8d.jpeg', '2020-11-15 06:33:54', '2020-11-15 06:33:54'),
-(24, '20201115094826', 'DM 4614 AO', 'DM 4614 AO', '4', '1605456299_2238856fd87e388d5fc0.jpeg', '2020-11-15 10:04:59', '2020-11-15 10:04:59'),
-(25, '20201115094826', 'DM 1832 DB', 'DM 4614 AO', '4', '1605456313_6f0335f1298793904085.jpeg', '2020-11-15 10:05:13', '2020-11-15 10:05:13'),
-(26, '20201115094826', 'DM 1832 DB', 'DM 4614 AO', '4', '1605456324_9d4555dd6b5258ded449.jpeg', '2020-11-15 10:05:24', '2020-11-15 10:05:24'),
-(27, '20201115094826', 'DM 1832 DB', 'DM 4614 AO', '4', '1605456335_c366192784a7baf82e57.jpeg', '2020-11-15 10:05:35', '2020-11-15 10:05:35'),
-(28, '20201115094826', 'DM 1832 DB', 'DM 4614 AO', '4', '1605456362_f0acec55398bad104efa.jpeg', '2020-11-15 10:06:02', '2020-11-15 10:06:02'),
-(29, '20201116071742', 'dm', 'dm', '12', '1605532938_c34a43dcbda31be98238.jpeg', '2020-11-16 07:22:18', '2020-11-16 07:22:18');
 
 -- --------------------------------------------------------
 
@@ -523,7 +472,7 @@ ALTER TABLE `permohonan`
 -- AUTO_INCREMENT for table `permohonan_kabkota`
 --
 ALTER TABLE `permohonan_kabkota`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `ranmor`

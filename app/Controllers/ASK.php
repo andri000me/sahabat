@@ -37,7 +37,7 @@ class ASK extends BaseController
         }
     }
 
-    public function detailAOTDT($slug, $kode_registrasi)
+    public function detailaotdt($slug, $kode_registrasi)
     {
         session();
         if ($this->user) {
@@ -208,6 +208,8 @@ class ASK extends BaseController
             'status_ptsp' => 1,
             'dishub' => 0,
             'status_dishub' => 0,
+            'penerbitan' => 0,
+            'status_penerbitan' => 0,
             'pelayanan_dimohon' => $this->request->getVar('pelayanan_dimohon'),
             'jumlah_kendaraan' => $this->request->getVar('jumlah_kendaraan'),
             'jenis_kendaraan' => $this->request->getVar('jenis_kendaraan'),
@@ -229,7 +231,7 @@ class ASK extends BaseController
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
 
-        return redirect()->to('/ask/permohonanSaya');
+        return redirect()->to('/ask/permohonansaya');
     }
 
     public function lengkapiBerkas($slug, $kode_registrasi)
@@ -265,6 +267,23 @@ class ASK extends BaseController
         }
     }
 
+    public function ajukanpenerbitan($slug, $kode_registrasi)
+    {
+        session();
+        if ($this->user) {
+            $data = [
+                'title' => 'Permohonan Angkutan Orang Tidak Dalam Trayek',
+                'session' => $this->user,
+                'validation' => \Config\Services::validation(),
+                'ranmor' => $this->ranmorModel->getAllRanmor($kode_registrasi),
+                'ask' => $this->askModel->getAsk($kode_registrasi),
+            ];
+            return view('ask/ajukanpenerbitan', $data);
+        } else {
+            return redirect()->to('login/login');
+        }
+    }
+
     public function berkaskendaraan($slug, $kode_registrasi)
     {
         session();
@@ -282,7 +301,7 @@ class ASK extends BaseController
         }
     }
 
-    public function permohonanSaya()
+    public function permohonansaya()
     {
         $id = $this->user['id'];
         session();
@@ -300,15 +319,15 @@ class ASK extends BaseController
         }
     }
 
-    public function batalkanPengajuan($kode_registrasi)
+    public function batalkanpengajuan($kode_registrasi)
     {
         $this->askModel->batalkanPengajuan($kode_registrasi);
         $this->ranmorModel->batalkanPengajuan($kode_registrasi);
 
-        return redirect()->to('/ask/permohonanSaya');
+        return redirect()->to('/ask/permohonansaya');
     }
 
-    public function ajukanPTSP($id)
+    public function ajukanptsp($id)
     {
         session();
         $this->askModel->save([
@@ -317,7 +336,7 @@ class ASK extends BaseController
             'status_ptsp' => 1
         ]);
 
-        return redirect()->to('/ask/permohonanSaya');
+        return redirect()->to('/ask/permohonansaya');
     }
 
     public function ajukandishub($slug, $kode_registrasi, $id)
@@ -332,6 +351,7 @@ class ASK extends BaseController
 
         return redirect()->to('/ask/permohonanizin');
     }
+
     public function terima($id, $slug, $kode_registrasi)
     {
         session();
@@ -342,16 +362,55 @@ class ASK extends BaseController
 
         return redirect()->to('/ask/verifikasiaotdt');
     }
+
+    public function terimapenerbitan($id, $slug, $kode_registrasi)
+    {
+        session();
+        $this->askModel->save([
+            'id' => $id,
+            'status_penerbitan' => 3
+        ]);
+
+        return redirect()->to('/ask/verifikasipenerbitanaotdt');
+    }
+
+    public function tolakpenerbitan($id, $slug, $kode_registrasi)
+    {
+        session();
+        $this->askModel->save([
+            'id' => $id,
+            'status_penerbitan' => 4
+        ]);
+
+        return redirect()->to('/ask/verifikasipenerbitanaotdt');
+    }
+
     public function approve1($id, $slug, $kode_registrasi)
     {
         session();
         $this->askModel->save([
             'id' => $id,
-            'dishub_approve' => 1
+            'dishub_approve' => 1,
+            'penerbitan' => 1,
+            'status_penerbitan' => 1
         ]);
 
         return redirect()->to('/ask/approvepermohonan');
     }
+
+    public function ajukanpenerbitanizin($id, $slug, $kode_registrasi)
+    {
+        session();
+        $this->askModel->save([
+            'id' => $id,
+            'penerbitan' => 1,
+            'ptsp_penerbitan' => 1,
+            'status_penerbitan' => 2
+        ]);
+
+        return redirect()->to('/ask/penerbitanizin');
+    }
+
     public function tolak($id, $slug, $kode_registrasi)
     {
         session();
@@ -396,7 +455,7 @@ class ASK extends BaseController
                 'session' => $this->user,
                 'validation' => \Config\Services::validation(),
                 'ranmor' => $this->ranmorModel->getRanmor(),
-                'ask' => $this->askModel->getAskPTSP(),
+                'ask' => $this->askModel->getAskptsp(),
             ];
             return view('ask/verifikasiaotdt', $data);
         } else {
@@ -456,6 +515,42 @@ class ASK extends BaseController
         }
     }
 
+    public function penerbitanizin()
+    {
+        session();
+        $id = $this->user['id'];
+        if ($this->user) {
+            $data = [
+                'title' => 'Permohonan Angkutan Orang Tidak Dalam Trayek',
+                'session' => $this->user,
+                'validation' => \Config\Services::validation(),
+                'ranmor' => $this->ranmorModel->getRanmor(),
+                'ask' => $this->askModel->getAskDishubterbit($id),
+            ];
+            return view('ask/penerbitanizin', $data);
+        } else {
+            return redirect()->to('login/login');
+        }
+    }
+
+    public function verifikasipenerbitanaotdt()
+    {
+        session();
+        $id = $this->user['id'];
+        if ($this->user) {
+            $data = [
+                'title' => 'Permohonan Angkutan Orang Tidak Dalam Trayek',
+                'session' => $this->user,
+                'validation' => \Config\Services::validation(),
+                'ranmor' => $this->ranmorModel->getRanmor(),
+                'ask' => $this->askModel->getAskptspterbit($id),
+            ];
+            return view('ask/verifikasipenerbitanaotdt', $data);
+        } else {
+            return redirect()->to('login/login');
+        }
+    }
+
 
     public function detailverifikasiaotdt($slug, $kode_registrasi)
     {
@@ -493,6 +588,24 @@ class ASK extends BaseController
         }
     }
 
+    public function detailverifikasipenerbitan($slug, $kode_registrasi)
+    {
+        session();
+        if ($this->user) {
+            $data = [
+                'title' => 'Permohonan Angkutan Orang Tidak Dalam Trayek',
+                'session' => $this->user,
+                'validation' => \Config\Services::validation(),
+                'ask' => $this->askModel->getAsk($kode_registrasi),
+                'ranmor' => $this->ranmorModel->getAllRanmor($kode_registrasi),
+
+            ];
+            return view('ask/detailverifikasipenerbitan', $data);
+        } else {
+            return redirect()->to('login/login');
+        }
+    }
+
     public function detailverifikasiapprove($slug, $kode_registrasi)
     {
         session();
@@ -511,7 +624,7 @@ class ASK extends BaseController
         }
     }
 
-    public function uploadPenolakanPTSP($slug, $kode_registrasi)
+    public function uploadPenolakanptsp($slug, $kode_registrasi)
     {
         session();
         if ($this->user) {
@@ -519,7 +632,7 @@ class ASK extends BaseController
                 'title' => 'Permohonan Angkutan Orang Tidak Dalam Trayek',
                 'session' => $this->user,
                 'validation' => \Config\Services::validation(),
-                'ask' => $this->askModel->getAskPTSP($kode_registrasi),
+                'ask' => $this->askModel->getAskptsp($kode_registrasi),
                 'ranmor' => $this->ranmorModel->getAllRanmor($kode_registrasi),
 
             ];
@@ -529,7 +642,43 @@ class ASK extends BaseController
         }
     }
 
-    public function savePenolakanPTSP()
+    public function uploadizin($slug, $kode_registrasi)
+    {
+        session();
+        if ($this->user) {
+            $data = [
+                'title' => 'Permohonan Angkutan Orang Tidak Dalam Trayek',
+                'session' => $this->user,
+                'validation' => \Config\Services::validation(),
+                'ask' => $this->askModel->getAskptsp($kode_registrasi),
+                'ranmor' => $this->ranmorModel->getAllRanmor($kode_registrasi),
+
+            ];
+            return view('ask/uploadizinaotdt', $data);
+        } else {
+            return redirect()->to('login/login');
+        }
+    }
+
+    public function uploadpenolakanizin($slug, $kode_registrasi)
+    {
+        session();
+        if ($this->user) {
+            $data = [
+                'title' => 'Permohonan Angkutan Orang Tidak Dalam Trayek',
+                'session' => $this->user,
+                'validation' => \Config\Services::validation(),
+                'ask' => $this->askModel->getAskptsp($kode_registrasi),
+                'ranmor' => $this->ranmorModel->getAllRanmor($kode_registrasi),
+
+            ];
+            return view('ask/uploadpenolakanizin', $data);
+        } else {
+            return redirect()->to('login/login');
+        }
+    }
+
+    public function savePenolakanptsp()
     {
         if (!$this->validate([
             'img_penolakan_ptsp' => [
@@ -564,7 +713,77 @@ class ASK extends BaseController
         return redirect()->to('/ask/uploadpenolakanptsp/' . $this->request->getVar('slug') . '/' . $this->request->getVar('kode_registrasi') . '');
     }
 
-    public function saveUploadRekomendasi()
+    public function saveuploadizin()
+    {
+        if (!$this->validate([
+            'img_izin' => [
+                'rules' => 'uploaded[img_izin]|max_size[img_izin,3068]|mime_in[img_izin,image/jpg,image/jpeg,image/png,application/pdf]',
+                'errors' => [
+                    'uploaded' => 'Pilih dokumen terlebih dahulu',
+                    'max_size' => 'Ukuran dokumen terlalu besar (Maksimal 3Mb)',
+                    'mime_in' => 'Format tidak sesuai',
+                ],
+            ],
+
+        ])) {
+            return redirect()->to('/ask/uploadizin/' . $this->request->getVar('slug') . '/' . $this->request->getVar('kode_registrasi') . '')->withInput();
+        }
+
+        $img_izin = $this->request->getFile('img_izin');
+
+        if ($img_izin->getError() == 4) {
+            $nama_img_izin = "default.png";
+        } else {
+            $nama_img_izin = $img_izin->getRandomName();
+            $img_izin->move('img/img_izin', $nama_img_izin);
+        }
+
+        $slug = url_title($this->user['nama_perusahaan'], '-', true);
+
+        $this->askModel->save([
+            'id' => $this->request->getVar('id'),
+            'img_izin' => $nama_img_izin,
+        ]);
+
+        return redirect()->to('/ask/uploadizin/' . $this->request->getVar('slug') . '/' . $this->request->getVar('kode_registrasi') . '');
+    }
+
+    public function saveuploadpenolakanizin()
+    {
+        if (!$this->validate([
+            'img_penolakan_izin' => [
+                'rules' => 'uploaded[img_penolakan_izin]|max_size[img_penolakan_izin,3068]|mime_in[img_penolakan_izin,image/jpg,image/jpeg,image/png,application/pdf]',
+                'errors' => [
+                    'uploaded' => 'Pilih dokumen terlebih dahulu',
+                    'max_size' => 'Ukuran dokumen terlalu besar (Maksimal 3Mb)',
+                    'mime_in' => 'Format tidak sesuai',
+                ],
+            ],
+
+        ])) {
+            return redirect()->to('/ask/uploadpenolakanizin/' . $this->request->getVar('slug') . '/' . $this->request->getVar('kode_registrasi') . '')->withInput();
+        }
+
+        $img_penolakan_izin = $this->request->getFile('img_penolakan_izin');
+
+        if ($img_penolakan_izin->getError() == 4) {
+            $nama_img_penolakan_izin = "default.png";
+        } else {
+            $nama_img_penolakan_izin = $img_penolakan_izin->getRandomName();
+            $img_penolakan_izin->move('img/img_penolakan_izin', $nama_img_penolakan_izin);
+        }
+
+        $slug = url_title($this->user['nama_perusahaan'], '-', true);
+
+        $this->askModel->save([
+            'id' => $this->request->getVar('id'),
+            'img_penolakan_izin' => $nama_img_penolakan_izin,
+        ]);
+
+        return redirect()->to('/ask/uploadpenolakanizin/' . $this->request->getVar('slug') . '/' . $this->request->getVar('kode_registrasi') . '');
+    }
+
+    public function saveUploarekomendasi()
     {
         if (!$this->validate([
             'img_permohonan' => [
@@ -600,7 +819,7 @@ class ASK extends BaseController
     }
 
 
-    public function uploadPersetujuanPTSP($slug, $kode_registrasi)
+    public function uploadPersetujuanptsp($slug, $kode_registrasi)
     {
         session();
         if ($this->user) {
@@ -608,7 +827,7 @@ class ASK extends BaseController
                 'title' => 'Permohonan Angkutan Orang Tidak Dalam Trayek',
                 'session' => $this->user,
                 'validation' => \Config\Services::validation(),
-                'ask' => $this->askModel->getAskPTSP($kode_registrasi),
+                'ask' => $this->askModel->getAskptsp($kode_registrasi),
                 'ranmor' => $this->ranmorModel->getAllRanmor($kode_registrasi),
 
             ];
@@ -627,7 +846,7 @@ class ASK extends BaseController
                 'title' => 'Permohonan Angkutan Orang Tidak Dalam Trayek',
                 'session' => $this->user,
                 'validation' => \Config\Services::validation(),
-                'ask' => $this->askModel->getAskPTSP($kode_registrasi),
+                'ask' => $this->askModel->getAskptsp($kode_registrasi),
                 'ranmor' => $this->ranmorModel->getAllRanmor($kode_registrasi),
 
             ];
@@ -637,7 +856,7 @@ class ASK extends BaseController
         }
     }
 
-    public function savepersetujuanPTSP()
+    public function savepersetujuanptsp()
     {
         if (!$this->validate([
             'img_persetujuan_ptsp' => [

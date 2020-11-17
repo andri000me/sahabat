@@ -94,17 +94,17 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="/ask/persetujuanIzin<?= $href ?>" <?= $hidden_ptsp ?><?= $hidden_approver ?> <?= $hidden_vers ?> <?= $hidden_kota ?>>Penerbitan AOTDT</a>
+        <a class="nav-link" href="/ask/penerbitanizin<?= $href ?>" <?= $hidden_ptsp ?><?= $hidden_approver ?> <?= $hidden_vers ?> <?= $hidden_kota ?>>Penerbitan AOTDT</a>
       </li>
 
-      <li class="nav-item dropdown">
+      <!-- <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" <?= $hidden_approver ?> <?= $hidden_vers ?><?= $hidden_kota ?> <?= $hidden_koperasi ?>>Data Permohonan
         </a>
         <div class="dropdown-menu dropdown-warning" aria-labelledby="navbarDropdownMenuLink-555">
           <a class="dropdown-item" href="/rekomendasi/rekomendasi">Izin Trayek AKDP</a>
           <a class="dropdown-item" href="#!">Izin Operasional ASK</a>
         </div>
-      </li>
+      </li> -->
 
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" <?= $hidden_approver ?> <?= $hidden_vers ?><?= $hidden_kota ?> <?= $hidden_koperasi ?>>Izin Trayek AKDP
@@ -112,11 +112,16 @@
         <div class="dropdown-menu dropdown-warning" aria-labelledby="navbarDropdownMenuLink-555">
           <a class="dropdown-item" href="/rekomendasi/step1">Regis Baru</a>
           <a class="dropdown-item" href="/rekomendasi/step1p">Perpanjangan</a>
+          <a class="dropdown-item" href="/rekomendasi/rekomendasi">Data Permohonan</a>
         </div>
       </li>
 
       <li class="nav-item">
         <a class="nav-link" href="/ask/verifikasiAOTDT" <?= $hidden_approver ?> <?= $hidden_vers ?><?= $hidden_kota ?> <?= $hidden_koperasi ?>>Verifikasi Persetujuan AOTDT</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/ask/verifikasipenerbitanAOTDT" <?= $hidden_approver ?> <?= $hidden_vers ?><?= $hidden_kota ?> <?= $hidden_koperasi ?>>Verifikasi Penerbitan AOTDT</a>
       </li>
 
       <li class="nav-item">
@@ -131,9 +136,9 @@
         <a class="nav-link" href="/ask/verifikasipermohonandishub<?= $href ?>" <?= $hidden_ptsp ?><?= $hidden_approver ?> <?= $hidden_koperasi ?> <?= $hidden_kota ?>>Verifikasi Rekomendasi Permohonan AOTDT</a>
       </li>
 
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" href="/verifikasi/rekomendasi<?= $href ?>" <?= $hidden_ptsp ?><?= $hidden_approver ?> <?= $hidden_koperasi ?> <?= $hidden_kota ?>>Verifikasi Rekomendasi Penerbitan AOTDT</a>
-      </li>
+      </li> -->
 
       <li class="nav-item">
         <a class="nav-link" href="/verifikasi/terverifikasi<?= $href ?>" <?= $hidden_ptsp ?><?= $hidden_vers ?><?= $hidden_koperasi ?> <?= $hidden_kota ?>>Data Rekomendasi</a>
@@ -143,9 +148,9 @@
         <a class="nav-link" href="/ask/approvepermohonan" <?= $hidden_ptsp ?><?= $hidden_vers ?><?= $hidden_koperasi ?> <?= $hidden_kota ?>>Data Penerbitan AOTDT</a>
       </li>
 
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" href="/ask/terverifikasi<?= $href ?>" <?= $hidden_ptsp ?><?= $hidden_vers ?><?= $hidden_koperasi ?> <?= $hidden_kota ?>>Data Penerbitan AOTDT</a>
-      </li>
+      </li> -->
     </ul>
     <ul class="navbar-nav ml-auto nav-flex-icons">
       <li class="nav-item">

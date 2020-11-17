@@ -1,8 +1,8 @@
-<?= $this->extend('layout/templatel') ?>
+<?= $this->extend('layout/template_public') ?>
 <?= $this->section('content'); ?>
 
 <div class="container-fluid mt-t" style="margin-bottom:500px;">
-    <div class="cards px-5 py-5">
+    <div class="px-5 py-5">
 
         <div class="row animated zoomIn">
             <div class="col">

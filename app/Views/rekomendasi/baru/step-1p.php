@@ -115,17 +115,8 @@
                         </div>
 
                         <div class="md-form" hidden>
-                            <?php foreach ($kode as $k) : ?>
-                                <?php
-                                if ($k['kode_booking']) {
-                                    $kb = $k['kode_booking'] + 1;
-                                } else {
-                                    $kb = "68728071111";
-                                }
-                                ?>
-                                <input value="<?= $kb ?>" name="kdb" type="text" id="kdb" class="form-control" value="<?= old('kdb') ?>">
-                                <label for="kdb">Nama Pemohon</label>
-                            <?php endforeach; ?>
+                            <input value="<?= date('YmdHis') ?>" name="kdb" type="text" id="kdb" class="form-control" value="<?= old('kdb') ?>">
+                            <label for="kdb">Nama Pemohon</label>
                         </div>
 
                         <div class="form-group mb-5">

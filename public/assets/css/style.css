@@ -234,7 +234,7 @@ h6 {
   /* width:300px; */
   position: absolute;
   z-index: 30;
-  left: calc(50% + 270px);
+  left: calc(50% + 320px);
   bottom: 0;
   top: 0px;
 }
@@ -242,7 +242,7 @@ h6 {
 #intro .product-screens .product-screen-2 {
   position: absolute;
   z-index: 20;
-  left: calc(50% - 150px);
+  left: calc(50% + 10px);
   bottom: 0;
   top: 0px;
 }
@@ -250,7 +250,7 @@ h6 {
 #intro .product-screens .product-screen-3 {
   position: absolute;
   z-index: 10;
-  left: calc(50% - 570px);
+  left: calc(50% - 610px);
   bottom: 0;
   top: 0px;
 }
@@ -258,9 +258,9 @@ h6 {
 #intro .product-screens .product-screen-4 {
   position: absolute;
   z-index: 10;
-  left: calc(50% - 370px);
+  left: calc(50% - 300px);
   bottom: 0;
-  top: 220px;
+  top: 0px;
 }
 
 #intro .product-screens .product-screen-5 {
@@ -1598,7 +1598,7 @@ label {
   color: #000;
 }
 
-.img-kend{
-  width:100%;
-  
+.img-kend {
+  width: 100%;
+
 }

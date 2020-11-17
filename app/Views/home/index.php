@@ -5,41 +5,41 @@
 
     <div class="intro-text animated zoomIn">
         <h2>Selamat Datang di SAHABAT</h2>
-        <p>We are team of talanted designers making websites with Bootstrap</p>
+        <p>Dengan SAHABAT, Satu Hari Beres Angkutan Tertib</p>
         <img src="assets/img/logos.png" style="width:10%;" class=""></img>
     </div>
 
     <div class="product-screens">
 
-        <a href="https://si-trayek.gorontaloprov.go.id" target="_blank">
+        <a href="/trayek/trayekinfo" target="_blank">
             <div class="product-screen-1 wow fadeInUp" data-wow-delay="0.8s" data-wow-duration="0.6s">
                 <img src="assets/img/product-screen-1.png" alt="">
             </div>
         </a>
 
-        <a href="https://si-trayek.gorontaloprov.go.id" target="_blank">
+        <a href="/api" target="_blank">
             <div class="product-screen-2 wow fadeInUp" data-wow-delay="0.4s" data-wow-duration="0.6s">
-                <img src="assets/img/product-screen-2.png" alt="">
+                <img src="assets/img/product-screen-4.png" alt="">
             </div>
         </a>
 
-        <a href="https://sipeka-dishub.gorontaloprov.go.id" target="_blank">
+        <a href="/login/login" target="_blank">
             <div class="product-screen-3 wow fadeInUp" data-wow-duration="0.6s">
                 <img src="assets/img/product-screen-3.png" alt="">
             </div>
         </a>
 
-        <a href="login/login" target="_blank">
+        <a href="https://sipeka-dishub.gorontaloprov.go.id" target="_blank">
             <div class="product-screen-4 wow fadeInUp" data-wow-delay="0.2s" data-wow-duration="0.6s">
-                <img src="assets/img/product-screen-4.png" alt="">
+                <img src="assets/img/product-screen-2.png" alt="">
             </div>
         </a>
 
-        <a href="https://dishub.gorontaloprov.go.id" target="_blank">
-            <div class="product-screen-5 wow fadeInUp" data-wow-delay="0.6s" data-wow-duration="0.6s">
-                <img src="assets/img/product-screen-5.png" alt="">
-            </div>
-        </a>
+        <!--<a href="https://dishub.gorontaloprov.go.id" target="_blank">-->
+        <!--    <div class="product-screen-5 wow fadeInUp" data-wow-delay="0.6s" data-wow-duration="0.6s">-->
+        <!--        <img src="assets/img/product-screen-5.png" alt="">-->
+        <!--    </div>-->
+        <!--</a>-->
 
     </div>
 
@@ -571,6 +571,10 @@
                     <div class="contact-about">
                         <h3>SAHABAT</h3>
                         <p>Cras fermentum odio eu feugiat. Justo eget magna fermentum iaculis eu non diam phasellus. Scelerisque felis imperdiet proin fermentum leo. Amet volutpat consequat mauris nunc congue.</p>
+                        <p>WEBSITE PARTNER</p>
+                        <p style="margin-top: -25px;"><a class="text-success" href="https://dishub.gorontaloprov.go.id" target="_blank"><i class="fa fa-arrow-right"></i> Dinas Perhubungan Provinsi Gorontalo</a></p>
+                        <p style="margin-top: -25px;"><a class="text-success" href="https://sipeka-dishub.gorontaloprov.go.id" target="_blank"><i class="fa fa-arrow-right"></i> Sipeka (Sistem Pengurusan Kartu Pengawasan)</a></p>
+                        <p style="margin-top: -25px;"><a class="text-success" href="https://si-trayek.gorontaloprov.go.id" target="_blank"><i class="fa fa-arrow-right"></i> Sistem Informasi Jaringan Trayek</a></p>
                         <div class="social-links">
                             <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
                             <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>

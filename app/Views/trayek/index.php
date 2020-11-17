@@ -1,6 +1,6 @@
 <?= $this->extend('layout/templatel') ?>
 <?= $this->section('content'); ?>
-<div class="container">
+<div class="container-fluid">
     <!-- <div class="judul pl-4 wow fadeInLeft"><i class="fa fa-file mr-2"></i> Data Trayek</div> -->
 
     <div class="row mb-5">

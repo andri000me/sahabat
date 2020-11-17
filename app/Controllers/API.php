@@ -18,14 +18,11 @@ class API extends BaseController
 
     public function index()
     {
-        if ($this->user) {
-            $data = [
-                'title' => 'Cek Kartu Pengawasan',
-                'session' => $this->user
-            ];
-            return view('api/cek_kartu_pengawasan', $data);
-        } else {
-            return redirect()->to('login/login');
-        }
+
+        $data = [
+            'title' => 'Cek Kartu Pengawasan',
+            'session' => $this->user
+        ];
+        return view('api/cek_kartu_pengawasan', $data);
     }
 }

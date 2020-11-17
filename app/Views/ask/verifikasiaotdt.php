@@ -8,8 +8,6 @@
                 <div class="card-body">
 
                     <h5 class="text-dark font-weight-bold card-title">Data Persetujuan Permohonan Rekomendasi AOTDT</h5>
-                    <p class="card-text">Silahkan lengkapi berkas kendaraan anda sesuai dengan jumlah kendaraan yang dimohon, <br>
-                    </p>
 
                     <div class="cards px-4 py-3">
                         <div class="table-responsive animated zoomIn">

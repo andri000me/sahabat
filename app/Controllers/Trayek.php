@@ -28,9 +28,21 @@ class Trayek extends BaseController
                 'trayek' => $trayek,
                 'session' => $this->user
             ];
-            return view('trayek/index', $data);
+            return view('/trayek/index', $data);
         } else {
-            return redirect()->to('login/login');
+            return redirect()->to('/login/login');
         }
+    }
+
+    public function trayekinfo()
+    {
+
+        $trayek = $this->trayekModel->findAll();
+        $data = [
+            'title' => 'Data Trayek',
+            'trayek' => $trayek,
+            'session' => $this->user
+        ];
+        return view('/trayek/trayekinfo', $data);
     }
 }

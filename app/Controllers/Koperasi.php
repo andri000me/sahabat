@@ -295,7 +295,6 @@ class Koperasi extends BaseController
         $this->koperasiModel->save([
             'id' => $id,
             'slug' => $slug,
-            'koperasi_id' => $this->user['id'],
             'nomor_kendaraan' => $this->request->getVar('nomor_kendaraan'),
             'nama_pemilik' => $this->request->getVar('nama_pemilik'),
             'alamat_pemilik' => $this->request->getVar('alamat_pemilik'),

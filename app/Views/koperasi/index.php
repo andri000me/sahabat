@@ -260,6 +260,9 @@
                                     <tr>
                                         <td>
                                             <?php
+                                            if ($p['asal'] == 0) {
+                                                $asal = "";
+                                            }
                                             if ($p['asal'] == 1) {
                                                 $asal = "Kota Gorontalo";
                                             }
@@ -277,6 +280,9 @@
                                             }
                                             if ($p['asal'] == 6) {
                                                 $asal = "Kab Pohuwato";
+                                            }
+                                            if ($p['tujuan'] == 0) {
+                                                $tujuan = "";
                                             }
                                             if ($p['tujuan'] == 1) {
                                                 $tujuan = "Kota Gorontalo";
