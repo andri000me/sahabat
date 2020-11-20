@@ -2,7 +2,7 @@ body {
     margin: 0;
     color: #edf3ff;
     background: #c8c8c8;
-    background: linear-gradient(45deg, rgba(155, 155, 155, 0.6), rgba(0, 0, 0, 0.6)), url("../img/intro-bg.jpg") center top no-repeat;
+    background: linear-gradient(45deg, rgba(234, 0, 255, 0.6), rgba(29, 200, 205, 0.6)), url("../img/intro-bg.jpg") center top no-repeat;
     /* background: url("../img/intro-bg.jpg") fixed; */
     background-size: cover;
     font: 600 16px/18px 'Open Sans', sans-serif;
@@ -32,7 +32,7 @@ a {
 .login-wrap {
     width: 100%;
     margin: auto;
-    max-width: 510px;
+    max-width: 450px;
     min-height: 510px;
     position: relative;
     /* background: url(https://maxcdn.icons8.com/app/uploads/2016/03/material-1-1000x563.jpg) no-repeat center; */

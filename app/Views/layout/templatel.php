@@ -42,6 +42,14 @@
 
 </head>
 
+<style>
+    body {
+        margin: 0;
+        background: linear-gradient(45deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url("../assets/img/bg.jpg") center top no-repeat;
+        background-size: contain;
+    }
+</style>
+
 <body class="">
     <?= $this->include("layout/navbarl") ?>
 

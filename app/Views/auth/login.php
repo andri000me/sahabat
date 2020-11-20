@@ -3,12 +3,12 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
-<div class="login-wrap mt-5">
+<div class="login-wrap" style="margin-top: 100px;">
     <div class="login-html">
         <div class="row">
             <div class="col text-center mb-5">
-                <img src="/assets/img/logos.png" alt="" width="35%" class="mb-3">
-                <span class="text-light font-weight-bold">http://www/sahabat.gorontalorov.go.id</span>
+                <img src="/assets/img/logos.png" alt="" width="40%" class="mb-3">
+                <span class="text-light font-weight-bold">sahabat.gorontalorov.go.id</span>
             </div>
         </div>
 
@@ -18,24 +18,26 @@
         <?php if (session()->getFlashdata('msg')) : ?>
             <?= session()->getFlashdata('msg'); ?>
         <?php endif; ?>
-        <div class="login-form">
-            <form method="POST" id="Login" action="/login/masuk">
-                <!-- <div class="sign-in-htm"> -->
-                <div class="">
-                    <div class="group">
-                        <!-- <label for="user" class="label">Username or Email</label> -->
-                        <input name="email" id="user" type="text" class="input" placeholder="Username or Email">
+        <div class="text-center">
+            <div class="login-form">
+                <form method="POST" id="Login" action="/login/masuk">
+                    <!-- <div class="sign-in-htm"> -->
+                    <div class="">
+                        <div class="group">
+                            <!-- <label for="user" class="label">Username or Email</label> -->
+                            <input name="email" id="user" type="text" class="input" placeholder="Username or Email">
+                        </div>
+                        <div class="group">
+                            <!-- <label for="pass" class="label">Password</label> -->
+                            <input name="password" id="pass" type="password" class="input" placeholder="Password" data-type="password">
+                        </div>
+                        <div class="group">
+                            <input type="submit" class="button" value="Masuk">
+                            <a href="#" class="btn btn-danger button mt-2 mr-2">Daftar</a>
+                        </div>
+                        <!-- <div class="hr"></div> -->
                     </div>
-                    <div class="group">
-                        <!-- <label for="pass" class="label">Password</label> -->
-                        <input name="password" id="pass" type="password" class="input" placeholder="Password" data-type="password">
-                    </div>
-                    <div class="group">
-                        <input type="submit" class="button" value="Masuk">
-                        <a href="#" class="btn btn-danger button mt-2 mr-2">Daftar</a>
-                    </div>
-                    <!-- <div class="hr"></div> -->
-                </div>
+            </div>
             </form>
 
             <!-- <div class="for-pwd-htm">

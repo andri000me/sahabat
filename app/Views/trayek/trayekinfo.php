@@ -9,46 +9,46 @@
                 <div class="card-body">
 
                     <div class="row animated zoomIn">
-                        <div class="col">
-                            <h4 class="text-dark font-weight-bold card-title">Data Trayek</h4>
-                            <p class="card-text">Data trayek yang dilayani Dinas Perhubungan Provinsi Gorontalo</p>
-                        </div>
-                        <div class="col text-right">
+                        <div class="col text-center">
+                            <img src="/assets/img/logos.png" alt="" width="7%" class="mb-3">
+                            <h2 class="text-uppercase text-dark font-weight-bold card-title">Data Trayek</h2>
+                            <p class="card-text text-uppercase">Data trayek yang dilayani Dinas Perhubungan Provinsi Gorontalo</p>
                         </div>
                     </div>
-
-                    <div class="table-responsive animated zoomIn">
-                        <table id="dtMaterialDesignExample" class="table table-bordered" cellspacing="0" width="100%">
-                            <thead class="cyan white-text">
-                                <tr>
-                                    <th class="th-sm">Kode Trayek
-                                    </th>
-                                    <th class="th-sm">Nama Trayek
-                                    </th>
-                                    <th class="th-sm">Kuota
-                                    </th>
-                                    <th class="th-sm">Terisi
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach ($trayek as $tr) : ?>
-                                    <?php
-                                    if ($tr['kuota'] == 0) {
-                                        $kuota = '<span class="text-danger"> Kuota Habis</span>';
-                                    } else {
-                                        $kuota = '<span class="text-success font-weight-bold">' . $tr['kuota'] . '</span>';
-                                    }
-                                    ?>
+                    <div class="cards py-4 px-4 mt-4 color-a">
+                        <div class="table-responsive animated zoomIn">
+                            <table id="dtMaterialDesignExample" class="table table-bordered" cellspacing="0" width="100%">
+                                <thead class="cyan white-text">
                                     <tr>
-                                        <td><?= $tr['kode_trayek']; ?></td>
-                                        <td><?= $tr['trayek']; ?></td>
-                                        <td><?= $kuota ?></td>
-                                        <td class="text-danger"><?= $tr['terisi'] ?></td>
+                                        <th class="th-sm">Kode Trayek
+                                        </th>
+                                        <th class="th-sm">Nama Trayek
+                                        </th>
+                                        <th class="th-sm">Kuota
+                                        </th>
+                                        <th class="th-sm">Terisi
+                                        </th>
                                     </tr>
-                                <?php endforeach; ?>
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($trayek as $tr) : ?>
+                                        <?php
+                                        if ($tr['kuota'] == 0) {
+                                            $kuota = '<span class="text-danger"> Kuota Habis</span>';
+                                        } else {
+                                            $kuota = '<span class="text-success font-weight-bold">' . $tr['kuota'] . '</span>';
+                                        }
+                                        ?>
+                                        <tr>
+                                            <td><?= $tr['kode_trayek']; ?></td>
+                                            <td><?= $tr['trayek']; ?></td>
+                                            <td><?= $kuota ?></td>
+                                            <td class="text-danger"><?= $tr['terisi'] ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

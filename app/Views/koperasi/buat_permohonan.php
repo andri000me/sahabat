@@ -37,7 +37,7 @@
                                     </div>
                                 </div>
 
-
+                                <!-- 
                                 <div class="md-form form-row mt-0">
                                     <div class="col">
                                         <select name="asal" class="mdb-select md-form" searchable="Asal Trayek">
@@ -58,7 +58,7 @@
                                         </select>
                                         <label class="mdb-main-label">Tujuan Trayek</label>
                                     </div>
-                                </div>
+                                </div> -->
 
                                 <div class="md-form">
                                     <input name="nama_pemilik" type="text" id="form2" class="form-control" value="<?= old('nama_pemilik') ?>" required>

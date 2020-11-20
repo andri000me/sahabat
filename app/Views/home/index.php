@@ -29,7 +29,7 @@
             </div>
         </a>
 
-        <a href="https://sipeka-dishub.gorontaloprov.go.id" target="_blank">
+        <a href="https://sipeka-dishub.gorontaloprov.go.id/formulir-permohonan" target="_blank">
             <div class="product-screen-4 wow fadeInUp" data-wow-delay="0.2s" data-wow-duration="0.6s">
                 <img src="assets/img/product-screen-2.png" alt="">
             </div>
