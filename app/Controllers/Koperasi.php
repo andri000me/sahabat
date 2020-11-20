@@ -252,13 +252,17 @@ class Koperasi extends BaseController
             $tujuan = 0;
         }
 
+        $asaltujuan = $this->trayekModel->where('kode_trayek', $this->request->getVar('trayek_dilayani'))->first();
+        $asal = $asaltujuan['asal'];
+        $tujuan = $asaltujuan['tujuan'];
+
         $slug = url_title($this->request->getVar('nama_pemilik'), '-', true);
 
         $this->koperasiModel->save([
             'slug' => $slug,
             'koperasi_id' => $this->user['id'],
-            'status_asal' => $status_asal,
-            'status_tujuan' => $status_tujuan,
+            'status_asal' => 0,
+            'status_tujuan' => 0,
             'trayek_dilayani' => $this->request->getVar('trayek_dilayani'),
             'asal' => $asal,
             'tujuan' => $tujuan,

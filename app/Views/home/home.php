@@ -1,9 +1,10 @@
 <?= $this->extend('layout/templatel') ?>
 <?= $this->section('content'); ?>
-<div class="container-fluid px-5 py-5" style="margin-bottom:750px;">
-    <div class="row cards px-4 py-4">
+<div class="container-fluid px-5 py-4" style="margin-bottom:750px;">
+
+    <div class="row cards px-4 py-4 color-a">
         <div class="col-sm-4 text-center">
-            <div class="avatar mx-auto white">
+            <div class="avatar mx-auto">
                 <img src="https://www.searchpng.com/wp-content/uploads/2019/02/Men-Profile-Image.png" alt="avatar mx-auto white" class="imgs rounded-circle img-fluid">
             </div>
             <h5 class="mt-4"><?= $session['nama'] ?></h5>
@@ -58,5 +59,6 @@
             <h5 style="font-size: 17px; margin-top:-20px;" class="text-info font-weight-bold mb-4"><?= $session['email'] ?></h5>
         </div>
     </div>
+
 </div>
 <?= $this->endSection(); ?>

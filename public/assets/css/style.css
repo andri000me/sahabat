@@ -1376,6 +1376,8 @@ body.mobile-nav-active #mobile-nav-toggle {
 .logins {
   justify-content: center;
   text-align: center !important;
+  background: linear-gradient(45deg, rgba(234, 0, 255, 0.6), rgba(29, 200, 205, 0.6)), url("../img/intro-bg.jpg") center top no-repeat;
+
 }
 
 #login .php-email-form .validate {
@@ -1558,15 +1560,15 @@ label {
 
 }
 
-.imgs{
+.imgs {
   border: 1px solid rgb(0, 140, 182);
   width: 200px !important;
   height: 200px !important;
   border-radius: 7px;
   -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16),
-  0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    0 2px 10px 0 rgba(0, 0, 0, 0.12);
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16),
-  0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
 .textf {
@@ -1610,7 +1612,23 @@ label {
   color: #000;
 }
 
-.img-kend{
-  width:100%;
-  
+.img-kend {
+  width: 100%;
+
+}
+
+.color-a {
+  background-color: #f2f7ff;
+}
+
+.color-b {
+  background-color: #fff5f2;
+}
+
+.color-c {
+  background-color: #f2fff7;
+}
+
+.color-d {
+  background-color: #fffcf2;
 }

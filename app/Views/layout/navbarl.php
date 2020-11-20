@@ -73,6 +73,15 @@
       </li>
 
       <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" <?= $hidden_ptsp ?><?= $hidden_approver ?> <?= $hidden_vers ?> <?= $hidden_kota ?>>Permohonan Asal Tujuan
+        </a>
+        <div class="dropdown-menu dropdown-warning" aria-labelledby="navbarDropdownMenuLink-555">
+          <a class="dropdown-item" href="/koperasi/buat_permohonan">Buat Permohonan</a>
+          <a class="dropdown-item" href="/koperasi">Data Permohonan</a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" <?= $hidden_ptsp ?><?= $hidden_approver ?> <?= $hidden_vers ?> <?= $hidden_kota ?>>Izin Trayek AKDP
         </a>
         <div class="dropdown-menu dropdown-warning" aria-labelledby="navbarDropdownMenuLink-555">
@@ -82,14 +91,6 @@
         </div>
       </li>
 
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" <?= $hidden_ptsp ?><?= $hidden_approver ?> <?= $hidden_vers ?> <?= $hidden_kota ?>>Permohonan Asal Tujuan
-        </a>
-        <div class="dropdown-menu dropdown-warning" aria-labelledby="navbarDropdownMenuLink-555">
-          <a class="dropdown-item" href="/koperasi/buat_permohonan">Buat Permohonan</a>
-          <a class="dropdown-item" href="/koperasi">Data Permohonan</a>
-        </div>
-      </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" <?= $hidden_ptsp ?><?= $hidden_approver ?> <?= $hidden_vers ?> <?= $hidden_kota ?>>Persetujuan AOTDT
         </a>
