@@ -56,9 +56,10 @@
                                                 $st = '<span class="badge badge-warning"><i class="fas fa-stopwatch"></i> Lengkapi Dokumen</span>';
                                                 $btn2 = "";
                                             }
-                                            $btn = '<a href="/verifikasi/details/' . $tr['kode_booking'] . '/' . $tr['trayek_dilayani'] . '" type="btn" class="ml-auto btn btn-sm btn-rounded btn-warning animated rotateIn"><i class="fa fa-check"></i> Verivikasi</a>
-                                            <a href="/verifikasi/uploadpengantarptsp/' . $tr['kode_booking'] . '/' . $tr['trayek_dilayani'] . '" type="btn" class="ml-auto btn btn-sm btn-rounded btn-secondary animated rotateIn"><i class="fa fa-check"></i> Lengkapi</a>
-                                            <a onclick="return confirm(\'Apakah anda yakin ?\')" href="/verifikasi/tolakptsp/' . $tr['idpermohonan'] . '/' . $tr['trayek_dilayani'] . '" type="btn" class="ml-auto btn btn-sm btn-rounded btn-danger animated rotateIn"><i class="fa fa-ban"></i> Tolak Permohonan</a>';
+                                            $btn = '<a href="/verifikasi/details/' . $tr['kode_booking'] . '/' . $tr['trayek_dilayani'] . '" type="btn" class="ml-auto btn btn-sm btn-rounded btn-warning animated rotateIn"><i class="fa fa-check"></i> Verivikasi</a>';
+                                            if (!$btn) {
+                                                $btn = '<a href="/verifikasi/uploadpengantarptsp/' . $tr['kode_booking'] . '/' . $tr['trayek_dilayani'] . '" type="btn" class="ml-auto btn btn-sm btn-rounded btn-secondary animated rotateIn"><i class="fa fa-check"></i> Lengkapi</a>';
+                                            }
                                         }
                                         if ($tr['status_verifikasi'] == 1) {
                                             $st = '<span class="badge badge-warning"><i class="fas fa-stopwatch"></i> Sedang Diverifikasi Oleh Dishub</span>';

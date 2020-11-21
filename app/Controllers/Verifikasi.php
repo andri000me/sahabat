@@ -319,6 +319,7 @@ class Verifikasi extends BaseController
         session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data berhasil dikirim, mengunngu verivikasi</div>');
         return redirect()->to('/verifikasi/rekomendasi/');
     }
+
     public function approve($id)
     {
         $this->verifikasiModel->save([

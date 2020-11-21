@@ -73,6 +73,14 @@
 
 
 
+                        <div class="md-form mt-5">
+                            <input name="nomor_kendaraan" type="text" id="form2" class="form-control" value="<?= $step3['nomor_kendaraan'] ?>">
+                            <label for="form2">Nomor Kendaraan</label>
+                            <div class="invalid-feedback">
+                                Nomor Kendaraan harus di isi
+                            </div>
+                        </div>
+
                         <div class="md-form">
                             <div class="file-field">
                                 <div class="btn btn-primary btn-sm float-left">
@@ -87,6 +95,7 @@
                                 <?= $validation->getError('img_permohonan') ?>
                             </div>
                         </div>
+
                         <!-- 
                         <div class="md-form">
                             <img id="uploadPreview" src="<?= base_url(); ?>/assets/img/foto/default.png" style="width:250px;" alt="IMG">

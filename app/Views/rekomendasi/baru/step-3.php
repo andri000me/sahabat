@@ -24,7 +24,7 @@
             <ul class="stepper stepper-horizontal">
 
                 <?php
-                if ($step3['img_surat_permohonan'] &&  $step3['tgl_permohonan'] && $step3['nama_pemohon'] && $step3['jenis_permohonan']) {
+                if ($step3['img_surat_permohonan'] &&  $step3['tgl_permohonan'] && $step3['nama_pemohon']) {
                     $complete = "completed";
                 } else {
                     $complete = "";
@@ -122,20 +122,19 @@
                                 <span><i class="fa fa-image mr-1"></i> Pilih File Dokumen</span>
                                 <input type="file" name="img_stnkb_pkb" id="uploadImage" onchange="PreviewImage()">
                             </div>
-                            <a href="/img/img_stnkb_pkb/<?= $step3['img_stnkb_pkb'] ?>" target="_blank" type="button" class="btn btn-sm btn-danger"><i class="fa fa-eye mr-1"></i> Lihat dokumen</a>
+                            <?php
+                            if ($step3['img_stnkb_pkb']) {
+                                $btn = '<a href="/img/img_stnkb_pkb/' . $step3['img_stnkb_pkb'] . '" target="_blank" type="button" class="btn btn-sm btn-success"><i class="fa fa-eye mr-1"></i> Lihat dokumen</a>';
+                            } else {
+                                $btn = '<a href="#" target="_blank" type="button" class="btn btn-sm btn-danger"><i class="fa fa-eye mr-1"></i> Lihat dokumen</a>';
+                            }
+                            ?>
+                            <?= $btn ?>
                             <div class="file-path-wrapper">
-                                <input class="file-path validate" type="text" placeholder="STNKB dan PKB" value="<?= $step3['img_stnkb_pkb'] ?>">
+                                <input class="file-path validate" type="text" placeholder="STNKB dan PKB" value="">
                             </div>
                             <div class="kacili" style="margin-left:160px;">
                                 <?= $validation->getError('img_stnkb_pkb') ?>
-                            </div>
-                        </div>
-
-                        <div class="md-form mt-5">
-                            <input name="nomor_kendaraan" type="text" id="form2" class="form-control" value="<?= $step3['nomor_kendaraan'] ?>">
-                            <label for="form2">Nomor Kendaraan</label>
-                            <div class="invalid-feedback">
-                                Nomor Kendaraan harus di isi
                             </div>
                         </div>
 

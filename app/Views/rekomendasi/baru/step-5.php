@@ -24,7 +24,7 @@
             <ul class="stepper stepper-horizontal">
 
                 <?php
-                if ($step5['img_surat_permohonan'] && $step5['tgl_permohonan'] && $step5['nama_pemohon'] && $step5['jenis_permohonan']) {
+                if ($step5['img_surat_permohonan'] && $step5['tgl_permohonan'] && $step5['nama_pemohon']) {
                     $complete = "completed";
                 } else {
                     $complete = "";
@@ -122,9 +122,16 @@
                                 <span><i class="fa fa-image mr-1"></i> Pilih File Dokumen</span>
                                 <input name="img_jasa_raharja" type="file" name="image" id="uploadImage" onchange="PreviewImage()">
                             </div>
-                            <a href="/img/img_jasa_raharja/<?= $step5['img_jasa_raharja'] ?>" target="_blank" type="button" class="btn btn-sm btn-danger"><i class="fa fa-eye mr-1"></i> Lihat dokumen</a>
+                            <?php
+                            if ($step5['img_jasa_raharja']) {
+                                $btn = '<a href="/img/img_jasa_raharja/' . $step5['img_jasa_raharja'] . '" target="_blank" type="button" class="btn btn-sm btn-success"><i class="fa fa-eye mr-1"></i> Lihat dokumen</a>';
+                            } else {
+                                $btn = '<a href="#" target="_blank" type="button" class="btn btn-sm btn-danger"><i class="fa fa-eye mr-1"></i> Lihat dokumen</a>';
+                            }
+                            ?>
+                            <?= $btn ?>
                             <div class="file-path-wrapper">
-                                <input class="file-path validate" type="text" placeholder="Iuran Jasa Raharja" value="<?= $step5['img_jasa_raharja'] ?>">
+                                <input class="file-path validate" type="text" placeholder="Iuran Jasa Raharja" value="">
                             </div>
                             <div class="kacili" style="margin-left:160px;">
                                 <?= $validation->getError('img_jasa_raharja') ?>

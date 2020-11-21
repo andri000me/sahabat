@@ -24,7 +24,7 @@
             <ul class="stepper stepper-horizontal">
 
                 <?php
-                if ($step2['img_surat_permohonan']  && $step2['tgl_permohonan'] && $step2['nama_pemohon'] && $step2['jenis_permohonan']) {
+                if ($step2['img_surat_permohonan']  && $step2['tgl_permohonan'] && $step2['nama_pemohon']) {
                     $complete = "completed";
                 } else {
                     $complete = "";
@@ -118,14 +118,191 @@
                         <input name="img_trayek_tujuan_lama" type="hidden" value="<?= $step2['img_trayek_tujuan'] ?>">
                         <input name="kode_booking" type="hidden" value="<?= $step2['kode_booking'] ?>">
 
-                        <select name="trayek_dilayani" class="mdb-select md-form mt-5" searchable="Rekomendasi Asal Tujuan Trayek">
-                            <option value="" disabled selected>Pilih Rekomendasi Asal Tujuan Trayek</option>
-                            <?php foreach ($at as $tr) : ?>
-                                <option value="<?= $tr['id']; ?>"><?= $tr['nomor_kendaraan']; ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                        <div class="kacili" style="margin-top:-20px;">
-                            <?= $validation->getError('trayek_dilayani') ?>
+                        <div class="alert alert-success" role="alert">
+                            <h4 class="alert-heading font-weight-bold">Data Rekomendasi Asal-Tujuan</h4>
+
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <i class="fa fa-check"></i> Nama Pemilik
+                                </div>
+                                <div class="text-right col-sm-1">
+                                    :
+                                </div>
+                                <div class="col">
+                                    <?= $asaltujuan['nama_pemilik']; ?>
+                                </div>
+                            </div>
+
+                            <div class="row mt-2">
+                                <div class="col-sm-2">
+                                    <i class="fa fa-check"></i> Trayek Dilayani
+                                </div>
+                                <div class="text-right col-sm-1">
+                                    :
+                                </div>
+                                <div class="col">
+                                    <?= $asaltujuan['trayek']; ?>
+                                </div>
+                            </div>
+
+                            <?php
+                            if ($asaltujuan['asal'] == 0) {
+                                $asal = "";
+                            }
+                            if ($asaltujuan['asal'] == 1) {
+                                $asal = "Kota Gorontalo";
+                            }
+                            if ($asaltujuan['asal'] == 2) {
+                                $asal = "Kab Gorontalo";
+                            }
+                            if ($asaltujuan['asal'] == 3) {
+                                $asal = "Kab Bone Bolango";
+                            }
+                            if ($asaltujuan['asal'] == 4) {
+                                $asal = "Kab Gorontalo Utara";
+                            }
+                            if ($asaltujuan['asal'] == 5) {
+                                $asal = "Kab Boalemo";
+                            }
+                            if ($asaltujuan['asal'] == 6) {
+                                $asal = "Kab Pohuwato";
+                            }
+                            if ($asaltujuan['tujuan'] == 0) {
+                                $tujuan = "";
+                            }
+                            if ($asaltujuan['tujuan'] == 1) {
+                                $tujuan = "Kota Gorontalo";
+                            }
+                            if ($asaltujuan['tujuan'] == 2) {
+                                $tujuan = "Kab Gorontalo";
+                            }
+                            if ($asaltujuan['tujuan'] == 3) {
+                                $tujuan = "Kab Bone Bolango";
+                            }
+                            if ($asaltujuan['tujuan'] == 4) {
+                                $tujuan = "Kab Gorontalo Utara";
+                            }
+                            if ($asaltujuan['tujuan'] == 5) {
+                                $tujuan = "Kab Boalemo";
+                            }
+                            if ($asaltujuan['tujuan'] == 6) {
+                                $tujuan = "Kab Pohuwato";
+                            }
+                            ?>
+
+                            <div class="row mt-2">
+                                <div class="col-sm-2">
+                                    <i class="fa fa-check"></i> Trayek Asal
+                                </div>
+                                <div class="text-right col-sm-1">
+                                    :
+                                </div>
+                                <div class="col">
+                                    <?= $asal ?>
+                                </div>
+                            </div>
+
+                            <div class="row mt-2">
+                                <div class="col-sm-2">
+                                    <i class="fa fa-check"></i> Trayek Tujuan
+                                </div>
+                                <div class="text-right col-sm-1">
+                                    :
+                                </div>
+                                <div class="col">
+                                    <?= $tujuan ?>
+                                </div>
+                            </div>
+
+                            <div class="row mt-2">
+                                <div class="col-sm-2">
+                                    <i class="fa fa-check"></i> Nomor Kendaraan
+                                </div>
+                                <div class="text-right col-sm-1">
+                                    :
+                                </div>
+                                <div class="col">
+                                    <?= $asaltujuan['nomor_kendaraan'] ?>
+                                </div>
+                            </div>
+
+                            <div class="row mt-2">
+                                <div class="col-sm-2">
+                                    <i class="fa fa-check"></i> Nomor KIR
+                                </div>
+                                <div class="text-right col-sm-1">
+                                    :
+                                </div>
+                                <div class="col">
+                                    <?= $asaltujuan['nomor_kir'] ?>
+                                </div>
+                            </div>
+
+                            <div class="row mt-2">
+                                <div class="col-sm-2">
+                                    <i class="fa fa-check"></i> Tahun Pembuatan
+                                </div>
+                                <div class="text-right col-sm-1">
+                                    :
+                                </div>
+                                <div class="col">
+                                    <?= $asaltujuan['tahun_pembuatan'] ?>
+                                </div>
+                            </div>
+
+                            <div class="row mt-2">
+                                <div class="col-sm-2">
+                                    <i class="fa fa-check"></i> Merk/Type
+                                </div>
+                                <div class="text-right col-sm-1">
+                                    :
+                                </div>
+                                <div class="col">
+                                    <?= $asaltujuan['merk'] ?>
+                                </div>
+                            </div>
+
+                            <div class="row mt-2">
+                                <div class="col-sm-2">
+                                    <i class="fa fa-check"></i> Nomor Chasis
+                                </div>
+                                <div class="text-right col-sm-1">
+                                    :
+                                </div>
+                                <div class="col">
+                                    <?= $asaltujuan['nomor_chasis'] ?>
+                                </div>
+                            </div>
+
+                            <div class="row mt-2">
+                                <div class="col-sm-2">
+                                    <i class="fa fa-check"></i> Nomor Mesin
+                                </div>
+                                <div class="text-right col-sm-1">
+                                    :
+                                </div>
+                                <div class="col">
+                                    <?= $asaltujuan['nomor_mesin'] ?>
+                                </div>
+                            </div>
+
+                            <div class="row mt-2 mb-4">
+                                <div class="col-sm-2">
+                                    <i class="fa fa-check"></i> Nomor Registrasi PKB
+                                </div>
+                                <div class="text-right col-sm-1">
+                                    :
+                                </div>
+                                <div class="col">
+                                    <?= $asaltujuan['nomor_regis_pkb'] ?>
+                                </div>
+                            </div>
+
+                            <!-- <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p> -->
+                            <hr>
+                            <p class="mb-0 text-danger"><i class="fa fa-chevron-right"></i> Periksa apakah data permohonan Asal-Tujuan anda sudah sesuai</p>
+                            <p class="mb-0 text-danger"><i class="fa fa-chevron-right"></i> Apabila sudah sesuai, maka klik simpan dan lanjutkan</p>
+                            <p class="mb-0 text-danger"><i class="fa fa-chevron-right"></i> Apabila tidak sesuai, silahkan hubungi Admin Dinas Perhubungan Provinsi Gorontalo</p>
                         </div>
 
                         <div class="buttons mt-5">

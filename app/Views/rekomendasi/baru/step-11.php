@@ -120,6 +120,7 @@
                         <input name="img_permohonan_lama" type="hidden" value="<?= $step11['img_surat_permohonan'] ?>">
                         <input name="img_pengantar_ptsp_lama" type="hidden" value="<?= $step11['img_pengantar_ptsp'] ?>">
                         <input name="kode_booking" type="hidden" value="<?= $step11['kode_booking'] ?>">
+                        <input name="id" type="hidden" value="<?= $step11['idpermohonan'] ?>">
 
                         <div class="md-form">
                             <div class="file-field">
@@ -127,7 +128,14 @@
                                     <span><i class="fa fa-image mr-1"></i> Pilih File Dokumen</span>
                                     <input type="file" name="img_permohonan" id="uploadImage" onchange="PreviewImage()" value="<?= $step11['img_surat_permohonan'] ?>">
                                 </div>
-                                <a href="/img/img_permohonan/<?= $step11['img_surat_permohonan'] ?>" target="_blank" type="button" class="btn btn-sm btn-danger"><i class="fa fa-eye mr-1"></i> Lihat dokumen</a>
+                                <?php
+                                if ($step11['img_surat_permohonan']) {
+                                    $btn = 'href="/img/img_permohonan/' . $step11['img_surat_permohonan'] . '" target="_blank" type="button" class="btn btn-sm btn-success"';
+                                } else {
+                                    $btn = 'href="#" target="_blank" type="button" class="btn btn-sm btn-success"';
+                                }
+                                ?>
+                                <a <?= $btn ?></a> <i class="fa fa-eye mr-1"></i> Lihat dokumen</a>
                                 <div class="file-path-wrapper">
                                     <input class="file-path validate" type="text" placeholder="Surat Permohonan yang ditujukan kepada Kepala DPM Prov. Gorontalo">
                                 </div>
@@ -142,46 +150,6 @@
                             <label for="date-picker-example">Tanggal Permohonan</label>
                             <div class="invalid-feedback">
                                 Tanggal permohonan tidak boleh kosong
-                            </div>
-                        </div>
-
-                        <div class="form-group mb-5">
-                            <select name="nama_pemohon" class="mdb-select md-form mt-5" searchable="Jenis Permohonan">
-                                <option value="" disabled selected>Pemohon</option>
-                                <?php foreach ($pemohon as $jp) : ?>
-                                    <?php
-                                    if ($jp['id'] == $step11['nama_pemohon']) {
-                                        $x = "selected";
-                                    } else {
-                                        $x = "";
-                                    }
-                                    ?>
-                                    <option value="<?= $jp['id']; ?>" <?= $x ?>><?= $jp['nama_perusahaan']; ?></option>
-                                <?php endforeach; ?>
-                            </select>
-                            <label class="mdb-main-label">Pemohon</label>
-                            <div class="kacili" style="margin-top:-20px;">
-                                <?= $validation->getError('nama_pemohon') ?>
-                            </div>
-                        </div>
-
-                        <div class="md-form">
-                            <select name="jenis_permohonan" class="mdb-select md-form mt-5" searchable="Jenis Permohonan">
-                                <option value="" disabled selected>Jenis Permohonan</option>
-                                <?php foreach ($jenis_permohonan as $jp) : ?>
-                                    <?php
-                                    if ($jp['kode'] == $step11['jenis_permohonan']) {
-                                        $selected = "selected";
-                                    } else {
-                                        $selected = "";
-                                    }
-                                    ?>
-                                    <option value="<?= $jp['kode']; ?>" <?= $selected ?>><?= $jp['nama']; ?></option>
-                                <?php endforeach; ?>
-                            </select>
-                            <label class="mdb-main-label">Jenis Permohonan</label>
-                            <div class="kacili" style="margin-top:-20px;">
-                                <?= $validation->getError('jenis_permohonan') ?>
                             </div>
                         </div>
 

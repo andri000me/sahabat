@@ -1350,4 +1350,195 @@ class Koperasi extends BaseController
         } else {
         }
     }
+
+    public function tolak()
+    {
+        $mana = $this->request->getVar('mana');
+        $slug = $this->request->getVar('slug');
+        $id = $this->request->getVar('id');
+
+        $img = $this->request->getFile('img');
+
+        if ($img->getError() == 4) {
+            $nama_img = "default.png";
+        } else {
+            $nama_img = $img->getRandomName();
+            $img->move('img/img', $nama_img);
+        }
+
+        $check = $this->koperasiModel->getPermohonanKota($slug, $id);
+
+        if ($check) {
+            if ($check['asal'] == 1) {
+                $status = 0;
+            } else if ($check['tujuan'] == 1) {
+                $status = 1;
+            }
+        }
+
+
+
+        if ($mana == "Kota") {
+
+            $this->msgPenolakanModel->save([
+                'kode_booking' => $id,
+                'status' => 1,
+                'msg' => $this->request->getVar('msg'),
+                'img' => $nama_img,
+                'created_at' => date('Y-m-d'),
+                'updated_at' => date('Y-m-d'),
+            ]);
+
+            $this->tolakKota($slug, $id);
+            return redirect()->to('/koperasi/verifikasiPermohonanKota');
+        }
+        if ($mana == "Kab") {
+
+            $this->msgPenolakanModel->save([
+                'kode_booking' => $id,
+                'status' => 2,
+                'msg' => $this->request->getVar('msg'),
+                'img' => $nama_img,
+                'created_at' => date('Y-m-d'),
+                'updated_at' => date('Y-m-d'),
+            ]);
+
+            $this->tolakKab($slug, $id);
+            return redirect()->to('/koperasi/verifikasiPermohonanKab');
+        }
+        if ($mana == "Bonebol") {
+
+            $this->msgPenolakanModel->save([
+                'kode_booking' => $id,
+                'status' => 3,
+                'msg' => $this->request->getVar('msg'),
+                'img' => $nama_img,
+                'created_at' => date('Y-m-d'),
+                'updated_at' => date('Y-m-d'),
+            ]);
+
+            $this->tolakBonebol($slug, $id);
+            return redirect()->to('/koperasi/verifikasiPermohonanBonebol');
+        }
+        if ($mana == "Gorut") {
+
+            $this->msgPenolakanModel->save([
+                'kode_booking' => $id,
+                'status' => 4,
+                'msg' => $this->request->getVar('msg'),
+                'img' => $nama_img,
+                'created_at' => date('Y-m-d'),
+                'updated_at' => date('Y-m-d'),
+            ]);
+
+            $this->tolakGorut($slug, $id);
+            return redirect()->to('/koperasi/verifikasiPermohonanGorut');
+        }
+        if ($mana == "Boalemo") {
+
+            $this->msgPenolakanModel->save([
+                'kode_booking' => $id,
+                'status' => 5,
+                'msg' => $this->request->getVar('msg'),
+                'img' => $nama_img,
+                'created_at' => date('Y-m-d'),
+                'updated_at' => date('Y-m-d'),
+            ]);
+
+            $this->tolakBoalemo($slug, $id);
+            return redirect()->to('/koperasi/verifikasiPermohonanBoalemo');
+        }
+        if ($mana == "Pohuwato") {
+
+            $this->msgPenolakanModel->save([
+                'kode_booking' => $id,
+                'status' => 6,
+                'msg' => $this->request->getVar('msg'),
+                'img' => $nama_img,
+                'created_at' => date('Y-m-d'),
+                'updated_at' => date('Y-m-d'),
+            ]);
+
+            $this->tolakPohuwato($slug, $id);
+            return redirect()->to('/koperasi/verifikasiPermohonanPohuwato');
+        }
+
+        session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data berhasil dikirim, mengunngu verivikasi</div>');
+    }
+
+    public function detailpenolakan($mana, $asal, $img, $slug, $id)
+    {
+        session();
+
+
+        if ($mana == "Kota") {
+            $get = $this->koperasiModel->getPermohonanKota($slug, $id);
+        }
+        if ($mana == "Kab") {
+            $get = $this->koperasiModel->getPermohonanKab($slug, $id);
+        }
+        if ($mana == "Bonebol") {
+            $get = $this->koperasiModel->getPermohonanBonebol($slug, $id);
+        }
+        if ($mana == "Gorut") {
+            $get = $this->koperasiModel->getPermohonanGorut($slug, $id);
+        }
+        if ($mana == "Boalemo") {
+            $get = $this->koperasiModel->getPermohonanBoalemo($slug, $id);
+        }
+        if ($mana == "Pohuwato") {
+            $get = $this->koperasiModel->getPermohonanPohuwato($slug, $id);
+        }
+
+        $image = "/img/img_penolakan/$img";
+        $data = [
+            'mana' => $mana,
+            'title' => 'Koperasi',
+            'session' => $this->user,
+            'permohonan' => $get,
+            'imgs' => $image,
+            'wilayah' => $this->asalTujuanModel->getWilayah($id),
+            'msg' => $this->msgPenolakanModel->getMsgPenolakan($asal, $id),
+            'validation' => \Config\Services::validation(),
+        ];
+        return view('koperasi/detailpenolakan', $data);
+    }
+
+
+    public function perbaikiKota($mana, $slug, $id)
+    {
+        session();
+
+        $check = $this->koperasiModel->getPermohonanKota($slug, $id);
+
+        if ($check) {
+            if ($check['asal'] == 1) {
+                $get = $this->koperasiModel->getPermohonanKota($slug, $id);
+            } else if ($check['tujuan'] == 1) {
+                $get = $this->koperasiModel->getPermohonanKota($slug, $id);
+            } else {
+                return view('blank');
+            }
+        } else {
+            return view('blank');
+        }
+
+        $data = [
+            'mana' => $mana,
+            'title' => 'Koperasi',
+            'session' => $this->user,
+            'permohonan' => $get,
+            'koperasi' => $this->koperasiModel->getDataKoperasi($id),
+            'trayek' => $this->trayekModel->getTrayek(),
+            'wilayah' => $this->asalTujuanModel->getWilayah(),
+        ];
+
+        if ($check['asal'] == 1 && $check['status_asal'] == 1) {
+            return view('koperasi/perbaiki', $data);
+        } else if ($check['tujuan'] == 1 && $check['status_tujuan'] == 1) {
+            return view('koperasi/perbaiki', $data);
+        } else {
+            return view('blank');
+        }
+    }
 }

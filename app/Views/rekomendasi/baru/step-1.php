@@ -71,6 +71,11 @@
                     <!-- Form -->
                     <form method="POST" class="needs-validation md-form text-left" style="color: #757575;" action="/rekomendasi/save" enctype="multipart/form-data" novalidate>
 
+
+                        <?php if (session()->getFlashdata('msg')) : ?>
+                            <?= session()->getFlashdata('msg'); ?>
+                        <?php endif; ?>
+
                         <div class="md-form">
                             <div class="file-field">
                                 <div class="btn btn-primary btn-sm float-left">
@@ -86,9 +91,17 @@
                             </div>
                         </div>
 
+                        <div class="md-form mt-5 mb-5">
+                            <input name="nomor_kendaraan" type="text" id="form2" class="form-control">
+                            <label for="form2">Nomor Kendaraan</label>
+                            <div class="invalid-feedback">
+                                Nomor Kendaraan harus di isi
+                            </div>
+                        </div>
+
                         <div class="md-form mt-5">
-                            <input name="tgl_permohonan" placeholder="Tanggal Permohonan" type="text" id="date-picker-example" class="form-control datepicker" required value="<?= old('tgl_permohonan') ?>">
-                            <label for="date-picker-example">Tanggal Permohonan</label>
+                            <input name="tgl_permohonan" placeholder="Tanggal Permohonan (Sesuai dengan tanggal pada surat permohonan)" type="text" id="date-picker-example" class="form-control datepicker" required value="<?= old('tgl_permohonan') ?>">
+                            <label for="date-picker-example">Tanggal Permohonan (Sesuai dengan tanggal pada surat permohonan)</label>
                             <div class="invalid-feedback">
                                 Tanggal permohonan tidak boleh kosong
                             </div>
@@ -99,45 +112,6 @@
                             <label for=" kdb">Nama Pemohon</label>
                         </div>
 
-                        <div class="form-group mb-3">
-                            <select name="nama_pemohon" class="mdb-select md-form mt-5" searchable="Pemohon">
-                                <option value="" disabled selected>Pemohon</option>
-                                <?php foreach ($pemohon as $jp) : ?>
-                                    <?php
-                                    if ($jp['id'] == old('nama_pemohon')) {
-                                        $x = "selected";
-                                    } else {
-                                        $x = "";
-                                    }
-                                    ?>
-                                    <option value="<?= $jp['id']; ?>" <?= $x ?>><?= $jp['nama_perusahaan']; ?></option>
-                                <?php endforeach; ?>
-                            </select>
-                            <label class="mdb-main-label">Pemohon</label>
-                            <div class="kacili" style="margin-top:-20px;">
-                                <?= $validation->getError('nama_pemohon') ?>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <select name="jenis_permohonan" class="mdb-select md-form mt-5" searchable="Jenis Permohonan">
-                                <option value="" disabled selected>Jenis Permohonan</option>
-                                <?php foreach ($jenis_permohonan as $jp) : ?>
-                                    <?php
-                                    if ($jp['kode'] == old('jenis_permohonan')) {
-                                        $x = "selected";
-                                    } else {
-                                        $x = "";
-                                    }
-                                    ?>
-                                    <option value="<?= $jp['kode']; ?>" <?= $x ?>><?= $jp['nama']; ?></option>
-                                <?php endforeach; ?>
-                            </select>
-                            <label class="mdb-main-label">Jenis Permohonan</label>
-                            <div class="kacili" style="margin-top:-20px;">
-                                <?= $validation->getError('jenis_permohonan') ?>
-                            </div>
-                        </div>
                         <div class="buttons mt-5">
                             <button type="submit button" class="btn btn-md btn-primary">Simpan & Lanjutkan <i class="fa fa-arrow-right ml-1"></i> </button>
                         </div>

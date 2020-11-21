@@ -130,6 +130,14 @@ class Rekomendasi extends BaseController
 
     public function save()
     {
+        $nk = $this->request->getVar('nomor_kendaraan');
+        $cek = $this->koperasiModel->cekasaltujuan($nk);
+        if ($cek) {
+            $idasaltujuan = $cek['id'];
+        } else {
+            session()->setFlashdata('msg', '<div class="alert alert-danger" role="alert">Maaf, Nomor Kendaraan yang anda masukkan belum memiliki rekomendasi Asal-Tujuan Trayek <br>Silahkan lakukan permohonan rekomendasi Asal-Tujuan Trayek terlebih dahulu pada menu Rekomendasi Asal-Tujuan atau <a class="font-weight-bold text-danger" href="/koperasi/buat_permohonan">Klik Disini</a><br> Terima Kasih</div>');
+            return redirect()->to('/rekomendasi/step1')->withInput();
+        }
         if (!$this->validate([
             'img_permohonan' => [
                 'rules' => 'uploaded[img_permohonan]|max_size[img_permohonan,1024]|is_image[img_permohonan]|mime_in[img_permohonan,image/jpg,image/jpeg,image/png]',
@@ -140,15 +148,7 @@ class Rekomendasi extends BaseController
                     'mime_in' => 'Ini bukan gambar'
                 ]
             ],
-            'jenis_permohonan' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Jenis permohonan belum dipilih'
-                ]
-            ],
         ])) {
-            // $msg = \Config\Services::validation();
-            // return redirect()->to('/rekomendasi/step1')->withInput()->with('validation', $msg);
             return redirect()->to('/rekomendasi/step1')->withInput();
         }
 
@@ -162,28 +162,23 @@ class Rekomendasi extends BaseController
             $img_permohonan->move('img/img_permohonan', $nama_img);
         }
 
-        // $img_pengantar_ptsp = $this->request->getFile('img_pengantar_ptsp');
-
-        // if ($img_pengantar_ptsp->getError() == 4) {
-        //     $nama_img_pengantar = "default.png";
-        // } else {
-        //     $nama_img_pengantar = $img_pengantar_ptsp->getRandomName();
-        //     $img_pengantar_ptsp->move('img/img_pengantar_ptsp', $nama_img_pengantar);
-        // }
-
-        $slug = url_title($this->request->getVar('nama_pemohon'), '-', true);
+        $slug = url_title($this->user['nama_perusahaan'], '-', true);
 
         $this->verifikasiModel->save([
             'slug' => $slug,
             'status' => 1,
             'status_verifikasi' => 5,
+            'trayek_dilayani' => $idasaltujuan,
             'img_surat_permohonan' => $nama_img,
-            // 'img_pengantar_ptsp' => $nama_img_pengantar,
             'tgl_permohonan' => $this->request->getVar('tgl_permohonan_submit'),
             'kode_booking' => $this->request->getVar('kdb'),
-            'nama_pemohon' => $this->request->getVar('nama_pemohon'),
-            // 'alamat_pemohon' => $this->request->getVar('alamat_pemohon'),
-            'jenis_permohonan' => $this->request->getVar('jenis_permohonan'),
+            'nama_pemohon' => $this->user['id'],
+            'nomor_kendaraan' => $this->request->getVar('nomor_kendaraan'),
+        ]);
+
+        $this->koperasiModel->save([
+            'id' => $idasaltujuan,
+            'used' => 1,
         ]);
 
         return redirect()->to('/rekomendasi/step2/' . $this->request->getVar('kdb') . '');
@@ -199,6 +194,14 @@ class Rekomendasi extends BaseController
 
     public function savep()
     {
+        $nk = $this->request->getVar('nomor_kendaraan');
+        $cek = $this->koperasiModel->cekasaltujuan($nk);
+        if ($cek) {
+            $idasaltujuan = $cek['id'];
+        } else {
+            session()->setFlashdata('msg', '<div class="alert alert-danger" role="alert">Maaf, Nomor Kendaraan yang anda masukkan belum memiliki rekomendasi Asal-Tujuan Trayek <br>Silahkan lakukan permohonan rekomendasi Asal-Tujuan Trayek terlebih dahulu pada menu Rekomendasi Asal-Tujuan atau <a class="font-weight-bold text-danger" href="/koperasi/buat_permohonan">Klik Disini</a><br> Terima Kasih</div>');
+            return redirect()->to('/rekomendasi/step1')->withInput();
+        }
         if (!$this->validate([
             'img_permohonan' => [
                 'rules' => 'uploaded[img_permohonan]|max_size[img_permohonan,1024]|is_image[img_permohonan]|mime_in[img_permohonan,image/jpg,image/jpeg,image/png]',
@@ -209,24 +212,7 @@ class Rekomendasi extends BaseController
                     'mime_in' => 'Ini bukan gambar'
                 ]
             ],
-            // 'img_pengantar_ptsp' => [
-            //     'rules' => 'uploaded[img_pengantar_ptsp]|max_size[img_pengantar_ptsp,1024]|is_image[img_pengantar_ptsp]|mime_in[img_permohonan,image/jpg,image/jpeg,image/png]',
-            //     'errors' => [
-            //         'uploaded' => 'Pilih gambar dokumen terlebih dahulu',
-            //         'max_size' => 'Ukuran gambar terlalu besar (Maksimal 1Mb)',
-            //         'is_image' => 'Ini bukan gambar',
-            //         'mime_in' => 'Ini bukan gambar'
-            //     ]
-            // ],
-            'jenis_permohonan' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Jenis permohonan belum dipilih'
-                ]
-            ],
         ])) {
-            // $msg = \Config\Services::validation();
-            // return redirect()->to('/rekomendasi/step1')->withInput()->with('validation', $msg);
             return redirect()->to('/rekomendasi/step1')->withInput();
         }
 
@@ -240,40 +226,38 @@ class Rekomendasi extends BaseController
             $img_permohonan->move('img/img_permohonan', $nama_img);
         }
 
-        // $img_pengantar_ptsp = $this->request->getFile('img_pengantar_ptsp');
+        $slug = url_title($this->user['nama_perusahaan'], '-', true);
 
-        // if ($img_pengantar_ptsp->getError() == 4) {
-        //     $nama_img_pengantar = "default.png";
-        // } else {
-        //     $nama_img_pengantar = $img_pengantar_ptsp->getRandomName();
-        //     $img_pengantar_ptsp->move('img/img_pengantar_ptsp', $nama_img);
-        // }
-
-        $slug = url_title($this->request->getVar('nama_pemohon'), '-', true);
         $this->verifikasiModel->save([
             'slug' => $slug,
             'status' => 2,
             'status_verifikasi' => 5,
+            'trayek_dilayani' => $idasaltujuan,
             'img_surat_permohonan' => $nama_img,
-            // 'img_pengantar_ptsp' => $nama_img_pengantar,
             'tgl_permohonan' => $this->request->getVar('tgl_permohonan_submit'),
             'kode_booking' => $this->request->getVar('kdb'),
-            'nama_pemohon' => $this->request->getVar('nama_pemohon'),
-            // 'alamat_pemohon' => $this->request->getVar('alamat_pemohon'),
-            'jenis_permohonan' => $this->request->getVar('jenis_permohonan')
+            'nama_pemohon' => $this->user['id'],
+            'nomor_kendaraan' => $this->request->getVar('nomor_kendaraan'),
+        ]);
+
+        $this->koperasiModel->save([
+            'id' => $idasaltujuan,
+            'used' => 1,
         ]);
 
         return redirect()->to('/rekomendasi/step2/' . $this->request->getVar('kdb') . '');
-        // dd($this->request->getVar());
     }
 
     public function step2($id)
     {
         session();
         $ids = $this->user['id'];
+        $kds = $this->verifikasiModel->getRekomendasi($id);
+        $kd = $kds['nomor_kendaraan'];
         $data = [
             'title' => 'Buat Permohonan',
             'trayek' => $this->trayekModel->getTrayek(),
+            'asaltujuan' => $this->koperasiModel->getdatapermohonanasaltujuan($kd),
             'at' => $this->koperasiModel->getKoperasiR($ids),
             'step2' => $this->verifikasiModel->getRekomendasi($id),
             'validation' => \Config\Services::validation(),
@@ -371,7 +355,6 @@ class Rekomendasi extends BaseController
         $this->verifikasiModel->save([
             'id' => $id,
             'img_stnkb_pkb' => $nama_img,
-            'nomor_kendaraan' => $this->request->getVar('nomor_kendaraan'),
             'nama_pemilik' => $this->request->getVar('nama_pemilik'),
             'alamat_pemilik' => $this->request->getVar('alamat_pemilik'),
             'jenis_kendaraan' => $this->request->getVar('jenis_kendaraan'),
@@ -823,81 +806,34 @@ class Rekomendasi extends BaseController
 
     public function update($id)
     {
-        $kdb = $this->request->getVar('kode_booking');
-        if (!$this->validate([
-            'img_permohonan' => [
-                'rules' => 'max_size[img_permohonan,1024]|is_image[img_permohonan]|mime_in[img_permohonan,image/jpg,image/jpeg,image/png]',
-                'errors' => [
-                    'max_size' => 'Ukuran gambar terlalu besar (Maksimal 1Mb)',
-                    'is_image' => 'Ini bukan gambar',
-                    'mime_in' => 'Ini bukan gambar'
-                ]
-            ],
-            'jenis_permohonan' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Jenis permohonan belum dipilih'
-                ]
-            ],
-        ])) {
-            return redirect()->to('/rekomendasi/step11/' . $kdb . '')->withInput();
-        }
-
         $img_permohonan = $this->request->getFile('img_permohonan');
-        //abil gambar
 
-        if ($img_permohonan) {
-
-            if ($img_permohonan->getError() == 4) {
-                $nama_img = $this->request->getVar('img_permohonan_lama');
-            } else {
-                $nama_img = $img_permohonan->getRandomName();
-                $img_permohonan->move('img/img_permohonan', $nama_img);
-
-                if ($this->request->getVar('img_permohonan_lama')) {
-                    unlink('img/img_permohonan/' . $this->request->getVar('img_permohonan_lama'));
-                } else {
-                }
-            }
+        if ($img_permohonan->getError() == 4) {
+            $nama_img = "default.png";
+        } else {
+            $nama_img = $img_permohonan->getRandomName();
+            $img_permohonan->move('img/img_permohonan', $nama_img);
         }
 
-        // $img_pengantar_ptsp = $this->request->getFile('img_pengantar_ptsp');
+        $slug = url_title($this->user['nama_perusahaan'], '-', true);
 
-        // if ($img_pengantar_ptsp) {
-
-        //     if ($img_pengantar_ptsp->getError() == 4) {
-        //         $nama_img_pengantar_ptsp = $this->request->getVar('img_pengantar_ptsp_lama');
-        //     } else {
-        //         $nama_img_pengantar_ptsp = $img_pengantar_ptsp->getRandomName();
-        //         $img_pengantar_ptsp->move('img/img_pengantar_ptsp', $nama_img_pengantar_ptsp);
-
-        //         if ($this->request->getVar('img_pengantar_ptsp_lama')) {
-        //             unlink('img/img_pengantar_ptsp/' . $this->request->getVar('img_pengantar_ptsp_lama'));
-        //         } else {
-        //         }
-        //     }
-        // }
-        $slug = url_title($this->request->getVar('nama_pemohon'), '-', true);
         $this->verifikasiModel->save([
-            'id' => $id,
-            'slug' => $slug,
-            'status' => 1,
+            'id' => $this->request->getVar('id'),
             'img_surat_permohonan' => $nama_img,
-            // 'img_pengantar_ptsp' => $nama_img_pengantar_ptsp,
             'tgl_permohonan' => $this->request->getVar('tgl_permohonan_submit'),
-            'nama_pemohon' => $this->request->getVar('nama_pemohon'),
-            'alamat_pemohon' => $this->request->getVar('alamat_pemohon'),
-            'jenis_permohonan' => $this->request->getVar('jenis_permohonan')
         ]);
 
-        session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Berhasil ubah data</div>');
-        return redirect()->to('/rekomendasi/step11/' . $kdb . '');
+        return redirect()->to('/rekomendasi/step11/' . $this->request->getVar('kode_booking') . '');
     }
 
-    public function hapusPengajuan($id)
+    public function hapusPengajuan($id, $idt)
     {
         $this->verifikasiModel->delete([
             'id' => $id,
+        ]);
+        $this->koperasiModel->save([
+            'id' => $idt,
+            'used' => 0,
         ]);
         return redirect()->to('/rekomendasi/rekomendasi');
     }

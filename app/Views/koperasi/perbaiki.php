@@ -24,9 +24,9 @@
                                 </div>
 
                                 <div class="col text-right">
-                                    <button type="submit button" class="btn btn-sm btn-primary text-light">Simpan Perubahan<i class="fa fa-check ml-1"></i> </button>
-                                    <a data-toggle="modal" data-target="#centralModalSuccess" type="button" class="btn btn-sm btn-success text-light">Approve<i class="fa fa-check ml-1"></i> </a>
-                                    <a data-toggle="modal" data-target="#ModalDanger" type="button" class="btn btn-sm btn-danger text-light">Tolak<i class="fa fa-ban ml-1"></i> </a>
+                                    <a type="button" class="btn btn-sm btn-danger text-light">Ajukan Perubahan<i class="fa fa-arrow-right ml-1"></i> </a>
+                                    <!-- <a data-toggle="modal" data-target="#centralModalSuccess" type="button" class="btn btn-sm btn-success text-light">Approve<i class="fa fa-check ml-1"></i> </a>
+                                    <a data-toggle="modal" data-target="#ModalDanger" type="button" class="btn btn-sm btn-danger text-light">Tolak<i class="fa fa-ban ml-1"></i> </a> -->
                                 </div>
                             </div>
                             <div class="md-form form-row mt-0">

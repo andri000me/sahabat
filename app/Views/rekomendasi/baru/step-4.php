@@ -24,7 +24,7 @@
             <ul class="stepper stepper-horizontal">
 
                 <?php
-                if ($step4['img_surat_permohonan'] && $step4['tgl_permohonan'] && $step4['nama_pemohon'] && $step4['jenis_permohonan']) {
+                if ($step4['img_surat_permohonan'] && $step4['tgl_permohonan'] && $step4['nama_pemohon']) {
                     $complete = "completed";
                 } else {
                     $complete = "";
@@ -122,9 +122,16 @@
                                 <span><i class="fa fa-image mr-1"></i> Pilih File Dokumen</span>
                                 <input type="file" name="img_kir" id="uploadImage" onchange="PreviewImage()">
                             </div>
-                            <a href="/img/img_kir/<?= $step4['img_kir'] ?>" target="_blank" type="button" class="btn btn-sm btn-danger"><i class="fa fa-eye mr-1"></i> Lihat dokumen</a>
+                            <?php
+                            if ($step4['img_kir']) {
+                                $btn = '<a href="/img/img_kir/' . $step4['img_kir'] . '" target="_blank" type="button" class="btn btn-sm btn-success"><i class="fa fa-eye mr-1"></i> Lihat dokumen</a>';
+                            } else {
+                                $btn = '<a href="#" target="_blank" type="button" class="btn btn-sm btn-danger"><i class="fa fa-eye mr-1"></i> Lihat dokumen</a>';
+                            }
+                            ?>
+                            <?= $btn ?>
                             <div class="file-path-wrapper">
-                                <input class="file-path validate" type="text" placeholder="Buku KIR" value="<?= $step4['img_kir'] ?>">
+                                <input class="file-path validate" type="text" placeholder="Buku KIR" value="">
                             </div>
                             <div class="kacili" style="margin-left:160px;">
                                 <?= $validation->getError('img_kir') ?>
