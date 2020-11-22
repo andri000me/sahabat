@@ -65,7 +65,7 @@
                                         if ($ran['rekompersetujuan'] == 1 && $ran['status_rekompersetujuan'] == 4) {
                                             $status = '<a href="" class="badge badge-danger">Dtolak</a>';
                                             $btn2 = '';
-                                            $btn3 = '<a href="/ask/uploadpenolakanptsp/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-danger">Cetak Penolakan</a>';
+                                            $btn3 = '<a href="/ask/detailpenolakan/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-danger">Lihat Detail Penolakan</a>';
                                         }
                                         ?>
                                         <tr>

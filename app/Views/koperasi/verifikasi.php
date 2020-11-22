@@ -183,7 +183,7 @@
 
                                 <?php
                                 if ($permohonan['img_stnkb']) {
-                                    $link = 'href="/img/img_stnkb/' . $permohonan['img_stnkb'] . '"';
+                                    $link = 'href="/img/img_stnkb_pkb/' . $permohonan['img_stnkb'] . '"';
                                     $btn = "btn-success";
                                 } else {
                                     $link = "#";
@@ -412,7 +412,7 @@
 
                 <!--Footer-->
                 <div class="modal-footer justify-content-center">
-                    <button type="submit button" class="btn btn-danger">Ya, Tolak <i class="far fa-gem ml-1 white-text"></i></button>
+                    <button type="submit button" class="btn btn-danger">Ya, Tolak</button>
                     <a type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal">Batal</a>
                 </div>
             </form>

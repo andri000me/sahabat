@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 21, 2020 at 09:57 AM
+-- Generation Time: Nov 22, 2020 at 07:28 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -112,13 +112,6 @@ CREATE TABLE `msg_penolakan` (
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `msg_penolakan`
---
-
-INSERT INTO `msg_penolakan` (`id`, `status`, `kode_booking`, `msg`, `img`, `created_at`, `updated_at`) VALUES
-(16, '1', '28', 'DI NYOLAK', '1605931058_fe1536469c18b085e990.png', '2020-11-20 00:00:00', '2020-11-20 00:00:00');
-
 -- --------------------------------------------------------
 
 --
@@ -153,6 +146,9 @@ CREATE TABLE `permohonan` (
   `slug` text DEFAULT NULL,
   `kode_booking` varchar(512) DEFAULT NULL,
   `status` varchar(512) NOT NULL,
+  `ptsp` int(11) NOT NULL,
+  `verifikator` int(11) NOT NULL,
+  `approver` int(11) NOT NULL,
   `status_verifikasi` int(11) DEFAULT NULL,
   `tgl_permohonan` varchar(512) NOT NULL,
   `nama_pemohon` varchar(512) NOT NULL,
@@ -184,18 +180,26 @@ CREATE TABLE `permohonan` (
   `img_surat_pernyataan` varchar(512) NOT NULL,
   `img_pengantar_ptsp` text NOT NULL,
   `img_izin_trayek` text NOT NULL,
+  `img_penolakan` text NOT NULL,
+  `status_img_surat_permohonan` text DEFAULT NULL,
+  `status_img_akte_perusahaan` text DEFAULT NULL,
+  `status_img_tdp` text DEFAULT NULL,
+  `status_img_siup` text DEFAULT NULL,
+  `status_img_npwp` text DEFAULT NULL,
+  `status_img_ktp` text DEFAULT NULL,
+  `status_img_trayek` text DEFAULT NULL,
+  `status_img_trayek_tujuan` text DEFAULT NULL,
+  `status_img_stnkb_pkb` text DEFAULT NULL,
+  `status_img_kir` text DEFAULT NULL,
+  `status_img_jasa_raharja` text DEFAULT NULL,
+  `status_img_surat_pernyataan` text DEFAULT NULL,
+  `status_img_pengantar_ptsp` text DEFAULT NULL,
+  `status_img_izin_trayek` text DEFAULT NULL,
   `tgl_approve` text NOT NULL,
   `masa_berlaku` varchar(512) NOT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `permohonan`
---
-
-INSERT INTO `permohonan` (`id`, `user_id`, `verificator_id`, `approver_id`, `slug`, `kode_booking`, `status`, `status_verifikasi`, `tgl_permohonan`, `nama_pemohon`, `alamat_pemohon`, `jenis_permohonan`, `trayek_dilayani`, `nomor_kendaraan`, `nama_pemilik`, `alamat_pemilik`, `jenis_kendaraan`, `tahun_pembuatan`, `nomor_kir`, `kapasitas_angkutan`, `uji_berkala_berlaku`, `stnkb_berlaku`, `pkb_berlaku`, `jasa_raharja_berlaku`, `img_surat_permohonan`, `img_akte_perusahaan`, `img_tdp`, `img_siup`, `img_npwp`, `img_ktp`, `img_trayek`, `img_trayek_tujuan`, `img_stnkb_pkb`, `img_kir`, `img_jasa_raharja`, `img_surat_pernyataan`, `img_pengantar_ptsp`, `img_izin_trayek`, `tgl_approve`, `masa_berlaku`, `created_at`, `updated_at`) VALUES
-(79, '', '', '', 'ksu-tetap-setia-bhayangkara', '20201120205557', '1', 0, '2020-11-23', '6', '', '', '28', 'DM1234AS', 'Abdul Musakir Radjak', 'A', 'Minibus/Mobil Penumpang', '234', 'DB 123123 SB', '1 Orang +1 Kg Barang', '2020-11-30', '2020-11-29', '2020-11-15', '2020-11-30', '1605927365_86f6be541ba3feae26f2.png', '', '', '', '', '', NULL, '', '1605928897_d16b2edb34d9e9ee368e.png', '1605929202_0c5ca5812d5a8c30c0d7.png', '1605929254_9bc265051c86497f1a71.png', '1605929308_0d7404bd8c19b5e96f84.png', '', '', '', '', '2020-11-20 20:56:05', '2020-11-20 21:29:58');
 
 -- --------------------------------------------------------
 
@@ -241,13 +245,6 @@ CREATE TABLE `permohonan_kabkota` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `permohonan_kabkota`
---
-
-INSERT INTO `permohonan_kabkota` (`id`, `slug`, `used`, `koperasi_id`, `kabkota_id`, `status_asal`, `status_tujuan`, `trayek_dilayani`, `asal`, `tujuan`, `nomor_kendaraan`, `nama_pemilik`, `alamat_pemilik`, `jenis_kendaraan`, `nomor_kir`, `merk`, `tahun_pembuatan`, `nomor_chasis`, `nomor_mesin`, `nomor_regis_pkb`, `img_surat_permohonan_koperasi`, `img_ktp_pemilik`, `img_stnkb`, `img_jasa_raharja`, `img_kir`, `img_penolakan_asal`, `img_rekomendasi_asal`, `img_penolakan_tujuan`, `img_rekomendasi_tujuan`, `foto_depan`, `foto_belakang`, `foto_kanan`, `foto_kiri`, `tgl_approve`, `created_at`, `updated_at`) VALUES
-(28, 'abdul-musakir-radjak', 1, '6', '', '1', '2', 'AA-01', '1', '2', 'DM1234AS', 'Abdul Musakir Radjak', 'Batudaa', 'Minibus/Mobil Penumpang', 'DB 123123 SB', 'Suzuki', '2019', '12736191287', '1238712378', '123716823723', '1605880505_553b4d28e6f92e3719ca.png', '1605880505_dfc5eb9677d88455510b.png', '1605880505_235de2952f8fc2e578c7.png', '1605880505_cec0b404549c964ede2a.png', '1605880505_b89293ededda3a8b9d4e.png', '1605887723_e9cc090eb683d3b2588f.png', '1605899831_75e55e571ff9b4d0e00a.png', '1605894710_f4c1a4573841772ffa0b.png', '1605899778_c32892ac770f67c97310.png', '1605880505_ccf93e137c87ad778392.png', '1605880505_38e53c1c416c8f061041.png', '1605880505_45cf92187171b017f1ce.png', '1605880505_8dced9215357eee26590.png', '2020-11-20', '2020-11-20 07:55:05', '2020-11-20 21:57:38');
 
 -- --------------------------------------------------------
 
@@ -361,7 +358,7 @@ INSERT INTO `user` (`id`, `wilayah_id`, `nama`, `email`, `password`, `hp`, `role
 (3, 0, 'Riansyah Inde', 'rian@gmail.com', '$2y$10$GQVZ0./65cQ5O2aeBpXrLOCT517fFOkL2pCBNDVUezln1TnYEgI2y', '0822878378278', '2', '', '', '', '', '', '', '', '', '', '', '', '', '2020-10-15 09:12:25', '2020-10-15 09:12:25'),
 (4, 0, 'Abdul Karim Rauf', 'abd@gmail.com', '$2y$10$S0CPKSP/kgoGIyw1knJM0uW.VTL5GokmfPEgacYBZ6JpdM2NdcmLe', '0822878378278', '3', '', '', '', '', '', '', '', '', '', '', '', '', '2020-10-15 09:12:48', '2020-10-15 09:12:48'),
 (5, 0, 'Zakir Radjak', 'z@gmail.com', '$2y$10$vBeyDO3Fy1p1OH8Fv4jnGOKiGKXtzsp9etWTpTDfIz9Sn17EM4ZVy', '123', '4', '', '', '', '', '', '', '', '', '', '', '', '', '2020-10-15 19:56:47', '2020-10-15 19:56:47'),
-(6, 0, 'Cece C.', 'ksu.tsb@gmail.com', '$2y$10$LutpR..sxvpiIs.7.1HQd.4qk.WX.5nOock4/rI.WGjJ1h7./0KC2', '082293728432', '0', '7501011908580001', 'K A R D I', 'KSU TETAP SETIA BHAYANGKARA', 'Jl.A.Wahab Nomor 18.Desa Bulila Kec. Telaga  Kab. Gorontalo', 'NPWP Koperasi A', '1603633419_5dd9602a9e85137155a0.jpeg', '1603633419_6a7a337c4d6356edccaf.jpeg', '1603633419_7df70d6f6f742bef7faf.jpeg', '1603633419_3f1104b9d89551ead0a5.jpeg', '1603633419_ac11b9a34199d04212ae.jpeg', '1603633419_2b9b4241ae9164e08a11.jpeg', '1603633419_acd96d6732e684eb85fb.jpeg', '2020-10-20 10:16:27', '2020-10-25 08:43:39'),
+(6, 0, 'Cece C.', 'ksu.tsb@gmail.com', '$2y$10$LutpR..sxvpiIs.7.1HQd.4qk.WX.5nOock4/rI.WGjJ1h7./0KC2', '082293728432', '0', '7501011908580001', 'K A R D I', 'KSU TETAP SETIA BHAYANGKARA', 'Jl.A.Wahab Nomor 18.Desa Bulila Kec. Telaga  Kab. Gorontalo', 'NPWP Koperasi A', '1605958623_403b847d5d25d1cbca6c.jpeg', '1605958623_91d3a06e309588bdd9dc.jpeg', '1605958623_0c8f54fad62e6ad9b8d9.jpeg', '1605958623_158383aec994c81c9770.jpeg', '1605958623_1430ce0099deef221794.jpeg', '1605958623_60513157acb29bbc9190.jpeg', '1605958623_045dd1067ebdd3ce93e8.jpeg', '2020-10-20 10:16:27', '2020-11-21 05:37:03'),
 (7, 0, 'PTSP', 'ptsp', '$2y$10$OWxfDYGunVxybreXI/et7OkChKRYrrJA0OHgeZ4jYKVpRyJ4Qvu9C', '123', '1', '', '', '', '', '', '', '', '', '', '', '', '', '2020-10-20 10:16:50', '2020-10-20 10:16:50'),
 (8, 0, 'Verifikator', 'verifikator', '$2y$10$NthJomSaybwm1UNaiw.UXONO6Yiq66xhnJ/nlStVSBOHDnGb2slPC', '123', '2', '', '', '', '', '', '', '', '', '', '', '', '', '2020-10-20 10:17:16', '2020-10-20 10:17:16'),
 (9, 1, 'Kota', 'kotagtlo', '$2y$10$GkcXbl1Eq6GCVdM0CkSJo.8G6EG1F/8pf3PropjK3JHcWGz/mUCB6', '123', '5', '', '', 'Admin Dinas Perhubungan Kota Gorontalo', '', '', '', '', '', '', '', '', '', '2020-10-20 10:18:30', '2020-10-20 10:18:30'),
@@ -370,7 +367,7 @@ INSERT INTO `user` (`id`, `wilayah_id`, `nama`, `email`, `password`, `hp`, `role
 (12, 4, 'Gorut', 'kabgorut', '$2y$10$b7pHWWygsTwnGq8lUREsMuU9z7Pl8PoaXiBLU7UC/G2/8rUvGXOXG', '08121312312323', '8', '', '', 'Admin Dinas Perhubungan Kabupaten Gorontalo Utara', '', '', '', '', '', '', '', '', '', '2020-10-24 10:02:47', '2020-10-24 10:02:47'),
 (13, 5, 'Boalemo', 'kabboalemo', '$2y$10$/MYwtBVD7taFgDXiqhk9Lu8BXjklOVjXRvQrz9JmAhXA8sHSqCF8i', '08121312312323', '9', '', '', 'Admin Dinas Perhubungan Kabupaten Boalemo', '', '', '', '', '', '', '', '', '', '2020-10-24 10:03:29', '2020-10-24 10:03:29'),
 (14, 6, 'Pohuwato', 'kabpohuwato', '$2y$10$ovwxJcIHynt3AohGx418dOX1J/5PqZs/Imh7oG3rGl4XbxGn4Z3va', '08121312312323', '10', '', '', 'Admin Dinas Perhubungan Kabupaten Pohuwato', '', '', '', '', '', '', '', '', '', '2020-10-24 10:03:56', '2020-10-24 10:03:56'),
-(19, 7, 'Mus Zakaria', 'kja.krawangjayabersama@gmail.com', '$2y$10$LutpR..sxvpiIs.7.1HQd.4qk.WX.5nOock4/rI.WGjJ1h7./0KC2', '081340223678 ', '0', '7504042910560001', 'MUS ZAKARIA', 'KOPERASI KRAWANG JAYA BERSAMA', 'Dungingi, Kota Gorontalo', '', '1603591745_15c3c837d8ea19b120c7.jpg', '1603591745_2ee7a5b48e4a11bda8fb.jpg', '1603591745_2235f6ccaf8c97addea3.jpg', '1603591745_e2e51b0a31d20cab7bef.jpg', '1603591745_8d16dc15a5963bb76a4d.jpg', '1603591745_11dbf003b0c8e29de235.jpg', '1603591745_6798f6f22351ceeb3d1f.jpg', '2020-10-24 21:05:05', '2020-10-24 21:15:26'),
+(19, 7, 'Mus Zakaria', 'kja.krawangjayabersama@gmail.com', '$2y$10$LutpR..sxvpiIs.7.1HQd.4qk.WX.5nOock4/rI.WGjJ1h7./0KC2', '081340223678 ', '0', '7504042910560001', 'MUS ZAKARIA', 'KOPERASI KRAWANG JAYA BERSAMA', 'Dungingi, Kota Gorontalo', '', '1605978978_cb65690f4546dbc8a5f9.jpeg', '1605978978_5da46094fc4885f3339b.jpeg', '1605978978_91417574b0a9f1501b20.jpeg', '1605978978_0197b54b098a85a8ff97.jpeg', '1605978978_189cac7b55215bb33354.jpeg', '1605978978_22ff94d199203541628a.jpeg', '1605978978_5f21c83ecb6da85de86a.jpeg', '2020-10-24 21:05:05', '2020-11-21 11:16:18'),
 (20, 0, 'Zakir', 'Z', '$2y$10$LutpR..sxvpiIs.7.1HQd.4qk.WX.5nOock4/rI.WGjJ1h7./0KC2', '123546456', '0', '', '', '', '', '', '', '', '', '', '', '', '', '2020-11-14 09:24:36', '2020-11-14 09:24:36');
 
 -- --------------------------------------------------------
@@ -470,7 +467,7 @@ ALTER TABLE `wilayah`
 -- AUTO_INCREMENT for table `ask`
 --
 ALTER TABLE `ask`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `jenis_permohonan`
@@ -482,7 +479,7 @@ ALTER TABLE `jenis_permohonan`
 -- AUTO_INCREMENT for table `msg_penolakan`
 --
 ALTER TABLE `msg_penolakan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `nomor_surat`
@@ -494,19 +491,19 @@ ALTER TABLE `nomor_surat`
 -- AUTO_INCREMENT for table `permohonan`
 --
 ALTER TABLE `permohonan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
 -- AUTO_INCREMENT for table `permohonan_kabkota`
 --
 ALTER TABLE `permohonan_kabkota`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `ranmor`
 --
 ALTER TABLE `ranmor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `trayek`

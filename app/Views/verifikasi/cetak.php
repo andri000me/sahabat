@@ -141,7 +141,7 @@
                                 Jenis Permohonan
                             </div>
                             <div class="col-sm-8 textff">
-                                : <?= $jenis['nama'] ?>
+                                : Pertimbangan Teknis Izin Trayek AKDP
                             </div>
                         </div>
                         <div class="row">

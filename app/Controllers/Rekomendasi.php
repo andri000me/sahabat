@@ -42,7 +42,7 @@ class Rekomendasi extends BaseController
         $data = [
             'title' => 'Pesan Penolakan',
             'jenis_permohonan' => $this->rekomendasiModel->getJenisPermohonan(),
-            'msg_penolakan' => $this->msgPenolakanModel->getMsgPenolakan($kd),
+            // 'msg_penolakan' => $this->msgPenolakanModel->getMsgPenolakan($kd),
             'rekomendasi' => $this->verifikasiModel->getRekomendasi($kd),
             'validation' => \Config\Services::validation(),
             'session' => $this->user
@@ -68,11 +68,52 @@ class Rekomendasi extends BaseController
     {
         $this->verifikasiModel->save([
             'id' => $id,
+            'ptsp' => 1,
             'status_verifikasi' => 0,
+            'status_img_surat_permohonan' => 0,
+            'status_img_stnkb_pkb' => 0,
+            'status_img_kir' => 0,
+            'status_img_jasa_raharja' => 0,
+            'status_img_surat_pernyataan' => 0,
+            'status_img_pengantar_ptsp' => 0,
+            'status_img_izin_trayek' => 0,
+            'status_img_akte_perusahaan' => 0,
+            'status_img_tdp' => 0,
+            'status_img_siup' => 0,
+            'status_img_npwp' => 0,
+            'status_img_ktp' => 0,
+            'status_img_trayek' => 0,
+            'status_img_trayek_tujuan' => 0,
         ]);
         $this->koperasiModel->save([
             'id' => $idasal,
             'used' => 1,
+        ]);
+
+        session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data berhasil dikirim, mengunngu verivikasi</div>');
+        return redirect()->to('/rekomendasi/rekomendasi/');
+    }
+
+    public function finishp($id)
+    {
+        $this->verifikasiModel->save([
+            'id' => $id,
+            'ptsp' => 1,
+            'status_verifikasi' => 0,
+            'status_img_surat_permohonan' => 0,
+            'status_img_stnkb_pkb' => 0,
+            'status_img_kir' => 0,
+            'status_img_jasa_raharja' => 0,
+            'status_img_surat_pernyataan' => 0,
+            'status_img_pengantar_ptsp' => 0,
+            'status_img_izin_trayek' => 0,
+            'status_img_akte_perusahaan' => 0,
+            'status_img_tdp' => 0,
+            'status_img_siup' => 0,
+            'status_img_npwp' => 0,
+            'status_img_ktp' => 0,
+            'status_img_trayek' => 0,
+            'status_img_trayek_tujuan' => 0,
         ]);
 
         session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data berhasil dikirim, mengunngu verivikasi</div>');
@@ -87,10 +128,11 @@ class Rekomendasi extends BaseController
     {
         session();
 
+        $user_id = $this->user['id'];
         $data = [
             'title' => 'Buat Permohonan',
             'jenis_permohonan' => $this->rekomendasiModel->getJenisPermohonan(),
-            'permohonan' => $this->verifikasiModel->getRekomendasi(),
+            'permohonan' => $this->verifikasiModel->getRekomendasiVerifikasid($user_id),
             'kode' => $this->verifikasiModel->getRekomendasiLimit(),
             'validation' => \Config\Services::validation(),
             'session' => $this->user
@@ -131,7 +173,8 @@ class Rekomendasi extends BaseController
     public function save()
     {
         $nk = $this->request->getVar('nomor_kendaraan');
-        $cek = $this->koperasiModel->cekasaltujuan($nk);
+        $user_id = $this->user['id'];
+        $cek = $this->koperasiModel->cekasaltujuan($nk, $user_id);
         if ($cek) {
             $idasaltujuan = $cek['id'];
         } else {
@@ -167,6 +210,7 @@ class Rekomendasi extends BaseController
         $this->verifikasiModel->save([
             'slug' => $slug,
             'status' => 1,
+            'user_id' => $this->user['id'],
             'status_verifikasi' => 5,
             'trayek_dilayani' => $idasaltujuan,
             'img_surat_permohonan' => $nama_img,
@@ -194,14 +238,6 @@ class Rekomendasi extends BaseController
 
     public function savep()
     {
-        $nk = $this->request->getVar('nomor_kendaraan');
-        $cek = $this->koperasiModel->cekasaltujuan($nk);
-        if ($cek) {
-            $idasaltujuan = $cek['id'];
-        } else {
-            session()->setFlashdata('msg', '<div class="alert alert-danger" role="alert">Maaf, Nomor Kendaraan yang anda masukkan belum memiliki rekomendasi Asal-Tujuan Trayek <br>Silahkan lakukan permohonan rekomendasi Asal-Tujuan Trayek terlebih dahulu pada menu Rekomendasi Asal-Tujuan atau <a class="font-weight-bold text-danger" href="/koperasi/buat_permohonan">Klik Disini</a><br> Terima Kasih</div>');
-            return redirect()->to('/rekomendasi/step1')->withInput();
-        }
         if (!$this->validate([
             'img_permohonan' => [
                 'rules' => 'uploaded[img_permohonan]|max_size[img_permohonan,1024]|is_image[img_permohonan]|mime_in[img_permohonan,image/jpg,image/jpeg,image/png]',
@@ -213,7 +249,7 @@ class Rekomendasi extends BaseController
                 ]
             ],
         ])) {
-            return redirect()->to('/rekomendasi/step1')->withInput();
+            return redirect()->to('/rekomendasi/step1p')->withInput();
         }
 
         //abil gambar
@@ -231,8 +267,8 @@ class Rekomendasi extends BaseController
         $this->verifikasiModel->save([
             'slug' => $slug,
             'status' => 2,
+            'user_id' => $this->user['id'],
             'status_verifikasi' => 5,
-            'trayek_dilayani' => $idasaltujuan,
             'img_surat_permohonan' => $nama_img,
             'tgl_permohonan' => $this->request->getVar('tgl_permohonan_submit'),
             'kode_booking' => $this->request->getVar('kdb'),
@@ -240,12 +276,7 @@ class Rekomendasi extends BaseController
             'nomor_kendaraan' => $this->request->getVar('nomor_kendaraan'),
         ]);
 
-        $this->koperasiModel->save([
-            'id' => $idasaltujuan,
-            'used' => 1,
-        ]);
-
-        return redirect()->to('/rekomendasi/step2/' . $this->request->getVar('kdb') . '');
+        return redirect()->to('/rekomendasi/step2p/' . $this->request->getVar('kdb') . '');
     }
 
     public function step2($id)
@@ -264,6 +295,24 @@ class Rekomendasi extends BaseController
             'session' => $this->user
         ];
         return view('rekomendasi/baru/step-2', $data);
+    }
+
+    public function step2p($id)
+    {
+        session();
+        $ids = $this->user['id'];
+        $kds = $this->verifikasiModel->getRekomendasi($id);
+        $kd = $kds['nomor_kendaraan'];
+        $data = [
+            'title' => 'Buat Permohonan',
+            'trayek' => $this->trayekModel->getTrayek(),
+            'asaltujuan' => $this->koperasiModel->getdatapermohonanasaltujuan($kd),
+            'at' => $this->koperasiModel->getKoperasiR($ids),
+            'step2' => $this->verifikasiModel->getRekomendasi($id),
+            'validation' => \Config\Services::validation(),
+            'session' => $this->user
+        ];
+        return view('rekomendasi/baru/step-2p', $data);
     }
 
     public function update2($id)
@@ -290,7 +339,7 @@ class Rekomendasi extends BaseController
                     ]
                 ],
             ])) {
-                return redirect()->to('/rekomendasi/step2/' . $kdb . '')->withInput();
+                return redirect()->to('/rekomendasi/step3/' . $kdb . '')->withInput();
             }
         }
 
@@ -657,6 +706,35 @@ class Rekomendasi extends BaseController
         return redirect()->to('/rekomendasi/step6/' . $kdb . '');
     }
 
+    public function saveuploadizintrayek($id)
+    {
+        $kdb = $this->request->getVar('kode_booking');
+
+        $img_izin_trayek = $this->request->getFile('img_izin_trayek');
+        //abil gambar
+
+        if ($img_izin_trayek) {
+            if ($img_izin_trayek->getError() == 4) {
+                $nama_img_izin_trayek = $this->request->getVar('img_izin_trayek_lama');
+            } else {
+                $nama_img_izin_trayek = $img_izin_trayek->getRandomName();
+                $img_izin_trayek->move('img/img_izin_trayek', $nama_img_izin_trayek);
+                if ($this->request->getVar('img_izin_trayek_lama')) {
+                    unlink('img/img_izin_trayek/' . $this->request->getVar('img_izin_trayek_lama'));
+                } else {
+                }
+            }
+        }
+
+        $this->verifikasiModel->save([
+            'id' => $id,
+            'img_izin_trayek' => $nama_img_izin_trayek,
+        ]);
+
+        session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data berhasil dikirim, mengunngu verivikasi</div>');
+        return redirect()->to('/rekomendasi/step3/' . $kdb . '');
+    }
+
     public function s3($id)
     {
         $kdb = $this->request->getVar('kode_booking');
@@ -826,13 +904,13 @@ class Rekomendasi extends BaseController
         return redirect()->to('/rekomendasi/step11/' . $this->request->getVar('kode_booking') . '');
     }
 
-    public function hapusPengajuan($id, $idt)
+    public function hapusPengajuan($id, $idk)
     {
         $this->verifikasiModel->delete([
             'id' => $id,
         ]);
         $this->koperasiModel->save([
-            'id' => $idt,
+            'id' => $idk,
             'used' => 0,
         ]);
         return redirect()->to('/rekomendasi/rekomendasi');

@@ -1273,12 +1273,13 @@ class KoperasiModel extends model
         }
     }
 
-    public function cekasaltujuan($nk)
+    public function cekasaltujuan($nk, $user_id)
     {
         $this->db->table('permohonan_kabkota');
         $this->select('*');
         $this->where(['permohonan_kabkota.nomor_kendaraan' => $nk]);
         $this->where(['permohonan_kabkota.used' => 0]);
+        $this->where(['permohonan_kabkota.koperasi_id' => $user_id]);
         $this->where(['permohonan_kabkota.status_asal' => 2]);
         $this->where(['permohonan_kabkota.status_tujuan' => 2]);
         $this->where('permohonan_kabkota.img_rekomendasi_asal IS NOT NULL');

@@ -18,14 +18,6 @@
 
                             <input type="hidden" name="kode_registrasi" value="<?= date('YmdHis'); ?>">
 
-                            <!-- <div class="md-form mb-4 pink-textarea active-textarea">
-                                <textarea name="pelayanan_dimohon" id="form18" class="md-textarea form-control" rows="3" required></textarea>
-                                <label for="form18">Pelayanan yang dimohon</label>
-                                <div class="invalid-feedback">
-                                    Pelayanan yang dimohon
-                                </div>
-                            </div> -->
-
                             <div class="md-form">
                                 <input name="jumlah_kendaraan" type="number" id="form2" class="form-control" required>
                                 <label for="form2">Jumlah Kendaraan</label>

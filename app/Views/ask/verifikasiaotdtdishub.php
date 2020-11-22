@@ -56,7 +56,8 @@
                                         if ($ran['rekompersetujuan'] == 1 && $ran['status_rekompersetujuan'] == 3) {
                                             $status = '<a href="" class="badge badge-success">Diapprove</a>';
                                             $btn2 = '';
-                                            $btn3 = '<a target="_blank" href="/ask/cetakpermohonan/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-dark">Cetak Rekomendasi Persetujuan</a>   ';
+                                            $btn3 = '<a target="_blank" href="/ask/cetakpermohonan/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-success">Cetak Rekomendasi Persetujuan</a>
+                                            <a target="_blank" href="/ask/uploadberitaacara/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-secondary">Upload berita acara</a>';
                                         }
                                         if ($ran['rekompersetujuan'] == 1 && $ran['status_rekompersetujuan'] == 4) {
                                             $status = '<a href="" class="badge badge-danger">Dtolak</a>';

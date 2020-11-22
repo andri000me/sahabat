@@ -12,7 +12,7 @@
         <input name="img_pengantar_ptsp_lama" type="hidden" value="<?= $detail['img_pengantar_ptsp'] ?>">
 
         <div class="my-4 px-3 py-3" style="width:1000px;">
-            <h5 class="text-primary font-weight-bold card-title">Upload Izin Trayek</h5>
+            <h5 class="text-primary font-weight-bold card-title">Upload Pengantar PTSP</h5>
             <p class="card-text">Data Permohonan</p>
             <div class="cards px-4 py-3 mb-3">
                 <div class="row mb-3">
@@ -58,7 +58,7 @@
             </div>
 
             <div class="buttons mt-3">
-                <button type="submit button" class="btn btn-md btn-primary text-light">Upload Izin Trayek<i class="fa fa-check ml-1"></i> </button>
+                <button type="submit button" class="btn btn-md btn-primary text-light">Upload Pengantar PTSP<i class="fa fa-check ml-1"></i> </button>
             </div>
         </div>
     </form>

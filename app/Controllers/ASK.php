@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\LoginModel;
 use App\Models\AskModel;
 use App\Models\RanmorModel;
+use App\Models\MsgPenolakanModel;
 use chillerlan\QRCode\QRCode;
 
 
@@ -13,12 +14,14 @@ class ASK extends BaseController
     protected $loginModel;
     protected $askModel;
     protected $ranmorModel;
+    protected $msgPenolakanModel;
 
     public function __construct()
     {
         $this->loginModel = new LoginModel();
         $this->askModel = new AskModel();
         $this->ranmorModel = new RanmorModel();
+        $this->msgPenolakanModel = new MsgPenolakanModel();
         $this->session = session();
         $this->user = $this->loginModel->where('email', $this->session->get('email'))->first();
     }
@@ -278,6 +281,110 @@ class ASK extends BaseController
         return redirect()->to('/ask/permohonansaya');
     }
 
+    public function saveperbaikan()
+    {
+        $img_surat_permohonan = $this->request->getFile('img_surat_permohonan');
+
+        if ($img_surat_permohonan->getError() == 4) {
+            $nama_img_surat_permohonan = $this->request->getVar('img_surat_permohonan_lama');
+        } else {
+            $nama_img_surat_permohonan = $img_surat_permohonan->getRandomName();
+            $img_surat_permohonan->move('img/img_surat_permohonan', $nama_img_surat_permohonan);
+        }
+
+        $img_bukti_pengesahan = $this->request->getFile('img_bukti_pengesahan');
+
+        if ($img_bukti_pengesahan->getError() == 4) {
+            $nama_img_bukti_pengesahan = $this->request->getVar('img_bukti_pengesahan_lama');
+        } else {
+            $nama_img_bukti_pengesahan = $img_bukti_pengesahan->getRandomName();
+            $img_bukti_pengesahan->move('img/img_bukti_pengesahan', $nama_img_bukti_pengesahan);
+        }
+
+        $img_domisili = $this->request->getFile('img_domisili');
+
+        if ($img_domisili->getError() == 4) {
+            $nama_img_domisili = $this->request->getVar('img_domisili_lama');
+        } else {
+            $nama_img_domisili = $img_domisili->getRandomName();
+            $img_domisili->move('img/img_domisili', $nama_img_domisili);
+        }
+
+        $img_pernyataan_kesanggupan = $this->request->getFile('img_pernyataan_kesanggupan');
+
+        if ($img_pernyataan_kesanggupan->getError() == 4) {
+            $nama_img_pernyataan_kesanggupan = $this->request->getVar('img_pernyataan_kesanggupan_lama');
+        } else {
+            $nama_img_pernyataan_kesanggupan = $img_pernyataan_kesanggupan->getRandomName();
+            $img_pernyataan_kesanggupan->move('img/img_pernyataan_kesanggupan', $nama_img_pernyataan_kesanggupan);
+        }
+
+        $img_pernyataan_kerjasama = $this->request->getFile('img_pernyataan_kerjasama');
+
+        if ($img_pernyataan_kerjasama->getError() == 4) {
+            $nama_img_pernyataan_kerjasama = $this->request->getVar('img_pernyataan_kerjasama_lama');
+        } else {
+            $nama_img_pernyataan_kerjasama = $img_pernyataan_kerjasama->getRandomName();
+            $img_pernyataan_kerjasama->move('img/img_pernyataan_kerjasama', $nama_img_pernyataan_kerjasama);
+        }
+
+        $img_perjanjian = $this->request->getFile('img_perjanjian');
+
+        if ($img_perjanjian->getError() == 4) {
+            $nama_img_perjanjian = $this->request->getVar('img_perjanjian_lama');
+        } else {
+            $nama_img_perjanjian = $img_perjanjian->getRandomName();
+            $img_perjanjian->move('img/img_perjanjian', $nama_img_perjanjian);
+        }
+
+        $img_pemda = $this->request->getFile('img_pemda');
+
+        if ($img_pemda->getError() == 4) {
+            $nama_img_pemda = $this->request->getVar('img_pemda_lama');
+        } else {
+            $nama_img_pemda = $img_pemda->getRandomName();
+            $img_pemda->move('img/img_pemda', $nama_img_pemda);
+        }
+
+        $img_rencana_bisnis = $this->request->getFile('img_rencana_bisnis');
+
+        if ($img_rencana_bisnis->getError() == 4) {
+            $nama_img_rencana_bisnis = $this->request->getVar('img_rencana_bisnis_lama');
+        } else {
+            $nama_img_rencana_bisnis = $img_rencana_bisnis->getRandomName();
+            $img_rencana_bisnis->move('img/img_rencana_bisnis', $nama_img_rencana_bisnis);
+        }
+
+        $slug = url_title($this->user['nama_perusahaan'], '-', true);
+
+        $this->askModel->save([
+            'ptsp' => 1,
+            'status_ptsp' => 1,
+            'dishub' => 0,
+            'status_dishub' => 0,
+            'penerbitan' => 0,
+            'status_penerbitan' => 0,
+            'rekompersetujuan' => 1,
+            'status_rekompersetujuan' => 0,
+            'id' => $this->request->getVar('idask'),
+            'jumlah_kendaraan' => $this->request->getVar('jumlah_kendaraan'),
+            'jenis_kendaraan' => $this->request->getVar('jenis_kendaraan'),
+            'kapasitas_angkut' => $this->request->getVar('kapasitas_angkut'),
+            'wilayah_operasi' => $this->request->getVar('wilayah_operasi'),
+            'img_surat_permohonan' => $nama_img_surat_permohonan,
+            'img_bukti_pengesahan' => $nama_img_bukti_pengesahan,
+            'img_domisili' => $nama_img_domisili,
+            'img_pernyataan_kesanggupan' => $nama_img_pernyataan_kesanggupan,
+            'img_pernyataan_kerjasama' => $nama_img_pernyataan_kerjasama,
+            'img_perjanjian' => $nama_img_perjanjian,
+            'img_pemda' => $nama_img_pemda,
+            'img_rencana_bisnis' => $nama_img_rencana_bisnis,
+            'updated_at' => date('Y-m-d H:i:s'),
+        ]);
+
+        return redirect()->to('/ask/permohonansaya');
+    }
+
     public function lengkapiBerkas($slug, $kode_registrasi)
     {
         session();
@@ -289,11 +396,12 @@ class ASK extends BaseController
                 'ranmor' => $this->ranmorModel->getAllRanmor($kode_registrasi),
                 'ask' => $this->askModel->getAsk($kode_registrasi),
             ];
-            return view('ask/lengkapi_berkas', $data);
+            return view('ask/berkas_kendaraan', $data);
         } else {
             return redirect()->to('login/login');
         }
     }
+
     public function ajukanPermohonan($slug, $kode_registrasi)
     {
         session();
@@ -343,6 +451,47 @@ class ASK extends BaseController
         } else {
             return redirect()->to('login/login');
         }
+    }
+
+    public function detailpenolakan($id)
+    {
+        session();
+
+        $data = [
+            'title' => 'Koperasi',
+            'session' => $this->user,
+            'ask' => $this->askModel->getAsk($id),
+            'msg' => $this->msgPenolakanModel->getMsgPenolakans($id),
+            'validation' => \Config\Services::validation(),
+        ];
+        return view('ask/detailpenolakan', $data);
+    }
+
+    public function detailpenolakanterbit($id)
+    {
+        session();
+
+        $data = [
+            'title' => 'Koperasi',
+            'session' => $this->user,
+            'ask' => $this->askModel->getAsk($id),
+            'msg' => $this->msgPenolakanModel->getMsgPenolakans($id),
+            'validation' => \Config\Services::validation(),
+        ];
+        return view('ask/detailpenolakanterbit', $data);
+    }
+
+    public function perbaiki($id)
+    {
+        session();
+
+        $data = [
+            'title' => 'Koperasi',
+            'session' => $this->user,
+            'ask' => $this->askModel->getAsk($id),
+            'validation' => \Config\Services::validation(),
+        ];
+        return view('ask/perbaiki', $data);
     }
 
     public function permohonansaya()
@@ -499,15 +648,80 @@ class ASK extends BaseController
         return redirect()->to('/ask/penerbitanizin');
     }
 
-    public function tolak($id, $slug, $kode_registrasi)
+    public function tolak()
     {
         session();
+
+        $img = $this->request->getFile('img');
+        $id = $this->request->getVar('idask');
+
+        if ($img->getError() == 4) {
+            $nama_img = "default.png";
+        } else {
+            $nama_img = $img->getRandomName();
+            $img->move('img/img', $nama_img);
+        }
+
+        $msg = $this->msgPenolakanModel->getMsgPenolakans($this->request->getVar('kode_registrasi'));
+
+        $this->msgPenolakanModel->delete([
+            'id' => $msg['id'],
+        ]);
+
         $this->askModel->save([
             'id' => $id,
-            'status_ptsp' => 3
+            'rekompersetujuan' => 1,
+            'dishub' => 1,
+            'status_rekompersetujuan' => 4,
+        ]);
+
+        $this->msgPenolakanModel->save([
+            'kode_booking' => $this->request->getVar('kode_registrasi'),
+            'status' => $this->user['id'],
+            'msg' => $this->request->getVar('msg'),
+            'img' => $nama_img,
+            'created_at' => date('Y-m-d'),
+            'updated_at' => date('Y-m-d'),
         ]);
 
         return redirect()->to('/ask/verifikasiaotdt');
+    }
+
+    public function tolakterbit()
+    {
+        session();
+
+        $img = $this->request->getFile('img');
+        $id = $this->request->getVar('idask');
+
+        if ($img->getError() == 4) {
+            $nama_img = "default.png";
+        } else {
+            $nama_img = $img->getRandomName();
+            $img->move('img/img', $nama_img);
+        }
+
+        $msg = $this->msgPenolakanModel->getMsgPenolakans($this->request->getVar('kode_registrasi'));
+
+        $this->msgPenolakanModel->delete([
+            'id' => $msg['id'],
+        ]);
+
+        $this->askModel->save([
+            'id' => $id,
+            'status_penerbitan' => 5,
+        ]);
+
+        $this->msgPenolakanModel->save([
+            'kode_booking' => $this->request->getVar('kode_registrasi'),
+            'status' => $this->user['id'],
+            'msg' => $this->request->getVar('msg'),
+            'img' => $nama_img,
+            'created_at' => date('Y-m-d'),
+            'updated_at' => date('Y-m-d'),
+        ]);
+
+        return redirect()->to('/ask/verifikasipenerbitanaotdt');
     }
 
 
@@ -970,6 +1184,41 @@ class ASK extends BaseController
         return redirect()->to('/ask/uploadizin/' . $this->request->getVar('slug') . '/' . $this->request->getVar('kode_registrasi') . '');
     }
 
+    public function saveuploadberitaacarapenerbitan()
+    {
+        if (!$this->validate([
+            'img_penerbitan' => [
+                'rules' => 'uploaded[img_penerbitan]|max_size[img_penerbitan,3068]|mime_in[img_penerbitan,image/jpg,image/jpeg,image/png,application/pdf]',
+                'errors' => [
+                    'uploaded' => 'Pilih dokumen terlebih dahulu',
+                    'max_size' => 'Ukuran dokumen terlalu besar (Maksimal 3Mb)',
+                    'mime_in' => 'Format tidak sesuai',
+                ],
+            ],
+
+        ])) {
+            return redirect()->to('/ask/uploadizin/' . $this->request->getVar('slug') . '/' . $this->request->getVar('kode_registrasi') . '')->withInput();
+        }
+
+        $img_penerbitan = $this->request->getFile('img_penerbitan');
+
+        if ($img_penerbitan->getError() == 4) {
+            $nama_img_penerbitan = "default.png";
+        } else {
+            $nama_img_penerbitan = $img_penerbitan->getRandomName();
+            $img_penerbitan->move('img/img_penerbitan', $nama_img_penerbitan);
+        }
+
+        $slug = url_title($this->user['nama_perusahaan'], '-', true);
+
+        $this->askModel->save([
+            'id' => $this->request->getVar('id'),
+            'img_penerbitan' => $nama_img_penerbitan,
+        ]);
+
+        return redirect()->to('/ask/uploadberitaacarapenerbitan/' . $this->request->getVar('slug') . '/' . $this->request->getVar('kode_registrasi') . '');
+    }
+
     public function saveuploadpenolakanizin()
     {
         if (!$this->validate([
@@ -1059,6 +1308,42 @@ class ASK extends BaseController
         }
     }
 
+    public function uploadberitaacara($slug, $kode_registrasi)
+    {
+        session();
+        if ($this->user) {
+            $data = [
+                'title' => 'Permohonan Angkutan Orang Tidak Dalam Trayek',
+                'session' => $this->user,
+                'validation' => \Config\Services::validation(),
+                'ask' => $this->askModel->getAskptsp($kode_registrasi),
+                'ranmor' => $this->ranmorModel->getAllRanmor($kode_registrasi),
+
+            ];
+            return view('ask/uploadberitaacara', $data);
+        } else {
+            return redirect()->to('login/login');
+        }
+    }
+
+    public function uploadberitaacarapenerbitan($slug, $kode_registrasi)
+    {
+        session();
+        if ($this->user) {
+            $data = [
+                'title' => 'Permohonan Angkutan Orang Tidak Dalam Trayek',
+                'session' => $this->user,
+                'validation' => \Config\Services::validation(),
+                'ask' => $this->askModel->getAskptsp($kode_registrasi),
+                'ranmor' => $this->ranmorModel->getAllRanmor($kode_registrasi),
+
+            ];
+            return view('ask/uploadberitaacarapenerbitan', $data);
+        } else {
+            return redirect()->to('login/login');
+        }
+    }
+
     public function uploadrekomendasi($slug, $kode_registrasi)
     {
         session();
@@ -1112,11 +1397,46 @@ class ASK extends BaseController
         return redirect()->to('/ask/uploadpersetujuanptsp/' . $this->request->getVar('slug') . '/' . $this->request->getVar('kode_registrasi') . '');
     }
 
+    public function saveberitaacara()
+    {
+        if (!$this->validate([
+            'img_permohonan' => [
+                'rules' => 'uploaded[img_permohonan]|max_size[img_permohonan,3068]|mime_in[img_permohonan,image/jpg,image/jpeg,image/png,application/pdf]',
+                'errors' => [
+                    'uploaded' => 'Pilih dokumen terlebih dahulu',
+                    'max_size' => 'Ukuran dokumen terlalu besar (Maksimal 3Mb)',
+                    'mime_in' => 'Format tidak sesuai',
+                ],
+            ],
+
+        ])) {
+            return redirect()->to('/ask/uploadpersetujuanptsp/' . $this->request->getVar('slug') . '/' . $this->request->getVar('kode_registrasi') . '')->withInput();
+        }
+
+        $img_permohonan = $this->request->getFile('img_permohonan');
+
+        if ($img_permohonan->getError() == 4) {
+            $nama_img_permohonan = "default.png";
+        } else {
+            $nama_img_permohonan = $img_permohonan->getRandomName();
+            $img_permohonan->move('img/img_permohonan', $nama_img_permohonan);
+        }
+
+        $slug = url_title($this->user['nama_perusahaan'], '-', true);
+
+        $this->askModel->save([
+            'id' => $this->request->getVar('id'),
+            'img_permohonan' => $nama_img_permohonan,
+        ]);
+
+        return redirect()->to('/ask/uploadberitaacara/' . $this->request->getVar('slug') . '/' . $this->request->getVar('kode_registrasi') . '');
+    }
+
     public function uploadpersetujuan()
     {
         if (!$this->validate([
-            'img_surat_persetujuan' => [
-                'rules' => 'uploaded[img_surat_persetujuan]|max_size[img_surat_persetujuan,3068]|mime_in[img_surat_persetujuan,image/jpg,image/jpeg,image/png,application/pdf]',
+            'img_penolakan_permohonan' => [
+                'rules' => 'uploaded[img_penolakan_permohonan]|max_size[img_penolakan_permohonan,3068]|mime_in[img_penolakan_permohonan,image/jpg,image/jpeg,image/png,application/pdf]',
                 'errors' => [
                     'uploaded' => 'Pilih dokumen terlebih dahulu',
                     'max_size' => 'Ukuran dokumen terlalu besar (Maksimal 3Mb)',
@@ -1128,20 +1448,20 @@ class ASK extends BaseController
             return redirect()->to('/ask/ajukanpermohonan/' . $this->request->getVar('slug') . '/' . $this->request->getVar('kode_registrasi') . '')->withInput();
         }
 
-        $img_surat_persetujuan = $this->request->getFile('img_surat_persetujuan');
+        $img_penolakan_permohonan = $this->request->getFile('img_penolakan_permohonan');
 
-        if ($img_surat_persetujuan->getError() == 4) {
-            $nama_img_surat_persetujuan = "default.png";
+        if ($img_penolakan_permohonan->getError() == 4) {
+            $nama_img_penolakan_permohonan = "default.png";
         } else {
-            $nama_img_surat_persetujuan = $img_surat_persetujuan->getRandomName();
-            $img_surat_persetujuan->move('img/img_surat_persetujuan', $nama_img_surat_persetujuan);
+            $nama_img_penolakan_permohonan = $img_penolakan_permohonan->getRandomName();
+            $img_penolakan_permohonan->move('img/img_penolakan_permohonan', $nama_img_penolakan_permohonan);
         }
 
         $slug = url_title($this->user['nama_perusahaan'], '-', true);
 
         $this->askModel->save([
             'id' => $this->request->getVar('id'),
-            'img_surat_persetujuan' => $nama_img_surat_persetujuan,
+            'img_penolakan_permohonan' => $nama_img_penolakan_permohonan,
         ]);
 
         return redirect()->to('/ask/ajukanpermohonan/' . $this->request->getVar('slug') . '/' . $this->request->getVar('kode_registrasi') . '');

@@ -45,7 +45,7 @@
                                         $status_asal = '<a href="" class="badge badge-danger">Ditolak</a>';
                                         if ($p['asal'] == 1) {
                                             if ($p['img_penolakan_asal']) {
-                                                $action = '<a target="_blank" href="koperasi/detailpenolakan/Kota/' . $p['asal'] . '/' . $p['img_penolakan_asal'] . '/' . $p['slug'] . '/' . $p['id'] . '" class="btn btn-sm btn-outline-danger mr-1"><i class="fa fa-print mr-1"></i>Kota Gorontalo</a>';
+                                                $action = '<a href="koperasi/detailpenolakan/Kota/' . $p['asal'] . '/' . $p['img_penolakan_asal'] . '/' . $p['slug'] . '/' . $p['id'] . '" class="btn btn-sm btn-outline-danger mr-1"><i class="fa fa-print mr-1"></i>Kota Gorontalo</a>';
                                             } else {
                                                 $action = "";
                                             }
@@ -53,7 +53,7 @@
 
                                         if ($p['asal'] == 2) {
                                             if ($p['img_penolakan_asal']) {
-                                                $action = '<a target="_blank" href="koperasi/detailpenolakan/Kab/' . $p['asal'] . '/' . $p['img_penolakan_asal'] . '/' . $p['slug'] . '/' . $p['id'] . '" class="btn btn-sm btn-outline-danger mr-1"><i class="fa fa-print mr-1"></i>Kab Gorontalo</a>';
+                                                $action = '<a href="koperasi/detailpenolakan/Kab/' . $p['asal'] . '/' . $p['img_penolakan_asal'] . '/' . $p['slug'] . '/' . $p['id'] . '" class="btn btn-sm btn-outline-danger mr-1"><i class="fa fa-print mr-1"></i>Kab Gorontalo</a>';
                                             } else {
                                                 $action = "";
                                             }
@@ -61,7 +61,7 @@
 
                                         if ($p['asal'] == 3) {
                                             if ($p['img_penolakan_asal']) {
-                                                $action = '<a target="_blank" href="koperasi/detailpenolakan/Bonebol/' . $p['asal'] . '/' . $p['img_penolakan_asal'] . '/' . $p['slug'] . '/' . $p['id'] . '" class="btn btn-sm btn-outline-danger mr-1"><i class="fa fa-print mr-1"></i>Kab. Bone Bolango</a>';
+                                                $action = '<a href="koperasi/detailpenolakan/Bonebol/' . $p['asal'] . '/' . $p['img_penolakan_asal'] . '/' . $p['slug'] . '/' . $p['id'] . '" class="btn btn-sm btn-outline-danger mr-1"><i class="fa fa-print mr-1"></i>Kab. Bone Bolango</a>';
                                             } else {
                                                 $action = "";
                                             }
@@ -69,7 +69,7 @@
 
                                         if ($p['asal'] == 4) {
                                             if ($p['img_penolakan_asal']) {
-                                                $action = '<a target="_blank" href="koperasi/detailpenolakan/Gorut/' . $p['asal'] . '/' . $p['img_penolakan_asal'] . '/' . $p['slug'] . '/' . $p['id'] . '" class="btn btn-sm btn-outline-danger mr-1"><i class="fa fa-print mr-1"></i>Kab. Gorut</a>';
+                                                $action = '<a href="koperasi/detailpenolakan/Gorut/' . $p['asal'] . '/' . $p['img_penolakan_asal'] . '/' . $p['slug'] . '/' . $p['id'] . '" class="btn btn-sm btn-outline-danger mr-1"><i class="fa fa-print mr-1"></i>Kab. Gorut</a>';
                                             } else {
                                                 $action = "";
                                             }
@@ -77,7 +77,7 @@
 
                                         if ($p['asal'] == 5) {
                                             if ($p['img_penolakan_asal']) {
-                                                $action = '<a target="_blank" href="koperasi/detailpenolakan/Boalemo/' . $p['asal'] . '/' . $p['img_penolakan_asal'] . '/' . $p['slug'] . '/' . $p['id'] . '" class="btn btn-sm btn-outline-danger mr-1"><i class="fa fa-print mr-1"></i>Kab. Boalemo</a>';
+                                                $action = '<a href="koperasi/detailpenolakan/Boalemo/' . $p['asal'] . '/' . $p['img_penolakan_asal'] . '/' . $p['slug'] . '/' . $p['id'] . '" class="btn btn-sm btn-outline-danger mr-1"><i class="fa fa-print mr-1"></i>Kab. Boalemo</a>';
                                             } else {
                                                 $action = "";
                                             }
@@ -85,7 +85,7 @@
 
                                         if ($p['asal'] == 6) {
                                             if ($p['img_penolakan_asal']) {
-                                                $action = '<a target="_blank" href="koperasi/detailpenolakan/Pohuuwato/' . $p['asal'] . '/' . $p['img_penolakan_asal'] . '/' . $p['slug'] . '/' . $p['id'] . '" class="btn btn-sm btn-outline-danger mr-1"><i class="fa fa-print mr-1"></i>Kab. Pohuwato</a>';
+                                                $action = '<a href="koperasi/detailpenolakan/Pohuuwato/' . $p['asal'] . '/' . $p['img_penolakan_asal'] . '/' . $p['slug'] . '/' . $p['id'] . '" class="btn btn-sm btn-outline-danger mr-1"><i class="fa fa-print mr-1"></i>Kab. Pohuwato</a>';
                                             } else {
                                                 $action = "";
                                             }
@@ -155,7 +155,7 @@
                                         $status_tujuan = '<a href="" class="badge badge-danger">Ditolak</a>';
                                         if ($p['tujuan'] == 1) {
                                             if ($p['img_penolakan_tujuan']) {
-                                                $action2 = '<a target="_blank" href="koperasi/detailpenolakan/Kota/' . $p['tujuan'] . '/' . $p['img_penolakan_tujuan'] . '/' . $p['slug'] . '/' . $p['id'] . '" class="btn btn-sm btn-outline-danger"><i class="fa fa-print mr-1"></i>Kota Gorontalo</a>';
+                                                $action2 = '<a href="koperasi/detailpenolakan/Kota/' . $p['tujuan'] . '/' . $p['img_penolakan_tujuan'] . '/' . $p['slug'] . '/' . $p['id'] . '" class="btn btn-sm btn-outline-danger"><i class="fa fa-print mr-1"></i>Kota Gorontalo</a>';
                                             } else {
                                                 $action2 = "";
                                             }
@@ -163,7 +163,7 @@
 
                                         if ($p['tujuan'] == 2) {
                                             if ($p['img_penolakan_tujuan']) {
-                                                $action2 = '<a target="_blank" href="koperasi/detailpenolakan/Kab/' . $p['tujuan'] . '/' . $p['img_penolakan_tujuan'] . '/' . $p['slug'] . '/' . $p['id'] . '" class="btn btn-sm btn-outline-danger"><i class="fa fa-print mr-1"></i>Kab Gorontalo</a>';
+                                                $action2 = '<a href="koperasi/detailpenolakan/Kab/' . $p['tujuan'] . '/' . $p['img_penolakan_tujuan'] . '/' . $p['slug'] . '/' . $p['id'] . '" class="btn btn-sm btn-outline-danger"><i class="fa fa-print mr-1"></i>Kab Gorontalo</a>';
                                             } else {
                                                 $action2 = "";
                                             }
@@ -171,7 +171,7 @@
 
                                         if ($p['tujuan'] == 3) {
                                             if ($p['img_penolakan_tujuan']) {
-                                                $action2 = '<a target="_blank" href="koperasi/detailpenolakan/Bonebol/' . $p['tujuan'] . '/' . $p['img_penolakan_tujuan'] . '/' . $p['slug'] . '/' . $p['id'] . '" class="btn btn-sm btn-outline-danger"><i class="fa fa-print mr-1"></i>Kab. Bone Bolango</a>';
+                                                $action2 = '<a href="koperasi/detailpenolakan/Bonebol/' . $p['tujuan'] . '/' . $p['img_penolakan_tujuan'] . '/' . $p['slug'] . '/' . $p['id'] . '" class="btn btn-sm btn-outline-danger"><i class="fa fa-print mr-1"></i>Kab. Bone Bolango</a>';
                                             } else {
                                                 $action2 = "";
                                             }
@@ -179,7 +179,7 @@
 
                                         if ($p['tujuan'] == 4) {
                                             if ($p['img_penolakan_tujuan']) {
-                                                $action2 = '<a target="_blank" href="koperasi/detailpenolakan/Gorut/' . $p['tujuan'] . '/' . $p['img_penolakan_tujuan'] . '/' . $p['slug'] . '/' . $p['id'] . '" class="btn btn-sm btn-outline-danger"><i class="fa fa-print mr-1"></i>Kab. Gorut</a>';
+                                                $action2 = '<a href="koperasi/detailpenolakan/Gorut/' . $p['tujuan'] . '/' . $p['img_penolakan_tujuan'] . '/' . $p['slug'] . '/' . $p['id'] . '" class="btn btn-sm btn-outline-danger"><i class="fa fa-print mr-1"></i>Kab. Gorut</a>';
                                             } else {
                                                 $action2 = "";
                                             }
@@ -187,7 +187,7 @@
 
                                         if ($p['tujuan'] == 5) {
                                             if ($p['img_penolakan_tujuan']) {
-                                                $action2 = '<a target="_blank" href="koperasi/detailpenolakan/Boalemo/' . $p['tujuan'] . '/' . $p['img_penolakan_tujuan'] . '/' . $p['slug'] . '/' . $p['id'] . '" class="btn btn-sm btn-outline-danger"><i class="fa fa-print mr-1"></i>Kab. Boalemo</a>';
+                                                $action2 = '<a href="koperasi/detailpenolakan/Boalemo/' . $p['tujuan'] . '/' . $p['img_penolakan_tujuan'] . '/' . $p['slug'] . '/' . $p['id'] . '" class="btn btn-sm btn-outline-danger"><i class="fa fa-print mr-1"></i>Kab. Boalemo</a>';
                                             } else {
                                                 $action2 = "";
                                             }
@@ -195,7 +195,7 @@
 
                                         if ($p['tujuan'] == 6) {
                                             if ($p['img_penolakan_tujuan']) {
-                                                $action2 = '<a target="_blank" href="koperasi/detailpenolakan/Pohuwato/' . $p['tujuan'] . '/' . $p['img_penolakan_tujuan'] . '/' . $p['slug'] . '/' . $p['id'] . '" class="btn btn-sm btn-outline-danger"><i class="fa fa-print mr-1"></i>Kab. Pohuwato</a>';
+                                                $action2 = '<a href="koperasi/detailpenolakan/Pohuwato/' . $p['tujuan'] . '/' . $p['img_penolakan_tujuan'] . '/' . $p['slug'] . '/' . $p['id'] . '" class="btn btn-sm btn-outline-danger"><i class="fa fa-print mr-1"></i>Kab. Pohuwato</a>';
                                             } else {
                                                 $action2 = "";
                                             }

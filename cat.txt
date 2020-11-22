@@ -1,0 +1,2 @@
+img_permohonan as img_berita_acara
+img_penolakan_permohonan as img_permohonan_penerbitan

@@ -38,12 +38,11 @@
                                         <?php
                                         if ($ran['rekompersetujuan'] == 1 && $ran['status_rekompersetujuan'] == 0) {
                                             $status = '<a href="" class="badge badge-warning">Lakukan Verifikasi</a>';
-                                            $btn2 = '<a href="/ask/detailverifikasiaotdt/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-warning">Verifikasi</a>
-                                            <a onclick="return confirm(\'Yakin lakukan pengajuan ?\')" href="/ask/ajukanpersetujuandishub/' . $ran['idask'] . '/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-secondary">Ajukan Rekomendasi</a>';
+                                            $btn2 = '<a href="/ask/detailverifikasiaotdt/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-warning">Verifikasi</a>';
                                             $btn3 = '';
                                         }
                                         if ($ran['rekompersetujuan'] == 1 && $ran['status_rekompersetujuan'] == 1) {
-                                            $status = '<a href="" class="badge badge-warning">Sedang Di Verifikasi oleh DIshub</a></a>';
+                                            $status = '<a href="" class="badge badge-warning">Sedang Di Verifikasi oleh Dishub</a></a>';
                                             $btn2 = '';
                                             $btn3 = '';
                                         }
@@ -61,7 +60,7 @@
                                         if ($ran['rekompersetujuan'] == 1 && $ran['status_rekompersetujuan'] == 4) {
                                             $status = '<a href="" class="badge badge-danger">Dtolak</a>';
                                             $btn2 = '';
-                                            $btn3 = '<a href="/ask/uploadpenolakanptsp/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-danger">Cetak Penolakan</a>';
+                                            $btn3 = '<a href="/ask/uploadpenolakanptsp/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-danger">Upload Surat Penolakan</a>';
                                         }
                                         ?>
                                         <tr>

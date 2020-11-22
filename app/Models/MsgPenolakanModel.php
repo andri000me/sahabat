@@ -28,4 +28,19 @@ class MsgPenolakanModel extends model
         $query = $this->first();
         return $query;
     }
+    public function getMsgPenolakans($id)
+    {
+        $this->db->table('msg_penolakan');
+        $this->select('
+            msg_penolakan.id,
+            msg_penolakan.status,
+            msg_penolakan.kode_booking,
+            msg_penolakan.msg,
+            msg_penolakan.img,
+            msg_penolakan.created_at,
+            msg_penolakan.updated_at');
+        $this->where('kode_booking', $id);
+        $query = $this->first();
+        return $query;
+    }
 }

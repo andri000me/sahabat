@@ -37,7 +37,15 @@
                 }
                 ?>
                 <li class="<?= $complete ?> wow fadeInLeft">
-                    <a href="/rekomendasi/step2/<?= $step11['kode_booking'] ?>">
+                    <?php
+                    if ($step11['status'] == 1) {
+                        $status = "step2";
+                    }
+                    if ($step11['status'] == 2) {
+                        $status = "step2p";
+                    }
+                    ?>
+                    <a href="/rekomendasi/<?= $status ?>/<?= $step11['kode_booking'] ?>">
                         <span class="circle">2</span>
                         <span class="label">Step 2</span>
                     </a>

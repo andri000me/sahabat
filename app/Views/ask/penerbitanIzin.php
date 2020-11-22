@@ -89,7 +89,7 @@
                                             }
                                             if ($ran['rekompersetujuan'] == 1 && $ran['status_rekompersetujuan'] == 3 && $ran['status_penerbitan'] == 5) {
                                                 $status = '<a href="" class="badge badge-danger">Ditolak</a></a>';
-                                                $button = '<a href="/ask/lengkapiberkas/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-secondary">Cetak Rekomendasi Penerbitan <i class="fa fa-arrow-right"></i> </a>';
+                                                $button = '<a href="/ask/detailpenolakanterbit/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-danger">Lihat detail penolakan <i class="fa fa-arrow-right"></i> </a>';
                                                 if ($ran['img_izin']) {
                                                     $btn3 = '<a href="/ask/lengkapiberkas/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-danger">Cetak Penolakan Izin AOTDT <i class="fa fa-print"></i> </a>';
                                                 } else {

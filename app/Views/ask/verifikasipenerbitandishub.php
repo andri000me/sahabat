@@ -68,9 +68,7 @@
                                             }
                                             if ($ran['rekompersetujuan'] == 1 && $ran['status_rekompersetujuan'] == 3 && $ran['status_penerbitan'] == 2) {
                                                 $status = '<a href="" class="badge badge-warning">Lakukan Verifikasi !</a></a>';
-                                                $button = '<a href="/ask/detailverifikasipenerbitan/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-warning">Verifikasi <i class="fa fa-check"></i></a>
-                                                <a onclick="return confirm(\'Apakah anda yakin?\')" href="/ask/terimapenerbitandishub/' . $ran['idask'] . '/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-success"> Terima <i class="fa fa-check"></i></a>
-                                                <a onclick="return confirm(\'Apakah anda yakin melakukan penolakan?\')" href="/ask/tolakpenerbitandishub/' . $ran['idask'] . '/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-danger"> Tolak <i class="fa fa-ban"></i></a>';
+                                                $button = '<a href="/ask/detailverifikasipenerbitan/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-warning">Verifikasi <i class="fa fa-check"></i></a>';
                                                 $btn3 = '';
                                             }
                                             if ($ran['rekompersetujuan'] == 1 && $ran['status_rekompersetujuan'] == 3 && $ran['status_penerbitan'] == 3) {
@@ -80,9 +78,11 @@
                                             }
                                             if ($ran['rekompersetujuan'] == 1 && $ran['status_rekompersetujuan'] == 3 && $ran['status_penerbitan'] == 4) {
                                                 $status = '<a href="" class="badge badge-success">Diapprove</a></a>';
-                                                $button = '<a target="_blank" href="/ask/cetakpenerbitan/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-light"><i class="fa fa-print"></i> Cetak Rekomendasi Penerbitan Izin</a>';
-                                                if ($ran['img_izin']) {
-                                                    $btn3 = '<a href="/ask/lengkapiberkas/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-success">Cetak Izin AOTDT <i class="fa fa-print"></i> </a>';
+                                                $button = '<a target="_blank" href="/ask/cetakpenerbitan/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-light"><i class="fa fa-print"></i> Cetak Rekomendasi Penerbitan Izin</a>
+                                                <a target="_blank" href="/ask/uploadberitaacarapenerbitan/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-success"><i class="fa fa-print"></i> Upload Berita Acara</a>
+                                                ';
+                                                if ($ran['img_penerbitan']) {
+                                                    $btn3 = '<a target="_blank" href="/img/img_penerbitan/' . $ran['img_penerbitan'] . '" class="btn btn-sm btn-success">Cetak Berita Acara Penerbitan <i class="fa fa-print"></i> </a>';
                                                 } else {
                                                     $btn3 = "";
                                                 }
@@ -90,11 +90,7 @@
                                             if ($ran['rekompersetujuan'] == 1 && $ran['status_rekompersetujuan'] == 3 && $ran['status_penerbitan'] == 5) {
                                                 $status = '<a href="" class="badge badge-danger">Ditolak</a></a>';
                                                 $button = '<a href="/ask/lengkapiberkas/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-secondary">Cetak Rekomendasi Penerbitan <i class="fa fa-arrow-right"></i> </a>';
-                                                if ($ran['img_izin']) {
-                                                    $btn3 = '<a href="/ask/lengkapiberkas/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-danger">Cetak Penolakan Izin AOTDT <i class="fa fa-print"></i> </a>';
-                                                } else {
-                                                    $btn3 = "";
-                                                }
+                                                $btn3 = "";
                                             }
                                             ?>
                                             <td><?= $i++ ?></td>
@@ -107,6 +103,7 @@
                                             </td>
                                             <td>
                                                 <?= $button ?>
+                                                <?= $btn3 ?>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

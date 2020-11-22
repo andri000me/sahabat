@@ -291,6 +291,138 @@ class Koperasi extends BaseController
         // dd($this->request->getVar());
     }
 
+    public function saveUpdate($mana, $slug, $id)
+    {
+        //abil gambar
+        $img_surat_permohonan_koperasi = $this->request->getFile('img_surat_permohonan_koperasi');
+        if ($img_surat_permohonan_koperasi) {
+            if ($img_surat_permohonan_koperasi->getError() == 4) {
+                $nama_img_surat_permohonan_koperasi = $this->request->getVar('img_surat_permohonan_koperasi_lama');
+            } else {
+                $nama_img_surat_permohonan_koperasi = $img_surat_permohonan_koperasi->getRandomName();
+                $img_surat_permohonan_koperasi->move('img/img_surat_permohonan_koperasi', $nama_img_surat_permohonan_koperasi);
+            }
+        } else {
+        }
+
+        $img_ktp_pemilik = $this->request->getFile('img_ktp_pemilik');
+        if ($img_ktp_pemilik) {
+            if ($img_ktp_pemilik->getError() == 4) {
+                $nama_img_ktp_pemilik = $this->request->getVar('img_ktp_pemilik_lama');
+            } else {
+                $nama_img_ktp_pemilik = $img_ktp_pemilik->getRandomName();
+                $img_ktp_pemilik->move('img/img_ktp_pemilik', $nama_img_ktp_pemilik);
+            }
+        } else {
+        }
+        $img_stnkb = $this->request->getFile('img_stnkb');
+        if ($img_stnkb) {
+            if ($img_stnkb->getError() == 4) {
+                $nama_img_stnkb = $this->request->getVar('img_stnkb_lama');
+            } else {
+                $nama_img_stnkb = $img_stnkb->getRandomName();
+                $img_stnkb->move('img/img_stnkb_pkb', $nama_img_stnkb);
+            }
+        } else {
+        }
+
+        $img_jasa_raharja = $this->request->getFile('img_jasa_raharja');
+        if ($img_jasa_raharja) {
+            if ($img_jasa_raharja->getError() == 4) {
+                $nama_img_jasa_raharja = $this->request->getVar('img_jasa_raharja_lama');
+            } else {
+                $nama_img_jasa_raharja = $img_jasa_raharja->getRandomName();
+                $img_jasa_raharja->move('img/img_jasa_raharja', $nama_img_jasa_raharja);
+            }
+        } else {
+        }
+
+        $img_kir = $this->request->getFile('img_kir');
+        if ($img_kir) {
+            if ($img_kir->getError() == 4) {
+                $nama_img_kir = $this->request->getVar('img_kir_lama');
+            } else {
+                $nama_img_kir = $img_kir->getRandomName();
+                $img_kir->move('img/img_kir', $nama_img_kir);
+            }
+        } else {
+        }
+
+        $foto_depan = $this->request->getFile('foto_depan');
+        if ($foto_depan) {
+            if ($foto_depan->getError() == 4) {
+                $nama_foto_depan = $this->request->getVar('foto_depan_lama');
+            } else {
+                $nama_foto_depan = $foto_depan->getRandomName();
+                $foto_depan->move('img/foto_depan', $nama_foto_depan);
+            }
+        } else {
+        }
+
+        $foto_belakang = $this->request->getFile('foto_belakang');
+        if ($foto_belakang) {
+            if ($foto_belakang->getError() == 4) {
+                $nama_foto_belakang = $this->request->getVar('foto_belakang_lama');
+            } else {
+                $nama_foto_belakang = $foto_belakang->getRandomName();
+                $foto_belakang->move('img/foto_belakang', $nama_foto_belakang);
+            }
+        } else {
+        }
+
+        $foto_kanan = $this->request->getFile('foto_kanan');
+        if ($foto_kanan) {
+            if ($foto_kanan->getError() == 4) {
+                $nama_foto_kanan = $this->request->getVar('foto_kanan_lama');
+            } else {
+                $nama_foto_kanan = $foto_kanan->getRandomName();
+                $foto_kanan->move('img/foto_kanan', $nama_foto_kanan);
+            }
+        } else {
+        }
+
+        $foto_kiri = $this->request->getFile('foto_kiri');
+        if ($foto_kiri) {
+            if ($foto_kiri->getError() == 4) {
+                $nama_foto_kiri = $this->request->getVar('foto_kiri_lama');
+            } else {
+                $nama_foto_kiri = $foto_kiri->getRandomName();
+                $foto_kiri->move('img/foto_kiri', $nama_foto_kiri);
+            }
+        } else {
+        }
+
+
+
+        $slug = url_title($this->request->getVar('nama_pemilik'), '-', true);
+
+        $this->koperasiModel->save([
+            'id' => $id,
+            'nomor_kendaraan' => $this->request->getVar('nomor_kendaraan'),
+            'nama_pemilik' => $this->request->getVar('nama_pemilik'),
+            'alamat_pemilik' => $this->request->getVar('alamat_pemilik'),
+            'jenis_kendaraan' => $this->request->getVar('jenis_kendaraan'),
+            'nomor_kir' => $this->request->getVar('nomor_kir'),
+            'merk' => $this->request->getVar('merk'),
+            'tahun_pembuatan' => $this->request->getVar('tahun_pembuatan'),
+            'nomor_chasis' => $this->request->getVar('nomor_chasis'),
+            'nomor_mesin' => $this->request->getVar('nomor_mesin'),
+            'nomor_regis_pkb' => $this->request->getVar('nomor_regis_pkb'),
+            'img_surat_permohonan_koperasi' => $nama_img_surat_permohonan_koperasi,
+            'img_ktp_pemilik' => $nama_img_ktp_pemilik,
+            'img_stnkb' => $nama_img_stnkb,
+            'img_jasa_raharja' => $nama_img_jasa_raharja,
+            'img_kir' => $nama_img_kir,
+            'foto_depan' => $nama_foto_depan,
+            'foto_belakang' => $nama_foto_belakang,
+            'foto_kanan' => $nama_foto_kanan,
+            'foto_kiri' => $nama_foto_kiri,
+        ]);
+
+        return redirect()->to('/koperasi/perbaiki' . $mana . '/' . $mana . '/' . $slug . '/' . $id . '');
+        // dd($this->request->getVar());
+    }
+
     public function saveEdit()
     {
         $slug = url_title($this->request->getVar('nama_pemilik'), '-', true);
@@ -1504,6 +1636,137 @@ class Koperasi extends BaseController
         return view('koperasi/detailpenolakan', $data);
     }
 
+    public function ajukankembali($mana, $slug, $id)
+    {
+        if ($mana == "Kota") {
+            $check = $this->koperasiModel->getPermohonanKota($slug, $id);
+
+            if ($check) {
+                if ($check['asal'] == 1) {
+                    $this->koperasiModel->save([
+                        'id' => $id,
+                        'status_asal' => 0,
+                    ]);
+                } else if ($check['tujuan'] == 1) {
+                    $this->koperasiModel->save([
+                        'id' => $id,
+                        'status_tujuan' => 0,
+                    ]);
+                } else {
+                    return view('blank');
+                }
+            } else {
+                return view('blank');
+            }
+        }
+        if ($mana == "Kab") {
+            $check = $this->koperasiModel->getPermohonanKab($slug, $id);
+
+            if ($check) {
+                if ($check['asal'] == 2) {
+                    $this->koperasiModel->save([
+                        'id' => $id,
+                        'status_asal' => 0,
+                    ]);
+                } else if ($check['tujuan'] == 2) {
+                    $this->koperasiModel->save([
+                        'id' => $id,
+                        'status_tujuan' => 0,
+                    ]);
+                } else {
+                    return view('blank');
+                }
+            } else {
+                return view('blank');
+            }
+        }
+        if ($mana == "Bonebol") {
+            $check = $this->koperasiModel->getPermohonanBonebol($slug, $id);
+
+            if ($check) {
+                if ($check['asal'] == 3) {
+                    $this->koperasiModel->save([
+                        'id' => $id,
+                        'status_asal' => 0,
+                    ]);
+                } else if ($check['tujuan'] == 3) {
+                    $this->koperasiModel->save([
+                        'id' => $id,
+                        'status_tujuan' => 0,
+                    ]);
+                } else {
+                    return view('blank');
+                }
+            } else {
+                return view('blank');
+            }
+        }
+        if ($mana == "Gorut") {
+            $check = $this->koperasiModel->getPermohonanGorut($slug, $id);
+
+            if ($check) {
+                if ($check['asal'] == 4) {
+                    $this->koperasiModel->save([
+                        'id' => $id,
+                        'status_asal' => 0,
+                    ]);
+                } else if ($check['tujuan'] == 4) {
+                    $this->koperasiModel->save([
+                        'id' => $id,
+                        'status_tujuan' => 0,
+                    ]);
+                } else {
+                    return view('blank');
+                }
+            } else {
+                return view('blank');
+            }
+        }
+        if ($mana == "Boalemo") {
+            $check = $this->koperasiModel->getPermohonanBoalemo($slug, $id);
+
+            if ($check) {
+                if ($check['asal'] == 5) {
+                    $this->koperasiModel->save([
+                        'id' => $id,
+                        'status_asal' => 0,
+                    ]);
+                } else if ($check['tujuan'] == 5) {
+                    $this->koperasiModel->save([
+                        'id' => $id,
+                        'status_tujuan' => 0,
+                    ]);
+                } else {
+                    return view('blank');
+                }
+            } else {
+                return view('blank');
+            }
+        }
+        if ($mana == "Pohuwato") {
+            $check = $this->koperasiModel->getPermohonanPohuwato($slug, $id);
+
+            if ($check) {
+                if ($check['asal'] == 6) {
+                    $this->koperasiModel->save([
+                        'id' => $id,
+                        'status_asal' => 0,
+                    ]);
+                } else if ($check['tujuan'] == 6) {
+                    $this->koperasiModel->save([
+                        'id' => $id,
+                        'status_tujuan' => 0,
+                    ]);
+                } else {
+                    return view('blank');
+                }
+            } else {
+                return view('blank');
+            }
+        }
+
+        return redirect()->to('/koperasi/index');
+    }
 
     public function perbaikiKota($mana, $slug, $id)
     {

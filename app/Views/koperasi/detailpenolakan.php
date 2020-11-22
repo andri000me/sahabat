@@ -22,7 +22,7 @@
             </div>
         </div>
 
-        <a target="_blank" href="/koperasi/perbaiki<?= $mana ?>/<?= $mana ?>/<?= $permohonan['slug'] ?>/<?= $permohonan['idpermohonan'] ?>" class="btn btn-md btn-primary"><i class="fa fa-check"> Perbaiki</i></a>
+        <a href="/koperasi/perbaiki<?= $mana ?>/<?= $mana ?>/<?= $permohonan['slug'] ?>/<?= $permohonan['idpermohonan'] ?>" class="btn btn-md btn-primary"><i class="fa fa-check"> Perbaiki Data Permohonan</i></a>
     </div>
 </div>
 <?= $this->endSection(); ?>

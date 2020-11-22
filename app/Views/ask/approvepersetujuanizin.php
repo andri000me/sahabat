@@ -48,15 +48,14 @@
                                         }
                                         if ($ran['rekompersetujuan'] == 1 && $ran['status_rekompersetujuan'] == 2) {
                                             $status = '<a href="" class="badge badge-warning">Lakukan Verifikasi</a>';
-                                            $btn2 = '<a href="/ask/detailverifikasiaotdt/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-warning">Verifikasi</a>
-                                            <a onclick="return confirm(\'Yakin terima permohonan?\')" href="/ask/saveapprovepersetujuanizin/' . $ran['idask'] . '/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-success">Approve</a>
-                                            <a onclick="return confirm(\'Yakin tolak permohonan?\')" href="/ask/savetolakpersetujuanizin/' . $ran['idask'] . '/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-danger">Tolak</a>';
+                                            $btn2 = '<a href="/ask/detailverifikasiaotdt/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-warning">Verifikasi</a>';
                                             $btn3 = '';
                                         }
                                         if ($ran['rekompersetujuan'] == 1 && $ran['status_rekompersetujuan'] == 3) {
                                             $status = '<a href="" class="badge badge-success">Diapprove</a>';
                                             $btn2 = '';
-                                            $btn3 = '<a target="_blank" href="/ask/cetakpermohonan/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-dark">Cetak Rekomendasi Persetujuan</a>';
+                                            $btn3 = '<a target="_blank" href="/ask/cetakpermohonan/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-success">Cetak Rekomendasi Persetujuan</a>
+                                            <a target="_blank" href="/ask/uploadberitaacara/' . $ran['slug'] . '/' . $ran['kode_registrasi'] . '" class="btn btn-sm btn-secondary">Upload berita acara</a>';
                                         }
                                         if ($ran['rekompersetujuan'] == 1 && $ran['status_rekompersetujuan'] == 4) {
                                             $status = '<a href="" class="badge badge-danger">Ditolak</a>';

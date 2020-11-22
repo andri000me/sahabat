@@ -14,20 +14,21 @@
                             <p class="card-text">Data permohonan rekomendasi masuk Dinas Perhubungan Provinsi Gorontalo</p>
                         </div>
                     </div>
-
                     <div class="table-responsive animated zoomIn">
                         <table id="dtMaterialDesignExample" class="table table-bordered" cellspacing="0" width="100%">
                             <thead class="cyan white-text">
                                 <tr>
                                     <td class="th-sm">Nama Pemohon
                                     </td>
+                                    <td class="th-sm">Nama Pemilik
+                                    </td>
                                     <td class="th-sm" style="width: 120px;">Nomor Kendaraan
                                     </td>
-                                    <td class="th-sm">Regis Baru/Perpanjangan
+                                    <td class="th-sm">Permohoanan
                                     </td>
                                     <td class="th-sm">Status
                                     </td>
-                                    <td class="th-sm" style="width:240px;">Action
+                                    <td class="th-sm" style="width:140px;">Action
                                     </td>
                                 </tr>
                             </thead>
@@ -41,58 +42,66 @@
                                         $status = "Perpanjangan";
                                     }
                                     ?>
-
-                                    <?php
-                                    if ($tr['status_verifikasi'] == 0) {
-                                        $href2 = 'data-toggle="modal" data-target="#centralModalDanger2"';
-                                        $href = 'data-toggle="modal" data-target="#centralModalDanger2"';
-                                        $st = '<span class="badge badge-warning"><i class="fas fa-stopwatch"></i> Sedang Diverifikasi Oleh PTSP</span>';
-                                        $h = "";
-                                    }
-                                    if ($tr['status_verifikasi'] == 1) {
-                                        $href2 = 'data-toggle="modal" data-target="#centralModalDanger"';
-                                        $href = 'href=/verifikasi/approve/' . $tr['id'] . '';
-                                        $st = '<span class="badge badge-warning"><i class="fas fa-stopwatch"></i> Sedang Diverifikasi oleh Dishub</span>';
-                                        $h = "";
-                                    }
-                                    if ($tr['status_verifikasi'] == 2) {
-                                        $href2 = 'data-toggle="modal" data-target="#centralModalDanger"';
-                                        $href = 'href=/verifikasi/approve/' . $tr['id'] . '';
-                                        $st = '<span class="badge badge-warning"><i class="fas fa-stopwatch"></i> Menunggu Approve</span>';
-                                        $h = "";
-                                    }
-                                    if ($tr['status_verifikasi'] == 3) {
-                                        if ($tr['img_izin_trayek']) {
-                                            $print = '<a href="/verifikasi/cetakKP/' . $tr['kode_booking'] . '/' . $tr['jenis_permohonan'] . '/' . $tr['trayek_dilayani'] . '" type="btn" class="ml-auto btn btn-sm btn-rounded btn-success animated rotateIn"><i class="fa fa-print"></i> Cetak Kartu Pengawasan</a>';
-                                        } else {
-                                            $print = "";
-                                        }
-                                        $href2 = 'href=/verifikasi/cetak/' . $tr['kode_booking'] . '/' . $tr['jenis_permohonan'] . '/' . $tr['trayek_dilayani'] . ' target=_blank';
-                                        $href = "";
-                                        $st = '<span class="badge badge-success"><i class="fas fa-stopwatch"></i> Di Approve</span>';
-                                        $h = '<a href="/verifikasi/cetak/' . $tr['kode_booking'] . '/' . $tr['jenis_permohonan'] . '/' . $tr['trayek_dilayani'] . '" target="_blank" type="btn" class="mr-1 ml-auto btn btn-sm btn-rounded btn-light animated rotateIn"><i class="fa fa-print"></i> Cetak Rekomendasi Izin Trayek</a>';
-                                    }
-                                    if ($tr['status_verifikasi'] == 4) {
-                                        $href2 = 'href=/verifikasi/cetak/' . $tr['kode_booking'] . '/' . $tr['jenis_permohonan'] . '/' . $tr['trayek_dilayani'] . ' target=_blank';
-                                        $href = "";
-                                        $st = '<span class="badge badge-danger"><i class="fas fa-stopwatch"></i> Ditolak</span>';
-                                        $h = '';
-                                    }
-                                    if ($tr['status_verifikasi'] == 5) {
-                                        $href2 = 'data-toggle="modal" data-target="#centralModalDanger2"';
-                                        $href = 'data-toggle="modal" data-target="#centralModalDanger2"';
-                                        $st = '<span class="badge badge-danger"><i class="fas fa-stopwatch"></i> Data Belum Lengkap !</span>';
-                                        $h = '<a onClick="javascript: return confirm(\'Hapus Pengajuan Permohonan ?\');" href="/rekomendasi/hapusPengajuan/' . $tr['id'] . '/' . $tr['trayek_dilayani'] . '" type="btn" class="ml-auto btn btn-sm btn-rounded btn-danger animated rotateIn"><i class="fa fa-ban"></i> Batalkan Pengajuan</a>
-                                        <a href="/rekomendasi/step11/' . $tr['kode_booking'] . '" type="btn" class="ml-auto btn btn-sm btn-rounded btn-secondary animated rotateIn"><i class="fa fa-eye"></i> Lengkapi</a>';
-                                    }
-                                    ?>
                                     <tr>
-                                        <td><?= $tr['nama_pemohon']; ?></td>
+                                        <td><?= $tr['nama_perusahaan']; ?></td>
+                                        <td><?= $tr['nama_pemilik']; ?></td>
                                         <td><?= $tr['nomor_kendaraan']; ?></td>
                                         <td><?= $status ?></td>
+                                        <?php
+                                        if ($tr['status_verifikasi'] == 0) {
+                                            if ($tr['status_img_surat_permohonan'] == 1 && $tr['status_img_akte_perusahaan'] == 1 && $tr['status_img_tdp'] == 1 && $tr['status_img_siup'] == 1 && $tr['status_img_npwp'] == 1 && $tr['status_img_ktp']  == 1 && $tr['status_img_trayek']  == 1 && $tr['status_img_trayek_tujuan']  == 1 && $tr['status_img_stnkb_pkb']  == 1 && $tr['status_img_kir'] == 1 && $tr['status_img_jasa_raharja'] == 1 && $tr['status_img_surat_pernyataan'] == 1) {
+                                                $st = '<span class="badge badge-warning"><i class="fas fa-stopwatch"></i> Sedang Diverifikasi oleh PTSP</span>';
+                                                $btn2 = '';
+                                            } else {
+                                                $st = '<span class="badge badge-warning"><i class="fas fa-stopwatch"></i> Sedang Diverifikasi oleh PTSP</span>';
+                                                $btn2 = '';
+                                            }
+                                            if ($tr['img_pengantar_ptsp']) {
+                                                $st = '<span class="badge badge-warning"><i class="fas fa-stopwatch"></i> Sedang Diverifikasi oleh PTSP</span>';
+                                                $btn2 = '';
+                                            }
+                                        }
+                                        if ($tr['status_verifikasi'] == 1) {
+                                            $st = '<span class="badge badge-warning"><i class="fas fa-stopwatch"></i> Sedang Diverifikasi Oleh Dishub</span>';
+                                            $btn2 = "";
+                                        }
+                                        if ($tr['status_verifikasi'] == 2) {
+                                            $st = '<span class="badge badge-warning"><i class="fas fa-stopwatch"></i> Menunggu Approve</span>';
+                                            $btn2 = "";
+                                        }
+                                        if ($tr['status_verifikasi'] == 3) {
+                                            if ($tr['img_penolakan']) {
+                                                $st = '<span class="badge badge-success"><i class="fas fa-stopwatch"></i> Diapprove</span>
+                                                <span class="badge badge-success"><i class="fas fa-stopwatch"></i> Surat rekomendasi telah diupload</span>';
+                                                $btn2 = '<a target="_blank" href="/img/img_penolakan/' . $tr['img_penolakan'] . '" target="_blank" type="btn" class="ml-auto btn btn-sm btn-rounded btn-success animated rotateIn"><i class="fa fa-download"></i> Unduh berita acara</a>
+                                                <a href="/verifikasi/cetak/' . $tr['kode_booking'] . '/' . $tr['trayek_dilayani']  . '" target="_blank" type="btn" class="ml-auto btn btn-sm btn-rounded btn-success animated rotateIn"><i class="fa fa-print"></i> Cetak Surat Rekomendasi Izin Trayek AKDP</a>';
+                                            } else {
+                                                $st = '<span class="badge badge-success"><i class="fas fa-stopwatch"></i> Ditolak</span>
+                                                <span class="badge badge-warning"><i class="fas fa-stopwatch"></i> Surat rekomendasi belum di upload</span>';
+                                                $btn2 = '';
+                                            }
+                                        }
+                                        if ($tr['status_verifikasi'] == 4) {
+                                            if ($tr['img_penolakan']) {
+                                                $st = '<span class="badge badge-danger"><i class="fas fa-stopwatch"></i> Ditolak</span>
+                                                <span class="badge badge-success"><i class="fas fa-stopwatch"></i> Surat penolakan telah diupload</span>';
+                                                $btn2 = '<a href="/verifikasi/detailpenolakan/' . $tr['kode_booking'] . '/' . $tr['trayek_dilayani']  . '" target="_blank" type="btn" class="ml-auto btn btn-sm btn-rounded btn-primary animated rotateIn"><i class="fa fa-eye"></i> Detail penolakan</a>
+                                                <a target="_blank" href="/img/img_penolakan/' . $tr['img_penolakan'] . '" target="_blank" type="btn" class="ml-auto btn btn-sm btn-rounded btn-danger animated rotateIn"><i class="fa fa-download"></i> Berita acara penolakan</a>
+                                                <a href="/verifikasi/cetaktolak/' . $tr['kode_booking'] . '/' . $tr['trayek_dilayani']  . '" target="_blank" type="btn" class="ml-auto btn btn-sm btn-rounded btn-danger animated rotateIn"><i class="fa fa-print"></i> Surat Penolakan</a>';
+                                            } else {
+                                                $st = '<span class="badge badge-danger"><i class="fas fa-stopwatch"></i> Ditolak</span>';
+                                                $btn2 = '<a href="/verifikasi/detailpenolakan/' . $tr['kode_booking'] . '/' . $tr['trayek_dilayani']  . '" target="_blank" type="btn" class="ml-auto btn btn-sm btn-rounded btn-danger animated rotateIn"><i class="fa fa-eye"></i> Detail penolakan</a>';
+                                            }
+                                        }
+                                        if ($tr['status_verifikasi'] == 5) {
+                                            $st = '<span class="badge badge-danger"><i class="fas fa-stopwatch"></i> Data belum lengkap !</span>';
+                                            $btn2 = '<a href="/rekomendasi/step11/' . $tr['kode_booking'] . '" type="btn" class="ml-auto btn btn-sm btn-rounded btn-primary animated rotateIn"><i class="fa fa-check"></i> Lengkapi data permohonan</a>
+                                                <a onclick="return confirm(\'Apakah anda yakin ?\')" href="/rekomendasi/hapuspengajuan/' . $tr['idpermohonan'] . '/' . $tr['trayek_dilayani']  . '" target="_blank" type="btn" class="ml-auto btn btn-sm btn-rounded btn-danger animated rotateIn"><i class="fa fa-ban"></i> Batalkan Permohonan</a>';
+                                        }
+                                        ?>
                                         <td><?= $st ?></td>
                                         <td>
-                                            <?= $h ?>
+                                            <?= $btn2 ?>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
@@ -104,68 +113,4 @@
         </div>
     </div>
 </div>
-
-<!-- Central Modal Medium Danger -->
-<div class="modal fade" id="centralModalDanger" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-notify modal-danger" role="document">
-        <!--Content-->
-        <div class="modal-content">
-            <!--Header-->
-            <div class="modal-header">
-                <p class="heading lead">Peringatan !</p>
-
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true" class="white-text">&times;</span>
-                </button>
-            </div>
-
-            <!--Body-->
-            <div class="modal-body">
-                <div class="text-center">
-                    <i class="text-danger fa fa-ban fa-4x mb-3 animated rotateIn"></i>
-                    <p>Data Belum Di Approve</p>
-                    <p style="margin-top:-31px;">Silahkan klik Approve terlebih dahulu</p>
-                </div>
-            </div>
-
-            <!--Footer-->
-            <div class="modal-footer justify-content-center">
-                <a type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal">Ok</a>
-            </div>
-        </div>
-        <!--/.Content-->
-    </div>
-</div>
-<div class="modal fade" id="centralModalDanger2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-notify modal-danger" role="document">
-        <!--Content-->
-        <div class="modal-content">
-            <!--Header-->
-            <div class="modal-header">
-                <p class="heading lead">Peringatan !</p>
-
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true" class="white-text">&times;</span>
-                </button>
-            </div>
-
-            <!--Body-->
-            <div class="modal-body">
-                <div class="text-center">
-                    <i class="text-danger fa fa-ban fa-4x mb-3 animated rotateIn"></i>
-                    <p>Data Belum Di Verifikasi</p>
-                    <p style="margin-top:-31px;">Silahkan hubungi verifikator</p>
-                </div>
-            </div>
-
-            <!--Footer-->
-            <div class="modal-footer justify-content-center">
-                <a type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal">Ok</a>
-            </div>
-        </div>
-        <!--/.Content-->
-    </div>
-</div>
-<!-- Central Modal Medium Danger-->
-
 <?= $this->endSection(); ?>

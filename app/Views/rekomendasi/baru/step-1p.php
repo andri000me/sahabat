@@ -74,7 +74,7 @@
 
 
                         <div class="md-form mt-5">
-                            <input name="nomor_kendaraan" type="text" id="form2" class="form-control" value="<?= $step3['nomor_kendaraan'] ?>">
+                            <input name="nomor_kendaraan" type="text" id="form2" class="form-control" value="">
                             <label for="form2">Nomor Kendaraan</label>
                             <div class="invalid-feedback">
                                 Nomor Kendaraan harus di isi
@@ -115,45 +115,6 @@
                             <label for="kdb">Nama Pemohon</label>
                         </div>
 
-                        <div class="form-group mb-5">
-                            <select name="nama_pemohon" class="mdb-select md-form mt-5" searchable="Jenis Permohonan">
-                                <option value="" disabled selected>Pemohon</option>
-                                <?php foreach ($pemohon as $jp) : ?>
-                                    <?php
-                                    if ($jp['id'] == old('nama_pemohon')) {
-                                        $x = "selected";
-                                    } else {
-                                        $x = "";
-                                    }
-                                    ?>
-                                    <option value="<?= $jp['id']; ?>" <?= $x ?>><?= $jp['nama_perusahaan']; ?></option>
-                                <?php endforeach; ?>
-                            </select>
-                            <label class="mdb-main-label">Pemohon</label>
-                            <div class="kacili" style="margin-top:-20px;">
-                                <?= $validation->getError('nama_pemohon') ?>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <select name="jenis_permohonan" class="mdb-select md-form mt-5" searchable="Jenis Permohonan">
-                                <option value="" disabled selected>Jenis Permohonan</option>
-                                <?php foreach ($jenis_permohonan as $jp) : ?>
-                                    <?php
-                                    if ($jp['kode'] == old('jenis_permohonan')) {
-                                        $x = "selected";
-                                    } else {
-                                        $x = "";
-                                    }
-                                    ?>
-                                    <option value="<?= $jp['kode']; ?>" <?= $x ?>><?= $jp['nama']; ?></option>
-                                <?php endforeach; ?>
-                            </select>
-                            <label class="mdb-main-label">Jenis Permohonan</label>
-                            <div class="kacili" style="margin-top:-20px;">
-                                <?= $validation->getError('jenis_permohonan') ?>
-                            </div>
-                        </div>
                         <div class="buttons mt-5">
                             <button type="submit button" class="btn btn-md btn-primary">Simpan & Lanjutkan <i class="fa fa-arrow-right ml-1"></i> </button>
                         </div>

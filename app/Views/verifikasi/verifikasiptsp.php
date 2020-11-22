@@ -49,43 +49,62 @@
                                         <td><?= $status ?></td>
                                         <?php
                                         if ($tr['status_verifikasi'] == 0) {
+                                            if ($tr['status_img_surat_permohonan'] == 1 && $tr['status_img_akte_perusahaan'] == 1 && $tr['status_img_tdp'] == 1 && $tr['status_img_siup'] == 1 && $tr['status_img_npwp'] == 1 && $tr['status_img_ktp']  == 1 && $tr['status_img_trayek']  == 1 && $tr['status_img_trayek_tujuan']  == 1 && $tr['status_img_stnkb_pkb']  == 1 && $tr['status_img_kir'] == 1 && $tr['status_img_jasa_raharja'] == 1 && $tr['status_img_surat_pernyataan'] == 1) {
+                                                $st = '<span class="badge badge-warning"><i class="fas fa-stopwatch"></i> Lengkapi Dokumen</span>';
+                                                $btn2 = '<a href="/verifikasi/uploadpengantarptsp2/' . $tr['kode_booking'] . '/' . $tr['trayek_dilayani'] . '" type="button" class="btn btn-sm btn-secondary text-light">Upload Surat Pengantar PTSP<i class="fa fa-upload ml-1"></i> </a>';
+                                            } else {
+                                                $st = '<span class="badge badge-warning"><i class="fas fa-stopwatch"></i> Lakukan Verifikasi</span>';
+                                                $btn2 = '<a href="/verifikasi/details/' . $tr['kode_booking'] . '/' . $tr['trayek_dilayani'] . '/' . $tr['idpermohonan'] . '" type="btn" class="ml-auto btn btn-sm btn-rounded btn-warning animated rotateIn"><i class="fa fa-check"></i> Verivikasi</a>';
+                                            }
                                             if ($tr['img_pengantar_ptsp']) {
                                                 $st = '<span class="badge badge-success"><i class="fas fa-stopwatch"></i> Berkas Lengkap, Silahkan Ajukan Permohonan</span>';
                                                 $btn2 = '<a onclick="return confirm(\'Apakah anda yakin ?\')" href="/verifikasi/terimaptsp/' . $tr['idpermohonan'] . '" type="btn" class="ml-auto btn btn-sm btn-rounded btn-success animated rotateIn"><i class="fa fa-check"></i> Ajukan</a>';
-                                            } else {
-                                                $st = '<span class="badge badge-warning"><i class="fas fa-stopwatch"></i> Lengkapi Dokumen</span>';
-                                                $btn2 = "";
-                                            }
-                                            $btn = '<a href="/verifikasi/details/' . $tr['kode_booking'] . '/' . $tr['trayek_dilayani'] . '" type="btn" class="ml-auto btn btn-sm btn-rounded btn-warning animated rotateIn"><i class="fa fa-check"></i> Verivikasi</a>';
-                                            if (!$btn) {
-                                                $btn = '<a href="/verifikasi/uploadpengantarptsp/' . $tr['kode_booking'] . '/' . $tr['trayek_dilayani'] . '" type="btn" class="ml-auto btn btn-sm btn-rounded btn-secondary animated rotateIn"><i class="fa fa-check"></i> Lengkapi</a>';
                                             }
                                         }
                                         if ($tr['status_verifikasi'] == 1) {
                                             $st = '<span class="badge badge-warning"><i class="fas fa-stopwatch"></i> Sedang Diverifikasi Oleh Dishub</span>';
-                                            $btn = "";
                                             $btn2 = "";
                                         }
                                         if ($tr['status_verifikasi'] == 2) {
                                             $st = '<span class="badge badge-warning"><i class="fas fa-stopwatch"></i> Menunggu Approve</span>';
-                                            $btn = "";
                                             $btn2 = "";
                                         }
                                         if ($tr['status_verifikasi'] == 3) {
-                                            $st = '<span class="badge badge-success"><i class="fas fa-stopwatch"></i> Diapprove</span>';
-                                            $btn = '<a href="/verifikasi/cetak/' . $tr['kode_booking'] . '/' . $tr['jenis_permohonan']  . '/' . $tr['trayek_dilayani']  . '" target="_blank" type="btn" class="ml-auto btn btn-sm btn-rounded btn-success animated rotateIn"><i class="fa fa-check"></i> Cetak Rekomendasi Izin AKDP</a>';
-                                            $btn2 = "";
+                                            if ($tr['img_penolakan']) {
+                                                $st = '<span class="badge badge-success"><i class="fas fa-stopwatch"></i> Diapprove</span>
+                                                <span class="badge badge-success"><i class="fas fa-stopwatch"></i> Surat rekomendasi telah diupload</span>';
+                                                $btn2 = '<a target="_blank" href="/img/img_penolakan/' . $tr['img_penolakan'] . '" target="_blank" type="btn" class="ml-auto btn btn-sm btn-rounded btn-success animated rotateIn"><i class="fa fa-download"></i> Unduh berita acara</a>
+                                                <a href="/verifikasi/cetak/' . $tr['kode_booking'] . '/' . $tr['trayek_dilayani']  . '" target="_blank" type="btn" class="ml-auto btn btn-sm btn-rounded btn-success animated rotateIn"><i class="fa fa-print"></i> Cetak Surat Rekomendasi Izin Trayek AKDP</a>';
+                                            } else {
+                                                $st = '<span class="badge badge-success"><i class="fas fa-stopwatch"></i> Ditolak</span>
+                                                <span class="badge badge-warning"><i class="fas fa-stopwatch"></i> Surat rekomendasi belum di upload</span>';
+                                                $btn2 = '';
+                                            }
                                         }
                                         if ($tr['status_verifikasi'] == 4) {
-                                            $st = '<span class="badge badge-danger"><i class="fas fa-stopwatch"></i> Ditolak</span>';
-                                            $btn = "";
-                                            $btn2 = "";
+                                            if ($tr['img_penolakan']) {
+                                                $st = '<span class="badge badge-danger"><i class="fas fa-stopwatch"></i> Ditolak</span>
+                                                <span class="badge badge-success"><i class="fas fa-stopwatch"></i> Surat penolakan telah diupload</span>';
+                                                $btn2 = '<a target="_blank" href="/img/img_penolakan/' . $tr['img_penolakan'] . '" target="_blank" type="btn" class="ml-auto btn btn-sm btn-rounded btn-danger animated rotateIn"><i class="fa fa-upload"></i> Unduh surat penolakan</a>
+                                                <a href="/verifikasi/cetaktolak/' . $tr['kode_booking'] . '/' . $tr['trayek_dilayani']  . '" target="_blank" type="btn" class="ml-auto btn btn-sm btn-rounded btn-danger animated rotateIn"><i class="fa fa-print"></i> Cetak Surat Penolakan</a>';
+                                            } else {
+                                                $st = '<span class="badge badge-danger"><i class="fas fa-stopwatch"></i> Ditolak</span>';
+                                                $btn2 = '';
+                                            }
+                                        }
+                                        if ($tr['status_verifikasi'] == 5) {
+                                            if ($tr['img_penolakan']) {
+                                                $st = '';
+                                                $btn2 = '';
+                                            } else {
+                                                $st = '';
+                                                $btn2 = '';
+                                            }
                                         }
                                         ?>
                                         <td><?= $st ?></td>
                                         <td>
                                             <?= $btn2 ?>
-                                            <?= $btn ?>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>

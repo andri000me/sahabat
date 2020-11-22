@@ -69,7 +69,7 @@
             </div>
 
             <div class="buttons mt-3">
-                <button type="submit button" class="btn btn-md btn-success text-light">Upload Surat Penolakan<i class="fa fa-check ml-1"></i> </button>
+                <button type="submit button" class="btn btn-md btn-danger text-light">Upload Surat Penolakan<i class="fa fa-check ml-1"></i> </button>
             </div>
         </div>
     </form>
