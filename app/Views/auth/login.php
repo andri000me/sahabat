@@ -3,6 +3,10 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
+<!-- Favicons -->
+    <link href="<?= base_url() ?>/assets/img/favicon.png" rel="icon">
+    <link href="<?= base_url() ?>/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    
 <div class="login-wrap" style="margin-top: 100px;">
     <div class="login-html">
         <div class="row">

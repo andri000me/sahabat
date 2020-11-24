@@ -72,12 +72,20 @@
                                         if ($tr['status_verifikasi'] == 3) {
                                             if ($tr['img_penolakan']) {
                                                 $st = '<span class="badge badge-success"><i class="fas fa-stopwatch"></i> Diapprove</span>
-                                                <span class="badge badge-success"><i class="fas fa-stopwatch"></i> Surat rekomendasi telah diupload</span>';
-                                                $btn2 = '<a target="_blank" href="/img/img_penolakan/' . $tr['img_penolakan'] . '" target="_blank" type="btn" class="ml-auto btn btn-sm btn-rounded btn-success animated rotateIn"><i class="fa fa-download"></i> Unduh berita acara</a>
-                                                <a href="/verifikasi/cetak/' . $tr['kode_booking'] . '/' . $tr['trayek_dilayani']  . '" target="_blank" type="btn" class="ml-auto btn btn-sm btn-rounded btn-success animated rotateIn"><i class="fa fa-print"></i> Cetak Surat Rekomendasi Izin Trayek AKDP</a>';
+                                                <span class="badge badge-success"><i class="fas fa-stopwatch"></i> Berita Acara telah diupload</span>';
+                                                $btn2 = '';
+                                                if ($tr['img_izin_akdp']) {
+                                                    $st = '<span class="badge badge-success"><i class="fas fa-stopwatch"></i> Diapprove</span>
+                                                    <span class="badge badge-success"><i class="fas fa-stopwatch"></i> Izin Trayek AKDP telah diupload</span>';
+                                                    $btn2 = '<a href="/img/img_izin_akdp/' . $tr['img_izin_akdp'] . '" target="_blank" type="btn" class="ml-auto btn btn-sm btn-rounded btn-success animated rotateIn"><i class="fa fa-print"></i> Cetak Surat Izin Trayek AKDP</a>';
+                                                } else {
+                                                    $st = '<span class="badge badge-success"><i class="fas fa-stopwatch"></i> Diapprove</span>
+                                                    <span class="badge badge-danger"><i class="fas fa-stopwatch"></i> Izin trayek AKDP belum di upload</span>';
+                                                    $btn2 = '';
+                                                }
                                             } else {
                                                 $st = '<span class="badge badge-success"><i class="fas fa-stopwatch"></i> Ditolak</span>
-                                                <span class="badge badge-warning"><i class="fas fa-stopwatch"></i> Surat rekomendasi belum di upload</span>';
+                                                <span class="badge badge-warning"><i class="fas fa-stopwatch"></i> Berita Acara belum di upload</span>';
                                                 $btn2 = '';
                                             }
                                         }
@@ -86,7 +94,6 @@
                                                 $st = '<span class="badge badge-danger"><i class="fas fa-stopwatch"></i> Ditolak</span>
                                                 <span class="badge badge-success"><i class="fas fa-stopwatch"></i> Surat penolakan telah diupload</span>';
                                                 $btn2 = '<a href="/verifikasi/detailpenolakan/' . $tr['kode_booking'] . '/' . $tr['trayek_dilayani']  . '" target="_blank" type="btn" class="ml-auto btn btn-sm btn-rounded btn-primary animated rotateIn"><i class="fa fa-eye"></i> Detail penolakan</a>
-                                                <a target="_blank" href="/img/img_penolakan/' . $tr['img_penolakan'] . '" target="_blank" type="btn" class="ml-auto btn btn-sm btn-rounded btn-danger animated rotateIn"><i class="fa fa-download"></i> Berita acara penolakan</a>
                                                 <a href="/verifikasi/cetaktolak/' . $tr['kode_booking'] . '/' . $tr['trayek_dilayani']  . '" target="_blank" type="btn" class="ml-auto btn btn-sm btn-rounded btn-danger animated rotateIn"><i class="fa fa-print"></i> Surat Penolakan</a>';
                                             } else {
                                                 $st = '<span class="badge badge-danger"><i class="fas fa-stopwatch"></i> Ditolak</span>';

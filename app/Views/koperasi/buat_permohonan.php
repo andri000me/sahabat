@@ -83,14 +83,29 @@
                                         Nomor Kendaraan tidak boleh kosong
                                     </div>
                                 </div>
-
-                                <div class="md-form">
-                                    <input name="jenis_kendaraan" type="text" id="form2" class="form-control" value="<?= old('jenis_kendaraan') ?>" required>
-                                    <label for="form2">Jenis Kendaraan</label>
-                                    <div class="invalid-feedback">
-                                        Jenis Kendaraan tidak boleh kosong
+                                
+                                
+                                <div class="md-form form-row mt-4">
+                                    <div class="col">
+                                        <select name="jenis_kendaraan" class="mdb-select md-form" searchable="Jenis Kendaraan">
+                                            <option value="" disabled selected>Pilih</option>
+                                            <option value="Mikrolet">Mikrolet</option>
+                                            <option value="Minibus">Minibus</option>
+                                        </select>
+                                        <label class="mdb-main-label">Jenis Kendaraan</label>
+                                        <div class="kacili">
+                                            <?= $validation->getError('jenis_kendaraan') ?>
+                                        </div>
                                     </div>
                                 </div>
+
+                                <!--<div class="md-form">-->
+                                <!--    <input name="jenis_kendaraan" type="text" id="form2" class="form-control" value="<?= old('jenis_kendaraan') ?>" required>-->
+                                <!--    <label for="form2">Jenis Kendaraan</label>-->
+                                <!--    <div class="invalid-feedback">-->
+                                <!--        Jenis Kendaraan tidak boleh kosong-->
+                                <!--    </div>-->
+                                <!--</div>-->
 
                                 <div class="md-form">
                                     <input name="merk" type="text" id="form2" class="form-control" value="<?= old('merk') ?>" required>

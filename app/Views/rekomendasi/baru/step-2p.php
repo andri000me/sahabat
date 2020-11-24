@@ -113,6 +113,7 @@
                         <input name="img_izin_trayek_lama" type="hidden" value="<?= $step2['img_izin_trayek'] ?>">
 
                         <input name="kode_booking" type="hidden" value="<?= $step2['kode_booking'] ?>">
+                        <input name="nomor_kendaraan" type="hidden" value="<?= $step2['nomor_kendaraan'] ?>">
 
                         <div class="file-field">
                             <div class="btn btn-primary btn-sm float-left">
@@ -132,6 +133,21 @@
                             </div>
                             <div class="kacili" style="margin-left:160px;">
                                 <?= $validation->getError('img_izin_trayek') ?>
+                            </div>
+                        </div>
+
+                        <div class="md-form form-row mt-4">
+                            <div class="col">
+                                <select name="trayek_dilayani" class="mdb-select md-form" searchable="Trayek Yang Dilayani">
+                                    <option value="" disabled selected>Pilih</option>
+                                    <?php foreach ($trayek as $tr) : ?>
+                                        <option value="<?= $tr['kode_trayek']; ?>"><?= $tr['trayek']; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <label class="mdb-main-label">Trayek yang dilayani</label>
+                                <div class="kacili">
+                                    <?= $validation->getError('trayek_dilayani') ?>
+                                </div>
                             </div>
                         </div>
 
