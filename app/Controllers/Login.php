@@ -147,32 +147,7 @@ class Login extends BaseController
                 }
             }
         }
-        $img_izin_angkutan = $this->request->getFile('img_izin_angkutan');
-        if ($img_izin_angkutan) {
-            if ($img_izin_angkutan->getError() == 4) {
-                $nama_img_izin_angkutan = $this->request->getVar('img_izin_angkutan_lama');
-            } else {
-                $nama_img_izin_angkutan = $img_izin_angkutan->getRandomName();
-                $img_izin_angkutan->move('img/img_izin_angkutan', $nama_img_izin_angkutan);
-                if ($this->request->getVar('img_izin_angkutan_lama')) {
-                    unlink('img/img_izin_angkutan/' . $this->request->getVar('img_izin_angkutan_lama'));
-                } else {
-                }
-            }
-        }
-        $img_tdp = $this->request->getFile('img_tdp');
-        if ($img_tdp) {
-            if ($img_tdp->getError() == 4) {
-                $nama_img_tdp = $this->request->getVar('img_tdp_lama');
-            } else {
-                $nama_img_tdp = $img_tdp->getRandomName();
-                $img_tdp->move('img/img_tdp', $nama_img_tdp);
-                if ($this->request->getVar('img_tdp_lama')) {
-                    unlink('img/img_tdp/' . $this->request->getVar('img_tdp_lama'));
-                } else {
-                }
-            }
-        }
+       
         $img_ktp = $this->request->getFile('img_ktp_direktur');
         if ($img_ktp) {
             if ($img_ktp->getError() == 4) {
@@ -231,8 +206,6 @@ class Login extends BaseController
         $this->loginModel->save([
             'id' => $id,
             'img_akte_perusahaan' => $nama_img_akte,
-            'img_izin_angkutan' => $nama_img_izin_angkutan,
-            'img_tdp' => $nama_img_tdp,
             'img_ktp_direktur' => $nama_img_ktp_direktur,
             'img_npwp' => $nama_img_npwp,
             'img_siup' => $nama_img_siup,
@@ -241,7 +214,7 @@ class Login extends BaseController
             'nama_direktur' => $this->request->getVar('nama_direktur'),
             'nama_perusahaan' => $this->request->getVar('nama_perusahaan'),
             'hp' => $this->request->getVar('hp'),
-            'email' => $this->request->getVar('email'),
+            'email_sent' => $this->request->getVar('email'),
             'alamat' => $this->request->getVar('alamat'),
         ]);
 

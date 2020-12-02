@@ -73,7 +73,7 @@
       </li>
 
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" <?= $hidden_ptsp ?><?= $hidden_approver ?> <?= $hidden_vers ?> <?= $hidden_kota ?>>Permohonan Asal Tujuan
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" <?= $hidden_ptsp ?><?= $hidden_approver ?> <?= $hidden_vers ?> <?= $hidden_kota ?>>Rekomendasi Asal-Tujuan
         </a>
         <div class="dropdown-menu dropdown-warning" aria-labelledby="navbarDropdownMenuLink-555">
           <a class="dropdown-item" href="/koperasi/buat_permohonan">Buat Permohonan</a>
@@ -85,7 +85,7 @@
         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" <?= $hidden_ptsp ?><?= $hidden_approver ?> <?= $hidden_vers ?> <?= $hidden_kota ?>>Izin Trayek AKDP
         </a>
         <div class="dropdown-menu dropdown-warning" aria-labelledby="navbarDropdownMenuLink-555">
-          <a class="dropdown-item" href="/rekomendasi/step1">Regis Baru</a>
+          <a class="dropdown-item" href="/rekomendasi/step1">Permohonan Baru</a>
           <a class="dropdown-item" href="/rekomendasi/step1p">Perpanjangan</a>
           <a class="dropdown-item" href="/rekomendasi/rekomendasi">Data Permohonan</a>
         </div>

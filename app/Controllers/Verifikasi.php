@@ -151,6 +151,23 @@ class Verifikasi extends BaseController
         return view('verifikasi/uploadpengantarptsp', $data);
     }
 
+    public function uploadizin($kdb, $ids)
+    {
+        session();
+
+        $asal = $this->koperasiModel->where('id', $ids)->first();
+        $kdt = $asal['trayek_dilayani'];
+        $data = [
+            'title' => 'Detail Data Permohonan',
+            'detail' => $this->verifikasiModel->getRekomendasi($kdb),
+            'trayek' => $this->trayekModel->getTrayek($kdt),
+            'session' => $this->user,
+            'validation' => \Config\Services::validation(),
+
+        ];
+        return view('verifikasi/uploadizin', $data);
+    }
+
     public function cetakKP($id, $kdp, $kdt)
     {
         session();
@@ -302,6 +319,50 @@ class Verifikasi extends BaseController
         return redirect()->to('/rekomendasi/rekomendasi/');
     }
 
+    public function saveUploadIzin()
+    {
+
+        $img_izin_akdp = $this->request->getFile('img_izin_akdp');
+        $kode_booking = $this->request->getVar('kode_booking');
+        $jenis_permohonan = $this->request->getVar('jenis_permohonan');
+        $trayek_dilayani = $this->request->getVar('trayek_dilayani');
+
+        if (!$this->validate([
+            'img_izin_akdp' => [
+                'rules' => 'uploaded[img_izin_akdp]|max_size[img_izin_akdp,1024]|is_image[img_izin_akdp]|mime_in[img_izin_akdp,image/jpg,image/jpeg,image/png]',
+                'errors' => [
+                    'uploaded' => 'Pilih gambar dokumen terlebih dahulu',
+                    'max_size' => 'Ukuran gambar terlalu besar (Maksimal 1Mb)',
+                    'is_image' => 'Ini bukan gambar',
+                    'mime_in' => 'Ini bukan gambar'
+                ]
+            ],
+        ])) {
+            return redirect()->to('/verifikasi/uploadIzinTrayek/' . $kode_booking . '/' . $jenis_permohonan . '/' . $trayek_dilayani . '')->withInput();
+        }
+
+        if ($img_izin_akdp) {
+
+            if ($img_izin_akdp->getError() == 4) {
+                $nama_img_izin_akdp = $this->request->getVar('img_izin_akdp_lama');
+            } else {
+                $nama_img_izin_akdp = $img_izin_akdp->getRandomName();
+                $img_izin_akdp->move('img/img_izin_akdp', $nama_img_izin_akdp);
+                if ($this->request->getVar('img_izin_akdp_lama')) {
+                    unlink('img/img_izin_akdp/' . $this->request->getVar('img_izin_akdp_lama'));
+                } else {
+                }
+            }
+        }
+        $this->verifikasiModel->save([
+            'id' => $this->request->getVar('id'),
+            'img_izin_akdp' => $nama_img_izin_akdp,
+        ]);
+
+        session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Berhasil Di Upload</div>');
+        return redirect()->to('/verifikasi/verifikasiptsp');
+    }
+
     public function saveuploadpengantarptsp()
     {
 
@@ -388,7 +449,7 @@ class Verifikasi extends BaseController
             'status_img_pengantar_ptsp' => 0,
             'status_img_izin_trayek' => 0,
             'status_img_akte_perusahaan' => 0,
-            'status_img_tdp' => 0,
+            'status_img_tdp' => 1,
             'status_img_siup' => 0,
             'status_img_npwp' => 0,
             'status_img_ktp' => 0,
@@ -780,7 +841,7 @@ class Verifikasi extends BaseController
             'status_img_pengantar_ptsp' => 0,
             'status_img_izin_trayek' => 0,
             'status_img_akte_perusahaan' => 0,
-            'status_img_tdp' => 0,
+            'status_img_tdp' => 1,
             'status_img_siup' => 0,
             'status_img_npwp' => 0,
             'status_img_ktp' => 0,

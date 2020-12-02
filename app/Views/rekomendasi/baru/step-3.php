@@ -124,6 +124,7 @@
                         <!-- //hidden -->
                         <input name="img_stnkb_pkb_lama" type="hidden" value="<?= $step3['img_stnkb_pkb'] ?>">
                         <input name="kode_booking" type="hidden" value="<?= $step3['kode_booking'] ?>">
+                        <input name="id_kabkota" type="hidden" value="<?= $trd['id'] ?>">
 
                         <div class="file-field">
                             <div class="btn btn-primary btn-sm float-left">
@@ -161,14 +162,41 @@
                                 Alamat Pemilik harus di isi
                             </div>
                         </div>
+                        
+                        <div class="md-form form-row mt-4">
+                                    <div class="col">
+                                        <select name="jenis_kendaraan" class="mdb-select md-form" searchable="Jenis Kendaraan">
+                                            <?php
+                                            if($step3['jenis_kendaraan'] == "Mikrolet"){
+                                            $a = "selected";
+                                            $b = "";
+                                            }
+                                            else if($step3['jenis_kendaraan'] == "Minibus"){
+                                            $a = "";
+                                            $b = "selected";
+                                            }else{
+                                            $a = "";
+                                            $b = "";
+                                            }
+                                            ?>
+                                            <option value="" disabled selected>Pilih</option>
+                                            <option value="Mikrolet" <?= $a ?>>Mikrolet</option>
+                                            <option value="Minibus" <?= $b ?>>Minibus</option>
+                                        </select>
+                                        <label class="mdb-main-label">Jenis Kendaraan</label>
+                                        <div class="kacili">
+                                            <?= $validation->getError('jenis_kendaraan') ?>
+                                        </div>
+                                    </div>
+                                </div>
 
-                        <div class="md-form mt-4">
-                            <input name="jenis_kendaraan" type="text" id="form2" class="form-control" value="<?= $step3['jenis_kendaraan'] ?>" required>
-                            <label for="form2">Jenis Kendaraan</label>
-                            <div class="invalid-feedback">
-                                Jenis Kendaraan harus di isi
-                            </div>
-                        </div>
+                        <!--<div class="md-form mt-4">-->
+                        <!--    <input name="jenis_kendaraan" type="text" id="form2" class="form-control" value="<?= $step3['jenis_kendaraan'] ?>" required>-->
+                        <!--    <label for="form2">Jenis Kendaraan</label>-->
+                        <!--    <div class="invalid-feedback">-->
+                        <!--        Jenis Kendaraan harus di isi-->
+                        <!--    </div>-->
+                        <!--</div>-->
 
                         <div class="md-form mt-4">
                             <input name="tahun_pembuatan" type="text" id="form2" class="form-control" value="<?= $step3['tahun_pembuatan']  ?>" required>

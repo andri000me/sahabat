@@ -22,32 +22,72 @@
 
                         <div class="row mb-5">
                             <div class="col-md-8">
-                                <h4 class="text-dark font-weight-bold card-title">Detail data permohonan</h4>
-                                <p class="card-text">Detail data permohonan rekomendasi Dinas Perhubungan Provinsi Gorontalo</p>
-                            </div>
-
-                            <div class="col text-right">
                                 <?php
-                                if ($detail['status_verifikasi'] == 4) {
-                                ?>
-                                    <a class="badge badge-danger"><i class="fa fa-ban"></i> Permohonan telah ditolak !</a>
-                                    <?php
+                                if ($detail['status'] == 1) {
+                                    $sts = "Registrasi Baru";
                                 } else {
-                                    if ($session['role'] == 3) {
-                                    ?>
-                                        <a data-toggle="modal" data-target="#ModalSuccess" type="button" class="btn btn-sm btn-success text-light">Approve Permohonan<i class="fa fa-check ml-1"></i> </a>
-                                    <?php
-                                    } else {
-                                    }
-                                    if ($detail['status_img_surat_permohonan'] == 1 && $detail['status_img_akte_perusahaan'] == 1 && $detail['status_img_tdp'] == 1 && $detail['status_img_siup'] == 1 && $detail['status_img_npwp'] == 1 && $detail['status_img_ktp']  == 1 && $detail['status_img_trayek']  == 1 && $detail['status_img_trayek_tujuan']  == 1 && $detail['status_img_stnkb_pkb']  == 1 && $detail['status_img_kir'] == 1 && $detail['status_img_jasa_raharja'] == 1 && $detail['status_img_surat_pernyataan'] == 1) {
-                                    } else {
-                                    ?>
-                                        <a data-toggle="modal" data-target="#ModalDanger" type="button" class="btn btn-sm btn-danger text-light">Tolak Permohonan<i class="fa fa-ban ml-1"></i> </a>
-                                <?php
-                                    }
+                                    $sts = "Perpanjangan";
                                 }
                                 ?>
+                                <h4 class="text-dark font-weight-bold card-title">Detail data permohonan <?= $sts ?> Rekomendasi Izin Trayek AKDP</h4>
+                                <p class="card-text">Detail data permohonan rekomendasi Dinas Perhubungan Provinsi Gorontalo</p>
                             </div>
+                            <?php
+                            if ($detail['status'] == 1) {
+                            ?>
+                                <div class="col text-right">
+                                    <?php
+                                    if ($detail['status_verifikasi'] == 4) {
+                                    ?>
+                                        <a class="badge badge-danger"><i class="fa fa-ban"></i> Permohonan telah ditolak !</a>
+                                        <?php
+                                    } else {
+                                        if ($session['role'] == 3) {
+                                        ?>
+                                            <a data-toggle="modal" data-target="#ModalSuccess" type="button" class="btn btn-sm btn-success text-light">Approve Permohonan<i class="fa fa-check ml-1"></i> </a>
+                                        <?php
+                                        } else {
+                                        }
+                                        if ($detail['status_img_surat_permohonan'] == 1 && $detail['status_img_akte_perusahaan'] == 1 && $detail['status_img_tdp'] == 1 && $detail['status_img_siup'] == 1 && $detail['status_img_npwp'] == 1 && $detail['status_img_ktp']  == 1 && $detail['status_img_trayek']  == 1 && $detail['status_img_trayek_tujuan']  == 1 && $detail['status_img_stnkb_pkb']  == 1 && $detail['status_img_kir'] == 1 && $detail['status_img_jasa_raharja'] == 1 && $detail['status_img_surat_pernyataan'] == 1) {
+                                        } else {
+                                        ?>
+                                            <a data-toggle="modal" data-target="#ModalDanger" type="button" class="btn btn-sm btn-danger text-light">Tolak Permohonan<i class="fa fa-ban ml-1"></i> </a>
+                                    <?php
+                                        }
+                                    }
+                                    ?>
+                                </div>
+                            <?php
+                            }
+                            ?>
+                            <?php
+                            if ($detail['status'] == 2) {
+                            ?>
+                                <div class="col text-right">
+                                    <?php
+                                    if ($detail['status_verifikasi'] == 4) {
+                                    ?>
+                                        <a class="badge badge-danger"><i class="fa fa-ban"></i> Permohonan telah ditolak !</a>
+                                        <?php
+                                    } else {
+                                        if ($session['role'] == 3) {
+                                        ?>
+                                            <a data-toggle="modal" data-target="#ModalSuccess" type="button" class="btn btn-sm btn-success text-light">Approve Permohonan<i class="fa fa-check ml-1"></i> </a>
+                                        <?php
+                                        } else {
+                                        }
+                                        if ($detail['status_img_surat_permohonan'] == 1 && $detail['status_img_akte_perusahaan'] == 1 && $detail['status_img_tdp'] == 1 && $detail['status_img_siup'] == 1 && $detail['status_img_npwp'] == 1 && $detail['status_img_ktp']  == 1 && $detail['status_img_trayek_tujuan']  == 1 && $detail['status_img_stnkb_pkb']  == 1 && $detail['status_img_kir'] == 1 && $detail['status_img_jasa_raharja'] == 1 && $detail['status_img_surat_pernyataan'] == 1) {
+                                        } else {
+                                        ?>
+                                            <a data-toggle="modal" data-target="#ModalDanger" type="button" class="btn btn-sm btn-danger text-light">Tolak Permohonan<i class="fa fa-ban ml-1"></i> </a>
+                                    <?php
+                                        }
+                                    }
+                                    ?>
+                                </div>
+                            <?php
+                            }
+                            ?>
                             </form>
 
                         </div>
@@ -85,7 +125,7 @@
                                 Trayek yang dilayani
                             </div>
                             <div class="col-sm-8">
-                                : <?= $detail['trayek_dilayani'] ?>
+                                : <?= $at['trayek'] ?>
                             </div>
                         </div>
                         <div class="row">
@@ -259,29 +299,6 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">3</th>
-                                    <?php
-                                    if ($detail['status_img_tdp'] == 0) {
-                                        $statusb = '<i class="fa fa-question"></i>';
-                                        $textb = 'class="text-dark"';
-                                    }
-                                    if ($detail['status_img_tdp'] == 1) {
-                                        $statusb = '<i class="fa fa-check"></i>';
-                                        $textb = 'class="text-success"';
-                                    }
-                                    if ($detail['status_img_tdp'] == 2) {
-                                        $statusb = '<i class="fa fa-ban"></i>';
-                                        $textb = 'class="text-danger"';
-                                    }
-                                    ?>
-                                    <td <?= $textb ?>>Fotocopy Tanda Daftar Perusahaan (TDP) / Nomor Induk Berusaha (NIB) <?= $statusb ?></td>
-                                    <td class="text-right">
-                                        <a href="/img/img_tdp/<?= $detail['img_tdp'] ?>" target="_blank" type="btn" class="ml-auto btn btn-sm btn-cyan"><i class="fa fa-eye"></i> Lihat Dokumen</a>
-                                        <a href="/verifikasi/terimab/<?= $detail['kode_booking'] ?>/<?= $detail['trayek_dilayani'] ?>/<?= $detail['idpermohonan'] ?>" class="btn btn-sm btn-success"><i class="fa fa-check"></i></a>
-                                        <a href="/verifikasi/tolakb/<?= $detail['kode_booking'] ?>/<?= $detail['trayek_dilayani'] ?>/<?= $detail['idpermohonan'] ?>" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i></a>
-                                    </td>
-                                </tr>
-                                <tr>
                                     <th scope="row">4</th>
                                     <?php
                                     if ($detail['status_img_siup'] == 0) {
@@ -350,52 +367,84 @@
                                         <a href="/verifikasi/tolake/<?= $detail['kode_booking'] ?>/<?= $detail['trayek_dilayani'] ?>/<?= $detail['idpermohonan'] ?>" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i></a>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <th scope="row">7</th>
-                                    <?php
-                                    if ($detail['status_img_trayek'] == 0) {
-                                        $statusf = '<i class="fa fa-question"></i>';
-                                        $textf = 'class="text-dark"';
-                                    }
-                                    if ($detail['status_img_trayek'] == 1) {
-                                        $statusf = '<i class="fa fa-check"></i>';
-                                        $textf = 'class="text-success"';
-                                    }
-                                    if ($detail['status_img_trayek'] == 2) {
-                                        $statusf = '<i class="fa fa-ban"></i>';
-                                        $textf = 'class="text-danger"';
-                                    }
-                                    ?>
-                                    <td <?= $textf ?>>Rekomendasi Asal Trayek <?= $statusf ?></td>
-                                    <td class="text-right">
-                                        <a href="/img/img_rekomendasi/<?= $at['img_rekomendasi_asal'] ?>" target="_blank" type="btn" class="ml-auto btn btn-sm btn-cyan"><i class="fa fa-eye"></i> Lihat Dokumen</a>
-                                        <a href="/verifikasi/terimaf/<?= $detail['kode_booking'] ?>/<?= $detail['trayek_dilayani'] ?>/<?= $detail['idpermohonan'] ?>" class="btn btn-sm btn-success"><i class="fa fa-check"></i></a>
-                                        <a href="/verifikasi/tolakf/<?= $detail['kode_booking'] ?>/<?= $detail['trayek_dilayani'] ?>/<?= $detail['idpermohonan'] ?>" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">7</th>
-                                    <?php
-                                    if ($detail['status_img_trayek_tujuan'] == 0) {
-                                        $statusg = '<i class="fa fa-question"></i>';
-                                        $textg = 'class="text-dark"';
-                                    }
-                                    if ($detail['status_img_trayek_tujuan'] == 1) {
-                                        $statusg = '<i class="fa fa-check"></i>';
-                                        $textg = 'class="text-success"';
-                                    }
-                                    if ($detail['status_img_trayek_tujuan'] == 2) {
-                                        $statusg = '<i class="fa fa-ban"></i>';
-                                        $textg = 'class="text-danger"';
-                                    }
-                                    ?>
-                                    <td <?= $textg ?>>Rekomendasi Tujuan Trayek <?= $statusg ?></td>
-                                    <td class="text-right">
-                                        <a href="/img/img_rekomendasi/<?= $at['img_rekomendasi_tujuan'] ?>" target="_blank" type="btn" class="ml-auto btn btn-sm btn-cyan"><i class="fa fa-eye"></i> Lihat Dokumen</a>
-                                        <a href="/verifikasi/terimag/<?= $detail['kode_booking'] ?>/<?= $detail['trayek_dilayani'] ?>/<?= $detail['idpermohonan'] ?>" class="btn btn-sm btn-success"><i class="fa fa-check"></i></a>
-                                        <a href="/verifikasi/tolakg/<?= $detail['kode_booking'] ?>/<?= $detail['trayek_dilayani'] ?>/<?= $detail['idpermohonan'] ?>" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i></a>
-                                    </td>
-                                </tr>
+                                <?php
+                                if ($detail['status'] == 1) {
+                                ?>
+                                    <tr>
+                                        <th scope="row">7</th>
+                                        <?php
+                                        if ($detail['status_img_trayek'] == 0) {
+                                            $statusf = '<i class="fa fa-question"></i>';
+                                            $textf = 'class="text-dark"';
+                                        }
+                                        if ($detail['status_img_trayek'] == 1) {
+                                            $statusf = '<i class="fa fa-check"></i>';
+                                            $textf = 'class="text-success"';
+                                        }
+                                        if ($detail['status_img_trayek'] == 2) {
+                                            $statusf = '<i class="fa fa-ban"></i>';
+                                            $textf = 'class="text-danger"';
+                                        }
+                                        ?>
+                                        <td <?= $textf ?>>Rekomendasi Asal Trayek <?= $statusf ?></td>
+                                        <td class="text-right">
+                                            <a href="/img/img_rekomendasi/<?= $at['img_rekomendasi_asal'] ?>" target="_blank" type="btn" class="ml-auto btn btn-sm btn-cyan"><i class="fa fa-eye"></i> Lihat Dokumen</a>
+                                            <a href="/verifikasi/terimaf/<?= $detail['kode_booking'] ?>/<?= $detail['trayek_dilayani'] ?>/<?= $detail['idpermohonan'] ?>" class="btn btn-sm btn-success"><i class="fa fa-check"></i></a>
+                                            <a href="/verifikasi/tolakf/<?= $detail['kode_booking'] ?>/<?= $detail['trayek_dilayani'] ?>/<?= $detail['idpermohonan'] ?>" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">7</th>
+                                        <?php
+                                        if ($detail['status_img_trayek_tujuan'] == 0) {
+                                            $statusg = '<i class="fa fa-question"></i>';
+                                            $textg = 'class="text-dark"';
+                                        }
+                                        if ($detail['status_img_trayek_tujuan'] == 1) {
+                                            $statusg = '<i class="fa fa-check"></i>';
+                                            $textg = 'class="text-success"';
+                                        }
+                                        if ($detail['status_img_trayek_tujuan'] == 2) {
+                                            $statusg = '<i class="fa fa-ban"></i>';
+                                            $textg = 'class="text-danger"';
+                                        }
+                                        ?>
+                                        <td <?= $textg ?>>Rekomendasi Tujuan Trayek <?= $statusg ?></td>
+                                        <td class="text-right">
+                                            <a href="/img/img_rekomendasi/<?= $at['img_rekomendasi_tujuan'] ?>" target="_blank" type="btn" class="ml-auto btn btn-sm btn-cyan"><i class="fa fa-eye"></i> Lihat Dokumen</a>
+                                            <a href="/verifikasi/terimag/<?= $detail['kode_booking'] ?>/<?= $detail['trayek_dilayani'] ?>/<?= $detail['idpermohonan'] ?>" class="btn btn-sm btn-success"><i class="fa fa-check"></i></a>
+                                            <a href="/verifikasi/tolakg/<?= $detail['kode_booking'] ?>/<?= $detail['trayek_dilayani'] ?>/<?= $detail['idpermohonan'] ?>" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i></a>
+                                        </td>
+                                    </tr>
+                                <?php
+                                } else {
+                                ?>
+                                    <tr>
+                                        <th scope="row">7</th>
+                                        <?php
+                                        if ($detail['status_img_trayek_tujuan'] == 0) {
+                                            $statusg = '<i class="fa fa-question"></i>';
+                                            $textg = 'class="text-dark"';
+                                        }
+                                        if ($detail['status_img_trayek_tujuan'] == 1) {
+                                            $statusg = '<i class="fa fa-check"></i>';
+                                            $textg = 'class="text-success"';
+                                        }
+                                        if ($detail['status_img_trayek_tujuan'] == 2) {
+                                            $statusg = '<i class="fa fa-ban"></i>';
+                                            $textg = 'class="text-danger"';
+                                        }
+                                        ?>
+                                        <td <?= $textg ?>>Izin Trayek Lama <?= $statusg ?></td>
+                                        <td class="text-right">
+                                            <a href="/img/img_izin_trayek/<?= $detail['img_izin_trayek'] ?>" target="_blank" type="btn" class="ml-auto btn btn-sm btn-cyan"><i class="fa fa-eye"></i> Lihat Dokumen</a>
+                                            <a href="/verifikasi/terimag/<?= $detail['kode_booking'] ?>/<?= $detail['trayek_dilayani'] ?>/<?= $detail['idpermohonan'] ?>" class="btn btn-sm btn-success"><i class="fa fa-check"></i></a>
+                                            <a href="/verifikasi/tolakg/<?= $detail['kode_booking'] ?>/<?= $detail['trayek_dilayani'] ?>/<?= $detail['idpermohonan'] ?>" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i></a>
+                                        </td>
+                                    </tr>
+                                <?php
+                                }
+                                ?>
                                 <tr>
                                     <th scope="row">8</th>
                                     <?php

@@ -78,7 +78,7 @@ class Rekomendasi extends BaseController
             'status_img_pengantar_ptsp' => 0,
             'status_img_izin_trayek' => 0,
             'status_img_akte_perusahaan' => 0,
-            'status_img_tdp' => 0,
+            'status_img_tdp' => 1,
             'status_img_siup' => 0,
             'status_img_npwp' => 0,
             'status_img_ktp' => 0,
@@ -89,6 +89,21 @@ class Rekomendasi extends BaseController
             'id' => $idasal,
             'used' => 1,
         ]);
+
+        $email = $this->loginModel->where('role', 1)->first();
+        $to = $email['email_sent'];
+        $subject = 'Pengajuan Permohonan Baru Rekomendasi Izin Trayek AKDP';
+        $message = 'Pengajuan Permohonan Baru Rekomendasi Izin Trayek AKDP Dari <b>' . $this->user['nama_perusahaan'] . '</b>';
+
+        $email = \Config\Services::email();
+
+        $email->setTo($to);
+        $email->setFrom('sahabatdishub.gorontalo@gmail.com', 'SAHABAT');
+
+        $email->setSubject($subject);
+        $email->setMessage($message);
+
+        $email->send();
 
         session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data berhasil dikirim, mengunngu verivikasi</div>');
         return redirect()->to('/rekomendasi/rekomendasi/');
@@ -108,13 +123,28 @@ class Rekomendasi extends BaseController
             'status_img_pengantar_ptsp' => 0,
             'status_img_izin_trayek' => 0,
             'status_img_akte_perusahaan' => 0,
-            'status_img_tdp' => 0,
+            'status_img_tdp' => 1,
             'status_img_siup' => 0,
             'status_img_npwp' => 0,
             'status_img_ktp' => 0,
             'status_img_trayek' => 0,
             'status_img_trayek_tujuan' => 0,
         ]);
+
+        $email = $this->loginModel->where('role', 1)->first();
+        $to = $email['email_sent'];
+        $subject = 'Pengajuan Permohonan Perpanjangan Izin Trayek AKDP';
+        $message = 'Pengajuan Permohonan Perpanjangan Izin Trayek AKDP Dari <b>' . $this->user['nama_perusahaan'] . '</b>';
+
+        $email = \Config\Services::email();
+
+        $email->setTo($to);
+        $email->setFrom('sahabatdishub.gorontalo@gmail.com', 'SAHABAT');
+
+        $email->setSubject($subject);
+        $email->setMessage($message);
+        $email->send();
+
 
         session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Data berhasil dikirim, mengunngu verivikasi</div>');
         return redirect()->to('/rekomendasi/rekomendasi/');
@@ -356,9 +386,12 @@ class Rekomendasi extends BaseController
     {
         session();
 
+        $tr = $this->verifikasiModel->getRekomendasi($id);
+        $trr = $tr['nomor_kendaraan'];
         $data = [
             'title' => 'Buat Permohonan',
             'trayek' => $this->trayekModel->getTrayek(),
+            'trd' => $this->koperasiModel->getNoker($trr),
             'step3' => $this->verifikasiModel->getRekomendasi($id),
             'validation' => \Config\Services::validation(),
             'session' => $this->user
@@ -410,6 +443,7 @@ class Rekomendasi extends BaseController
             'tahun_pembuatan' => $this->request->getVar('tahun_pembuatan'),
             'stnkb_berlaku' => $this->request->getVar('stnkb_berlaku_submit'),
             'pkb_berlaku' => $this->request->getVar('pkb_berlaku_submit'),
+            'trayek_dilayani' => $this->request->getVar('id_kabkota'),
         ]);
 
         session()->setFlashdata('msg', '<div class="alert alert-success" role="alert">Berhasil ubah data</div>');
@@ -726,6 +760,11 @@ class Rekomendasi extends BaseController
             }
         }
 
+        $this->koperasiModel->save([
+            'nomor_kendaraan' => $this->request->getVar('nomor_kendaraan'),
+            'trayek_dilayani' => $this->request->getVar('trayek_dilayani'),
+        ]);
+
         $this->verifikasiModel->save([
             'id' => $id,
             'img_izin_trayek' => $nama_img_izin_trayek,
@@ -906,7 +945,14 @@ class Rekomendasi extends BaseController
 
     public function hapusPengajuan($id, $idk)
     {
-        $this->verifikasiModel->delete([
+        if($idk == 0){
+            $this->verifikasiModel->delete([
+            'id' => $id,
+        ]);
+        return redirect()->to('/rekomendasi/rekomendasi');
+        } else
+        {
+            $this->verifikasiModel->delete([
             'id' => $id,
         ]);
         $this->koperasiModel->save([
@@ -914,5 +960,7 @@ class Rekomendasi extends BaseController
             'used' => 0,
         ]);
         return redirect()->to('/rekomendasi/rekomendasi');
+        }
+       
     }
 }

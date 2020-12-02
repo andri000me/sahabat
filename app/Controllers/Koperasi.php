@@ -286,6 +286,34 @@ class Koperasi extends BaseController
             'foto_kanan' => $nama_foto_kanan,
             'foto_kiri' => $nama_foto_kiri,
         ]);
+        
+        $email = $this->loginModel->where('wilayah_id', $asal)->first();
+        $to = $email['email_sent'];
+        $subject = 'Pengajuan Permohonan Rekomendasi Asal-Tujuan Trayek';
+        $message = 'Pengajuan Permohonan Rekomendasi Asal-Tujuan Trayek <b>' . $this->user['nama_perusahaan'] . '</b>';
+
+        $email = \Config\Services::email();
+
+        $email->setTo($to);
+        $email->setFrom('sahabatdishub.gorontalo@gmail.com', 'SAHABAT');
+
+        $email->setSubject($subject);
+        $email->setMessage($message);
+        $email->send();
+        
+        $email2 = $this->loginModel->where('wilayah_id', $tujuan)->first();
+        $to = $email2['email_sent'];
+        $subject = 'Pengajuan Permohonan Rekomendasi Asal-Tujuan TrayekP';
+        $message = 'Pengajuan Permohonan Rekomendasi Asal-Tujuan Trayek <b>' . $this->user['nama_perusahaan'] . '</b>';
+
+        $email = \Config\Services::email();
+
+        $email->setTo($to);
+        $email->setFrom('sahabatdishub.gorontalo@gmail.com', 'SAHABAT');
+
+        $email->setSubject($subject);
+        $email->setMessage($message);
+        $email->send();
 
         return redirect()->to('/koperasi/index/' . $this->request->getVar('kdb') . '');
         // dd($this->request->getVar());

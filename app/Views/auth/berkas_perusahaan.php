@@ -53,7 +53,7 @@
                                 </div>
 
                                 <div class="md-form">
-                                    <input name="email" type="text" id="form2" class="form-control" value="<?= $session['email'] ?>" required>
+                                    <input name="email" type="text" id="form2" class="form-control" value="<?= $session['email_sent'] ?>" required>
                                     <label for="form2">Email</label>
                                     <div class="invalid-feedback">
                                         Email tidak boleh kosong
@@ -76,8 +76,6 @@
 
                             <!-- HiddenSubmit -->
                             <input name="img_akte_lama" type="hidden" value="<?= $session['img_akte_perusahaan'] ?>">
-                            <input name="img_izin_angkutan_lama" type="hidden" value="<?= $session['img_izin_angkutan'] ?>">
-                            <input name="img_tdp_lama" type="hidden" value="<?= $session['img_tdp'] ?>">
                             <input name="img_ktp_direktur_lama" type="hidden" value="<?= $session['img_ktp_direktur'] ?>">
                             <input name="img_npwp_lama" type="hidden" value="<?= $session['img_npwp'] ?>">
                             <input name="img_siup_lama" type="hidden" value="<?= $session['img_siup'] ?>">
@@ -106,54 +104,6 @@
 
                                     <div class="file-path-wrapper">
                                         <input name="img_akte" class="file-path validate" type="text" placeholder="Scan / Foto Akte Perusahaan berserta pengesahan (Jelas)">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="md-form">
-                                <div class="file-field">
-                                    <div class="btn primary-color-dark text-light btn-sm float-left">
-                                        <span><i class="fa fa-image mr-1"></i> Pilih File Dokumen</span>
-                                        <input type="file" name="img_izin_angkutan" id="uploadImage">
-                                    </div>
-
-                                    <?php
-                                    if ($session['img_izin_angkutan']) {
-                                        $link = 'href="/img/img_izin_angkutan/' . $session['img_izin_angkutan'] . '"';
-                                        $btn = "btn-success";
-                                    } else {
-                                        $link = "#";
-                                        $btn = "btn-danger";
-                                    }
-                                    ?>
-                                    <a <?= $link ?> target="_blank" type="button" class="btn btn-sm <?= $btn ?>"><i class="fa fa-eye mr-1"></i> Lihat dokumen</a>
-
-                                    <div class="file-path-wrapper">
-                                        <input name="img_izin_angkutan" class="file-path validate" type="text" placeholder="Scan / Foto Izin Angkutan Dalam Trayek/Tidak Dalam Trayek">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="md-form">
-                                <div class="file-field">
-                                    <div class="btn primary-color-dark text-light btn-sm float-left">
-                                        <span><i class="fa fa-image mr-1"></i> Pilih File Dokumen</span>
-                                        <input type="file" name="img_tdp" id="uploadImage">
-                                    </div>
-
-                                    <?php
-                                    if ($session['img_tdp']) {
-                                        $link = 'href="/img/img_tdp/' . $session['img_tdp'] . '"';
-                                        $btn = "btn-success";
-                                    } else {
-                                        $link = "";
-                                        $btn = "btn-danger";
-                                    }
-                                    ?>
-                                    <a <?= $link ?> target="_blank" type="button" class="btn btn-sm <?= $btn ?>"><i class="fa fa-eye mr-1"></i> Lihat dokumen</a>
-
-                                    <div class="file-path-wrapper">
-                                        <input name="img_tdp" class="file-path validate" type="text" placeholder="Scan / Foto TDP (Jelas)">
                                     </div>
                                 </div>
                             </div>

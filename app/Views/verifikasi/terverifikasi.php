@@ -52,13 +52,26 @@
                                             $st = '<span class="badge badge-warning"><i class="fas fa-stopwatch"></i> Sedang Diverifikasi Oleh PTSP</span>';
                                             $btn = "";
                                         }
-                                        if ($tr['status_verifikasi'] == 1) {
-                                            if ($tr['status_img_surat_permohonan'] == 1 && $tr['status_img_akte_perusahaan'] == 1 && $tr['status_img_tdp'] == 1 && $tr['status_img_siup'] == 1 && $tr['status_img_npwp'] == 1 && $tr['status_img_ktp']  == 1 && $tr['status_img_trayek']  == 1 && $tr['status_img_trayek_tujuan']  == 1 && $tr['status_img_stnkb_pkb']  == 1 && $tr['status_img_kir'] == 1 && $tr['status_img_jasa_raharja'] == 1 && $tr['status_img_surat_pernyataan'] == 1) {
-                                                $st = '<span class="badge badge-warning"><i class="fas fa-stopwatch"></i>Lakukan Verifikasi</span>';
-                                                $btn = '<a href="/verifikasi/details/' . $tr['kode_booking'] . '/' . $tr['trayek_dilayani'] . '" type="btn" class="ml-auto btn btn-sm btn-rounded btn-warning animated rotateIn"><i class="fa fa-check"></i> Verivikasi</a>';
-                                            } else {
-                                                $st = '<span class="badge badge-danger"><i class="fas fa-stopwatch"></i> Belum Verifikasi</span>';
-                                                $btn = '';
+                                        if ($tr['status'] == 1) {
+                                            if ($tr['status_verifikasi'] == 1) {
+                                                if ($tr['status_img_surat_permohonan'] == 1 && $tr['status_img_akte_perusahaan'] == 1 && $tr['status_img_tdp'] == 1 && $tr['status_img_siup'] == 1 && $tr['status_img_npwp'] == 1 && $tr['status_img_ktp']  == 1 && $tr['status_img_trayek']  == 1 && $tr['status_img_trayek_tujuan']  == 1 && $tr['status_img_stnkb_pkb']  == 1 && $tr['status_img_kir'] == 1 && $tr['status_img_jasa_raharja'] == 1 && $tr['status_img_surat_pernyataan'] == 1) {
+                                                    $st = '<span class="badge badge-warning"><i class="fas fa-stopwatch"></i>Lakukan Verifikasi</span>';
+                                                    $btn = '<a href="/verifikasi/details/' . $tr['kode_booking'] . '/' . $tr['trayek_dilayani'] . '" type="btn" class="ml-auto btn btn-sm btn-rounded btn-warning animated rotateIn"><i class="fa fa-check"></i> Verivikasi</a>';
+                                                } else {
+                                                    $st = '<span class="badge badge-danger"><i class="fas fa-stopwatch"></i> Belum Verifikasi</span>';
+                                                    $btn = '';
+                                                }
+                                            }
+                                        }
+                                        if ($tr['status'] == 2) {
+                                            if ($tr['status_verifikasi'] == 1) {
+                                                if ($tr['status_img_surat_permohonan'] == 1 && $tr['status_img_akte_perusahaan'] == 1 && $tr['status_img_tdp'] == 1 && $tr['status_img_siup'] == 1 && $tr['status_img_npwp'] == 1 && $tr['status_img_ktp']  == 1 && $tr['status_img_trayek_tujuan']  == 1 && $tr['status_img_stnkb_pkb']  == 1 && $tr['status_img_kir'] == 1 && $tr['status_img_jasa_raharja'] == 1 && $tr['status_img_surat_pernyataan'] == 1) {
+                                                    $st = '<span class="badge badge-warning"><i class="fas fa-stopwatch"></i>Lakukan Verifikasi</span>';
+                                                    $btn = '<a href="/verifikasi/details/' . $tr['kode_booking'] . '/' . $tr['trayek_dilayani'] . '" type="btn" class="ml-auto btn btn-sm btn-rounded btn-warning animated rotateIn"><i class="fa fa-check"></i> Verivikasi</a>';
+                                                } else {
+                                                    $st = '<span class="badge badge-danger"><i class="fas fa-stopwatch"></i> Belum Verifikasi</span>';
+                                                    $btn = '';
+                                                }
                                             }
                                         }
                                         if ($tr['status_verifikasi'] == 2) {
@@ -68,12 +81,12 @@
                                         if ($tr['status_verifikasi'] == 3) {
                                             if ($tr['img_penolakan']) {
                                                 $st = '<span class="badge badge-success"><i class="fas fa-stopwatch"></i> Diapprove</span>
-                                                <span class="badge badge-success"><i class="fas fa-stopwatch"></i> Surat rekomendasi telah diupload</span>';
+                                                <span class="badge badge-success"><i class="fas fa-stopwatch"></i> Berita Acara telah diupload</span>';
                                                 $btn = '<a href="/verifikasi/uploadrekomendasi/' . $tr['kode_booking'] . '/' . $tr['trayek_dilayani']  . '" target="_blank" type="btn" class="ml-auto btn btn-sm btn-rounded btn-success animated rotateIn"><i class="fa fa-upload"></i> Upload Berita Acara</a>
                                                 <a href="/verifikasi/cetak/' . $tr['kode_booking'] . '/' . $tr['trayek_dilayani']  . '" target="_blank" type="btn" class="ml-auto btn btn-sm btn-rounded btn-success animated rotateIn"><i class="fa fa-print"></i> Cetak Surat rekomendasi</a>';
                                             } else {
                                                 $st = '<span class="badge badge-success"><i class="fas fa-stopwatch"></i> Diapprove</span>
-                                                <span class="badge badge-warning"><i class="fas fa-stopwatch"></i> Surat rekomendasi belum diupload</span>';
+                                                <span class="badge badge-warning"><i class="fas fa-stopwatch"></i> Berita Acara tbelum diupload</span>';
                                                 $btn = '<a href="/verifikasi/uploadrekomendasi/' . $tr['kode_booking'] . '/' . $tr['trayek_dilayani']  . '" target="_blank" type="btn" class="ml-auto btn btn-sm btn-rounded btn-success animated rotateIn"><i class="fa fa-upload"></i> Upload Berita Acara</a>
                                                 <a href="/verifikasi/cetak/' . $tr['kode_booking'] . '/' . $tr['trayek_dilayani']  . '" target="_blank" type="btn" class="ml-auto btn btn-sm btn-rounded btn-success animated rotateIn"><i class="fa fa-print"></i> Cetak Surat rekomendasi</a>';
                                             }

@@ -98,12 +98,12 @@
                                 ?>
                                 <?php
                                 $jumlah_sekarang = count($count);
-                                $nomor_surat = 46 + $jumlah_sekarang;
+                                $nomor_surat = 50;
                                 ?>
                                 <p class="text-center text-ppadat font-weight-bold">PERTIMBANGAN PERMOHONAN <?= $p; ?></p>
                                 <p class="text-center text-ppadat font-weight-bold">IZIN ANGKUTAN ORANG DALAM TRAYEK </p>
                                 <p style="text-decoration: underline;" class="text-center text-ppadat font-weight-bold">ANGKUTAN ANTARKOTA DALAM PROPINSI (AKDP) </p>
-                                <p class="text-center text-pppadat">Nomor : 552 / DISHUB-AJ / <?= $nomor_surat ?> / X / 2020</p>
+                                <p class="text-center text-pppadat">Nomor : 552 / DISHUB-AJ / <?= $nomor_surat ?> / XI / 2020</p>
                                 <p class="text-justify text-pppadat">Memperhatikan Surat Kepala Bidang Perizinan Dinas Penanaman Modal, ESDM Dan Transmigrasi Provinsi Gorontalo perihal Permohonan Pertimbangan Teknis Untuk Izin Trayek AKDP, maka Berdasarkan Undang-Undang Nomor 22 Tahun 2009 Tentang Lalu Lintas Dan Angkutan Jalan dan Peraturan Pemerintah Nomor 74 Tahun 2014 tentang Angkutan Jalan serta Peraturan Menteri Perhubungan Nomor PM 15 Tahun 2019 tentang Penyelenggaraan Angkutan Orang Dengan Kendaraan Bermotor Umum Dalam Trayek dan Peraturan Gubernur Gorontalo Nomor 46 Tahun 2019 tentang Jaringan Trayek AKDP, sebagai bahan pertimbangan permohonan Izin Angkutan Orang Dalam Trayek Antar Kota Dalam Provinsi (AKDP) sebagai berikut :</p>
                             </div>
                         </div>
@@ -130,7 +130,7 @@
                             </div>
                             <div class="col-sm-8 textff">
                                 <?php
-                                $originalDate = $detail['tgl_permohonan'];
+                                $originalDate = $detail['created_at'];
                                 $newDate = date("d F Y", strtotime($originalDate));
                                 ?>
                                 : <?= $newDate ?>
@@ -205,7 +205,7 @@
                                 Kapasitas Angkutan
                             </div>
                             <div class="col-sm-8 textff">
-                                : <?= $detail['kapasitas_angkutan'] ?>
+                                : 10 Orang + 90 Kg Barang
                             </div>
                         </div>
                         <div class="row">

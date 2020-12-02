@@ -45,4 +45,42 @@ class Trayek extends BaseController
         ];
         return view('/trayek/trayekinfo', $data);
     }
+
+    public function admintrayek()
+    {
+
+        $trayek = $this->trayekModel->findAll();
+        $data = [
+            'title' => 'Data Trayek',
+            'trayek' => $trayek,
+            'session' => $this->user
+        ];
+        return view('/trayek/admintrayek', $data);
+    }
+
+    public function edittrayek($kd)
+    {
+
+        $data = [
+            'title' => 'Data Trayek',
+            'trayek' => $this->trayekModel->getTrayekEdit($kd),
+            'session' => $this->user
+        ];
+        return view('/trayek/edittrayek', $data);
+    }
+
+    public function saveedit()
+    {
+        $this->trayekModel->save([
+            'id' => $this->request->getVar('id'),
+            'kode_trayek' => $this->request->getVar('kode_trayek'),
+            'trayek' => $this->request->getVar('trayek'),
+            'kuota' => $this->request->getVar('kuota'),
+            'terisi' => $this->request->getVar('terisi'),
+            'asal' => $this->request->getVar('asal'),
+            'tujuan' => $this->request->getVar('tujuan'),
+        ]);
+
+        return redirect()->to('/trayek/admintrayek');
+    }
 }
