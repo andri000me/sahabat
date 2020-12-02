@@ -91,7 +91,11 @@ class Rekomendasi extends BaseController
         ]);
 
         $email = $this->loginModel->where('role', 1)->first();
+<<<<<<< HEAD
         $to = $email['email_sent'];
+=======
+        $to = $email['email'];
+>>>>>>> 48d3e12455e35b8a235ad6f5d2dc2ac2cefd1c01
         $subject = 'Pengajuan Permohonan Baru Rekomendasi Izin Trayek AKDP';
         $message = 'Pengajuan Permohonan Baru Rekomendasi Izin Trayek AKDP Dari <b>' . $this->user['nama_perusahaan'] . '</b>';
 
@@ -132,7 +136,11 @@ class Rekomendasi extends BaseController
         ]);
 
         $email = $this->loginModel->where('role', 1)->first();
+<<<<<<< HEAD
         $to = $email['email_sent'];
+=======
+        $to = $email['email'];
+>>>>>>> 48d3e12455e35b8a235ad6f5d2dc2ac2cefd1c01
         $subject = 'Pengajuan Permohonan Perpanjangan Izin Trayek AKDP';
         $message = 'Pengajuan Permohonan Perpanjangan Izin Trayek AKDP Dari <b>' . $this->user['nama_perusahaan'] . '</b>';
 
